@@ -3,36 +3,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
-
-    <item android:title="Communicate">
+    <item android:title="@string/basic_sensors">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_ultrasonic"
+                android:icon="@drawable/ic_ledprojects"
+                android:title="@string/basic" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_IR_Obstacle"
+                android:icon="@drawable/ic_bio_sensor"
+                android:title="@string/sensors" />
+            <item
+                android:id="@+id/Soil_Moisture"
+                android:icon="@drawable/ic_led"
+                android:title="@string/led" />
+            <item
+                android:id="@+id/nav_Blink"
+                android:icon="@drawable/ic_movement"
+                android:title="@string/movement" />
         </menu>
     </item>
+    <item android:title="@string/communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_aboutus"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/about_us" />
+            <item
+                android:id="@+id/nav_moreapp"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/more_apps" />
+            <item
+                android:id="@+id/nav_invitefriends"
+                android:icon="@drawable/invite_friend"
+                android:title="@string/invite_friends" />
+        </menu>
 
+
+    </item>
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/logout"
+        android:title="@string/sign_out" />
 </menu>

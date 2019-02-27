@@ -290,4 +290,10 @@
     <string name="lesson2">2</string>
     <string name="lesson3">3</string>
     <string name="_4">4</string>
+    <string name="about_us">About Us</string>
+    <string name="more_apps">More Apps</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="basic_sensors">Basic Sensors</string>
+    <string name="communicate">Communicate</string>
+    <string name="invite_friends">Invite Friends</string>
 </resources>
