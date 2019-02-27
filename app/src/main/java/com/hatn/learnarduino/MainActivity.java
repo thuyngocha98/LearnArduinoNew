@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +57,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -73,7 +75,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mAuth = FirebaseAuth.getInstance();
 
         if(mAuth.getCurrentUser() != null){
-            Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
+            //setProfile();
+            Toast.makeText(this, "login", Toast.LENGTH_SHORT).show();
         }else {
             functionLogin();
         }
@@ -213,6 +216,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    public void setProfile(){
+
+        String name = mAuth.getCurrentUser().getDisplayName();
+        String email = mAuth.getCurrentUser().getEmail();
+        String image = mAuth.getCurrentUser().getPhotoUrl().toString();
+
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.tv_header_name);
+        navUsername.setText(name);
+        TextView navEmail = (TextView) headerView.findViewById(R.id.tv_header_email);
+        navEmail.setText(email);
+        ImageView navImage = (ImageView) headerView.findViewById(R.id.img_header);
+        if(image != null){
+            Picasso.get().load(image).into(navImage);
+        }
+
+    }
+
 
     public  void functionLogin(){
         // Choose authentication providers
@@ -241,8 +264,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
-                Toast.makeText(this, "Login With: " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
-
+                setProfile();
                 readData();
 
             } else {

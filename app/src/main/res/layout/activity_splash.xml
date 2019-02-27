@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/img_logo"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:scaleType="fitCenter"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
         android:src="@drawable/logo"
         android:padding="5dp"/>
 
