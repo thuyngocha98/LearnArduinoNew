@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Learn Arduino</string>
+    <string name="facebook_application_id" translatable="false">244861306465677</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb244861306465677</string>
+</resources>
