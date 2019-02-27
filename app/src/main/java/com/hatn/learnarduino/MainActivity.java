@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -70,14 +71,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
     public int Experience = 0;
+    private DrawerLayout drawerLayout;
     Button buttonBasic, buttonSensors, buttonLED, buttonMovement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        drawerLayout=findViewById(R.id.drawer_layout);
         //navigation drawer bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -226,7 +230,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else {
             navImage.setImageResource(R.drawable.user_logo);
         }
+        Snackbar snackbar = Snackbar
+                .make(drawerLayout, "Signed in as " +email, Snackbar.LENGTH_LONG);
 
+        snackbar.show();
     }
 
     // login with firebaseUI
