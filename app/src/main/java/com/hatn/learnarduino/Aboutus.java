@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Aboutus extends AppCompatActivity {
 
     FloatingActionButton fab;
+    TextView textViewEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class Aboutus extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fab=findViewById(R.id.fab);
+        textViewEmail=findViewById(R.id.textViewEmail);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,7 +40,12 @@ public class Aboutus extends AppCompatActivity {
             }
         });
 
-
+        textViewEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fab.callOnClick();
+            }
+        });
         }
 
 

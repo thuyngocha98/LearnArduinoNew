@@ -54,6 +54,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
+                    android:id="@+id/textViewEmail"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingBottom="10dp"
@@ -63,16 +64,6 @@
                     android:background="#ffffff"
                     android:textColor="@color/colorPrimary"
                     android:text="@string/cherala_apps_nemail_apps_cherala_gmail_com"/>
-
-
-
-
-
-
-
-
-
-
             </LinearLayout>
 
 

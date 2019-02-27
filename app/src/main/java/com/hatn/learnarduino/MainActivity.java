@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
     public int Experience = 0;
-    private Button buttonBasic, buttonSensors, buttonLED, buttonMovement;
+    Button buttonBasic, buttonSensors, buttonLED, buttonMovement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mAuth = FirebaseAuth.getInstance();
