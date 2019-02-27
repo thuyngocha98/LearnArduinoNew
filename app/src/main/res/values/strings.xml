@@ -296,4 +296,6 @@
     <string name="basic_sensors">Basic Sensors</string>
     <string name="communicate">Communicate</string>
     <string name="invite_friends">Invite Friends</string>
+    <string name="the_app_is_for_educational_purpose_and_containg_basic_led_projects_using_arduino">The App is for Educational Purpose and containg basic led projects using arduino</string>
+    <string name="developed_and_designed_by_n_cherala_vivek">DEVELOPED AND DESIGNED BY:  Cherala Vivek</string>
 </resources>

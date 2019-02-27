@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mAuth = FirebaseAuth.getInstance();
 
         if(mAuth.getCurrentUser() != null){
-            Toast.makeText(this, "log in", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
         }else {
             functionLogin();
         }
@@ -181,18 +182,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_Basic) {
+            Intent i = new Intent(this,Basic.class);
+            startActivity(i);
+        } else if (id == R.id.nav_Sensors) {
+            Intent i = new Intent(this,Sensors.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_LED) {
+            Intent i = new Intent(this,LED.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_Movement) {
+            Intent i = new Intent(this,Movement.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_aboutus) {
+            Intent i = new Intent(this, Aboutus.class);
+            startActivity(i);
+        } else if (id == R.id.nav_moreapps) {
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=Cherala+Apps"));
+            startActivity(i);
+        } else if (id == R.id.nav_logout) {
+            //TODO: log out from here
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

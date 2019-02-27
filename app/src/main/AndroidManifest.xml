@@ -10,9 +10,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="Learn Arduino"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/AppTheme"
-        android:supportsRtl="true">
-
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
             android:theme="@style/styleLogin">
@@ -22,11 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -49,18 +46,19 @@
                 <data android:scheme="@string/facebook_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Basic"
             android:label="Basic" />
         <activity
             android:name=".Sensors"
             android:label="Sensors" />
-        <activity android:name=".LED"
+        <activity
+            android:name=".LED"
             android:label="LED Projects" />
-        <activity android:name=".Movement"
+        <activity
+            android:name=".Movement"
             android:label="Movement" />
-
+        <activity android:name=".Aboutus"></activity>
     </application>
 
 </manifest>
