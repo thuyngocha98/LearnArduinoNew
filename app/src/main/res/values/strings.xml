@@ -278,7 +278,7 @@
     <string name="led14"><![CDATA[int pinArray[] = {2, 3, 4, 5, 6, 7};\nint count = 0;\nint timer = 100;\n\nvoid setup(){\n for (count=0;count<6;count++) {\n pinMode(pinArray[count], OUTPUT);\n }\n}\n\nvoid loop() {\n for (count=0;count<6;count++) {\n digitalWrite(pinArray[count], HIGH);\n delay(timer);\n digitalWrite(pinArray[count], LOW);\n delay(timer);\n }\n for (count=5;count>=0;count--) {\n digitalWrite(pinArray[count], HIGH);\n delay(timer);\n digitalWrite(pinArray[count], LOW);\n delay(timer);\n }\n}]]></string>
     <string name="led10_text_view">int LED1Pin = 1;\n int LED2Pin = 2;\n int LED3Pin = 3;\n int LED4Pin = 4;\n int LED5Pin = 5;\n int LED6Pin = 6;\n int LED7Pin = 7;\n void setup() {\n pinMode(LED1Pin, OUTPUT);\n pinMode(LED2Pin, OUTPUT);\n pinMode(LED3Pin, OUTPUT);\n pinMode(LED4Pin, OUTPUT);\n pinMode(LED5Pin, OUTPUT);\n pinMode(LED6Pin, OUTPUT);\n pinMode(LED7Pin, OUTPUT);\n pinMode(A0, INPUT);\n digitalWrite (A0, HIGH);\n }\nvoid loop() {\n if (digitalRead(A0) == LOW){ \ndigitalWrite (LED1Pin, HIGH);\n digitalWrite (LED2Pin, LOW);\n }\n delay(50);\n if (digitalRead(A0) == LOW){\n digitalWrite (LED2Pin, HIGH);\n digitalWrite (LED1Pin, LOW);\n }\n delay(50); }</string>
     <string name="title_activity_aboutus">Aboutus</string>
-    <string name="cherala_apps_nemail_apps_cherala_gmail_com">Cherala Apps EMAIL :- apps.cherala@gmail.com</string>
+    <string name="cherala_apps_nemail_apps_cherala_gmail_com">Cherala Apps \n EMAIL : apps.cherala@gmail.com</string>
     <string name="led1">Blink an LED</string>
     <string name="slash">/</string>
     <string name="totalLED_lessonnumber">5</string>
@@ -296,6 +296,6 @@
     <string name="basic_sensors">Basic Sensors</string>
     <string name="communicate">Communicate</string>
     <string name="invite_friends">Invite Friends</string>
-    <string name="the_app_is_for_educational_purpose_and_containg_basic_led_projects_using_arduino">The App is for Educational Purpose and containg basic led projects using arduino</string>
+    <string name="AppDescription">The App is for Educational Purpose and consisting of basic led projects, sensors and movement using arduino</string>
     <string name="developed_and_designed_by_n_cherala_vivek">DEVELOPED AND DESIGNED BY:  Cherala Vivek</string>
 </resources>

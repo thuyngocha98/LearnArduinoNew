@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40sp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -35,9 +35,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textSize="18sp"
                 android:text="@string/basic"
-                android:textColor="#6f6f6f" />
+                android:textColor="#6f6f6f"
+                android:textSize="18sp" />
 
             <ProgressBar
                 android:id="@+id/progressBarBasic"

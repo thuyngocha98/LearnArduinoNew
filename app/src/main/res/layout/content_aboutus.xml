@@ -16,13 +16,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:background="@color/colorPrimary"
-                android:textColor="#ffffff"
-                android:text="ABOUT US"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,56 +24,40 @@
                 android:orientation="vertical">
 
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-                <Button
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text="@string/app_name"
                     android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    android:text="ARDUINO LED PROJECTS"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:background="#ffffff"
-                    android:text="@string/the_app_is_for_educational_purpose_and_containg_basic_led_projects_using_arduino"/>
+                    android:textSize="20sp"
+                    android:text="@string/AppDescription"/>
+
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-                <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
+                    android:gravity="center"
+                    android:textSize="20sp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
+                    android:text="@string/developed_and_designed_by_n_cherala_vivek"
                     android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    android:text="@string/developed_and_designed_by_n_cherala_vivek"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingBottom="10dp"
+                    android:textSize="20sp"
                     android:paddingTop="10dp"
                     android:textStyle="bold"
                     android:background="#ffffff"
