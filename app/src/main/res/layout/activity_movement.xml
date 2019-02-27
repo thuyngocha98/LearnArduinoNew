@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Movement">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            tools:context=".Movement">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Intro"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/introduction_to_arduino" />
+
+                    <TextView
+                        android:id="@+id/textview_intro_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="1/5" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/textView_intro_question_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="3"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Basic2"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/textView_basic2_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="1/5" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/textView_basic2_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="3"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Basic3"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_3" />
+
+                    <TextView
+                        android:id="@+id/textview_basic3_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="1/5" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/textView_basic3_question_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="3"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Basic4"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_4" />
+
+                    <TextView
+                        android:id="@+id/textView_basic4_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="1/5" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/textView_basic4_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="3"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
