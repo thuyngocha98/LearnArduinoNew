@@ -5,11 +5,15 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -59,12 +63,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -223,15 +231,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navUsername.setText(name);
         TextView navEmail = (TextView) headerView.findViewById(R.id.tv_header_email);
         navEmail.setText(email);
-        ImageView navImage = (ImageView) headerView.findViewById(R.id.img_header);
+        final ImageView navImage = (ImageView) headerView.findViewById(R.id.img_header);
         if(!TextUtils.isEmpty(image)){
-            Picasso.get().load(image).into(navImage);
+            Picasso.get().load(image).resize(75, 75).centerCrop().transform(new CropCircleTransformation()).into(navImage);
         }
         else {
             navImage.setImageResource(R.drawable.user_logo);
         }
         Snackbar snackbar = Snackbar
-                .make(drawerLayout, "Signed in as " +email, Snackbar.LENGTH_LONG);
+                .make(drawerLayout, "Signed in as " +email, Snackbar.LENGTH_LONG)
+                .setAction("LOG OUT", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logOut();
+            }
+        });
 
         snackbar.show();
     }

@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Basic extends AppCompatActivity {
 
-    private static final String TAG = "QuangfB";
+    private static final String TAG = "Basic_log";
     TextView Basic1, Basic2, Basic3, Basic4;
 
 
