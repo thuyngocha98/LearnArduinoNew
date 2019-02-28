@@ -31,7 +31,7 @@
                 android:shadowRadius="50">
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Intro"
+                    android:id="@+id/btn_movement1"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -47,22 +47,50 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
+                        android:id="@+id/textview_movement1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
-                        android:text="@string/introduction_to_arduino" />
+                        android:text="@string/movement"
+                        android:layout_marginStart="10dp" />
 
                     <TextView
-                        android:id="@+id/textview_intro_lessonnumber"
+                        android:id="@+id/movement1_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson1" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
                         android:layout_marginLeft="130sp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
                         android:layout_marginRight="5sp"
-                        android:text="1/5" />
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalmovement_lessonnumber"
+                        android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
                         android:layout_width="160dp"
@@ -80,13 +108,13 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/textView_intro_question_number"
+                            android:id="@+id/movement1_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
-                            android:text="3"
+                            android:text="@string/default_question_number"
                             android:textColor="@android:color/white" />
 
                         <TextView
@@ -103,7 +131,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic2"
+                    android:id="@+id/btn_movement2"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -119,6 +147,7 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
+                        android:id="@+id/textview_movement2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -127,15 +156,41 @@
                         android:text="@string/basic_2" />
 
                     <TextView
-                        android:id="@+id/textView_basic2_lessonnumber"
+                        android:id="@+id/movement2_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson2" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
                         android:layout_marginLeft="130sp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
                         android:layout_marginRight="5sp"
-                        android:text="1/5" />
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
                         android:layout_width="160dp"
@@ -153,13 +208,13 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/textView_basic2_questionnumber"
+                            android:id="@+id/LED2_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
-                            android:text="3"
+                            android:text="@string/default_question_number"
                             android:textColor="@android:color/white" />
 
                         <TextView
@@ -188,7 +243,7 @@
                 android:shadowRadius="50">
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic3"
+                    android:id="@+id/btn_movement3"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -204,22 +259,50 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
+                        android:id="@+id/textview_movement3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
-                        android:text="@string/basic_3" />
+                        android:text="@string/basic_3"
+                        android:layout_marginStart="10dp" />
 
                     <TextView
-                        android:id="@+id/textview_basic3_lessonnumber"
+                        android:id="@+id/movement3_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson3" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
                         android:layout_marginLeft="130sp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
                         android:layout_marginRight="5sp"
-                        android:text="1/5" />
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalmovement_lessonnumber"
+                        android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
                         android:layout_width="160dp"
@@ -237,13 +320,13 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/textView_basic3_question_number"
+                            android:id="@+id/movement3_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
-                            android:text="3"
+                            android:text="@string/default_question_number"
                             android:textColor="@android:color/white" />
 
                         <TextView
@@ -260,7 +343,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic4"
+                    android:id="@+id/btn_movement4"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -276,6 +359,7 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
+                        android:id="@+id/textview_movement4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -284,15 +368,41 @@
                         android:text="@string/basic_4" />
 
                     <TextView
-                        android:id="@+id/textView_basic4_lessonnumber"
+                        android:id="@+id/LED4_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/_4" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
                         android:layout_marginLeft="130sp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
                         android:layout_marginRight="5sp"
-                        android:text="1/5" />
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalmovement_lessonnumber"
+                        android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
                         android:layout_width="160dp"
@@ -310,13 +420,13 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/textView_basic4_questionnumber"
+                            android:id="@+id/movement4_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
-                            android:text="3"
+                            android:text="@string/default_question_number"
                             android:textColor="@android:color/white" />
 
                         <TextView

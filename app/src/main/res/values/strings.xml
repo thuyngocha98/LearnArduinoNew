@@ -302,4 +302,5 @@
     <string name="invite_friends">Invite Friends</string>
     <string name="AppDescription">The App is for Educational Purpose and consisting of basic led projects, sensors and movement using arduino</string>
     <string name="developed_and_designed_by_n_cherala_vivek">DEVELOPED AND DESIGNED BY:  Cherala Vivek</string>
+    <string name="totalmovement_lessonnumber">5</string>
 </resources>
