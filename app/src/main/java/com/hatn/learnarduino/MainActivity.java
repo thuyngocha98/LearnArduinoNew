@@ -3,10 +3,13 @@ package com.hatn.learnarduino;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public int Experience = 0;
     private DrawerLayout drawerLayout;
     Button buttonBasic, buttonSensors, buttonLED, buttonMovement;
+    private String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +104,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+//        if( isOnline()==false)
+//        {
+////            Snackbar snackbar = Snackbar
+////                    .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_LONG);
+////
+////            snackbar.show();
+//        }
 
         // login firebaseUI
         mAuth = FirebaseAuth.getInstance();
@@ -198,7 +211,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(i);
         } else if (id == R.id.nav_logout) {
             logOut();
-            //TODO: log out from here
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -210,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // set avatar and information user
     public void setProfile(){
         String name = "unidentified";
-        String email = "";
+        email = "";
         Uri uriImage;
         String image = "";
         try {
@@ -238,16 +250,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else {
             navImage.setImageResource(R.drawable.user_logo);
         }
-        Snackbar snackbar = Snackbar
-                .make(drawerLayout, "Signed in as " +email, Snackbar.LENGTH_LONG)
-                .setAction("LOG OUT", new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logOut();
-            }
-        });
 
-        snackbar.show();
+        if (isOnline())
+        {
+            Snackbar snackbar = Snackbar
+                    .make(drawerLayout, "Signed in as " +email, Snackbar.LENGTH_LONG)
+                    .setAction("LOG OUT", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            logOut();
+                        }
+                    });
+            snackbar.show();
+        } else {
+            Snackbar snackbar = Snackbar
+                    .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+
+
+
+
     }
 
     // login with firebaseUI
@@ -283,13 +306,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 readData();
 
             } else {
-                Toast.makeText(this, "Login Fail", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Login Fail", Toast.LENGTH_SHORT).show();
+                if (isOnline())
+                {
+                    Snackbar snackbar = Snackbar
+                            .make(drawerLayout, "Action Failed", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }
+                else
+                {
+                    //TODO: snackbar here
+                    Snackbar snackbar = Snackbar
+                            .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }
+
+
             }
         }
     }
 
     private void logOut(){
-        AuthUI.getInstance()
+
+        if (isOnline()) {
+            AuthUI.getInstance()
                     .signOut(this)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         public void onComplete(@NonNull Task<Void> task) {
@@ -297,11 +337,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             if(mAuth.getCurrentUser() != null)
                                 Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_SHORT).show();
                             else{
+                                Snackbar snackbar = Snackbar
+                                        .make(drawerLayout, "Signed out " + email, Snackbar.LENGTH_LONG);
+                                snackbar.show();
                                 functionLogin();
                             }
 
                         }
                     });
+        }
+        else {
+            Snackbar snackbar = Snackbar
+                    .make(drawerLayout, "Can't sign out because you don't have internet connection", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+
     }
 
     // experience user
@@ -311,6 +361,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             current_user_id.setValue(0);
     }
 
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnected();
+    }
     // read data user
     public  void readData(){
         String user_id = mAuth.getCurrentUser().getUid();
@@ -333,7 +389,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
-                Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Get user data failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
