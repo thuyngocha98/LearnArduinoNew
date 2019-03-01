@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Basic">
+    tools:context=".Tol6">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -18,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="10dp"
-            tools:context=".Basic">
+            tools:context=".Tol6">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,7 +31,7 @@
                 android:shadowRadius="50">
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic1"
+                    android:id="@+id/btn_Tol6_1"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -48,7 +47,7 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
-                        android:id="@+id/textview_Basic1"
+                        android:id="@+id/textview_Tol6_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -57,7 +56,7 @@
                         android:layout_marginStart="10dp" />
 
                     <TextView
-                        android:id="@+id/Basic1_lessonnumber"
+                        android:id="@+id/Tol6_1_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -82,7 +81,7 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
-                        android:id="@+id/totalBasic_1_lessonnumber"
+                        android:id="@+id/totalTol6_1_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -110,7 +109,7 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/Basic1_questionnumber"
+                            android:id="@+id/Tol6_1_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -133,7 +132,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic2"
+                    android:id="@+id/btn_Tol6_2"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -149,7 +148,7 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
-                        android:id="@+id/textview_Basic2"
+                        android:id="@+id/textview_Tol6_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -158,7 +157,7 @@
                         android:text="@string/basic_2" />
 
                     <TextView
-                        android:id="@+id/Basic2_lessonnumber"
+                        android:id="@+id/Tol6_2_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -183,7 +182,7 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
-                        android:id="@+id/totalBasic_2_lessonnumber"
+                        android:id="@+id/totalTol6_2_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -211,7 +210,7 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/LED2_questionnumber"
+                            android:id="@+id/Tol6_2_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -246,7 +245,7 @@
                 android:shadowRadius="50">
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic3"
+                    android:id="@+id/btn_Tol6_3"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -262,7 +261,7 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
-                        android:id="@+id/textview_Basic3"
+                        android:id="@+id/textview_Tol6_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -271,7 +270,7 @@
                         android:layout_marginStart="10dp" />
 
                     <TextView
-                        android:id="@+id/Basic3_lessonnumber"
+                        android:id="@+id/Tol6_3_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -296,7 +295,7 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
-                        android:id="@+id/totalBasic_3_lessonnumber"
+                        android:id="@+id/totalTol6_3_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -324,7 +323,7 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/Basic3_questionnumber"
+                            android:id="@+id/Tol6_3_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -347,7 +346,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic4"
+                    android:id="@+id/btn_Tol6_4"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -363,7 +362,7 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
-                        android:id="@+id/textview_Basic4"
+                        android:id="@+id/textview_Tol6_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -372,7 +371,7 @@
                         android:text="@string/basic_4" />
 
                     <TextView
-                        android:id="@+id/LED4_lessonnumber"
+                        android:id="@+id/Tol6_4_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -397,7 +396,7 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
-                        android:id="@+id/totalBasic_4_lessonnumber"
+                        android:id="@+id/totalTol6_4_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -425,7 +424,7 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/Basic4_questionnumber"
+                            android:id="@+id/Tol6_4_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"

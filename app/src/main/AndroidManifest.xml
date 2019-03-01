@@ -13,6 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Tol6"></activity>
+        <activity android:name=".Tol5" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/styleLogin">
@@ -70,7 +72,7 @@
         <activity
             android:name=".Tol2.Lesson1.Lesson1Quiz"
             android:label="@string/title_activity_lesson1_quiz"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
