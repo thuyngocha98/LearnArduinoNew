@@ -33,6 +33,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,9 +83,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
-    public int Experience = 0;
+    int Experience = 0;
+    int NumberOfTypeOfLesson = 10;
+    int numberContent = 6;
     private DrawerLayout drawerLayout;
-    Button buttonBasic, buttonSensors, buttonLED, buttonMovement;
+    Button buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
     ProgressDialog progressDialog;
     private String email;
     @Override
@@ -125,11 +128,49 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             functionLogin();
         }
 
+        // get number of type of lesson
+        DatabaseReference number = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Number_Of_Type_Of_Lesson");
+        number.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                String value = dataSnapshot.getValue().toString();
+                Log.d("NumberOfTypeOfLesson", value);
+                NumberOfTypeOfLesson = Integer.parseInt(value);
+                Log.d("NumberOfTypeOfLesson", "number: "+ NumberOfTypeOfLesson);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        Toast.makeText(this, "numer: "+ NumberOfTypeOfLesson, Toast.LENGTH_SHORT).show();
+
         //Merge content
         buttonBasic = findViewById(R.id.btn_basic);
         buttonSensors=findViewById(R.id.btn_sensors);
         buttonLED=findViewById(R.id.btn_LED);
         buttonMovement=findViewById(R.id.btn_movement);
+        buttonTol5 = findViewById(R.id.btn_tol5);
+        buttonTol6 = findViewById(R.id.btn_tol6);
+
+        int[] Layout_hint = {
+                R.id.linear_btn1,
+                R.id.linear_btn2,
+                R.id.linear_btn3,
+                R.id.linear_btn4,
+                R.id.linear_btn5,
+                R.id.linear_btn6,
+
+        };
+
+        String[] nameLayout = new String[] { "L", "Apricot", "Banana" };
+
+        //Toast.makeText(this, NumberOfTypeOfLesson +"", Toast.LENGTH_SHORT).show();
+//        for(int i = NumberOfTypeOfLesson){
+//            LinearLayout temp = findViewById(Layout_hint[i]);
+//            temp.setVisibility(View.GONE);
+//        }
 
 
         buttonBasic.setOnClickListener(new View.OnClickListener() {
@@ -160,6 +201,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,Movement.class);
+                startActivity(i);
+            }
+        });
+        buttonTol5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,Tol5.class);
+                startActivity(i);
+            }
+        });
+
+        buttonTol6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,Tol6.class);
                 startActivity(i);
             }
         });
