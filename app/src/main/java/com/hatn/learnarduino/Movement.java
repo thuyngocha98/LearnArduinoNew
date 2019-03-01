@@ -1,5 +1,6 @@
 package com.hatn.learnarduino;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ public class Movement extends AppCompatActivity {
 
     private static final String TAG = "Movement_log";
     TextView movement1, movement2, movement3, movement4;
-
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +26,14 @@ public class Movement extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
+
         movement1=findViewById(R.id.textview_movement1);
         movement2=findViewById(R.id.textview_movement2);
         movement3=findViewById(R.id.textview_movement3);
         movement4=findViewById(R.id.textview_movement4);
+
+
 
         DatabaseReference Tol4_lesson1_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Name");
         DatabaseReference Tol4_lesson2_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson2").child("Name");
@@ -95,6 +100,7 @@ public class Movement extends AppCompatActivity {
                 Log.d(TAG, "Value 4 is: " + value);
 
                 movement4.setText(value);
+                progressDialog.dismiss();
 
             }
 

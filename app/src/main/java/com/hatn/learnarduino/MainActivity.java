@@ -23,6 +23,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public int Experience = 0;
     private DrawerLayout drawerLayout;
     Button buttonBasic, buttonSensors, buttonLED, buttonMovement;
+    ProgressDialog progressDialog;
     private String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //navigation drawer bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        //progessOverlay.setVisibility(View.VISIBLE);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -105,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 //        if( isOnline()==false)
 //        {
 ////            Snackbar snackbar = Snackbar
@@ -251,6 +254,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navImage.setImageResource(R.drawable.user_logo);
         }
 
+        progressDialog.dismiss();
         if (isOnline())
         {
             Snackbar snackbar = Snackbar
@@ -267,6 +271,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_LONG);
             snackbar.show();
         }
+
 
 
 
@@ -367,6 +372,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnected();
     }
+
+
     // read data user
     public  void readData(){
         String user_id = mAuth.getCurrentUser().getUid();

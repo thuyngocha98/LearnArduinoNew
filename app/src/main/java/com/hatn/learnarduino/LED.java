@@ -1,5 +1,6 @@
 package com.hatn.learnarduino;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +21,7 @@ public class LED extends AppCompatActivity {
 
     private static final String TAG = "LED_log";
     TextView tvLED1, tvLED2, tvLED3, tvLED4;
-
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -30,6 +31,8 @@ public class LED extends AppCompatActivity {
         setContentView(R.layout.activity_led);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
         tvLED1=findViewById(R.id.textview_LED1);
         tvLED2=findViewById(R.id.textview_LED2);
@@ -102,6 +105,7 @@ public class LED extends AppCompatActivity {
                 Log.d(TAG, "Value 4 is: " + value);
 
                 tvLED4.setText(value);
+                progressDialog.dismiss();
 
             }
 

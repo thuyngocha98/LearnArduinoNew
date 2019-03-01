@@ -1,10 +1,12 @@
 package com.hatn.learnarduino;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,6 +19,8 @@ public class Basic extends AppCompatActivity {
 
     private static final String TAG = "Basic_log";
     TextView Basic1, Basic2, Basic3, Basic4;
+    ProgressDialog progressDialog;
+
 
 
     @Override
@@ -25,6 +29,9 @@ public class Basic extends AppCompatActivity {
         setContentView(R.layout.activity_basic);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
+
 
         Basic1=findViewById(R.id.textview_Basic1);
         Basic2=findViewById(R.id.textview_Basic2);
@@ -97,6 +104,7 @@ public class Basic extends AppCompatActivity {
                 Log.d(TAG, "Value 4 is: " + value);
 
                 Basic4.setText(value);
+                progressDialog.dismiss();
 
             }
 
