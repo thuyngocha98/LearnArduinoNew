@@ -15,15 +15,57 @@
         android:orientation="vertical">
 
 
+
         <TextView
             android:id="@+id/textView_Lesson1_Quiz1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Question" />
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="What is your name?"
+            android:textAlignment="center"
+            android:textSize="25dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <android.support.v7.widget.CardView
+            android:layout_width="288dp"
             android:layout_height="match_parent"
-            android:orientation="horizontal"></LinearLayout>
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0px"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="5dp"
+            app:cardPreventCornerOverlap="false">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="12dp"
+                android:layout_height="45dp"
+                android:layout_gravity="top|bottom|left|center_horizontal"
+                android:clickable="true"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0px"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@android:color/holo_green_dark"
+                app:cardPreventCornerOverlap="false"></android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/textview_lesson1_quiz1_answer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="16dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor incid" />
+
+        </android.support.v7.widget.CardView>
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
