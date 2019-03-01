@@ -7,4 +7,6 @@
     <color name="buttonfab">#d88d0a</color>
     <color name="textfab">#47433c</color>
     <color name="cardcodebackground">#8c8f93</color>
+    <color name="right">#ff669900</color>
+    <color name="wrong">#ffff4444</color>
 </resources>

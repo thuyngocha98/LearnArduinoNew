@@ -1,11 +1,13 @@
 package com.hatn.learnarduino.Tol2.Lesson1;
 
+import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
@@ -30,6 +32,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.R;
 
 import java.io.ByteArrayOutputStream;
@@ -38,13 +41,14 @@ public class Lesson1Quiz extends AppCompatActivity {
 
     private static final String TAG = "Leson1Content_log";
     CoordinatorLayout coordinatorLayout;
-    String activity_name, code;
-    ImageView imageView1, imageView2;
-    FloatingActionButton fab1, fab2, fab;
-    boolean isFABOpen;
-    Button btnCopy, btnCancel;
-    TextView textView, textViewfab1, textViewfab2, codeview;
-    CardView cardViewfab1, cardViewfab2, cardviewcode;
+    FloatingActionButton fab;
+    TextView textviewquiz1, textviewquiz2, textviewquiz3, textviewquiz1_answer1, textviewquiz1_answer2, textviewquiz1_answer3, textviewquiz2_answer1, textviewquiz2_answer2, textviewquiz2_answer3, textviewquiz3_answer1, textviewquiz3_answer2, textviewquiz3_answer3;
+    TextView quiz1_rightanswer, quiz2_rightanswer, quiz3_rightanswer;
+    CardView cardviewquiz1_answer1, cardviewquiz1_answer2, cardviewquiz1_answer3, cardviewquiz2_answer1, cardviewquiz2_answer2, cardviewquiz2_answer3, cardviewquiz3_answer1, cardviewquiz3_answer2, cardviewquiz3_answer3;
+    CardView cardview_quiz1_answer1_flag, cardview_quiz1_answer2_flag, cardview_quiz1_answer3_flag, cardview_quiz2_answer1_flag, cardview_quiz2_answer2_flag, cardview_quiz2_answer3_flag, cardview_quiz3_answer1_flag, cardview_quiz3_answer2_flag, cardview_quiz3_answer3_flag;
+    Function function;
+    ProgressDialog progressDialog;
+    int counttemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,125 +61,161 @@ public class Lesson1Quiz extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        textView=findViewById(R.id.L1C_content);
-        coordinatorLayout=findViewById(R.id.lesson1_content_layout);
+        progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
+
+        coordinatorLayout=findViewById(R.id.Lesson1Quizlayout);
+
+        textviewquiz1 = findViewById(R.id.textView_Lesson1_Quiz1);
+        textviewquiz2 = findViewById(R.id.textView_Lesson1_Quiz2);
+        textviewquiz3 = findViewById(R.id.textView_Lesson1_Quiz3);
+
+        textviewquiz1_answer1 = findViewById(R.id.textview_lesson1_quiz1_answer1);
+        textviewquiz1_answer2 = findViewById(R.id.textview_lesson1_quiz1_answer2);
+        textviewquiz1_answer3 = findViewById(R.id.textview_lesson1_quiz1_answer3);
+
+        textviewquiz2_answer1 = findViewById(R.id.textview_lesson1_quiz2_answer1);
+        textviewquiz2_answer2 = findViewById(R.id.textview_lesson1_quiz2_answer2);
+        textviewquiz2_answer3 = findViewById(R.id.textview_lesson1_quiz2_answer3);
+
+        textviewquiz3_answer1 = findViewById(R.id.textview_lesson1_quiz3_answer1);
+        textviewquiz3_answer2 = findViewById(R.id.textview_lesson1_quiz3_answer2);
+        textviewquiz3_answer3 = findViewById(R.id.textview_lesson1_quiz3_answer3);
+
+        cardviewquiz1_answer1 = findViewById(R.id.cardview_quiz1_answer1);
+        cardviewquiz1_answer2 = findViewById(R.id.cardview_quiz1_answer2);
+        cardviewquiz1_answer3 = findViewById(R.id.cardview_quiz1_answer3);
+
+        cardviewquiz2_answer1 = findViewById(R.id.cardview_quiz1_answer1);
+        cardviewquiz2_answer2 = findViewById(R.id.cardview_quiz2_answer2);
+        cardviewquiz2_answer3 = findViewById(R.id.cardview_quiz2_answer3);
+
+        cardviewquiz3_answer1 = findViewById(R.id.cardview_quiz3_answer1);
+        cardviewquiz3_answer2 = findViewById(R.id.cardview_quiz3_answer2);
+        cardviewquiz3_answer3 = findViewById(R.id.cardview_quiz3_answer3);
+
+        cardview_quiz1_answer1_flag = findViewById(R.id.cardview_quiz1_answer1_flag);
+        cardview_quiz1_answer2_flag = findViewById(R.id.cardview_quiz1_answer2_flag);
+        cardview_quiz1_answer3_flag = findViewById(R.id.cardview_quiz1_answer3_flag);
+
+        cardview_quiz2_answer1_flag = findViewById(R.id.cardview_quiz2_answer1_flag);
+        cardview_quiz2_answer2_flag = findViewById(R.id.cardview_quiz2_answer2_flag);
+        cardview_quiz2_answer3_flag = findViewById(R.id.cardview_quiz2_answer3_flag);
+
+        cardview_quiz3_answer1_flag = findViewById(R.id.cardview_quiz3_answer1_flag);
+        cardview_quiz3_answer2_flag = findViewById(R.id.cardview_quiz3_answer2_flag);
+        cardview_quiz3_answer3_flag = findViewById(R.id.cardview_quiz3_answer3_flag);
+
+        quiz1_rightanswer=findViewById(R.id.quiz1_rightanswer);
+        quiz2_rightanswer=findViewById(R.id.quiz2_rightanswer);
+        quiz3_rightanswer=findViewById(R.id.quiz3_rightanswer);
 
 
 
-        DatabaseReference Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Description");
-        DatabaseReference Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Image1");
-        DatabaseReference Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Image2");
-        DatabaseReference Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Name");
-        DatabaseReference Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Code");
-        Tol2_lesson1_Content.addValueEventListener(new ValueEventListener() {
+
+        DatabaseReference Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+        DatabaseReference Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+        DatabaseReference Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+
+        DatabaseReference Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+        DatabaseReference Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+        DatabaseReference Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+        DatabaseReference Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+
+        DatabaseReference Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+        DatabaseReference Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+        DatabaseReference Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+        DatabaseReference Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+
+        DatabaseReference Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+        DatabaseReference Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+        DatabaseReference Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+        DatabaseReference Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+
+
+        function=new Function();
+
+        function.SetDataIntoObject(Getquiz1question,textviewquiz1);
+        function.SetDataIntoObject(Getquiz2question,textviewquiz2);
+        function.SetDataIntoObject(Getquiz3question,textviewquiz3);
+
+        function.SetDataIntoObject(Getquiz1rightanswer,quiz1_rightanswer);
+        function.SetDataIntoObject(Getquiz2rightanswer,quiz2_rightanswer);
+        function.SetDataIntoObject(Getquiz3rightanswer,quiz3_rightanswer);
+
+        function.SetDataIntoObject(Getquiz1answer1,textviewquiz1_answer1);
+        function.SetDataIntoObject(Getquiz1answer2,textviewquiz1_answer2);
+        function.SetDataIntoObject(Getquiz1answer3,textviewquiz1_answer3);
+
+        function.SetDataIntoObject(Getquiz2answer1,textviewquiz2_answer1);
+        function.SetDataIntoObject(Getquiz2answer2,textviewquiz2_answer2);
+        function.SetDataIntoObject(Getquiz2answer3,textviewquiz2_answer3);
+
+        function.SetDataIntoObject(Getquiz3answer1,textviewquiz3_answer1);
+        function.SetDataIntoObject(Getquiz3answer2,textviewquiz3_answer2);
+        function.SetDataIntoObject(Getquiz3answer3,textviewquiz3_answer3);
+
+        progressDialog.dismiss();
+
+        cardviewquiz1_answer1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
+            public void onClick(View v) {
+                Log.d("check true", "onClick: "+quiz1_rightanswer.getText().toString());
+                Log.d("check true", "onClick: "+textviewquiz1_answer1.getText().toString());
 
-                Log.d(TAG, "Value is: " + value);
-
-                //textView.setText(value);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                if (textviewquiz1_answer1.getText().toString().equals(quiz1_rightanswer.getText().toString()))
+                {
+                    RightAnswer(cardview_quiz1_answer1_flag);
+                    cardviewquiz1_answer1.setClickable(false);
+                    cardviewquiz1_answer2.setClickable(false);
+                    cardviewquiz1_answer3.setClickable(false);
+                }
+                else WrongAnswer(cardview_quiz1_answer1_flag);
             }
         });
-        Tol2_lesson1_Code.addValueEventListener(new ValueEventListener() {
+
+        cardviewquiz1_answer2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value is: " + value);
-
-                //code=value;
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol2_lesson1_Name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //activity_name = dataSnapshot.getValue().toString();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onClick(View v) {
+                if (textviewquiz1_answer2.getText().equals(quiz1_rightanswer.getText()))
+                {
+                    RightAnswer(cardview_quiz1_answer2_flag);
+                    cardviewquiz1_answer1.setClickable(false);
+                    cardviewquiz1_answer2.setClickable(false);
+                    cardviewquiz1_answer3.setClickable(false);
+                }
+                else WrongAnswer(cardview_quiz1_answer2_flag);
             }
         });
 
-        Tol2_lesson1_img1.addValueEventListener(new ValueEventListener() {
+        cardviewquiz1_answer3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value is: " + value);
-
-
-
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                byte[] imageBytes = byteArrayOutputStream.toByteArray();
-
-                imageBytes = Base64.decode(value, Base64.DEFAULT);
-                Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                //imageView1.setImageBitmap(decodedImage);
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onClick(View v) {
+                if (textviewquiz1_answer3.getText().equals(quiz1_rightanswer.getText()))
+                {
+                    RightAnswer(cardview_quiz1_answer3_flag);
+                    cardviewquiz1_answer1.setClickable(false);
+                    cardviewquiz1_answer2.setClickable(false);
+                    cardviewquiz1_answer3.setClickable(false);
+                }
+                else WrongAnswer(cardview_quiz1_answer3_flag);
             }
         });
-
-        Tol2_lesson1_img2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value is: " + value);
-
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                byte[] imageBytes = byteArrayOutputStream.toByteArray();
-
-                imageBytes = Base64.decode(value, Base64.DEFAULT);
-                Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                //imageView2.setImageBitmap(decodedImage);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-
 
         fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(!isFABOpen){
-//                    showFABMenu();
-//                }else{
-//                    closeFABMenu();
-//                }
-//            }
-//        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(counttemp!=3)
+                {
+                    Snackbar snackbar = Snackbar
+                            .make(coordinatorLayout, "Please answer all questions before moving to next lesson ", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }else {
+                    //TODO: intent to next activity
+                }
+            }
+        });
+
 
 //        fab1 = findViewById(R.id.fab1);
 //        fab2 = findViewById(R.id.fab2);
@@ -197,6 +237,25 @@ public class Lesson1Quiz extends AppCompatActivity {
 
 
 
+
+    }
+
+    private void RightAnswer(CardView cardView){
+        //cardView.setCardBackgroundColor(getResources().getColor(R.color.Primary));
+        cardView.setVisibility(View.VISIBLE);
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, "Congrats! Right answer ", Snackbar.LENGTH_LONG);
+        snackbar.show();
+        cardView.setVisibility(View.INVISIBLE);
+
+    }
+    private void WrongAnswer(CardView cardView){
+        //cardView.setCardBackgroundColor(getResources().getColor(R.color.Primary));
+        cardView.setVisibility(View.VISIBLE);
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, "Please try again ", Snackbar.LENGTH_LONG);
+        snackbar.show();
+        cardView.setVisibility(View.INVISIBLE);
 
     }
 

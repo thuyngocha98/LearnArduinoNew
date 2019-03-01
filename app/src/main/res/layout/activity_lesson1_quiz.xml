@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/Lesson1Quizlayout"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".Tol2.Lesson1.Lesson1Quiz">
@@ -65,10 +66,13 @@
         android:id="@+id/fab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@+id/include"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginRight="3sp"
+        android:layout_marginBottom="@dimen/fab_margin"
         app:backgroundTint="@color/buttonfab"
+        app:layout_anchor="@+id/include"
         app:layout_anchorGravity="right|bottom"
-        app:srcCompat="@drawable/ic_menu" />
+        app:srcCompat="@drawable/next" />
 
 </android.support.design.widget.CoordinatorLayout>

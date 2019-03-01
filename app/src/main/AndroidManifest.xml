@@ -70,6 +70,7 @@
         <activity
             android:name=".Tol2.Lesson1.Lesson1Quiz"
             android:label="@string/title_activity_lesson1_quiz"
+            android:parentActivityName=".Tol2.Lesson1.Lesson1Content"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

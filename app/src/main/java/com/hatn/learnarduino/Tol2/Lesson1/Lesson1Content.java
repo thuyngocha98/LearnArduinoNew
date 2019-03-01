@@ -38,6 +38,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.R;
 
 import java.io.ByteArrayOutputStream;
@@ -51,7 +52,7 @@ public class Lesson1Content extends AppCompatActivity {
     FloatingActionButton fab1, fab2, fab;
     boolean isFABOpen;
     Button btnCopy, btnCancel;
-    TextView textView, textViewfab1, textViewfab2, codeview;
+    TextView textView, textViewfab1, textViewfab2, codeview, codeviewtemp;
     CardView cardViewfab1, cardViewfab2, cardviewcode;
     ProgressDialog progressDialog;
 
@@ -73,7 +74,7 @@ public class Lesson1Content extends AppCompatActivity {
         imageView2=findViewById(R.id.L1C_img2);
         textView=findViewById(R.id.L1C_content);
         coordinatorLayout=findViewById(R.id.lesson1_content_layout);
-        //codeview=findViewById(R.id.textview_code);
+        codeviewtemp=findViewById(R.id.textview_codetemp);
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
@@ -83,40 +84,45 @@ public class Lesson1Content extends AppCompatActivity {
         DatabaseReference Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Image2");
         DatabaseReference Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Name");
         DatabaseReference Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Code");
-        Tol2_lesson1_Content.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
+//        Tol2_lesson1_Content.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+//            {
+//                String value = dataSnapshot.getValue().toString();
+//
+//                Log.d(TAG, "Value is: " + value);
+//
+//                textView.setText(value);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
-                Log.d(TAG, "Value is: " + value);
+        Function function = new Function();
+        function.SetDataIntoObject(Tol2_lesson1_Content, textView);
 
-                textView.setText(value);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol2_lesson1_Code.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value is: " + value);
-
-                code=value;
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        Tol2_lesson1_Code.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+//            {
+//                String value = dataSnapshot.getValue().toString();
+//
+//                Log.d(TAG, "Value is: " + value);
+//
+//                code=value;
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+        function.SetDataIntoObject(Tol2_lesson1_Code,codeviewtemp);
         Tol2_lesson1_Name.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -129,31 +135,37 @@ public class Lesson1Content extends AppCompatActivity {
             }
         });
 
-        Tol2_lesson1_img1.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value is: " + value);
 
 
+//        Tol2_lesson1_img1.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+//            {
+//                String value = dataSnapshot.getValue().toString();
+//
+//                Log.d(TAG, "Value is: " + value);
+//
+//
+//
+//                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//                byte[] imageBytes = byteArrayOutputStream.toByteArray();
+//
+//                imageBytes = Base64.decode(value, Base64.DEFAULT);
+//                Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+//                imageView1.setImageBitmap(decodedImage);
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                byte[] imageBytes = byteArrayOutputStream.toByteArray();
-
-                imageBytes = Base64.decode(value, Base64.DEFAULT);
-                Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                imageView1.setImageBitmap(decodedImage);
+        function.SetDataIntoObject(Tol2_lesson1_img1, imageView1);
 
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         Tol2_lesson1_img2.addValueEventListener(new ValueEventListener() {
             @Override
@@ -233,7 +245,7 @@ public class Lesson1Content extends AppCompatActivity {
         final View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_viewcode, viewGroup, false);
 
         codeview = dialogView.findViewById(R.id.textview_code);
-        codeview.setText(code);
+        codeview.setText(codeviewtemp.getText());
         codeview.setMovementMethod(new ScrollingMovementMethod());
 
         //Now we need an AlertDialog.Builder object
