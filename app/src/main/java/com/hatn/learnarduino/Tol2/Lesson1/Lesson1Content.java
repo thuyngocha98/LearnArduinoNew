@@ -43,6 +43,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.R;
+import com.hatn.learnarduino.Sensors;
 
 import java.io.ByteArrayOutputStream;
 
@@ -59,13 +60,13 @@ public class Lesson1Content extends AppCompatActivity {
     CardView cardViewfab1, cardViewfab2, cardviewcode;
     ProgressDialog progressDialog;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson1_content);
 
-
-
+        Intent intent = getIntent();
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -88,6 +89,44 @@ public class Lesson1Content extends AppCompatActivity {
         DatabaseReference Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Image2");
         DatabaseReference Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Name");
         DatabaseReference Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Code");
+
+        if (intent != null) {
+            int Lessonname= intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1);
+            switch (Lessonname)
+            {
+                case 1: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Code");
+                    break;
+                }
+                case 2: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Code");
+                    break;
+                }
+                case 3: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Code");
+                    break;
+                }
+            }
+            if (Lessonname ==1 ) {
+
+
+
+            }
+
+
+        }
 //        Tol2_lesson1_Content.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
@@ -127,6 +166,7 @@ public class Lesson1Content extends AppCompatActivity {
 //            }
 //        });
         function.SetDataIntoObject(Tol2_lesson1_Code,codeviewtemp);
+
         Tol2_lesson1_Name.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

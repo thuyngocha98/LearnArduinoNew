@@ -145,8 +145,6 @@ public class Function {
                 cardView.setVisibility(View.INVISIBLE);
             }
         },1500);
-
-
         Snackbar snackbar = Snackbar
                 .make(coordinatorLayout, "Wrong answer!! Please try again ", 500);
         View snackbarView = snackbar.getView();

@@ -28,6 +28,8 @@ public class Sensors extends AppCompatActivity {
             btnSenser13,btnSenser14,btnSenser15,btnSenser16,btnSenser17,btnSenser18,btnSenser19,btnSenser20,btnSenser21,btnSenser22,btnSenser23,btnSenser24,btnSenser25,btnSenser26;
     ProgressDialog progressDialog;
     int numberTotalContent = 26;
+
+    public static final String LESSONNUMBERINTENT ="LESSONNUMBERINTENT";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,23 @@ public class Sensors extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Sensors.this,Lesson1Content.class);
+                i.putExtra("LESSONNUMBERINTENT",1);
+                startActivity(i);
+            }
+        });
+        btnSenser2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Sensors.this,Lesson1Content.class);
+                i.putExtra("LESSONNUMBERINTENT",2);
+                startActivity(i);
+            }
+        });
+        btnSenser3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Sensors.this,Lesson1Content.class);
+                i.putExtra("LESSONNUMBERINTENT",3);
                 startActivity(i);
             }
         });
