@@ -48,7 +48,7 @@ public class Lesson1Quiz extends AppCompatActivity {
     CardView cardview_quiz1_answer1_flag, cardview_quiz1_answer2_flag, cardview_quiz1_answer3_flag, cardview_quiz2_answer1_flag, cardview_quiz2_answer2_flag, cardview_quiz2_answer3_flag, cardview_quiz3_answer1_flag, cardview_quiz3_answer2_flag, cardview_quiz3_answer3_flag;
     Function function;
     ProgressDialog progressDialog;
-    int counttemp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +85,7 @@ public class Lesson1Quiz extends AppCompatActivity {
         cardviewquiz1_answer2 = findViewById(R.id.cardview_quiz1_answer2);
         cardviewquiz1_answer3 = findViewById(R.id.cardview_quiz1_answer3);
 
-        cardviewquiz2_answer1 = findViewById(R.id.cardview_quiz1_answer1);
+        cardviewquiz2_answer1 = findViewById(R.id.cardview_quiz2_answer1);
         cardviewquiz2_answer2 = findViewById(R.id.cardview_quiz2_answer2);
         cardviewquiz2_answer3 = findViewById(R.id.cardview_quiz2_answer3);
 
@@ -156,106 +156,133 @@ public class Lesson1Quiz extends AppCompatActivity {
 
         progressDialog.dismiss();
 
-        cardviewquiz1_answer1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("check true", "onClick: "+quiz1_rightanswer.getText().toString());
-                Log.d("check true", "onClick: "+textviewquiz1_answer1.getText().toString());
+//        cardviewquiz1_answer1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d("check true", "onClick: "+quiz1_rightanswer.getText().toString());
+//                Log.d("check true", "onClick: "+textviewquiz1_answer1.getText().toString());
+//
+//                if (textviewquiz1_answer1.getText().toString().equals(quiz1_rightanswer.getText().toString()))
+//                {
+//                    RightAnswer(cardview_quiz1_answer1_flag);
+//                    cardviewquiz1_answer1.setClickable(false);
+//                    cardviewquiz1_answer2.setClickable(false);
+//                    cardviewquiz1_answer3.setClickable(false);
+//                }
+//                else WrongAnswer(cardview_quiz1_answer1_flag);
+//            }
+//        });
 
-                if (textviewquiz1_answer1.getText().toString().equals(quiz1_rightanswer.getText().toString()))
-                {
-                    RightAnswer(cardview_quiz1_answer1_flag);
-                    cardviewquiz1_answer1.setClickable(false);
-                    cardviewquiz1_answer2.setClickable(false);
-                    cardviewquiz1_answer3.setClickable(false);
-                }
-                else WrongAnswer(cardview_quiz1_answer1_flag);
-            }
-        });
+        function.CheckAnswer(cardviewquiz1_answer1,cardview_quiz1_answer1_flag,textviewquiz1_answer1,quiz1_rightanswer,cardviewquiz1_answer2,cardviewquiz1_answer3,coordinatorLayout);
+        function.CheckAnswer(cardviewquiz1_answer2,cardview_quiz1_answer2_flag,textviewquiz1_answer2,quiz1_rightanswer,cardviewquiz1_answer1,cardviewquiz1_answer3,coordinatorLayout);
+        function.CheckAnswer(cardviewquiz1_answer3,cardview_quiz1_answer3_flag,textviewquiz1_answer3,quiz1_rightanswer,cardviewquiz1_answer1,cardviewquiz1_answer2,coordinatorLayout);
 
-        cardviewquiz1_answer2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (textviewquiz1_answer2.getText().equals(quiz1_rightanswer.getText()))
-                {
-                    RightAnswer(cardview_quiz1_answer2_flag);
-                    cardviewquiz1_answer1.setClickable(false);
-                    cardviewquiz1_answer2.setClickable(false);
-                    cardviewquiz1_answer3.setClickable(false);
-                }
-                else WrongAnswer(cardview_quiz1_answer2_flag);
-            }
-        });
+        function.CheckAnswer(cardviewquiz2_answer1,cardview_quiz2_answer1_flag,textviewquiz2_answer1,quiz2_rightanswer,cardviewquiz2_answer2,cardviewquiz2_answer3,coordinatorLayout);
+        function.CheckAnswer(cardviewquiz2_answer2,cardview_quiz2_answer2_flag,textviewquiz2_answer2,quiz2_rightanswer,cardviewquiz2_answer1,cardviewquiz2_answer3,coordinatorLayout);
+        function.CheckAnswer(cardviewquiz2_answer3,cardview_quiz2_answer3_flag,textviewquiz2_answer3,quiz2_rightanswer,cardviewquiz2_answer1,cardviewquiz2_answer2,coordinatorLayout);
 
-        cardviewquiz1_answer3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (textviewquiz1_answer3.getText().equals(quiz1_rightanswer.getText()))
-                {
-                    RightAnswer(cardview_quiz1_answer3_flag);
-                    cardviewquiz1_answer1.setClickable(false);
-                    cardviewquiz1_answer2.setClickable(false);
-                    cardviewquiz1_answer3.setClickable(false);
-                }
-                else WrongAnswer(cardview_quiz1_answer3_flag);
-            }
-        });
+        function.CheckAnswer(cardviewquiz3_answer1,cardview_quiz3_answer1_flag,textviewquiz3_answer1,quiz3_rightanswer,cardviewquiz3_answer2,cardviewquiz3_answer3,coordinatorLayout);
+        function.CheckAnswer(cardviewquiz3_answer2,cardview_quiz3_answer2_flag,textviewquiz3_answer2,quiz3_rightanswer,cardviewquiz3_answer1,cardviewquiz3_answer3,coordinatorLayout);
+        function.CheckAnswer(cardviewquiz3_answer3,cardview_quiz3_answer3_flag,textviewquiz3_answer3,quiz3_rightanswer,cardviewquiz3_answer1,cardviewquiz3_answer2,coordinatorLayout);
+
+
+
+
+//        Rightcount=function.CheckRight(cardview_quiz1_answer1_flag,cardview_quiz1_answer2_flag,cardview_quiz1_answer3_flag);
+//        Rightcount+=function.CheckRight(cardview_quiz2_answer1_flag,cardview_quiz2_answer2_flag,cardview_quiz2_answer3_flag);
+//        Rightcount+=function.CheckRight(cardview_quiz3_answer1_flag,cardview_quiz3_answer2_flag,cardview_quiz3_answer3_flag);
+
+
 
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(counttemp!=3)
+
+                int countemp=0;
+                Log.d(TAG, "Card color: "+cardview_quiz1_answer1_flag.getCardBackgroundColor().toString());
+
+                if (!cardviewquiz1_answer1.isClickable())
+                {
+                    countemp++;
+                }
+                if (!cardviewquiz2_answer1.isClickable())
+                {
+                    countemp++;
+                }
+                if (!cardviewquiz3_answer3.isClickable())
+                {
+                    countemp++;
+                }
+
+                if(countemp!=3)
                 {
                     Snackbar snackbar = Snackbar
                             .make(coordinatorLayout, "Please answer all questions before moving to next lesson ", Snackbar.LENGTH_LONG);
+                            View snackbarView = snackbar.getView();
+                            TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+                            textView.setTextColor(Color.parseColor("#ffa000"));
+                            snackbar.show();
                     snackbar.show();
                 }else {
-                    //TODO: intent to next activity
+                    Snackbar snackbar = Snackbar
+                            .make(coordinatorLayout, "All done ", Snackbar.LENGTH_LONG);
+                        View snackbarView = snackbar.getView();
+                        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+                        textView.setTextColor(Color.parseColor("#ff669900"));
+                    snackbar.show();
                 }
             }
         });
 
 
-//        fab1 = findViewById(R.id.fab1);
-//        fab2 = findViewById(R.id.fab2);
-//        cardViewfab1=findViewById(R.id.card_view_fab1);
-//        cardViewfab2=findViewById(R.id.card_view_fab2);
-
-
-
-//        fab1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(Lesson1Quiz.this, Lesson1Content.class);
-//                startActivity(i);
-//            }
-//        });
-
-
-
 
 
 
 
     }
 
-    private void RightAnswer(CardView cardView){
-        //cardView.setCardBackgroundColor(getResources().getColor(R.color.Primary));
+    private void RightAnswer(final CardView cardView){
+
+        cardView.setCardBackgroundColor(Color.parseColor("#ff669900"));
         cardView.setVisibility(View.VISIBLE);
+//        cardView.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                cardView.setVisibility(View.INVISIBLE);
+//            }
+//        }, 3000);
+
         Snackbar snackbar = Snackbar
                 .make(coordinatorLayout, "Congrats! Right answer ", Snackbar.LENGTH_LONG);
+        View snackbarView = snackbar.getView();
+        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
-        cardView.setVisibility(View.INVISIBLE);
+
+
+
+        //cardView.setVisibility(View.INVISIBLE);
 
     }
-    private void WrongAnswer(CardView cardView){
-        //cardView.setCardBackgroundColor(getResources().getColor(R.color.Primary));
+    private void WrongAnswer(final CardView cardView){
+        cardView.setCardBackgroundColor(Color.parseColor("#ffff4444"));
         cardView.setVisibility(View.VISIBLE);
+        cardView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                cardView.setVisibility(View.INVISIBLE);
+            }
+        },1500);
+
+
         Snackbar snackbar = Snackbar
-                .make(coordinatorLayout, "Please try again ", Snackbar.LENGTH_LONG);
+                .make(coordinatorLayout, "Wrong answer!! Please try again ", Snackbar.LENGTH_LONG);
+        View snackbarView = snackbar.getView();
+        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(Color.parseColor("#ffa000"));
+
         snackbar.show();
-        cardView.setVisibility(View.INVISIBLE);
 
     }
 

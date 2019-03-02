@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#a94f0a</color>
-    <color name="colorPrimaryDark">#41220a</color>
+    <!--<color name="colorPrimary">#a94f0a</color>-->
+    <!--<color name="colorPrimaryDark">#41220a</color>-->
     <color name="colorAccent">#D81B60</color>
-    <color name="button1">#ff7f2f</color>
-    <color name="buttonfab">#d88d0a</color>
-    <color name="textfab">#47433c</color>
+    <color name="colorPrimary">#ffa000</color>
+    <color name="primaryLightColor">#ffd149</color>
+    <color name="colorPrimaryDark">#c67100</color>
+    <color name="primaryTextColor">#000000</color>
+
+    <color name="button1">#ffa000</color>
+    <color name="buttonfab">#c67100</color>
+    <color name="textfab">#000000</color>
     <color name="cardcodebackground">#8c8f93</color>
     <color name="right">#ff669900</color>
     <color name="wrong">#ffff4444</color>
