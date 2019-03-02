@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -25,6 +26,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Layout;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -72,6 +74,7 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -84,21 +87,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
     int Experience = 0;
-    int NumberOfTypeOfLesson = 10;
     int numberContent = 6;
+    int numberOfLesson = 0;
     private DrawerLayout drawerLayout;
     Button buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
     ProgressDialog progressDialog;
     private String email;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         drawerLayout=findViewById(R.id.drawer_layout);
+
+
         //navigation drawer bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         //progessOverlay.setVisibility(View.VISIBLE);
         setSupportActionBar(toolbar);
 
@@ -120,6 +126,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 ////            snackbar.show();
 //        }
 
+        // Create layout with number of type of lesson
+        DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Number_Of_Type_Of_Lesson");
+        number1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+
+                int[] Layout_hint = {
+                        R.id.linear_btn1,
+                        R.id.linear_btn2,
+                        R.id.linear_btn3,
+                        R.id.linear_btn4,
+                        R.id.linear_btn5,
+                        R.id.linear_btn6,
+                };
+
+                for(int i = value; i < numberContent; i++){
+                    LinearLayout temp = findViewById(Layout_hint[i]);
+                    temp.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
         // login firebaseUI
         mAuth = FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser() != null){
@@ -127,24 +159,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else {
             functionLogin();
         }
-
-        // get number of type of lesson
-        DatabaseReference number = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Number_Of_Type_Of_Lesson");
-        number.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-                Log.d("NumberOfTypeOfLesson", value);
-                NumberOfTypeOfLesson = Integer.parseInt(value);
-                Log.d("NumberOfTypeOfLesson", "number: "+ NumberOfTypeOfLesson);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Toast.makeText(this, "numer: "+ NumberOfTypeOfLesson, Toast.LENGTH_SHORT).show();
 
         //Merge content
         buttonBasic = findViewById(R.id.btn_basic);
@@ -154,23 +168,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         buttonTol5 = findViewById(R.id.btn_tol5);
         buttonTol6 = findViewById(R.id.btn_tol6);
 
-        int[] Layout_hint = {
-                R.id.linear_btn1,
-                R.id.linear_btn2,
-                R.id.linear_btn3,
-                R.id.linear_btn4,
-                R.id.linear_btn5,
-                R.id.linear_btn6,
-
-        };
-
-        String[] nameLayout = new String[] { "L", "Apricot", "Banana" };
-
-        //Toast.makeText(this, NumberOfTypeOfLesson +"", Toast.LENGTH_SHORT).show();
-//        for(int i = NumberOfTypeOfLesson){
-//            LinearLayout temp = findViewById(Layout_hint[i]);
-//            temp.setVisibility(View.GONE);
-//        }
 
 
         buttonBasic.setOnClickListener(new View.OnClickListener() {
