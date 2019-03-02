@@ -1,6 +1,8 @@
 package com.hatn.learnarduino;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -22,6 +24,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Tol2.Lesson1.Lesson1Content;
 import com.twitter.sdk.android.core.models.Card;
 
 import org.w3c.dom.Text;
@@ -153,6 +156,7 @@ public class Function {
         snackbar.show();
 
     }
+
 //    public int CheckRight(CardView cardView1, CardView cardView2, CardView cardView3)
 //    {
 //        int countemp = 0;

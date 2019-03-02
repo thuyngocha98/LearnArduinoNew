@@ -1,5 +1,6 @@
 package com.hatn.learnarduino;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,30 +40,35 @@ public class Sensors extends AppCompatActivity {
 
         mergeIdCardView();
 
-        btnSenser1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Sensors.this,Lesson1Content.class);
-                i.putExtra("LESSONNUMBERINTENT",1);
-                startActivity(i);
-            }
-        });
-        btnSenser2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Sensors.this,Lesson1Content.class);
-                i.putExtra("LESSONNUMBERINTENT",2);
-                startActivity(i);
-            }
-        });
-        btnSenser3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Sensors.this,Lesson1Content.class);
-                i.putExtra("LESSONNUMBERINTENT",3);
-                startActivity(i);
-            }
-        });
+//        btnSenser1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(Sensors.this,Lesson1Content.class);
+//                i.putExtra("LESSONNUMBERINTENT",1);
+//                startActivity(i);
+//            }
+//        });
+        ButtonLesson(btnSenser1,1);
+        ButtonLesson(btnSenser2,2);
+        ButtonLesson(btnSenser3,3);
+        ButtonLesson(btnSenser4,4);
+        ButtonLesson(btnSenser5,5);
+        ButtonLesson(btnSenser6,6);
+        ButtonLesson(btnSenser7,7);
+        ButtonLesson(btnSenser8,8);
+        ButtonLesson(btnSenser9,9);
+        ButtonLesson(btnSenser10,10);
+        ButtonLesson(btnSenser11,11);
+        ButtonLesson(btnSenser12,12);
+        ButtonLesson(btnSenser13,13);
+        ButtonLesson(btnSenser14,14);
+        ButtonLesson(btnSenser15,15);
+        ButtonLesson(btnSenser16,16);
+        ButtonLesson(btnSenser17,17);
+        ButtonLesson(btnSenser18,18);
+        ButtonLesson(btnSenser19,19);
+        ButtonLesson(btnSenser20,20);
+
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
@@ -157,5 +163,16 @@ public class Sensors extends AppCompatActivity {
         btnSenser24 = (CardView) findViewById(R.id.btn_Sensor24);
         btnSenser25 = (CardView) findViewById(R.id.btn_Sensor25);
         btnSenser26 = (CardView) findViewById(R.id.btn_Sensor26);
+    }
+    private void ButtonLesson(CardView button, final int value)
+    {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Sensors.this,Lesson1Content.class);
+                i.putExtra("LESSONNUMBERINTENT",value);
+                startActivity(i);
+            }
+        });
     }
 }

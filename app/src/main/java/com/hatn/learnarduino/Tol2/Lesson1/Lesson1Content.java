@@ -100,6 +100,7 @@ public class Lesson1Content extends AppCompatActivity {
                     Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Image2");
                     Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Name");
                     Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Code");
+                    //SetLessonBaseOnNumber(Tol2_lesson1_Content,Tol2_lesson1_img1,Tol2_lesson1_img2,Tol2_lesson1_Name,Tol2_lesson1_Code,"Lesson1");
                     break;
                 }
                 case 2: {
@@ -108,6 +109,7 @@ public class Lesson1Content extends AppCompatActivity {
                     Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Image2");
                     Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Name");
                     Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Code");
+                    //SetLessonBaseOnNumber(Tol2_lesson1_Content,Tol2_lesson1_img1,Tol2_lesson1_img2,Tol2_lesson1_Name,Tol2_lesson1_Code,"Lesson2");
                     break;
                 }
                 case 3: {
@@ -116,13 +118,145 @@ public class Lesson1Content extends AppCompatActivity {
                     Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Image2");
                     Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Name");
                     Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Code");
+                    //SetLessonBaseOnNumber(Tol2_lesson1_Content,Tol2_lesson1_img1,Tol2_lesson1_img2,Tol2_lesson1_Name,Tol2_lesson1_Code,"Lesson3");
                     break;
                 }
-            }
-            if (Lessonname ==1 ) {
-
-
-
+                case 4: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("Code");
+                    break;
+                }
+                case 5: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Code");
+                    break;
+                }
+                case 6: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("Code");
+                    break;
+                }
+                case 7: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("Code");
+                    break;
+                }
+                case 8: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("Code");
+                    break;
+                }
+                case 9: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Code");
+                    break;
+                }
+                case 10: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Code");
+                    break;
+                }
+                case 11: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("Code");
+                    break;
+                }
+                case 12: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("Code");
+                    break;
+                }
+                case 13: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("Code");
+                    break;
+                }
+                case 14: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("Code");
+                    break;
+                }
+                case 15: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Code");
+                    break;
+                }
+                case 16: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Code");
+                    break;
+                }
+                case 17: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Code");
+                    break;
+                }
+                case 18: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Code");
+                    break;
+                }
+                case 19: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Code");
+                    break;
+                }
+                case 20: {
+                    Tol2_lesson1_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Description");
+                    Tol2_lesson1_img1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image1");
+                    Tol2_lesson1_img2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Image2");
+                    Tol2_lesson1_Name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Name");
+                    Tol2_lesson1_Code = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("Code");
+                    break;
+                }
             }
 
 
@@ -167,17 +301,18 @@ public class Lesson1Content extends AppCompatActivity {
 //        });
         function.SetDataIntoObject(Tol2_lesson1_Code,codeviewtemp);
 
-        Tol2_lesson1_Name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                activity_name = dataSnapshot.getValue().toString();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        Tol2_lesson1_Name.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                activity_name = dataSnapshot.getValue().toString();
+//                setTitle(activity_name);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
 
 
@@ -383,4 +518,14 @@ public class Lesson1Content extends AppCompatActivity {
         fab2.animate().translationY(0);
 
     }
+    public void SetLessonBaseOnNumber(DatabaseReference dbContent, DatabaseReference dbimg1, DatabaseReference dbimg2, DatabaseReference dbname, DatabaseReference dbcode, String lesson){
+        dbContent = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child(lesson).child("Content").child("Description");
+        dbimg1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child(lesson).child("Content").child("Image1");
+        dbimg2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child(lesson).child("Content").child("Image2");
+        dbname = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child(lesson).child("Name");
+        dbcode = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child(lesson).child("Content").child("Code");
+    }
+//    public void loadTittle(DatabaseReference databaseReference){
+//
+//    }
 }
