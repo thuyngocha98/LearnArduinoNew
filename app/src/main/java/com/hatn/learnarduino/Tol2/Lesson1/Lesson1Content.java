@@ -1,5 +1,6 @@
 package com.hatn.learnarduino.Tol2.Lesson1;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -32,6 +34,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -69,6 +72,7 @@ public class Lesson1Content extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         imageView1=findViewById(R.id.L1C_img1);
         imageView2=findViewById(R.id.L1C_img2);
@@ -237,6 +241,27 @@ public class Lesson1Content extends AppCompatActivity {
 
 
     }
+
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        // Kiểm tra requestCode có trùng với REQUEST_CODE vừa dùng
+//        if(requestCode == 5) {
+//
+//            // resultCode được set bởi DetailActivity
+//            // RESULT_OK chỉ ra rằng kết quả này đã thành công
+//            if(resultCode == Activity.RESULT_OK) {
+//                // Nhận dữ liệu từ Intent trả về
+//                final String result = data.getStringExtra(Lesson1Content.EXTRA_DATA);
+//
+//                // Sử dụng kết quả result bằng cách hiện Toast
+//                Toast.makeText(this, "Result: " + result, Toast.LENGTH_LONG).show();
+//            } else {
+//                // DetailActivity không thành công, không có data trả về.
+//            }
+//        }
+//    }
 
     private void showCustomDialog() {
         //before inflating the custom alert dialog layout, we will get the current activity viewgroup

@@ -125,7 +125,7 @@ public class Function {
 //            }
 //        }, 3000);
         Snackbar snackbar = Snackbar
-                .make(coordinatorLayout, "Congrats! Right answer ", Snackbar.LENGTH_LONG);
+                .make(coordinatorLayout, "Congrats! Right answer ", 500);
         View snackbarView = snackbar.getView();
         TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(Color.parseColor("#ff669900"));
@@ -148,7 +148,7 @@ public class Function {
 
 
         Snackbar snackbar = Snackbar
-                .make(coordinatorLayout, "Wrong answer!! Please try again ", Snackbar.LENGTH_LONG);
+                .make(coordinatorLayout, "Wrong answer!! Please try again ", 500);
         View snackbarView = snackbar.getView();
         TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(Color.parseColor("#ffa000"));
@@ -174,11 +174,11 @@ public class Function {
 //        return countemp;
 //    }
 
-    public boolean isOnline(Context context) {
-        ConnectivityManager cm =
-                (ConnectivityManager) getSystemService(context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        return netInfo != null && netInfo.isConnected();
-    }
+//    public boolean isOnline(Context context) {
+//        ConnectivityManager cm =
+//                (ConnectivityManager) getSystemService(context.CONNECTIVITY_SERVICE);
+//        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+//        return netInfo != null && netInfo.isConnected();
+//    }
 
 }

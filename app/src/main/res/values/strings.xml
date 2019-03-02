@@ -400,4 +400,6 @@
     <string name="block_diagram">Block Diagram</string>
     <string name="description">Description</string>
     <string name="title_activity_lesson1_quiz">Lesson1Quiz</string>
+    <string name="title_activity_lesson2_content">Lesson2Content</string>
+    <string name="title_activity_lesson2_quiz">Lesson2Quiz</string>
 </resources>

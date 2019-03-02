@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -31,9 +32,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -90,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     int numberContent = 6;
     int numberOfLesson = 0;
     private DrawerLayout drawerLayout;
-    Button buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
+    ImageButton buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
     ProgressDialog progressDialog;
     private String email;
 
@@ -320,9 +323,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     });
             snackbar.show();
         } else {
+
+            enableViews(drawerLayout, false);
+
             Snackbar snackbar = Snackbar
-                    .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_LONG);
+                    .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", 100000);
+
+            View snackbarView = snackbar.getView();
+            TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextColor(Color.RED);
+            snackbar.setAction("Try again", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (isOnline())
+                    {
+                        enableViews(drawerLayout,true);
+                    }
+                    else {
+                        Snackbar snackbar = Snackbar
+                                .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", 8000);
+
+                        View snackbarView = snackbar.getView();
+                        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+                        textView.setTextColor(Color.RED);
+                        snackbar.show();
+                    }
+                }
+            });
             snackbar.show();
+
+
+
+
         }
 
 
@@ -410,6 +442,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             snackbar.show();
         }
 
+    }
+
+    private void enableViews(View v, boolean enabled) {
+        if (v instanceof ViewGroup) {
+            ViewGroup vg = (ViewGroup) v;
+            for (int i = 0;i<vg.getChildCount();i++) {
+                enableViews(vg.getChildAt(i), enabled);
+            }
+        }
+        v.setEnabled(enabled);
     }
 
     // experience user

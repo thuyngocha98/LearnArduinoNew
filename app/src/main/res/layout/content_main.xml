@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-
     android:layout_height="wrap_content">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
@@ -24,15 +24,12 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
+            <ImageButton
                 android:id="@+id/btn_basic"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
                 android:background="@drawable/rounded_button"
-                android:text="1"
-                android:textColor="@android:color/white"
-                android:textSize="40sp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_basic" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,15 +63,12 @@
                 android:orientation="vertical"
                 android:layout_marginStart="10dp">
 
-                <Button
+                <ImageButton
                     android:id="@+id/btn_sensors"
+                    android:background="@drawable/rounded_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_button"
-                    android:text="2"
-                    android:textColor="@android:color/white"
-                    android:textSize="40sp" />
-
+                    app:srcCompat="@drawable/ic_bio_sensor" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,14 +93,12 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
                     android:id="@+id/btn_LED"
+                    android:background="@drawable/rounded_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_button"
-                    android:text="3"
-                    android:textColor="@android:color/white"
-                    android:textSize="40dp" />
+                    app:srcCompat="@drawable/ic_led" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -132,15 +124,12 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
+            <ImageButton
                 android:id="@+id/btn_movement"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
                 android:background="@drawable/rounded_button"
-                android:text="4"
-                android:textColor="@android:color/white"
-                android:textSize="40sp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_movement" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,6 +148,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:visibility="gone"
             android:layout_marginBottom="20dp"
             android:orientation="horizontal">
 
@@ -171,14 +161,12 @@
                 android:orientation="vertical"
                 android:layout_marginStart="10dp">
 
-                <Button
+                <ImageButton
                     android:id="@+id/btn_tol5"
+                    android:background="@drawable/rounded_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_button"
-                    android:text="5"
-                    android:textColor="@android:color/white"
-                    android:textSize="40sp" />
+                    app:srcCompat="@drawable/ic_bio_sensor" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -204,14 +192,12 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
                     android:id="@+id/btn_tol6"
+                    android:background="@drawable/rounded_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_button"
-                    android:text="6"
-                    android:textColor="@android:color/white"
-                    android:textSize="40dp" />
+                    app:srcCompat="@drawable/ic_bio_sensor" />
 
                 <TextView
                     android:layout_width="wrap_content"
