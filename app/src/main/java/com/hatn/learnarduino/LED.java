@@ -1,11 +1,14 @@
 package com.hatn.learnarduino;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -13,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Tol2.Lesson1.Lesson1Content;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,192 +24,119 @@ import java.util.Map;
 public class LED extends AppCompatActivity {
 
     private static final String TAG = "LED_log";
-    TextView tvLED1, tvLED2, tvLED3, tvLED4;
+    private CardView btnLED1,btnLED2,btnLED3,btnLED4,btnLED5,btnLED6,btnLED7,btnLED8,btnLED9, btnLED10,btnLED11,btnLED12,
+            btnLED13,btnLED14,btnLED15,btnLED16,btnLED17,btnLED18,btnLED19,btnLED20,btnLED21,btnLED22,btnLED23,btnLED24,btnLED25,btnLED26;
     ProgressDialog progressDialog;
+    int numberTotalContent = 26;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_led);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        mergeIdCardView();
+
+//        btnSenser1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(LED.this, Lesson1Content.class);
+//                startActivity(i);
+//            }
+//        });
+
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
-        tvLED1=findViewById(R.id.textview_LED1);
-        tvLED2=findViewById(R.id.textview_LED2);
-        tvLED3=findViewById(R.id.textview_LED3);
-        tvLED4=findViewById(R.id.textview_LED4);
-
-        DatabaseReference Tol1_lesson1_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Lesson1").child("Name");
-        DatabaseReference Tol1_lesson2_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Lesson2").child("Name");
-        DatabaseReference Tol1_lesson3_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Lesson3").child("Name");
-        DatabaseReference Tol1_lesson4_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Lesson4").child("Name");
-        //Query Tol1name = getTol1.orderByChild("Name").limitToFirst(1);
-
-        Tol1_lesson1_name.addValueEventListener(new ValueEventListener() {
+        // set visibility with number of lesson
+        DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Number_of_lesson");
+        number1.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+                //set number lesson visibilyty
+                int[] CardView_List = {
+                        R.id.btn_Led1 ,  R.id.btn_Led2 ,  R.id.btn_Led3 ,  R.id.btn_Led4 ,  R.id.btn_Led5 ,
+                        R.id.btn_Led6 ,  R.id.btn_Led7 ,  R.id.btn_Led8 ,  R.id.btn_Led9 ,  R.id.btn_Led10 ,
+                        R.id.btn_Led11 ,  R.id.btn_Led12 ,  R.id.btn_Led13 ,  R.id.btn_Led14 ,  R.id.btn_Led15 ,
+                        R.id.btn_Led16 ,  R.id.btn_Led17 ,  R.id.btn_Led18 ,  R.id.btn_Led19 ,  R.id.btn_Led20 ,
+                        R.id.btn_Led21 ,  R.id.btn_Led22 ,  R.id.btn_Led23 ,  R.id.btn_Led24 ,  R.id.btn_Led25 ,  R.id.btn_Led26 ,
+                };
+                // set total number lesson
+                int[] numberTotalLesson = {
+                        R.id.totalLed1_lessonnumber,R.id.totalLed2_lessonnumber,R.id.totalLed3_lessonnumber,R.id.totalLed4_lessonnumber,R.id.totalLed5_lessonnumber,
+                        R.id.totalLed6_lessonnumber,R.id.totalLed7_lessonnumber,R.id.totalLed8_lessonnumber,R.id.totalLed9_lessonnumber,R.id.totalLed10_lessonnumber,
+                        R.id.totalLed11_lessonnumber,R.id.totalLed12_lessonnumber,R.id.totalLed13_lessonnumber,R.id.totalLed14_lessonnumber,R.id.totalLed15_lessonnumber,
+                        R.id.totalLed16_lessonnumber,R.id.totalLed17_lessonnumber,R.id.totalLed18_lessonnumber,R.id.totalLed19_lessonnumber,R.id.totalLed20_lessonnumber,
+                        R.id.totalLed21_lessonnumber,R.id.totalLed22_lessonnumber,R.id.totalLed23_lessonnumber,R.id.totalLed24_lessonnumber,R.id.totalLed25_lessonnumber,R.id.totalLed26_lessonnumber,
 
-                Log.d(TAG, "Value 1 is: " + value);
+                };
+                // set name of lesson
+                int[] nameLesson = {
+                        R.id.textview_Led1 ,  R.id.textview_Led2 ,  R.id.textview_Led3 ,  R.id.textview_Led4 ,  R.id.textview_Led5 ,
+                        R.id.textview_Led6 ,  R.id.textview_Led7 ,  R.id.textview_Led8 ,  R.id.textview_Led9 ,  R.id.textview_Led10 ,
+                        R.id.textview_Led11 ,  R.id.textview_Led12 ,  R.id.textview_Led13 ,  R.id.textview_Led14 ,  R.id.textview_Led15 ,
+                        R.id.textview_Led16 ,  R.id.textview_Led17 ,  R.id.textview_Led18 ,  R.id.textview_Led19 ,  R.id.textview_Led20 ,
+                        R.id.textview_Led21 ,  R.id.textview_Led22 ,  R.id.textview_Led23 ,  R.id.textview_Led24 ,  R.id.textview_Led25 ,  R.id.textview_Led26 ,
+                };
 
-                tvLED1.setText(value);
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol1_lesson2_name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value 2 is: " + value);
-
-                tvLED2.setText(value);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol1_lesson3_name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value 3 is: " + value);
-
-                tvLED3.setText(value);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol1_lesson4_name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value 4 is: " + value);
-
-                tvLED4.setText(value);
+                //set number lesson visibilyty
+                for(int i = value; i < numberTotalContent; i++){
+                    CardView temp = findViewById(CardView_List[i]);
+                    temp.setVisibility(View.GONE);
+                }
+                // set total number lesson
+                for(int i = 0; i < value; i++){
+                    TextView tvTemp = findViewById(numberTotalLesson[i]);
+                    tvTemp.setText(value+"");
+                }
+                for(int i = 0; i < value; i++){
+                    String lessonTemp = "Lesson"+(i+1);
+                    DatabaseReference dataTemp = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child(lessonTemp).child("Name");
+                    TextView textViewTemp = findViewById(nameLesson[i]);
+                    Function function = new Function();
+                    function.SetDataIntoObject(dataTemp, textViewTemp);
+                }
                 progressDialog.dismiss();
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
-
     }
 
-
-//        DatabaseReference typeoflesson2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2");
-//        DatabaseReference typeoflesson3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3");
-//        DatabaseReference typeoflesson4 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4");
-//
-//
-//        DatabaseReference tol2lesson1content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2");
-//        DatabaseReference tol2lesson2content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3");
-//        DatabaseReference tol2lesson3content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4");
-//        DatabaseReference tol2lesson4content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5");
-//        DatabaseReference tol2lesson5content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1");
-//        DatabaseReference tol3lesson1content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1");
-//        DatabaseReference tol3lesson2content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson2");
-//        DatabaseReference tol3lesson3content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson3");
-//        DatabaseReference tol3lesson4content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson4");
-//        DatabaseReference tol3lesson5content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson5");
-//        DatabaseReference tol4lesson1content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Lesson1");
-//        DatabaseReference tol4lesson2content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Lesson2");
-//        DatabaseReference tol4lesson3content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Lesson3");
-//        DatabaseReference tol4lesson4content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Lesson4");
-//        DatabaseReference tol4lesson5content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Lesson5");
-//        //FirebaseDatabase led1 = database.getReference("LED1");
-//
-//        //Type of lesson
-//        Map tolMap = new HashMap();
-//        tolMap.put("Name", "Basic");
-//        tolMap.put("Number_of_lesson","5");
-//        typeoflesson2.setValue(tolMap);
-//        typeoflesson3.setValue(tolMap);
-//        typeoflesson4.setValue(tolMap);
-//
-//        //Put things into database here
-//        Map lesson1 = new HashMap();
-//        lesson1.put("Name", "Introduction");
-//        lesson1.put("Content","abc");
-//        tol2lesson1content.setValue(lesson1);
-//        tol2lesson2content.setValue(lesson1);
-//        tol2lesson3content.setValue(lesson1);
-//        tol2lesson4content.setValue(lesson1);
-//        tol2lesson5content.setValue(lesson1);
-//        tol3lesson1content.setValue(lesson1);
-//        tol3lesson2content.setValue(lesson1);
-//        tol3lesson3content.setValue(lesson1);
-//        tol3lesson4content.setValue(lesson1);
-//        tol3lesson5content.setValue(lesson1);
-//        tol4lesson1content.setValue(lesson1);
-//        tol4lesson2content.setValue(lesson1);
-//        tol4lesson3content.setValue(lesson1);
-//        tol4lesson4content.setValue(lesson1);
-//        tol4lesson5content.setValue(lesson1);
-
-
-
-        //myRef.setValue("Hello!");
-
-//        typeoflesson.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//                String value = dataSnapshot.getValue(String.class);
-//
-//                Log.d(TAG, "Value is: " + value);
-//                //tvLED1.setText(value);
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
-//        });
-//
-//        lesson1content.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
+    }
+
+    private void mergeIdCardView(){
+        btnLED1 = (CardView) findViewById(R.id.btn_Led1);
+        btnLED2 = (CardView) findViewById(R.id.btn_Led2);
+        btnLED3 = (CardView) findViewById(R.id.btn_Led3);
+        btnLED4 = (CardView) findViewById(R.id.btn_Led4);
+        btnLED5 = (CardView) findViewById(R.id.btn_Led5);
+        btnLED6 = (CardView) findViewById(R.id.btn_Led6);
+        btnLED7 = (CardView) findViewById(R.id.btn_Led7);
+        btnLED8 = (CardView) findViewById(R.id.btn_Led8);
+        btnLED9 = (CardView) findViewById(R.id.btn_Led9);
+        btnLED10 = (CardView) findViewById(R.id.btn_Led10);
+        btnLED11 = (CardView) findViewById(R.id.btn_Led11);
+        btnLED12 = (CardView) findViewById(R.id.btn_Led12);
+        btnLED13 = (CardView) findViewById(R.id.btn_Led13);
+        btnLED14 = (CardView) findViewById(R.id.btn_Led14);
+        btnLED15 = (CardView) findViewById(R.id.btn_Led15);
+        btnLED16 = (CardView) findViewById(R.id.btn_Led16);
+        btnLED17 = (CardView) findViewById(R.id.btn_Led17);
+        btnLED18 = (CardView) findViewById(R.id.btn_Led18);
+        btnLED19 = (CardView) findViewById(R.id.btn_Led19);
+        btnLED20 = (CardView) findViewById(R.id.btn_Led20);
+        btnLED21 = (CardView) findViewById(R.id.btn_Led21);
+        btnLED21 = (CardView) findViewById(R.id.btn_Led22);
+        btnLED23 = (CardView) findViewById(R.id.btn_Led23);
+        btnLED24 = (CardView) findViewById(R.id.btn_Led24);
+        btnLED25 = (CardView) findViewById(R.id.btn_Led25);
+        btnLED26 = (CardView) findViewById(R.id.btn_Led26);
     }
 }

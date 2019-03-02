@@ -24,7 +24,6 @@ import com.hatn.learnarduino.Tol2.Lesson1.Lesson1Content;
 public class Sensors extends AppCompatActivity {
 
     private static final String TAG = "Sensor_log";
-    private TextView Sensor1, Sensor2, Sensor3, Sensor4;
     private CardView btnSenser1,btnSenser2,btnSenser3,btnSenser4,btnSenser5,btnSenser6,btnSenser7,btnSenser8,btnSenser9, btnSenser10,btnSenser11,btnSenser12,
             btnSenser13,btnSenser14,btnSenser15,btnSenser16,btnSenser17,btnSenser18,btnSenser19,btnSenser20,btnSenser21,btnSenser22,btnSenser23,btnSenser24,btnSenser25,btnSenser26;
     ProgressDialog progressDialog;
@@ -37,11 +36,6 @@ public class Sensors extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mergeIdCardView();
-
-        Sensor1=findViewById(R.id.textview_Sensor1);
-        Sensor2=findViewById(R.id.textview_Sensor2);
-        Sensor3=findViewById(R.id.textview_Sensor3);
-        Sensor4=findViewById(R.id.textview_Sensor4);
 
         btnSenser1.setOnClickListener(new View.OnClickListener() {
             @Override
