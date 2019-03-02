@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
@@ -52,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
-                        android:text="@string/movement"
+                        android:text="Movement 1"
                         android:layout_marginStart="10dp" />
 
                     <TextView
@@ -81,6 +82,7 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalMovement1_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -89,7 +91,7 @@
                         android:paddingStart="14sp"
                         android:paddingLeft="14sp"
                         android:paddingRight="2sp"
-                        android:text="@string/totalmovement_lessonnumber"
+                        android:text="@string/totalMovement_lessonnumber"
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
@@ -153,7 +155,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
-                        android:text="@string/basic_2" />
+                        android:text="Movement 2" />
 
                     <TextView
                         android:id="@+id/movement2_lessonnumber"
@@ -181,6 +183,7 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalMovement2_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -189,7 +192,7 @@
                         android:paddingStart="14sp"
                         android:paddingLeft="14sp"
                         android:paddingRight="2sp"
-                        android:text="@string/totalLED_lessonnumber"
+                        android:text="@string/totalMovement_lessonnumber"
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
@@ -264,7 +267,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
-                        android:text="@string/basic_3"
+                        android:text="Movement 3"
                         android:layout_marginStart="10dp" />
 
                     <TextView
@@ -293,6 +296,7 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalMovement3_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -301,7 +305,7 @@
                         android:paddingStart="14sp"
                         android:paddingLeft="14sp"
                         android:paddingRight="2sp"
-                        android:text="@string/totalmovement_lessonnumber"
+                        android:text="@string/totalMovement_lessonnumber"
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
@@ -365,7 +369,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
-                        android:text="@string/basic_4" />
+                        android:text="Movement 4" />
 
                     <TextView
                         android:id="@+id/LED4_lessonnumber"
@@ -393,6 +397,7 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalMovement4_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="130sp"
@@ -401,7 +406,7 @@
                         android:paddingStart="14sp"
                         android:paddingLeft="14sp"
                         android:paddingRight="2sp"
-                        android:text="@string/totalmovement_lessonnumber"
+                        android:text="@string/totalMovement_lessonnumber"
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
@@ -444,10 +449,438 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_movement5"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_movement5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Movement 5"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/movement5_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalMovement5_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalMovement_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/movement5_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_movement6"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_movement6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Movement 6" />
+
+                    <TextView
+                        android:id="@+id/movement6_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson6" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalMovement6_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalMovement_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/movement6_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_movement7"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_movement7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Movement 7"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/movement7_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalMovement7_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalMovement_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/movement7_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_movement8"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_movement8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Movement 8" />
+
+                    <TextView
+                        android:id="@+id/movement8_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalMovement8_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalMovement_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/movement8_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
+
 
 </android.support.design.widget.CoordinatorLayout>

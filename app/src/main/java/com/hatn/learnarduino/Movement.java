@@ -4,8 +4,10 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,8 +19,9 @@ import com.google.firebase.database.ValueEventListener;
 public class Movement extends AppCompatActivity {
 
     private static final String TAG = "Movement_log";
-    TextView movement1, movement2, movement3, movement4;
+    private CardView btnMovement1,btnMovement2,btnMovement3,btnMovement4,btnMovement5,btnMovement6,btnMovement7,btnMovement8;
     ProgressDialog progressDialog;
+    int numberTotalContent = 8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,87 +29,62 @@ public class Movement extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        mergeIdCardView();
+
+//        btnSenser1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(LED.this, Lesson1Content.class);
+//                startActivity(i);
+//            }
+//        });
+
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
-        movement1=findViewById(R.id.textview_movement1);
-        movement2=findViewById(R.id.textview_movement2);
-        movement3=findViewById(R.id.textview_movement3);
-        movement4=findViewById(R.id.textview_movement4);
-
-
-
-        DatabaseReference Tol4_lesson1_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Name");
-        DatabaseReference Tol4_lesson2_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson2").child("Name");
-        DatabaseReference Tol4_lesson3_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson3").child("Name");
-        DatabaseReference Tol4_lesson4_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson4").child("Name");
-
-        Tol4_lesson1_name.addValueEventListener(new ValueEventListener() {
+        // set visibility with number of lesson
+        DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Number_of_lesson");
+        number1.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+                //set number lesson visibilyty
+                int[] CardView_List = {
+                        R.id.btn_movement1 ,  R.id.btn_movement2 ,  R.id.btn_movement3 ,  R.id.btn_movement4 ,  R.id.btn_movement5 ,
+                        R.id.btn_movement6 ,  R.id.btn_movement7 ,  R.id.btn_movement8 ,
+                };
+                // set total number lesson
+                int[] numberTotalLesson = {
+                        R.id.totalMovement1_lessonnumber,R.id.totalMovement2_lessonnumber,R.id.totalMovement3_lessonnumber,R.id.totalMovement4_lessonnumber,R.id.totalMovement5_lessonnumber,
+                        R.id.totalMovement6_lessonnumber,R.id.totalMovement7_lessonnumber,R.id.totalMovement8_lessonnumber,
+                };
+                // set name of lesson
+                int[] nameLesson = {
+                        R.id.textview_movement1 ,  R.id.textview_movement2 ,  R.id.textview_movement3 ,  R.id.textview_movement4 ,  R.id.textview_movement5 ,
+                        R.id.textview_movement6 ,  R.id.textview_movement7 ,  R.id.textview_movement8 ,
+                };
 
-                Log.d(TAG, "Value 1 is: " + value);
 
-                movement1.setText(value);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol4_lesson2_name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value 2 is: " + value);
-
-                movement2.setText(value);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol4_lesson3_name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value 3 is: " + value);
-
-                movement3.setText(value);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol4_lesson4_name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value 4 is: " + value);
-
-                movement4.setText(value);
+                //set number lesson visibilyty
+                for(int i = value; i < numberTotalContent; i++){
+                    CardView temp = findViewById(CardView_List[i]);
+                    temp.setVisibility(View.GONE);
+                }
+                // set total number lesson
+                for(int i = 0; i < value; i++){
+                    TextView tvTemp = findViewById(numberTotalLesson[i]);
+                    tvTemp.setText(value+"");
+                }
+                for(int i = 0; i < value; i++){
+                    String lessonTemp = "Lesson"+(i+1);
+                    DatabaseReference dataTemp = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child(lessonTemp).child("Name");
+                    TextView textViewTemp = findViewById(nameLesson[i]);
+                    Function function = new Function();
+                    function.SetDataIntoObject(dataTemp, textViewTemp);
+                }
                 progressDialog.dismiss();
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
 
@@ -115,5 +93,16 @@ public class Movement extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
+    }
+
+    private void mergeIdCardView(){
+        btnMovement1 = (CardView) findViewById(R.id.btn_movement1);
+        btnMovement2 = (CardView) findViewById(R.id.btn_movement2);
+        btnMovement3 = (CardView) findViewById(R.id.btn_movement3);
+        btnMovement4 = (CardView) findViewById(R.id.btn_movement4);
+        btnMovement5 = (CardView) findViewById(R.id.btn_movement5);
+        btnMovement6 = (CardView) findViewById(R.id.btn_movement6);
+        btnMovement7 = (CardView) findViewById(R.id.btn_movement7);
+        btnMovement8 = (CardView) findViewById(R.id.btn_movement8);
     }
 }
