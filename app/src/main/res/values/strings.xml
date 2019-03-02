@@ -286,7 +286,7 @@
     <string name="led1">Blink an LED</string>
     <string name="slash">/</string>
     <string name="totalLED_lessonnumber">6</string>
-    <string name="totalBasic_lessonnumber">6</string>
+    <string name="totalBasic_lessonnumber">8</string>
     <string name="totalSensor_lessonnumber">20</string>
     <string name="totalMovement_lessonnumber">6</string>
     <string name="default_question_number">3</string>
