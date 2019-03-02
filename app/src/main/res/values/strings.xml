@@ -285,14 +285,39 @@
     <string name="cherala_apps_nemail_apps_cherala_gmail_com">Cherala Apps \n EMAIL : apps.cherala@gmail.com</string>
     <string name="led1">Blink an LED</string>
     <string name="slash">/</string>
-    <string name="totalLED_lessonnumber">5</string>
-    <string name="totalBasic_lessonnumber">5</string>
-    <string name="totalSensor_lessonnumber">5</string>
-    <string name="totalMovement_lessonnumber">5</string>
+    <string name="totalLED_lessonnumber">6</string>
+    <string name="totalBasic_lessonnumber">6</string>
+    <string name="totalSensor_lessonnumber">20</string>
+    <string name="totalMovement_lessonnumber">6</string>
     <string name="default_question_number">3</string>
+
     <string name="lesson1">1</string>
     <string name="lesson2">2</string>
     <string name="lesson3">3</string>
+    <string name="lesson4">4</string>
+    <string name="lesson5">5</string>
+    <string name="lesson6">6</string>
+    <string name="lesson7">7</string>
+    <string name="lesson8">8</string>
+    <string name="lesson9">9</string>
+    <string name="lesson10">10</string>
+    <string name="lesson11">11</string>
+    <string name="lesson12">12</string>
+    <string name="lesson13">13</string>
+    <string name="lesson14">14</string>
+    <string name="lesson15">15</string>
+    <string name="lesson16">16</string>
+    <string name="lesson17">17</string>
+    <string name="lesson18">18</string>
+    <string name="lesson19">19</string>
+    <string name="lesson20">20</string>
+    <string name="lesson21">21</string>
+    <string name="lesson22">22</string>
+    <string name="lesson23">23</string>
+    <string name="lesson24">24</string>
+    <string name="lesson25">25</string>
+    <string name="lesson26">26</string>
+
     <string name="_4">4</string>
     <string name="about_us">About Us</string>
     <string name="more_apps">More Apps</string>
@@ -302,7 +327,7 @@
     <string name="invite_friends">Invite Friends</string>
     <string name="AppDescription">The App is for Educational Purpose and consisting of basic led projects, sensors and movement using arduino</string>
     <string name="developed_and_designed_by_n_cherala_vivek">DEVELOPED AND DESIGNED BY:  Cherala Vivek</string>
-    <string name="totalmovement_lessonnumber">5</string>
+    <string name="totalmovement_lessonnumber">6</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

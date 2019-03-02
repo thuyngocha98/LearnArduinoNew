@@ -90,8 +90,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
     int Experience = 0;
-    int numberContent = 6;
-    int numberOfLesson = 0;
+    int numberTotalContent = 6;
     private DrawerLayout drawerLayout;
     ImageButton buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
     ProgressDialog progressDialog;
@@ -145,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         R.id.linear_btn6,
                 };
 
-                for(int i = value; i < numberContent; i++){
+                for(int i = value; i < numberTotalContent; i++){
                     LinearLayout temp = findViewById(Layout_hint[i]);
                     temp.setVisibility(View.GONE);
                 }

@@ -20,6 +20,7 @@
             tools:context=".LED">
 
             <LinearLayout
+                android:id="@+id/led_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
@@ -31,7 +32,7 @@
                 android:shadowRadius="50">
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_LED1"
+                    android:id="@+id/btn_Led1"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -47,19 +48,19 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
-                        android:id="@+id/textview_LED1"
+                        android:id="@+id/textview_Led1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
-                        android:text="@string/led1"
+                        android:text="@string/basic"
                         android:layout_marginStart="10dp" />
 
                     <TextView
-                        android:id="@+id/LED1_lessonnumber"
+                        android:id="@+id/Led1_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="120sp"
                         android:layout_marginLeft="125sp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5sp"
@@ -69,7 +70,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="122sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
@@ -81,9 +82,10 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalLed1_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="125sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:paddingStart="14sp"
@@ -108,7 +110,7 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/LED1_questionnumber"
+                            android:id="@+id/Led1_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -131,7 +133,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic2"
+                    android:id="@+id/btn_Led2"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -147,7 +149,7 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
-                        android:id="@+id/textview_LED2"
+                        android:id="@+id/textview_Led2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -156,10 +158,10 @@
                         android:text="@string/basic_2" />
 
                     <TextView
-                        android:id="@+id/LED2_lessonnumber"
+                        android:id="@+id/Led2_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="120sp"
                         android:layout_marginLeft="125sp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5sp"
@@ -169,7 +171,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="122sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
@@ -181,9 +183,10 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalLed2_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="125sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:paddingStart="14sp"
@@ -208,7 +211,7 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/LED2_questionnumber"
+                            android:id="@+id/Led2_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -232,6 +235,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/led_layout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
@@ -243,7 +247,7 @@
                 android:shadowRadius="50">
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic3"
+                    android:id="@+id/btn_Led3"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -259,7 +263,7 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
-                        android:id="@+id/textview_LED3"
+                        android:id="@+id/textview_Led3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -268,10 +272,10 @@
                         android:layout_marginStart="10dp" />
 
                     <TextView
-                        android:id="@+id/LED3_lessonnumber"
+                        android:id="@+id/Led3_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="120sp"
                         android:layout_marginLeft="125sp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5sp"
@@ -281,7 +285,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="122sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
@@ -293,9 +297,10 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalLed3_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="125sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:paddingStart="14sp"
@@ -320,7 +325,7 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/LED3_questionnumber"
+                            android:id="@+id/Led3_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -343,7 +348,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btn_Basic4"
+                    android:id="@+id/btn_Led4"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp"
@@ -359,7 +364,7 @@
                     app:cardPreventCornerOverlap="false">
 
                     <TextView
-                        android:id="@+id/textview_LED4"
+                        android:id="@+id/textview_Led4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -371,17 +376,17 @@
                         android:id="@+id/LED4_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="120sp"
                         android:layout_marginLeft="125sp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5sp"
                         android:layout_marginRight="5sp"
-                        android:text="@string/_4" />
+                        android:text="@string/lesson4" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="122sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
@@ -393,9 +398,10 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalLed4_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="125sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:paddingStart="14sp"
@@ -420,7 +426,221 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/LED4_questionnumber"
+                            android:id="@+id/Led4_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led5"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led5_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed5_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led5_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led6"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led6_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson6" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed6_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led6_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -441,9 +661,2148 @@
                     </android.support.v7.widget.CardView>
                 </android.support.v7.widget.CardView>
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led7"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led7_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed7_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led7_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led8"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led8_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed8_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led8_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/led_layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led9"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led9_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson9" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed9_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led9_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led10"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led10_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed10_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led10_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led11"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led11_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson11" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed11_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led11_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led12"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led12_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson12" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed12_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led12_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led13"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led13_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson13" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed13_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led13_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led14"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led14_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed14_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led14_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led15"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led15_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed15_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led15_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led16"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led16_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson16" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed16_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led16_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led17"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led17_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson17" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed17_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led17_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led18"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led18_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed18_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led18_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led19"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led19_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson19" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed19_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led19_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led20"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led20_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson20" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed20_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led20_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led21"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led21_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson21" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed21_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led21_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led22"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led22_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson22" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed22_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led22_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led23"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led23_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson23" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed23_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led23_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led24"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led24_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed24_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led24_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/led_layout13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led25"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Led25_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson25" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed25_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led25_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Led26"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Led26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Led26_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson26" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalLed26_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalLED_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Led26_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
