@@ -20,6 +20,7 @@
             tools:context=".Sensors">
 
             <LinearLayout
+                android:id="@+id/senser_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
@@ -59,7 +60,7 @@
                         android:id="@+id/Sensor1_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="120sp"
                         android:layout_marginLeft="125sp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5sp"
@@ -69,7 +70,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="122sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
@@ -81,9 +82,10 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalSensor1_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="125sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:paddingStart="14sp"
@@ -159,7 +161,7 @@
                         android:id="@+id/Sensor2_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="120sp"
                         android:layout_marginLeft="125sp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5sp"
@@ -169,7 +171,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="122sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
@@ -181,15 +183,16 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalSensor2_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="125sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:paddingStart="14sp"
                         android:paddingLeft="14sp"
                         android:paddingRight="2sp"
-                        android:text="@string/totalLED_lessonnumber"
+                        android:text="@string/totalSensor_lessonnumber"
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
@@ -208,7 +211,7 @@
                         app:cardPreventCornerOverlap="false">
 
                         <TextView
-                            android:id="@+id/LED2_questionnumber"
+                            android:id="@+id/Sensor2_questionnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -232,6 +235,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/senser_layout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
@@ -271,7 +275,7 @@
                         android:id="@+id/Sensor3_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="120sp"
                         android:layout_marginLeft="125sp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5sp"
@@ -281,7 +285,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="122sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
@@ -293,9 +297,10 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalSensor3_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="125sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:paddingStart="14sp"
@@ -371,17 +376,17 @@
                         android:id="@+id/LED4_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="120sp"
                         android:layout_marginLeft="125sp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5sp"
                         android:layout_marginRight="5sp"
-                        android:text="@string/_4" />
+                        android:text="@string/lesson4" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="122sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginEnd="5sp"
@@ -393,9 +398,10 @@
                         android:paddingEnd="2sp" />
 
                     <TextView
+                        android:id="@+id/totalSensor4_lessonnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="130sp"
+                        android:layout_marginStart="125sp"
                         android:layout_marginLeft="130sp"
                         android:layout_marginTop="5sp"
                         android:paddingStart="14sp"
@@ -440,12 +446,2363 @@
 
                     </android.support.v7.widget.CardView>
                 </android.support.v7.widget.CardView>
+            </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/senser_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor5"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor5_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor5_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor5_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor6"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor6_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson6" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor6_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor6_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/senser_layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
 
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor7"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
 
+                    <TextView
+                        android:id="@+id/textview_Sensor7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor7_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor7_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor7_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor8"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor8_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor8_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor8_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/senser_layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor9"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor9_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson9" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="122sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor9_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor9_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor10"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor10_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor10_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor10_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/senser_layout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor11"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor11_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson11" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor11_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor11_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor12"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor12_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson12" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor12_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor12_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/senser_layout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor13"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor13_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson13" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor13_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor13_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor14"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor14_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor14_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor14_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/senser_layout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor15"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor15_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor15_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor15_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor16"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor16_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson16" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor16_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor16_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/senser_layout9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor17"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor17_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson17" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor17_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor17_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor18"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor18_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor18_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor18_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/senser_layout10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor19"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor19_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson19" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor19_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor19_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor20"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor20_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson20" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor20_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor20_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/senser_layout11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor21"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor21_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson21" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor21_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor21_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor22"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor22_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson22" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor22_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor22_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/senser_layout12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor23"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor23_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson23" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor23_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor23_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor24"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor24_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor24_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor24_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/senser_layout13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor25"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/Sensor25_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="125sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson25" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor25_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor25_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_Sensor26"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="5dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <TextView
+                        android:id="@+id/textview_Sensor26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/basic_2" />
+
+                    <TextView
+                        android:id="@+id/Sensor26_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="115sp"
+                        android:layout_marginLeft="120sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:text="@string/lesson26" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginRight="5sp"
+                        android:paddingStart="8sp"
+                        android:paddingLeft="8sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/slash"
+                        android:paddingEnd="2sp" />
+
+                    <TextView
+                        android:id="@+id/totalSensor26_lessonnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="125sp"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginTop="5sp"
+                        android:paddingStart="14sp"
+                        android:paddingLeft="14sp"
+                        android:paddingRight="2sp"
+                        android:text="@string/totalSensor_lessonnumber"
+                        android:paddingEnd="2sp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:clickable="true"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="5dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <TextView
+                            android:id="@+id/Sensor26_questionnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/default_question_number"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/questions"
+                            android:textColor="@android:color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

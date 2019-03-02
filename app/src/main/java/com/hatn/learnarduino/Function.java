@@ -174,11 +174,11 @@ public class Function {
 //        return countemp;
 //    }
 
-    public boolean isOnline(Context context) {
-        ConnectivityManager cm =
-                (ConnectivityManager) getSystemService(context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        return netInfo != null && netInfo.isConnected();
-    }
+//    public boolean isOnline(Context context) {
+//        ConnectivityManager cm =
+//                (ConnectivityManager) getSystemService(context.CONNECTIVITY_SERVICE);
+//        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+//        return netInfo != null && netInfo.isConnected();
+//    }
 
 }

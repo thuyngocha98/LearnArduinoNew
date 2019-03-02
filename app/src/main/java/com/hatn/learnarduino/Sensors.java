@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,8 +25,10 @@ public class Sensors extends AppCompatActivity {
 
     private static final String TAG = "Sensor_log";
     private TextView Sensor1, Sensor2, Sensor3, Sensor4;
-    private CardView Button1;
+    private CardView btnSenser1,btnSenser2,btnSenser3,btnSenser4,btnSenser5,btnSenser6,btnSenser7,btnSenser8,btnSenser9, btnSenser10,btnSenser11,btnSenser12,
+            btnSenser13,btnSenser14,btnSenser15,btnSenser16,btnSenser17,btnSenser18,btnSenser19,btnSenser20,btnSenser21,btnSenser22,btnSenser23,btnSenser24,btnSenser25,btnSenser26;
     ProgressDialog progressDialog;
+    int numberTotalContent = 26;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +36,14 @@ public class Sensors extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        mergeIdCardView();
+
         Sensor1=findViewById(R.id.textview_Sensor1);
         Sensor2=findViewById(R.id.textview_Sensor2);
         Sensor3=findViewById(R.id.textview_Sensor3);
         Sensor4=findViewById(R.id.textview_Sensor4);
 
-        Button1=(CardView)findViewById(R.id.btn_Sensor1);
-        Button1.setOnClickListener(new View.OnClickListener() {
+        btnSenser1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Sensors.this,Lesson1Content.class);
@@ -48,79 +53,60 @@ public class Sensors extends AppCompatActivity {
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
-        DatabaseReference Tol1_lesson1_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Name");
-        DatabaseReference Tol1_lesson2_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Name");
-        DatabaseReference Tol1_lesson3_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Name");
-        DatabaseReference Tol1_lesson4_name = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Name");
-        //Query Tol1name = getTol1.orderByChild("Name").limitToFirst(1);
-
-        Tol1_lesson1_name.addValueEventListener(new ValueEventListener() {
+        // set visibility with number of lesson
+        DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Number_of_lesson");
+        number1.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+                //set number lesson visibilyty
+                int[] CardView_List = {
+                        R.id.btn_Sensor1 ,  R.id.btn_Sensor2 ,  R.id.btn_Sensor3 ,  R.id.btn_Sensor4 ,  R.id.btn_Sensor5 ,
+                        R.id.btn_Sensor6 ,  R.id.btn_Sensor7 ,  R.id.btn_Sensor8 ,  R.id.btn_Sensor9 ,  R.id.btn_Sensor10 ,
+                        R.id.btn_Sensor11 ,  R.id.btn_Sensor12 ,  R.id.btn_Sensor13 ,  R.id.btn_Sensor14 ,  R.id.btn_Sensor15 ,
+                        R.id.btn_Sensor16 ,  R.id.btn_Sensor17 ,  R.id.btn_Sensor18 ,  R.id.btn_Sensor19 ,  R.id.btn_Sensor20 ,
+                        R.id.btn_Sensor21 ,  R.id.btn_Sensor22 ,  R.id.btn_Sensor23 ,  R.id.btn_Sensor24 ,  R.id.btn_Sensor25 ,  R.id.btn_Sensor26 ,
+                };
+                // set total number lesson
+                int[] numberTotalLesson = {
+                        R.id.totalSensor1_lessonnumber,R.id.totalSensor2_lessonnumber,R.id.totalSensor3_lessonnumber,R.id.totalSensor4_lessonnumber,R.id.totalSensor5_lessonnumber,
+                        R.id.totalSensor6_lessonnumber,R.id.totalSensor7_lessonnumber,R.id.totalSensor8_lessonnumber,R.id.totalSensor9_lessonnumber,R.id.totalSensor10_lessonnumber,
+                        R.id.totalSensor11_lessonnumber,R.id.totalSensor12_lessonnumber,R.id.totalSensor13_lessonnumber,R.id.totalSensor14_lessonnumber,R.id.totalSensor15_lessonnumber,
+                        R.id.totalSensor16_lessonnumber,R.id.totalSensor17_lessonnumber,R.id.totalSensor18_lessonnumber,R.id.totalSensor19_lessonnumber,R.id.totalSensor20_lessonnumber,
+                        R.id.totalSensor21_lessonnumber,R.id.totalSensor22_lessonnumber,R.id.totalSensor23_lessonnumber,R.id.totalSensor24_lessonnumber,R.id.totalSensor25_lessonnumber,R.id.totalSensor26_lessonnumber,
 
-                Log.d(TAG, "Value 1 is: " + value);
+                };
+                // set name of lesson
+                int[] nameLesson = {
+                        R.id.textview_Sensor1 ,  R.id.textview_Sensor2 ,  R.id.textview_Sensor3 ,  R.id.textview_Sensor4 ,  R.id.textview_Sensor5 ,
+                        R.id.textview_Sensor6 ,  R.id.textview_Sensor7 ,  R.id.textview_Sensor8 ,  R.id.textview_Sensor9 ,  R.id.textview_Sensor10 ,
+                        R.id.textview_Sensor11 ,  R.id.textview_Sensor12 ,  R.id.textview_Sensor13 ,  R.id.textview_Sensor14 ,  R.id.textview_Sensor15 ,
+                        R.id.textview_Sensor16 ,  R.id.textview_Sensor17 ,  R.id.textview_Sensor18 ,  R.id.textview_Sensor19 ,  R.id.textview_Sensor20 ,
+                        R.id.textview_Sensor21 ,  R.id.textview_Sensor22 ,  R.id.textview_Sensor23 ,  R.id.textview_Sensor24 ,  R.id.textview_Sensor25 ,  R.id.textview_Sensor26 ,
+                };
 
-                Sensor1.setText(value);
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol1_lesson2_name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value 2 is: " + value);
-
-                Sensor2.setText(value);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol1_lesson3_name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value 3 is: " + value);
-
-                Sensor3.setText(value);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Tol1_lesson4_name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                String value = dataSnapshot.getValue().toString();
-
-                Log.d(TAG, "Value 4 is: " + value);
-
-                Sensor4.setText(value);
+                //set number lesson visibilyty
+                for(int i = value; i < numberTotalContent; i++){
+                    CardView temp = findViewById(CardView_List[i]);
+                    temp.setVisibility(View.GONE);
+                }
+                // set total number lesson
+                for(int i = 0; i < value; i++){
+                    TextView tvTemp = findViewById(numberTotalLesson[i]);
+                    tvTemp.setText(value+"");
+                }
+                for(int i = 0; i < value; i++){
+                    String lessonTemp = "Lesson"+(i+1);
+                    DatabaseReference dataTemp = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child(lessonTemp).child("Name");
+                    TextView textViewTemp = findViewById(nameLesson[i]);
+                    Function function = new Function();
+                    function.SetDataIntoObject(dataTemp, textViewTemp);
+                }
                 progressDialog.dismiss();
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
 
@@ -129,5 +115,34 @@ public class Sensors extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
+    }
+
+    private void mergeIdCardView(){
+        btnSenser1 = (CardView) findViewById(R.id.btn_Sensor1);
+        btnSenser2 = (CardView) findViewById(R.id.btn_Sensor2);
+        btnSenser3 = (CardView) findViewById(R.id.btn_Sensor3);
+        btnSenser4 = (CardView) findViewById(R.id.btn_Sensor4);
+        btnSenser5 = (CardView) findViewById(R.id.btn_Sensor5);
+        btnSenser6 = (CardView) findViewById(R.id.btn_Sensor6);
+        btnSenser7 = (CardView) findViewById(R.id.btn_Sensor7);
+        btnSenser8 = (CardView) findViewById(R.id.btn_Sensor8);
+        btnSenser9 = (CardView) findViewById(R.id.btn_Sensor9);
+        btnSenser10 = (CardView) findViewById(R.id.btn_Sensor10);
+        btnSenser11 = (CardView) findViewById(R.id.btn_Sensor11);
+        btnSenser12 = (CardView) findViewById(R.id.btn_Sensor12);
+        btnSenser13 = (CardView) findViewById(R.id.btn_Sensor13);
+        btnSenser14 = (CardView) findViewById(R.id.btn_Sensor14);
+        btnSenser15 = (CardView) findViewById(R.id.btn_Sensor15);
+        btnSenser16 = (CardView) findViewById(R.id.btn_Sensor16);
+        btnSenser17 = (CardView) findViewById(R.id.btn_Sensor17);
+        btnSenser18 = (CardView) findViewById(R.id.btn_Sensor18);
+        btnSenser19 = (CardView) findViewById(R.id.btn_Sensor19);
+        btnSenser20 = (CardView) findViewById(R.id.btn_Sensor20);
+        btnSenser21 = (CardView) findViewById(R.id.btn_Sensor21);
+        btnSenser21 = (CardView) findViewById(R.id.btn_Sensor22);
+        btnSenser23 = (CardView) findViewById(R.id.btn_Sensor23);
+        btnSenser24 = (CardView) findViewById(R.id.btn_Sensor24);
+        btnSenser25 = (CardView) findViewById(R.id.btn_Sensor25);
+        btnSenser26 = (CardView) findViewById(R.id.btn_Sensor26);
     }
 }
