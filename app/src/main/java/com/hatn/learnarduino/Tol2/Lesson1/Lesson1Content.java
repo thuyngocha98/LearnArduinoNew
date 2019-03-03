@@ -61,14 +61,14 @@ public class Lesson1Content extends AppCompatActivity {
     TextView textView, textViewfab1, textViewfab2, codeview, codeviewtemp;
     CardView cardViewfab1, cardViewfab2, cardviewcode;
     ProgressDialog progressDialog;
-
+    public static final String LESSONNUMBERINTENT ="LESSONNUMBERINTENT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson1_content);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -95,6 +95,7 @@ public class Lesson1Content extends AppCompatActivity {
 
         if (intent != null) {
             int Lessonnumber= intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1);
+
             String Lessonname = intent.getStringExtra(Sensors.LESSONNAME);
             switch (Lessonnumber)
             {
@@ -477,6 +478,9 @@ public class Lesson1Content extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Lesson1Content.this, Lesson1Quiz.class);
+                i.putExtra("LESSONNUMBERINTENT",intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1));
+                Log.d(TAG, "Quiz1 onCreate: "+intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1));
+
                 startActivity(i);
             }
         });
@@ -489,26 +493,6 @@ public class Lesson1Content extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        // Kiểm tra requestCode có trùng với REQUEST_CODE vừa dùng
-//        if(requestCode == 5) {
-//
-//            // resultCode được set bởi DetailActivity
-//            // RESULT_OK chỉ ra rằng kết quả này đã thành công
-//            if(resultCode == Activity.RESULT_OK) {
-//                // Nhận dữ liệu từ Intent trả về
-//                final String result = data.getStringExtra(Lesson1Content.EXTRA_DATA);
-//
-//                // Sử dụng kết quả result bằng cách hiện Toast
-//                Toast.makeText(this, "Result: " + result, Toast.LENGTH_LONG).show();
-//            } else {
-//                // DetailActivity không thành công, không có data trả về.
-//            }
-//        }
-//    }
 
     private void showCustomDialog() {
         //before inflating the custom alert dialog layout, we will get the current activity viewgroup
@@ -574,8 +558,6 @@ public class Lesson1Content extends AppCompatActivity {
         cardViewfab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
         fab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
         cardViewfab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
-
-
 
     }
 

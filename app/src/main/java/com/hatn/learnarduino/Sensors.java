@@ -3,6 +3,7 @@ package com.hatn.learnarduino;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,12 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hatn.learnarduino.Tol2.Lesson1.Lesson1Content;
+import com.hatn.learnarduino.Tol2.Lesson1.Lesson1Quiz;
 
 public class Sensors extends AppCompatActivity {
 
@@ -29,9 +32,13 @@ public class Sensors extends AppCompatActivity {
             btnSenser13,btnSenser14,btnSenser15,btnSenser16,btnSenser17,btnSenser18,btnSenser19,btnSenser20,btnSenser21,btnSenser22,btnSenser23,btnSenser24,btnSenser25,btnSenser26;
     ProgressDialog progressDialog;
     int numberTotalContent = 26;
-
+    FirebaseAuth mAuth;
+    Intent intent;
+    boolean hascolor = false;
+    CardView cardview_color1,cardview_color2, cardview_color3, cardview_color4, cardview_color5, cardview_color6, cardview_color7, cardview_color8, cardview_color9, cardview_color10, cardview_color11, cardview_color12, cardview_color13, cardview_color14, cardview_color15, cardview_color16, cardview_color17, cardview_color18, cardview_color19, cardview_color20, cardview_color21, cardview_color22, cardview_color23, cardview_color24, cardview_color25, cardview_color26;
     public static final String LESSONNUMBERINTENT ="LESSONNUMBERINTENT";
     public static final String LESSONNAME = "LESSONNAME";
+    public static final String HASCOLOR = "HASCOLOR";
     TextView textViewTemp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,50 @@ public class Sensors extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
+        mAuth = FirebaseAuth.getInstance();
+        String user_id = mAuth.getCurrentUser().getUid();
+        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+        current_user_id.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Long value = dataSnapshot.getValue(Long.class);
+                int exp=value.intValue();
+
+                int[] Cardview_color = {
+                        R.id.cardview_color1,R.id.cardview_color2,R.id.cardview_color3,R.id.cardview_color4,R.id.cardview_color5,
+                        R.id.cardview_color6,R.id.cardview_color7,R.id.cardview_color8,R.id.cardview_color9,R.id.cardview_color10,
+                        R.id.cardview_color11,R.id.cardview_color12,R.id.cardview_color13,R.id.cardview_color14,R.id.cardview_color15,
+                        R.id.cardview_color16,R.id.cardview_color17,R.id.cardview_color18,R.id.cardview_color19,R.id.cardview_color20,
+                        R.id.cardview_color21,R.id.cardview_color22,R.id.cardview_color23,R.id.cardview_color24,R.id.cardview_color25,
+                        R.id.cardview_color26,
+                };
+
+                for(int i =0; i <26; i++){
+                    CardView temp = findViewById(Cardview_color[i]);
+                    if(exp >=5){
+                        temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
+                        temp.setClickable(false);
+                        exp -=5;
+                    }
+
+                }
+
+//                switch (exp){
+//                    case 5: cardview_color1.setCardBackgroundColor(Color.parseColor("#ff669900"));
+//                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
 //        mergeIdCardView();
 
 //        btnSenser1.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +109,22 @@ public class Sensors extends AppCompatActivity {
 //        ButtonLesson(btnSenser25,25);
 //        ButtonLesson(btnSenser26,26);
 
+
+
+
+
+
+        intent=getIntent();
+
+//        if (intent!=null)
+////        {
+////
+//////            int colored_card_number = intent.getIntExtra(Lesson1Quiz.Coloredcard,99);
+//////            if (colored_card_number==5)
+//////            {
+//////                cardview_color1.setCardBackgroundColor(Color.parseColor("#ff669900"));
+//////            }
+////        }
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
@@ -84,6 +151,14 @@ public class Sensors extends AppCompatActivity {
                         R.id.totalSensor21_lessonnumber,R.id.totalSensor22_lessonnumber,R.id.totalSensor23_lessonnumber,R.id.totalSensor24_lessonnumber,R.id.totalSensor25_lessonnumber,R.id.totalSensor26_lessonnumber,
 
                 };
+                int[] Cardview_color = {
+                        R.id.cardview_color1,R.id.cardview_color2,R.id.cardview_color3,R.id.cardview_color4,R.id.cardview_color5,
+                        R.id.cardview_color6,R.id.cardview_color7,R.id.cardview_color8,R.id.cardview_color9,R.id.cardview_color10,
+                        R.id.cardview_color11,R.id.cardview_color12,R.id.cardview_color13,R.id.cardview_color14,R.id.cardview_color15,
+                        R.id.cardview_color16,R.id.cardview_color17,R.id.cardview_color18,R.id.cardview_color19,R.id.cardview_color20,
+                        R.id.cardview_color21,R.id.cardview_color22,R.id.cardview_color23,R.id.cardview_color24,R.id.cardview_color25,
+                        R.id.cardview_color26,
+                };
                 // set name of lesson
                 int[] nameLesson = {
                         R.id.textview_Sensor1 ,  R.id.textview_Sensor2 ,  R.id.textview_Sensor3 ,  R.id.textview_Sensor4 ,  R.id.textview_Sensor5 ,
@@ -94,7 +169,7 @@ public class Sensors extends AppCompatActivity {
                 };
 
 
-                //set number lesson visibilyty
+                //set number lesson invisibilyty
                 for(int i = value; i < numberTotalContent; i++){
                     CardView temp = findViewById(CardView_List[i]);
                     temp.setVisibility(View.GONE);
@@ -123,7 +198,14 @@ public class Sensors extends AppCompatActivity {
                 for(int i=0;i<value;i++)
                 {
                     CardView temp = findViewById(CardView_List[i]);
-                    ButtonLesson(temp,i+1,textViewTemp.getText().toString());
+                    CardView tempColor = findViewById(Cardview_color[i]);
+                    if(!tempColor.isClickable())
+                    {
+                        hascolor=true;
+                    }
+                    else hascolor=false;
+
+                    ButtonLesson(temp,i+1,textViewTemp.getText().toString(),hascolor);
                     //Log.d(TAG, "onDataChange: "+textViewTemp.getText().toString());
                 }
 
@@ -142,16 +224,49 @@ public class Sensors extends AppCompatActivity {
     }
 
 //    }
-    private void ButtonLesson(CardView button, final int value, final String name)
+
+    private void ButtonLesson(CardView button, final int value, final String name, final boolean hascolor)
     {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Sensors.this,Lesson1Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
+                i.putExtra("HASCOLOR", hascolor);
                 i.putExtra("LESSONNAME", name);
+
+
                 startActivity(i);
             }
         });
+    }
+    private void FindColorviewID()
+    {
+        cardview_color1=findViewById(R.id.cardview_color1);
+        cardview_color2=findViewById(R.id.cardview_color2);
+        cardview_color3=findViewById(R.id.cardview_color3);
+        cardview_color4=findViewById(R.id.cardview_color4);
+        cardview_color5=findViewById(R.id.cardview_color5);
+        cardview_color6=findViewById(R.id.cardview_color6);
+        cardview_color7=findViewById(R.id.cardview_color7);
+        cardview_color8=findViewById(R.id.cardview_color8);
+        cardview_color9=findViewById(R.id.cardview_color9);
+        cardview_color10=findViewById(R.id.cardview_color10);
+        cardview_color11=findViewById(R.id.cardview_color11);
+        cardview_color12=findViewById(R.id.cardview_color12);
+        cardview_color13=findViewById(R.id.cardview_color13);
+        cardview_color14=findViewById(R.id.cardview_color14);
+        cardview_color15=findViewById(R.id.cardview_color15);
+        cardview_color16=findViewById(R.id.cardview_color16);
+        cardview_color17=findViewById(R.id.cardview_color17);
+        cardview_color18=findViewById(R.id.cardview_color18);
+        cardview_color19=findViewById(R.id.cardview_color19);
+        cardview_color20=findViewById(R.id.cardview_color20);
+        cardview_color21=findViewById(R.id.cardview_color21);
+        cardview_color22=findViewById(R.id.cardview_color22);
+        cardview_color23=findViewById(R.id.cardview_color23);
+        cardview_color24=findViewById(R.id.cardview_color24);
+        cardview_color25=findViewById(R.id.cardview_color25);
+        cardview_color26=findViewById(R.id.cardview_color26);
     }
 }

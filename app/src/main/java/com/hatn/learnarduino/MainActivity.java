@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public FirebaseAuth mAuth;
     int Experience = 0;
     int numberTotalContent = 6;
+    public int experience;
     private DrawerLayout drawerLayout;
     ImageButton buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
     ProgressDialog progressDialog;
@@ -103,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         drawerLayout=findViewById(R.id.drawer_layout);
+
+
 
 
         //navigation drawer bar
