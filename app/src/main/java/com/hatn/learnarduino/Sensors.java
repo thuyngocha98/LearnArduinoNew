@@ -31,6 +31,8 @@ public class Sensors extends AppCompatActivity {
     int numberTotalContent = 26;
 
     public static final String LESSONNUMBERINTENT ="LESSONNUMBERINTENT";
+    public static final String LESSONNAME = "LESSONNAME";
+    TextView textViewTemp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class Sensors extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mergeIdCardView();
+//        mergeIdCardView();
 
 //        btnSenser1.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -48,26 +50,13 @@ public class Sensors extends AppCompatActivity {
 //                startActivity(i);
 //            }
 //        });
-        ButtonLesson(btnSenser1,1);
-        ButtonLesson(btnSenser2,2);
-        ButtonLesson(btnSenser3,3);
-        ButtonLesson(btnSenser4,4);
-        ButtonLesson(btnSenser5,5);
-        ButtonLesson(btnSenser6,6);
-        ButtonLesson(btnSenser7,7);
-        ButtonLesson(btnSenser8,8);
-        ButtonLesson(btnSenser9,9);
-        ButtonLesson(btnSenser10,10);
-        ButtonLesson(btnSenser11,11);
-        ButtonLesson(btnSenser12,12);
-        ButtonLesson(btnSenser13,13);
-        ButtonLesson(btnSenser14,14);
-        ButtonLesson(btnSenser15,15);
-        ButtonLesson(btnSenser16,16);
-        ButtonLesson(btnSenser17,17);
-        ButtonLesson(btnSenser18,18);
-        ButtonLesson(btnSenser19,19);
-        ButtonLesson(btnSenser20,20);
+
+//        ButtonLesson(btnSenser21,21);
+//        ButtonLesson(btnSenser22,22);
+//        ButtonLesson(btnSenser23,23);
+//        ButtonLesson(btnSenser24,24);
+//        ButtonLesson(btnSenser25,25);
+//        ButtonLesson(btnSenser26,26);
 
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
@@ -78,7 +67,7 @@ public class Sensors extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
-                //set number lesson visibilyty
+                //set number of lesson visibility
                 int[] CardView_List = {
                         R.id.btn_Sensor1 ,  R.id.btn_Sensor2 ,  R.id.btn_Sensor3 ,  R.id.btn_Sensor4 ,  R.id.btn_Sensor5 ,
                         R.id.btn_Sensor6 ,  R.id.btn_Sensor7 ,  R.id.btn_Sensor8 ,  R.id.btn_Sensor9 ,  R.id.btn_Sensor10 ,
@@ -115,13 +104,29 @@ public class Sensors extends AppCompatActivity {
                     TextView tvTemp = findViewById(numberTotalLesson[i]);
                     tvTemp.setText(value+"");
                 }
+
+                //set Lesson name
                 for(int i = 0; i < value; i++){
                     String lessonTemp = "Lesson"+(i+1);
                     DatabaseReference dataTemp = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child(lessonTemp).child("Name");
-                    TextView textViewTemp = findViewById(nameLesson[i]);
+                    textViewTemp = findViewById(nameLesson[i]);
+
+
                     Function function = new Function();
                     function.SetDataIntoObject(dataTemp, textViewTemp);
+                    Log.d(TAG, "onDataChange: "+textViewTemp.getText().toString());
+
+
+
+
                 }
+                for(int i=0;i<value;i++)
+                {
+                    CardView temp = findViewById(CardView_List[i]);
+                    ButtonLesson(temp,i+1,textViewTemp.getText().toString());
+                    //Log.d(TAG, "onDataChange: "+textViewTemp.getText().toString());
+                }
+
                 progressDialog.dismiss();
             }
             @Override
@@ -136,41 +141,15 @@ public class Sensors extends AppCompatActivity {
         return true;
     }
 
-    private void mergeIdCardView(){
-        btnSenser1 = (CardView) findViewById(R.id.btn_Sensor1);
-        btnSenser2 = (CardView) findViewById(R.id.btn_Sensor2);
-        btnSenser3 = (CardView) findViewById(R.id.btn_Sensor3);
-        btnSenser4 = (CardView) findViewById(R.id.btn_Sensor4);
-        btnSenser5 = (CardView) findViewById(R.id.btn_Sensor5);
-        btnSenser6 = (CardView) findViewById(R.id.btn_Sensor6);
-        btnSenser7 = (CardView) findViewById(R.id.btn_Sensor7);
-        btnSenser8 = (CardView) findViewById(R.id.btn_Sensor8);
-        btnSenser9 = (CardView) findViewById(R.id.btn_Sensor9);
-        btnSenser10 = (CardView) findViewById(R.id.btn_Sensor10);
-        btnSenser11 = (CardView) findViewById(R.id.btn_Sensor11);
-        btnSenser12 = (CardView) findViewById(R.id.btn_Sensor12);
-        btnSenser13 = (CardView) findViewById(R.id.btn_Sensor13);
-        btnSenser14 = (CardView) findViewById(R.id.btn_Sensor14);
-        btnSenser15 = (CardView) findViewById(R.id.btn_Sensor15);
-        btnSenser16 = (CardView) findViewById(R.id.btn_Sensor16);
-        btnSenser17 = (CardView) findViewById(R.id.btn_Sensor17);
-        btnSenser18 = (CardView) findViewById(R.id.btn_Sensor18);
-        btnSenser19 = (CardView) findViewById(R.id.btn_Sensor19);
-        btnSenser20 = (CardView) findViewById(R.id.btn_Sensor20);
-        btnSenser21 = (CardView) findViewById(R.id.btn_Sensor21);
-        btnSenser21 = (CardView) findViewById(R.id.btn_Sensor22);
-        btnSenser23 = (CardView) findViewById(R.id.btn_Sensor23);
-        btnSenser24 = (CardView) findViewById(R.id.btn_Sensor24);
-        btnSenser25 = (CardView) findViewById(R.id.btn_Sensor25);
-        btnSenser26 = (CardView) findViewById(R.id.btn_Sensor26);
-    }
-    private void ButtonLesson(CardView button, final int value)
+//    }
+    private void ButtonLesson(CardView button, final int value, final String name)
     {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Sensors.this,Lesson1Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
+                i.putExtra("LESSONNAME", name);
                 startActivity(i);
             }
         });

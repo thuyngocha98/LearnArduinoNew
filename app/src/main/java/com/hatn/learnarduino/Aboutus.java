@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 public class Aboutus extends AppCompatActivity {
 
     FloatingActionButton fab;
     TextView textViewEmail;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,9 @@ public class Aboutus extends AppCompatActivity {
 
         fab=findViewById(R.id.fab);
         textViewEmail=findViewById(R.id.textViewEmail);
+        imageView=findViewById(R.id.imageView);
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
