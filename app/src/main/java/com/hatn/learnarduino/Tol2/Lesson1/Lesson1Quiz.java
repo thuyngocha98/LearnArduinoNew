@@ -43,7 +43,6 @@ import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.MainActivity;
 import com.hatn.learnarduino.R;
 import com.hatn.learnarduino.Sensors;
-import com.hatn.learnarduino.Tol2.Lesson2.Lesson2Content;
 
 import java.io.ByteArrayOutputStream;
 

@@ -66,24 +66,14 @@
             android:name=".Aboutus"
             android:label="About Us" />
         <activity
-            android:name=".Tol2.Lesson1.Lesson1Content"
+            android:name=".Tol2$Lesson1.Lesson1Content"
             android:parentActivityName=".Sensors"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Tol2.Lesson1.Lesson1Quiz"
-            android:label="@string/title_activity_lesson1_quiz"
+            android:name=".Tol2$Lesson1.Lesson1Quiz"
+            android:label="Quiz"
             android:parentActivityName=".Tol2.Lesson1.Lesson1Content"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Tol2.Lesson2.Lesson2Content"
-            android:label="@string/title_activity_lesson2_content"
-            android:parentActivityName=".Sensors"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Tol2.Lesson2.Lesson2Quiz"
-            android:label="@string/title_activity_lesson2_quiz"
-            android:parentActivityName=".Tol2.Lesson2.Lesson2Content"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
