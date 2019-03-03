@@ -27,9 +27,9 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@android:color/white" />
+                    android:layout_width="320dp"
+                    android:layout_height="210dp"
+                    app:srcCompat="@drawable/logo" />
 
                 <TextView
                     android:layout_width="match_parent"
