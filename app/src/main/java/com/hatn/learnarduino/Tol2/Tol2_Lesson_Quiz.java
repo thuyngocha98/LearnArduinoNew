@@ -839,19 +839,19 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
                 try {
                     int countcheck=0;
                     while (countcheck<3) {
-                    if (!cardviewquiz1_answer1.isClickable()) {
-                        countcheck++;
-                    }
-                    if (!cardviewquiz2_answer1.isClickable()) {
-                        countcheck++;
-                    }
-                    if (!cardviewquiz3_answer3.isClickable()) {
-                        countcheck++;
-                    }
-                    if (countcheck == 3){ NextLesson();
-                    break;}
-                    countcheck=0;
-                    sleep(1000);
+                        if (!cardviewquiz1_answer1.isClickable()) {
+                            countcheck++;
+                        }
+                        if (!cardviewquiz2_answer1.isClickable()) {
+                            countcheck++;
+                        }
+                        if (!cardviewquiz3_answer3.isClickable()) {
+                            countcheck++;
+                        }
+                        if (countcheck == 3){ NextLesson();
+                            break;}
+                        countcheck=0;
+                        sleep(1000);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -933,25 +933,10 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
     private void NextLesson() {
         final int exp=5;
-        Snackbar snackbar = Snackbar
-                .make(coordinatorLayout, "All done ", 80000)
-                .setAction("Next Lesson", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(Tol2_Lesson_Quiz.this,Sensors.class);
-                        intent.putExtra("Coloredcard", exp);
-                        startActivity(intent);
-                    }
-                });
-        View snackbarView = snackbar.getView();
-        TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
-        textView.setTextColor(Color.parseColor("#ff669900"));
-        snackbar.show();
 
-        //TODO: get exp from database, push exp to database, change color of CardView
-
-        Boolean checkcolor = intent.getBooleanExtra(Sensors.HASCOLOR, false);
-        if(!checkcolor)
+        Boolean checkcolor = intent.getBooleanExtra(Sensors.HASCOLOR, true);
+        Log.d(TAG, "onDataChange: thuyngocha3 "+checkcolor);
+        if(checkcolor)
         {
             mAuth = FirebaseAuth.getInstance();
 
@@ -977,7 +962,24 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                 }
             });
+
         }
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, "All done ", 80000)
+                .setAction("Next Lesson", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Tol2_Lesson_Quiz.this,Sensors.class);
+                        //intent.putExtra("Coloredcard", exp);
+                        startActivity(intent);
+                    }
+                });
+        View snackbarView = snackbar.getView();
+        TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(Color.parseColor("#ff669900"));
+        snackbar.show();
+
+        //TODO: get exp from database, push exp to database, change color of CardView
 
 
 

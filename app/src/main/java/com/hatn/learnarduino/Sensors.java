@@ -28,8 +28,9 @@ public class Sensors extends AppCompatActivity {
     ProgressDialog progressDialog;
     int numberTotalContent = 26;
     FirebaseAuth mAuth;
+
     Intent intent;
-    boolean hascolor = false;
+    //    boolean hascolor = false;
     CardView cardview_color1,cardview_color2, cardview_color3, cardview_color4, cardview_color5, cardview_color6, cardview_color7, cardview_color8, cardview_color9, cardview_color10, cardview_color11, cardview_color12, cardview_color13, cardview_color14, cardview_color15, cardview_color16, cardview_color17, cardview_color18, cardview_color19, cardview_color20, cardview_color21, cardview_color22, cardview_color23, cardview_color24, cardview_color25, cardview_color26;
     public static final String LESSONNUMBERINTENT ="LESSONNUMBERINTENT";
     public static final String LESSONNAME = "LESSONNAME";
@@ -47,7 +48,7 @@ public class Sensors extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-        current_user_id.addListenerForSingleValueEvent(new ValueEventListener() {
+        current_user_id.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -71,13 +72,7 @@ public class Sensors extends AppCompatActivity {
                         temp.setClickable(false);
                         exp -=5;
                     }
-
                 }
-
-//                switch (exp){
-//                    case 5: cardview_color1.setCardBackgroundColor(Color.parseColor("#ff669900"));
-//                }
-
             }
 
             @Override
@@ -194,8 +189,7 @@ public class Sensors extends AppCompatActivity {
                 {
                     CardView temp = findViewById(CardView_List[i]);
                     CardView tempColor = findViewById(Cardview_color[i]);
-                    hascolor = !tempColor.isClickable();
-
+                    boolean hascolor = tempColor.isClickable();
                     ButtonLesson(temp,i+1,textViewTemp.getText().toString(),hascolor);
                     //Log.d(TAG, "onDataChange: "+textViewTemp.getText().toString());
                 }
@@ -224,6 +218,7 @@ public class Sensors extends AppCompatActivity {
                 Intent i = new Intent(Sensors.this,Tol2_Lesson_Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
                 i.putExtra("HASCOLOR", hascolor);
+                Log.d(TAG, "onDataChange: thuyngocha1 "+hascolor);
                 i.putExtra("LESSONNAME", name);
                 startActivity(i);
             }
