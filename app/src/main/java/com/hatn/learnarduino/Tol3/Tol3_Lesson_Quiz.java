@@ -61,7 +61,7 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+//        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
         coordinatorLayout=findViewById(R.id.Lesson1Quizlayout);
