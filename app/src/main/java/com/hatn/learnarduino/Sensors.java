@@ -235,7 +235,6 @@ public class Sensors extends AppCompatActivity {
                 i.putExtra("HASCOLOR", hascolor);
                 i.putExtra("LESSONNAME", name);
 
-
                 startActivity(i);
             }
         });

@@ -66,11 +66,11 @@
             android:name=".Aboutus"
             android:label="About Us" />
         <activity
-            android:name=".Tol2$Lesson1.Lesson1Content"
+            android:name=".Tol2.Lesson1.Lesson1Content"
             android:parentActivityName=".Sensors"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Tol2$Lesson1.Lesson1Quiz"
+            android:name=".Tol2.Lesson1.Lesson1Quiz"
             android:label="Quiz"
             android:parentActivityName=".Tol2.Lesson1.Lesson1Content"
             android:theme="@style/AppTheme.NoActionBar" />
