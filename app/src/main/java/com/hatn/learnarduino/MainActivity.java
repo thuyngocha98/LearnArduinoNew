@@ -78,6 +78,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
+import com.tapadoo.alerter.Alerter;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
@@ -111,6 +112,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         progressBarLed = (ProgressBar) findViewById(R.id.progressBarLED);
         progressBarMovement = (ProgressBar) findViewById(R.id.progressBarMovement);
 
+
+
+
+
         //navigation drawer bar
         Toolbar toolbar = findViewById(R.id.toolbar);
         //progessOverlay.setVisibility(View.VISIBLE);
@@ -125,7 +130,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
+
+
+
 
         // Create layout with number of type of lesson
         DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Number_Of_Type_Of_Lesson");
@@ -169,6 +176,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         buttonTol5 = findViewById(R.id.btn_tol5);
         buttonTol6 = findViewById(R.id.btn_tol6);
 
+
+
         //set max progressBar
         DatabaseReference number = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Number_of_lesson");
         number.addValueEventListener(new ValueEventListener() {
@@ -194,6 +203,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 Long value = dataSnapshot.getValue(Long.class);
+
+
+
                 int exp=value.intValue();
                 progressBarSensor.setProgress(exp);
             }
@@ -312,6 +324,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // set avatar and information user
     public void setProfile(){
+
         String name = "unidentified";
         email = "";
         Uri uriImage;
@@ -342,17 +355,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navImage.setImageResource(R.drawable.user_logo);
         }
 
-        progressDialog.dismiss();
+
         if (isOnline())
         {
+
+
+            Alerter.create(MainActivity.this)
+                .setTitle("Loading...")
+                .setText("Loading content and lesson")
+                .setIcon(R.drawable.ic_research)
+                    .enableProgress(true)
+                    .setProgressColorRes(R.color.lime)
+                .setBackgroundColorRes(R.color.alert_background) // or setBackgroundColorInt(Color.CYAN)
+                .show();
+            enableViews(drawerLayout, false);
+
+
+
+
             Snackbar snackbar = Snackbar
-                    .make(drawerLayout, "Signed in as " +email, Snackbar.LENGTH_LONG)
+                    .make(drawerLayout, "Signed in as " +email,Snackbar.LENGTH_LONG)
                     .setAction("LOG OUT", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             logOut();
                         }
                     });
+            enableViews(drawerLayout, true);
             snackbar.show();
         } else {
 
@@ -388,6 +417,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         }
+
 
 
 
