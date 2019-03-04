@@ -14,6 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Tol1.Tol1_Lesson_Quiz"
+            android:label="@string/title_activity_tol1__lesson_quiz"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Tol1.Tol1_Lesson_Content"
+            android:label="@string/title_activity_to1__lesson__content"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Tol6" />
         <activity android:name=".Tol5" />
         <activity
@@ -76,14 +84,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Tol3.Tol3_Lesson_Content"
-            android:parentActivityName=".LED"
             android:label="LED"
+            android:parentActivityName=".LED"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Tol3.Tol3_Lesson_Quiz"
-            android:parentActivityName=".LED"
             android:label="Quiz"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:parentActivityName=".LED"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -407,7 +407,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 else
                 {
-                    //TODO: snackbar here
                     Snackbar snackbar = Snackbar
                             .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_LONG);
                     snackbar.show();

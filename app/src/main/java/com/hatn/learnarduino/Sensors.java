@@ -81,7 +81,7 @@ public class Sensors extends AppCompatActivity {
                         temp.setClickable(false);
                         exp -=5;
                     }
-                    Allcard.setClickable(false);
+                    //Allcard.setClickable(false);
 //                    if (exp>=5)
 //                    {
 //                        for (i=0;i<=exp;i+=5)

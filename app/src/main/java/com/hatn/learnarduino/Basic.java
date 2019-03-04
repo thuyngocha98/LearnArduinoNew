@@ -1,6 +1,7 @@
 package com.hatn.learnarduino;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,13 +16,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Tol1.Tol1_Lesson_Content;
+import com.hatn.learnarduino.Tol2.Tol2_Lesson_Content;
 
 public class Basic extends AppCompatActivity {
 
-    private static final String TAG = "LED_log";
+    private static final String TAG = "Basic_log";
     private CardView btnBasic1,btnBasic2,btnBasic3,btnBasic4,btnBasic5,btnBasic6,btnBasic7,btnBasic8;
     ProgressDialog progressDialog;
     int numberTotalContent = 8;
+    public static final String LESSONNUMBERINTENT ="LESSONNUMBERINTENT";
+    public static final String HASCOLOR = "HASCOLOR";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +35,8 @@ public class Basic extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mergeIdCardView();
+        //mergeIdCardView();
 
-//        btnSenser1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(LED.this, Tol2_Lesson_Content.class);
-//                startActivity(i);
-//            }
-//        });
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
@@ -48,7 +46,7 @@ public class Basic extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
-                //set number lesson visibilyty
+                //set number lesson visibility
                 int[] CardView_List = {
                         R.id.btn_Basic1 ,  R.id.btn_Basic2 ,  R.id.btn_Basic3 ,  R.id.btn_Basic4 ,  R.id.btn_Basic5 ,
                         R.id.btn_Basic6 ,  R.id.btn_Basic7 ,  R.id.btn_Basic8 ,
@@ -63,9 +61,15 @@ public class Basic extends AppCompatActivity {
                         R.id.textview_Basic1 ,  R.id.textview_Basic2 ,  R.id.textview_Basic3 ,  R.id.textview_Basic4 ,  R.id.textview_Basic5 ,
                         R.id.textview_Basic6 ,  R.id.textview_Basic7 ,  R.id.textview_Basic8 ,
                 };
+                // set card color
+                int[] CardViewColor_list = {
+                        R.id.tol1_colorcard1 , R.id.tol1_colorcard2, R.id.tol1_colorcard3, R.id.tol1_colorcard4,
+                        R.id.tol1_colorcard5 , R.id.tol1_colorcard6, R.id.tol1_colorcard7, R.id.tol1_colorcard8,
+                };
 
 
-                //set number lesson visibilyty
+
+                //set number lesson visibility
                 for(int i = value; i < numberTotalContent; i++){
                     CardView temp = findViewById(CardView_List[i]);
                     temp.setVisibility(View.GONE);
@@ -82,6 +86,13 @@ public class Basic extends AppCompatActivity {
                     Function function = new Function();
                     function.SetDataIntoObject(dataTemp, textViewTemp);
                 }
+                for (int i=0;i<value;i++)
+                {
+                    CardView temp = findViewById(CardView_List[i]);
+                    CardView tempcolor = findViewById(CardViewColor_list[i]);
+                    boolean hascolor = tempcolor.isClickable();
+                    ButtonLesson(temp,i+1,hascolor);
+                }
                 progressDialog.dismiss();
             }
             @Override
@@ -94,6 +105,20 @@ public class Basic extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
+    }
+
+    private void ButtonLesson(CardView button, final int value, final boolean hascolor)
+    {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Basic.this, Tol1_Lesson_Content.class);
+                i.putExtra("LESSONNUMBERINTENT",value);
+                Log.d(TAG, "test onClick: "+value);
+                i.putExtra("HASCOLOR", hascolor);
+                startActivity(i);
+            }
+        });
     }
 
     private void mergeIdCardView(){

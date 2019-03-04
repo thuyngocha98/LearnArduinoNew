@@ -95,6 +95,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/tol1_colorcard1"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -196,6 +197,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/tol1_colorcard2"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -309,6 +311,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/tol1_colorcard3"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -410,6 +413,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/tol1_colorcard4"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -524,6 +528,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/tol1_colorcard5"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -625,6 +630,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/tol1_colorcard6"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -739,6 +745,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/tol1_colorcard7"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -840,6 +847,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/tol1_colorcard8"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
