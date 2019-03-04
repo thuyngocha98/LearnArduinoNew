@@ -769,23 +769,6 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
         progressDialog.dismiss();
 
-//        cardviewquiz1_answer1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d("check true", "onClick: "+quiz1_rightanswer.getText().toString());
-//                Log.d("check true", "onClick: "+textviewquiz1_answer1.getText().toString());
-//
-//                if (textviewquiz1_answer1.getText().toString().equals(quiz1_rightanswer.getText().toString()))
-//                {
-//                    RightAnswer(cardview_quiz1_answer1_flag);
-//                    cardviewquiz1_answer1.setClickable(false);
-//                    cardviewquiz1_answer2.setClickable(false);
-//                    cardviewquiz1_answer3.setClickable(false);
-//                }
-//                else WrongAnswer(cardview_quiz1_answer1_flag);
-//            }
-//        });
-
         function.CheckAnswer(cardviewquiz1_answer1,cardview_quiz1_answer1_flag,textviewquiz1_answer1,quiz1_rightanswer,cardviewquiz1_answer2,cardviewquiz1_answer3,coordinatorLayout);
         function.CheckAnswer(cardviewquiz1_answer2,cardview_quiz1_answer2_flag,textviewquiz1_answer2,quiz1_rightanswer,cardviewquiz1_answer1,cardviewquiz1_answer3,coordinatorLayout);
         function.CheckAnswer(cardviewquiz1_answer3,cardview_quiz1_answer3_flag,textviewquiz1_answer3,quiz1_rightanswer,cardviewquiz1_answer1,cardviewquiz1_answer2,coordinatorLayout);
@@ -797,41 +780,6 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         function.CheckAnswer(cardviewquiz3_answer1,cardview_quiz3_answer1_flag,textviewquiz3_answer1,quiz3_rightanswer,cardviewquiz3_answer2,cardviewquiz3_answer3,coordinatorLayout);
         function.CheckAnswer(cardviewquiz3_answer2,cardview_quiz3_answer2_flag,textviewquiz3_answer2,quiz3_rightanswer,cardviewquiz3_answer1,cardviewquiz3_answer3,coordinatorLayout);
         function.CheckAnswer(cardviewquiz3_answer3,cardview_quiz3_answer3_flag,textviewquiz3_answer3,quiz3_rightanswer,cardviewquiz3_answer1,cardviewquiz3_answer2,coordinatorLayout);
-
-
-
-//
-//        }
-//
-//        if(countcheck==3)
-//        {
-//            NextLesson();
-//        }
-
-
-
-//        Thread t = new Thread();
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//                int countcheck=0;
-//
-//                while (countcheck<3) {
-//                    if (!cardviewquiz1_answer1.isClickable()) {
-//                        countcheck++;
-//                    }
-//                    if (!cardviewquiz2_answer1.isClickable()) {
-//                        countcheck++;
-//                    }
-//                    if (!cardviewquiz3_answer3.isClickable()) {
-//                        countcheck++;
-//                    }
-//                    if (countcheck == 3){ NextLesson();}
-//                    countcheck=0;
-//                }
-//            }
-//        },1000);
 
         Thread thread = new Thread() {
             @Override
@@ -861,75 +809,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
         thread.start();
 
-//        fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                int countemp=0;
-//                Log.d(TAG, "Card color: "+cardview_quiz1_answer1_flag.getCardBackgroundColor().toString());
-//
-//                if (!cardviewquiz1_answer1.isClickable())
-//                {
-//                    countemp++;
-//                }
-//                if (!cardviewquiz2_answer1.isClickable())
-//                {
-//                    countemp++;
-//                }
-//                if (!cardviewquiz3_answer3.isClickable())
-//                {
-//                    countemp++;
-//                }
-//
-//                if(countemp!=3)
-//                {
-//                    Snackbar snackbar = Snackbar
-//                            .make(coordinatorLayout, "Please answer all questions before moving to next lesson ", Snackbar.LENGTH_LONG);
-//                            View snackbarView = snackbar.getView();
-//                            TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
-//                            textView.setTextColor(Color.parseColor("#ffa000"));
-//                            snackbar.show();
-//                    snackbar.show();
-//                }else {
-//                    NextLesson();
-//
-//                }
-//            }
-//        });
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-    private void thread(){
-        int countcheck=0;
-
-        while (countcheck<3) {
-            if (!cardviewquiz1_answer1.isClickable()) {
-                countcheck++;
-            }
-            if (!cardviewquiz2_answer1.isClickable()) {
-                countcheck++;
-            }
-            if (!cardviewquiz3_answer3.isClickable()) {
-                countcheck++;
-            }
-            if (countcheck == 3){ NextLesson();}
-            countcheck=0;
-        }
-    }
-
-
 
     private void NextLesson() {
         final int exp=5;
@@ -939,9 +819,6 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         if(checkcolor)
         {
             mAuth = FirebaseAuth.getInstance();
-
-//        Function function =new Function();
-//        function.SetDataIntoObject(Userexp,experience);
             String user_id = mAuth.getCurrentUser().getUid();
             final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
             current_user_id.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -950,16 +827,11 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
                     Long value = dataSnapshot.getValue(Long.class);
-
-
                     current_user_id.setValue(value.intValue()+5);
-
                 }
 
                 @Override
                 public void onCancelled(DatabaseError error) {
-                    // Failed to read value
-
                 }
             });
 
@@ -978,99 +850,6 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
-
-        //TODO: get exp from database, push exp to database, change color of CardView
-
-
-
-        //current_user_id.setValue(value+5);
-
-
-
     }
-
-
-
-
-//    private void showCustomDialog() {
-//        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
-//        ViewGroup viewGroup = findViewById(android.R.id.content);
-//
-//        //then we will inflate the custom alert dialog xml that we created
-//        final View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_viewcode, viewGroup, false);
-//
-//        codeview = dialogView.findViewById(R.id.textview_code);
-//        codeview.setText(code);
-//        codeview.setMovementMethod(new ScrollingMovementMethod());
-//
-//        //Now we need an AlertDialog.Builder object
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//
-//        //setting the view of the builder to our custom view that we already inflated
-//        builder.setView(dialogView);
-//
-//        //finally creating the alert dialog and displaying it
-//        final AlertDialog alertDialog = builder.create();
-//
-//        btnCopy = dialogView.findViewById(R.id.buttonCopy);
-//        btnCancel = dialogView.findViewById(R.id.buttonCancel);
-//
-//        btnCopy.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-//                ClipData clip = ClipData.newPlainText("Copied Code", code);
-//                clipboard.setPrimaryClip(clip);
-//
-//                Snackbar snackbar = Snackbar
-//                        .make(coordinatorLayout, "Copied successfully ", Snackbar.LENGTH_LONG);
-//                snackbar.show();
-//
-//                closeFABMenu();
-//                alertDialog.dismiss();
-//            }
-//        });
-//
-//        btnCancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Snackbar snackbar = Snackbar
-//                        .make(coordinatorLayout, "Cancelled ", Snackbar.LENGTH_LONG);
-//                snackbar.show();
-//
-//                closeFABMenu();
-//                alertDialog.dismiss();
-//            }
-//        });
-//
-//
-//        alertDialog.show();
-//    }
-//
-//    public void showFABMenu(){
-//        isFABOpen=true;
-//        fab.setImageResource(R.drawable.cancel);
-//        cardViewfab1.setVisibility(View.VISIBLE);
-//        cardViewfab2.setVisibility(View.VISIBLE);
-//        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
-//        cardViewfab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
-//        fab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
-//        cardViewfab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
-//
-//
-//
-//    }
-//
-//    public void closeFABMenu(){
-//        isFABOpen=false;
-//        fab.setImageResource(R.drawable.ic_menu);
-//        cardViewfab1.animate().translationY(0);
-//        cardViewfab2.animate().translationY(0);
-//        cardViewfab1.setVisibility(View.INVISIBLE);
-//        cardViewfab2.setVisibility(View.INVISIBLE);
-//        fab1.animate().translationY(0);
-//        fab2.animate().translationY(0);
-//
-//    }
 
 }

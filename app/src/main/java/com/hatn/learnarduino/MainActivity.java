@@ -24,6 +24,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.Layout;
 import android.text.TextUtils;
@@ -39,6 +40,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -96,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ImageButton buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
     ProgressDialog progressDialog;
     private String email;
-
+    ProgressBar progressBarSensor, progressBarLed, progressBarBasic, progressBarMovement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,9 +106,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         drawerLayout=findViewById(R.id.drawer_layout);
-
-
-
+        progressBarSensor = (ProgressBar) findViewById(R.id.progressBarSensors);
+        progressBarBasic = (ProgressBar) findViewById(R.id.progressBarBasic);
+        progressBarLed = (ProgressBar) findViewById(R.id.progressBarLED);
+        progressBarMovement = (ProgressBar) findViewById(R.id.progressBarMovement);
 
         //navigation drawer bar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -123,13 +126,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
-//        if( isOnline()==false)
-//        {
-////            Snackbar snackbar = Snackbar
-////                    .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_LONG);
-////
-////            snackbar.show();
-//        }
 
         // Create layout with number of type of lesson
         DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Number_Of_Type_Of_Lesson");
@@ -172,6 +168,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         buttonMovement=findViewById(R.id.btn_movement);
         buttonTol5 = findViewById(R.id.btn_tol5);
         buttonTol6 = findViewById(R.id.btn_tol6);
+
+        //set max progressBar
+        DatabaseReference number = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Number_of_lesson");
+        number.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+                int max = value*5;
+                Log.d("tag", "onDataChange: thuyngocha"+ max);
+                progressBarSensor.setMax(max);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+        //set progress progressbar
+        mAuth = FirebaseAuth.getInstance();
+        String user_id = mAuth.getCurrentUser().getUid();
+        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+        current_user_id.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Long value = dataSnapshot.getValue(Long.class);
+                int exp=value.intValue();
+                progressBarSensor.setProgress(exp);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+            }
+        });
 
 
 

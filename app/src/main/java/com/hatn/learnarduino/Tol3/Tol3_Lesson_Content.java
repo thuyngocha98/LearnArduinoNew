@@ -354,8 +354,10 @@ public class Tol3_Lesson_Content extends AppCompatActivity {
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Boolean checkcolor = intent.getBooleanExtra(Sensors.HASCOLOR, true);
                 Intent i = new Intent(Tol3_Lesson_Content.this, Tol3_Lesson_Quiz.class);
                 i.putExtra("LESSONNUMBERINTENT",intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1));
+                i.putExtra("HASCOLOR", checkcolor);
                 Log.d(TAG, "Quiz1 onCreate: "+intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1));
                 startActivity(i);
             }

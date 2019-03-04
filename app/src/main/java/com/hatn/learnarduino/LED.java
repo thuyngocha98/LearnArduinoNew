@@ -2,6 +2,7 @@ package com.hatn.learnarduino;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,10 +22,9 @@ import com.hatn.learnarduino.Tol3.Tol3_Lesson_Content;
 public class LED extends AppCompatActivity {
 
     private static final String TAG = "LED_log";
-    private CardView btnLED1,btnLED2,btnLED3,btnLED4,btnLED5,btnLED6,btnLED7,btnLED8,btnLED9, btnLED10,btnLED11,btnLED12,
-            btnLED13,btnLED14,btnLED15,btnLED16,btnLED17,btnLED18,btnLED19,btnLED20,btnLED21,btnLED22,btnLED23,btnLED24,btnLED25,btnLED26;
     ProgressDialog progressDialog;
     int numberTotalContent = 26;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +32,49 @@ public class LED extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mergeIdCardView();
+        mAuth = FirebaseAuth.getInstance();
+        String user_id = mAuth.getCurrentUser().getUid();
+        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+        current_user_id.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Long value = dataSnapshot.getValue(Long.class);
+                int exp=value.intValue();
 
-//        btnSenser1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(LED.this, Tol2_Lesson_Content.class);
-//                startActivity(i);
-//            }
-//        });
+                int[] Cardview_color = {
+                        R.id.cardview_color_led1,R.id.cardview_color_led2,R.id.cardview_color_led3,R.id.cardview_color_led4,R.id.cardview_color_led5,
+                        R.id.cardview_color_led6,R.id.cardview_color_led7,R.id.cardview_color_led8,R.id.cardview_color_led9,R.id.cardview_color_led10,
+                        R.id.cardview_color_led11,R.id.cardview_color_led12,R.id.cardview_color_led13,R.id.cardview_color_led14,R.id.cardview_color_led15,
+                        R.id.cardview_color_led16,R.id.cardview_color_led17,R.id.cardview_color_led18,R.id.cardview_color_led19,R.id.cardview_color_led20,
+                        R.id.cardview_color_led21,R.id.cardview_color_led22,R.id.cardview_color_led23,R.id.cardview_color_led24,R.id.cardview_color_led25,
+                        R.id.cardview_color_led26,
+                };
+                int[] CardView_List = {
+                        R.id.btn_Led1 ,  R.id.btn_Led2 ,  R.id.btn_Led3 ,  R.id.btn_Led4 ,  R.id.btn_Led5 ,
+                        R.id.btn_Led6 ,  R.id.btn_Led7 ,  R.id.btn_Led8 ,  R.id.btn_Led9 ,  R.id.btn_Led10 ,
+                        R.id.btn_Led11 ,  R.id.btn_Led12 ,  R.id.btn_Led13 ,  R.id.btn_Led14 ,  R.id.btn_Led15 ,
+                        R.id.btn_Led16 ,  R.id.btn_Led17 ,  R.id.btn_Led18 ,  R.id.btn_Led19 ,  R.id.btn_Led20 ,
+                        R.id.btn_Led21 ,  R.id.btn_Led22 ,  R.id.btn_Led23 ,  R.id.btn_Led24 ,  R.id.btn_Led25 ,  R.id.btn_Led26 ,
+                };
+
+                for(int i =0; i <26; i++){
+                    CardView temp = findViewById(Cardview_color[i]);
+                    CardView Allcard = findViewById(CardView_List[i]);
+                    if(exp >=5){
+                        temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
+                        temp.setClickable(false);
+                        exp -=5;
+                    }
+                    Allcard.setClickable(false);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+            }
+        });
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
@@ -56,6 +91,15 @@ public class LED extends AppCompatActivity {
                         R.id.btn_Led11 ,  R.id.btn_Led12 ,  R.id.btn_Led13 ,  R.id.btn_Led14 ,  R.id.btn_Led15 ,
                         R.id.btn_Led16 ,  R.id.btn_Led17 ,  R.id.btn_Led18 ,  R.id.btn_Led19 ,  R.id.btn_Led20 ,
                         R.id.btn_Led21 ,  R.id.btn_Led22 ,  R.id.btn_Led23 ,  R.id.btn_Led24 ,  R.id.btn_Led25 ,  R.id.btn_Led26 ,
+                };
+                //cardView color
+                int[] Cardview_color = {
+                        R.id.cardview_color_led1,R.id.cardview_color_led2,R.id.cardview_color_led3,R.id.cardview_color_led4,R.id.cardview_color_led5,
+                        R.id.cardview_color_led6,R.id.cardview_color_led7,R.id.cardview_color_led8,R.id.cardview_color_led9,R.id.cardview_color_led10,
+                        R.id.cardview_color_led11,R.id.cardview_color_led12,R.id.cardview_color_led13,R.id.cardview_color_led14,R.id.cardview_color_led15,
+                        R.id.cardview_color_led16,R.id.cardview_color_led17,R.id.cardview_color_led18,R.id.cardview_color_led19,R.id.cardview_color_led20,
+                        R.id.cardview_color_led21,R.id.cardview_color_led22,R.id.cardview_color_led23,R.id.cardview_color_led24,R.id.cardview_color_led25,
+                        R.id.cardview_color_led26,
                 };
                 // set total number lesson
                 int[] numberTotalLesson = {
@@ -94,7 +138,9 @@ public class LED extends AppCompatActivity {
                     function.SetDataIntoObject(dataTemp, textViewTemp);
 
                     CardView temp = findViewById(CardView_List[i]);
-                    ButtonLesson(temp,i+1,textViewTemp.getText().toString());
+                    CardView tempColor = findViewById(Cardview_color[i]);
+                    boolean hascolor = tempColor.isClickable();
+                    ButtonLesson(temp,i+1,textViewTemp.getText().toString(),hascolor);
 
                 }
                 progressDialog.dismiss();
@@ -119,46 +165,17 @@ public class LED extends AppCompatActivity {
 
     }
 
-    private void ButtonLesson(CardView button, final int value, final String name)
+    private void ButtonLesson(CardView button, final int value, final String name,final boolean hascolor)
     {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LED.this,Tol3_Lesson_Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
-                //i.putExtra("HASCOLOR", hascolor);
+                i.putExtra("HASCOLOR", hascolor);
                 i.putExtra("LESSONNAME", name);
                 startActivity(i);
             }
         });
-    }
-
-    private void mergeIdCardView(){
-        btnLED1 = findViewById(R.id.btn_Led1);
-        btnLED2 = findViewById(R.id.btn_Led2);
-        btnLED3 = findViewById(R.id.btn_Led3);
-        btnLED4 = findViewById(R.id.btn_Led4);
-        btnLED5 = findViewById(R.id.btn_Led5);
-        btnLED6 = findViewById(R.id.btn_Led6);
-        btnLED7 = findViewById(R.id.btn_Led7);
-        btnLED8 = findViewById(R.id.btn_Led8);
-        btnLED9 = findViewById(R.id.btn_Led9);
-        btnLED10 = findViewById(R.id.btn_Led10);
-        btnLED11 = findViewById(R.id.btn_Led11);
-        btnLED12 = findViewById(R.id.btn_Led12);
-        btnLED13 = findViewById(R.id.btn_Led13);
-        btnLED14 = findViewById(R.id.btn_Led14);
-        btnLED15 = findViewById(R.id.btn_Led15);
-        btnLED16 = findViewById(R.id.btn_Led16);
-        btnLED17 = findViewById(R.id.btn_Led17);
-        btnLED18 = findViewById(R.id.btn_Led18);
-        btnLED19 = findViewById(R.id.btn_Led19);
-        btnLED20 = findViewById(R.id.btn_Led20);
-        btnLED21 = findViewById(R.id.btn_Led21);
-        btnLED21 = findViewById(R.id.btn_Led22);
-        btnLED23 = findViewById(R.id.btn_Led23);
-        btnLED24 = findViewById(R.id.btn_Led24);
-        btnLED25 = findViewById(R.id.btn_Led25);
-        btnLED26 = findViewById(R.id.btn_Led26);
     }
 }

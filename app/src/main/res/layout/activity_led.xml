@@ -95,6 +95,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led1"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -196,6 +197,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led2"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -310,6 +312,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led3"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -411,6 +414,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led4"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -524,6 +528,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led5"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -625,6 +630,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led6"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -739,6 +745,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led7"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -840,6 +847,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led8"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -954,6 +962,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led9"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -1055,6 +1064,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led10"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -1168,6 +1178,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led11"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -1269,6 +1280,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led12"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -1382,6 +1394,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led13"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -1483,6 +1496,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led14"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -1596,6 +1610,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led15"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -1697,6 +1712,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led16"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -1810,6 +1826,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led17"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -1911,6 +1928,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led18"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -2024,6 +2042,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led19"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -2125,6 +2144,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led20"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -2238,6 +2258,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led21"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -2339,6 +2360,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led22"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -2452,6 +2474,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led23"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -2553,6 +2576,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led24"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -2666,6 +2690,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led25"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"
@@ -2767,6 +2792,7 @@
                         android:paddingEnd="2sp" />
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_color_led26"
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom"

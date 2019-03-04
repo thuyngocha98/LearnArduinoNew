@@ -81,6 +81,7 @@
                     android:id="@+id/progressBarSensors"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="150sp"
+                    android:progressTint="@color/right"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
