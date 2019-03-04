@@ -32,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hatn.learnarduino.Function;
+import com.hatn.learnarduino.LED;
 import com.hatn.learnarduino.R;
 import com.hatn.learnarduino.Sensors;
 
@@ -365,6 +366,15 @@ public class Tol3_Lesson_Content extends AppCompatActivity {
 
 
 
+
+
+    }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(Tol3_Lesson_Content.this, LED.class));
+        finish();
 
     }
 

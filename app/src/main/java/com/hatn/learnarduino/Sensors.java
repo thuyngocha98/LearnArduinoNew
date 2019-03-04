@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hatn.learnarduino.Tol2.Tol2_Lesson_Content;
+import com.hatn.learnarduino.Tol3.Tol3_Lesson_Content;
 
 public class Sensors extends AppCompatActivity {
 
@@ -64,14 +65,32 @@ public class Sensors extends AppCompatActivity {
                         R.id.cardview_color21,R.id.cardview_color22,R.id.cardview_color23,R.id.cardview_color24,R.id.cardview_color25,
                         R.id.cardview_color26,
                 };
+                int[] CardView_List = {
+                        R.id.btn_Sensor1 ,  R.id.btn_Sensor2 ,  R.id.btn_Sensor3 ,  R.id.btn_Sensor4 ,  R.id.btn_Sensor5 ,
+                        R.id.btn_Sensor6 ,  R.id.btn_Sensor7 ,  R.id.btn_Sensor8 ,  R.id.btn_Sensor9 ,  R.id.btn_Sensor10 ,
+                        R.id.btn_Sensor11 ,  R.id.btn_Sensor12 ,  R.id.btn_Sensor13 ,  R.id.btn_Sensor14 ,  R.id.btn_Sensor15 ,
+                        R.id.btn_Sensor16 ,  R.id.btn_Sensor17 ,  R.id.btn_Sensor18 ,  R.id.btn_Sensor19 ,  R.id.btn_Sensor20 ,
+                        R.id.btn_Sensor21 ,  R.id.btn_Sensor22 ,  R.id.btn_Sensor23 ,  R.id.btn_Sensor24 ,  R.id.btn_Sensor25 ,  R.id.btn_Sensor26 ,
+                };
 
                 for(int i =0; i <26; i++){
                     CardView temp = findViewById(Cardview_color[i]);
+                    CardView Allcard = findViewById(CardView_List[i]);
                     if(exp >=5){
                         temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
                         temp.setClickable(false);
                         exp -=5;
                     }
+                    Allcard.setClickable(false);
+//                    if (exp>=5)
+//                    {
+//                        for (i=0;i<=exp;i+=5)
+//                        {
+//                            CardView expcheck = findViewById(CardView_List[5/i]);
+//                            expcheck.setClickable(true);
+//                        }
+//                    }
+
                 }
             }
 
@@ -164,6 +183,16 @@ public class Sensors extends AppCompatActivity {
                     CardView temp = findViewById(CardView_List[i]);
                     temp.setVisibility(View.GONE);
                 }
+//                //can't do if don't have enough exp
+//                for (int i = 0; i< value;i++)
+//                {
+//                    CardView temp = findViewById(CardView_List[i]);
+//
+//
+//                }
+
+
+
                 // set total number lesson
                 for(int i = 0; i < value; i++){
                     TextView tvTemp = findViewById(numberTotalLesson[i]);
@@ -206,6 +235,15 @@ public class Sensors extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
+    }
+    @Override
+
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(Sensors.this, MainActivity.class));
+        finish();
+
     }
 
 //    }

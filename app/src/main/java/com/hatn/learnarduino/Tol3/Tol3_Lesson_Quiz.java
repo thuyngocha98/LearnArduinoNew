@@ -64,6 +64,8 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
 //        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
+
+
         coordinatorLayout=findViewById(R.id.Lesson1Quizlayout);
 
         textviewquiz1 = findViewById(R.id.textView_Lesson1_Quiz1);
@@ -907,6 +909,15 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
 
 
 
+
+    }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(Tol3_Lesson_Quiz.this, Tol3_Lesson_Content.class));
+        finish();
+
     }
 
 
@@ -983,6 +994,7 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
 
 
         //current_user_id.setValue(value+5);
+
 
 
 

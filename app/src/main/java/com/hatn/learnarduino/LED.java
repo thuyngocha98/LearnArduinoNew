@@ -110,6 +110,15 @@ public class LED extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(LED.this, MainActivity.class));
+        finish();
+
+    }
+
     private void ButtonLesson(CardView button, final int value, final String name)
     {
         button.setOnClickListener(new View.OnClickListener() {
