@@ -35,7 +35,7 @@ public class Basic extends AppCompatActivity {
 //        btnSenser1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent i = new Intent(LED.this, Lesson1Content.class);
+//                Intent i = new Intent(LED.this, Tol2_Lesson_Content.class);
 //                startActivity(i);
 //            }
 //        });
@@ -97,13 +97,13 @@ public class Basic extends AppCompatActivity {
     }
 
     private void mergeIdCardView(){
-        btnBasic1 = (CardView) findViewById(R.id.btn_Basic1);
-        btnBasic2 = (CardView) findViewById(R.id.btn_Basic2);
-        btnBasic3 = (CardView) findViewById(R.id.btn_Basic3);
-        btnBasic4 = (CardView) findViewById(R.id.btn_Basic4);
-        btnBasic5 = (CardView) findViewById(R.id.btn_Basic5);
-        btnBasic6 = (CardView) findViewById(R.id.btn_Basic6);
-        btnBasic7 = (CardView) findViewById(R.id.btn_Basic7);
-        btnBasic8 = (CardView) findViewById(R.id.btn_Basic8);
+        btnBasic1 = findViewById(R.id.btn_Basic1);
+        btnBasic2 = findViewById(R.id.btn_Basic2);
+        btnBasic3 = findViewById(R.id.btn_Basic3);
+        btnBasic4 = findViewById(R.id.btn_Basic4);
+        btnBasic5 = findViewById(R.id.btn_Basic5);
+        btnBasic6 = findViewById(R.id.btn_Basic6);
+        btnBasic7 = findViewById(R.id.btn_Basic7);
+        btnBasic8 = findViewById(R.id.btn_Basic8);
     }
 }

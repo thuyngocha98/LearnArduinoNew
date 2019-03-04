@@ -1,36 +1,20 @@
-package com.hatn.learnarduino.Tol2.Lesson1;
+package com.hatn.learnarduino.Tol2;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Vibrator;
-import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.text.method.ScrollingMovementMethod;
-import android.util.Base64;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -38,15 +22,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 import com.hatn.learnarduino.Function;
-import com.hatn.learnarduino.MainActivity;
 import com.hatn.learnarduino.R;
 import com.hatn.learnarduino.Sensors;
 
-import java.io.ByteArrayOutputStream;
-
-public class Lesson1Quiz extends AppCompatActivity {
+public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
     private static final String TAG = "Leson1Content_log";
     CoordinatorLayout coordinatorLayout;
@@ -71,11 +51,11 @@ public class Lesson1Quiz extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lesson1_quiz);
+        setContentView(R.layout.activity_tol2_lesson_quiz);
 
         intent = getIntent();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -154,7 +134,7 @@ public class Lesson1Quiz extends AppCompatActivity {
 
 
         if (intent != null) {
-            Lessonnumber = intent.getIntExtra(Lesson1Content.LESSONNUMBERINTENT, 1);
+            Lessonnumber = intent.getIntExtra(Tol2_Lesson_Content.LESSONNUMBERINTENT, 1);
 
             Log.d(TAG, "Quiz onCreate: "+Lessonnumber);
             switch (Lessonnumber)
@@ -958,13 +938,13 @@ public class Lesson1Quiz extends AppCompatActivity {
                 .setAction("Next Lesson", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(Lesson1Quiz.this,Sensors.class);
+                        Intent intent = new Intent(Tol2_Lesson_Quiz.this,Sensors.class);
                         intent.putExtra("Coloredcard", exp);
                         startActivity(intent);
                     }
                 });
         View snackbarView = snackbar.getView();
-        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
 

@@ -1,6 +1,5 @@
 package com.hatn.learnarduino;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,10 +10,7 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -22,8 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.hatn.learnarduino.Tol2.Lesson1.Lesson1Content;
-import com.hatn.learnarduino.Tol2.Lesson1.Lesson1Quiz;
+import com.hatn.learnarduino.Tol2.Tol2_Lesson_Content;
 
 public class Sensors extends AppCompatActivity {
 
@@ -96,7 +91,7 @@ public class Sensors extends AppCompatActivity {
 //        btnSenser1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent i = new Intent(Sensors.this,Lesson1Content.class);
+//                Intent i = new Intent(Sensors.this,Tol2_Lesson_Content.class);
 //                i.putExtra("LESSONNUMBERINTENT",1);
 //                startActivity(i);
 //            }
@@ -119,7 +114,7 @@ public class Sensors extends AppCompatActivity {
 //        if (intent!=null)
 ////        {
 ////
-//////            int colored_card_number = intent.getIntExtra(Lesson1Quiz.Coloredcard,99);
+//////            int colored_card_number = intent.getIntExtra(Tol2_Lesson_Quiz.Coloredcard,99);
 //////            if (colored_card_number==5)
 //////            {
 //////                cardview_color1.setCardBackgroundColor(Color.parseColor("#ff669900"));
@@ -199,11 +194,7 @@ public class Sensors extends AppCompatActivity {
                 {
                     CardView temp = findViewById(CardView_List[i]);
                     CardView tempColor = findViewById(Cardview_color[i]);
-                    if(!tempColor.isClickable())
-                    {
-                        hascolor=true;
-                    }
-                    else hascolor=false;
+                    hascolor = !tempColor.isClickable();
 
                     ButtonLesson(temp,i+1,textViewTemp.getText().toString(),hascolor);
                     //Log.d(TAG, "onDataChange: "+textViewTemp.getText().toString());
@@ -230,11 +221,10 @@ public class Sensors extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Sensors.this,Lesson1Content.class);
+                Intent i = new Intent(Sensors.this,Tol2_Lesson_Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
                 i.putExtra("HASCOLOR", hascolor);
                 i.putExtra("LESSONNAME", name);
-
                 startActivity(i);
             }
         });

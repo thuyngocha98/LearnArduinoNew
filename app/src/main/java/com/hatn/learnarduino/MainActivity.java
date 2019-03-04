@@ -109,17 +109,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         //navigation drawer bar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         //progessOverlay.setVisibility(View.VISIBLE);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //Merge content
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -274,7 +274,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             logOut();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -298,13 +298,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(this, ex.toString(), Toast.LENGTH_SHORT).show();
         }
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.tv_header_name);
+        TextView navUsername = headerView.findViewById(R.id.tv_header_name);
         navUsername.setText(name);
-        TextView navEmail = (TextView) headerView.findViewById(R.id.tv_header_email);
+        TextView navEmail = headerView.findViewById(R.id.tv_header_email);
         navEmail.setText(email);
-        final ImageView navImage = (ImageView) headerView.findViewById(R.id.img_header);
+        final ImageView navImage = headerView.findViewById(R.id.img_header);
         if(!TextUtils.isEmpty(image)){
             Picasso.get().load(image).resize(75, 75).centerCrop().transform(new CropCircleTransformation()).into(navImage);
         }
@@ -332,7 +332,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", 100000);
 
             View snackbarView = snackbar.getView();
-            TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+            TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
             textView.setTextColor(Color.RED);
             snackbar.setAction("Try again", new View.OnClickListener() {
                 @Override
@@ -346,7 +346,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", 8000);
 
                         View snackbarView = snackbar.getView();
-                        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+                        TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
                         textView.setTextColor(Color.RED);
                         snackbar.show();
                     }

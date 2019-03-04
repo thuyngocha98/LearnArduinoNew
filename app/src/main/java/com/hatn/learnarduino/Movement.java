@@ -34,7 +34,7 @@ public class Movement extends AppCompatActivity {
 //        btnSenser1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent i = new Intent(LED.this, Lesson1Content.class);
+//                Intent i = new Intent(LED.this, Tol2_Lesson_Content.class);
 //                startActivity(i);
 //            }
 //        });
@@ -96,13 +96,13 @@ public class Movement extends AppCompatActivity {
     }
 
     private void mergeIdCardView(){
-        btnMovement1 = (CardView) findViewById(R.id.btn_movement1);
-        btnMovement2 = (CardView) findViewById(R.id.btn_movement2);
-        btnMovement3 = (CardView) findViewById(R.id.btn_movement3);
-        btnMovement4 = (CardView) findViewById(R.id.btn_movement4);
-        btnMovement5 = (CardView) findViewById(R.id.btn_movement5);
-        btnMovement6 = (CardView) findViewById(R.id.btn_movement6);
-        btnMovement7 = (CardView) findViewById(R.id.btn_movement7);
-        btnMovement8 = (CardView) findViewById(R.id.btn_movement8);
+        btnMovement1 = findViewById(R.id.btn_movement1);
+        btnMovement2 = findViewById(R.id.btn_movement2);
+        btnMovement3 = findViewById(R.id.btn_movement3);
+        btnMovement4 = findViewById(R.id.btn_movement4);
+        btnMovement5 = findViewById(R.id.btn_movement5);
+        btnMovement6 = findViewById(R.id.btn_movement6);
+        btnMovement7 = findViewById(R.id.btn_movement7);
+        btnMovement8 = findViewById(R.id.btn_movement8);
     }
 }

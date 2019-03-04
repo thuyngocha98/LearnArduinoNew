@@ -1,13 +1,8 @@
 package com.hatn.learnarduino;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -15,19 +10,13 @@ import android.support.v7.widget.CardView;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.hatn.learnarduino.Tol2.Lesson1.Lesson1Content;
-import com.twitter.sdk.android.core.models.Card;
-
-import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 
@@ -42,7 +31,7 @@ public class Function {
             {
                 String value = dataSnapshot.getValue().toString();
 
-                Log.d("Lesson 1 Quiz", "Value is: " + value);
+                Log.d("Lesson 12 Quiz", "Value is: " + value);
 
                 textView.setText(value);
 
@@ -130,7 +119,7 @@ public class Function {
         Snackbar snackbar = Snackbar
                 .make(coordinatorLayout, "Congrats! Right answer ", 500);
         View snackbarView = snackbar.getView();
-        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
 
@@ -151,7 +140,7 @@ public class Function {
         Snackbar snackbar = Snackbar
                 .make(coordinatorLayout, "Wrong answer!! Please try again ", 500);
         View snackbarView = snackbar.getView();
-        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(Color.parseColor("#ffa000"));
         snackbar.show();
 

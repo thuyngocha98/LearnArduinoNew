@@ -1,14 +1,12 @@
 package com.hatn.learnarduino;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -16,7 +14,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.hatn.learnarduino.Tol2.Lesson1.Lesson1Content;
 
 public class Tol5 extends AppCompatActivity {
 
@@ -42,7 +39,7 @@ public class Tol5 extends AppCompatActivity {
 //        Button1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent i = new Intent(Tol5.this, Lesson1Content.class);
+//                Intent i = new Intent(Tol5.this, Tol2_Lesson_Content.class);
 //                startActivity(i);
 //            }
 //        });

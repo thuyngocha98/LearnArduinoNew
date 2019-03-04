@@ -428,4 +428,8 @@
     <string name="title_activity_lesson2_content">Lesson2Content</string>
     <string name="title_activity_lesson2_quiz">Lesson2Quiz</string>
     <string name="lessons">Lessons</string>
+    <string name="title_activity_tol3__lesson__content">Tol3_Lesson_Content</string>
+    <string name="title_activity_tol3__lesson__quiz">Tol3_Lesson_Quiz</string>
+    <string name="circuit_diagram">Circuit Diagram</string>
+    <string name="components_required">Components Required</string>
 </resources>

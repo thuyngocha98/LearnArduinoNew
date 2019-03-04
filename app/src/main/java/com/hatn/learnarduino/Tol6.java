@@ -39,7 +39,7 @@ public class Tol6 extends AppCompatActivity {
 //        Button1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent i = new Intent(Tol5.this, Lesson1Content.class);
+//                Intent i = new Intent(Tol5.this, Tol2_Lesson_Content.class);
 //                startActivity(i);
 //            }
 //        });
