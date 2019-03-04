@@ -375,7 +375,7 @@ public class Tol3_Lesson_Content extends AppCompatActivity {
         //then we will inflate the custom alert dialog xml that we created
         final View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_viewcode, viewGroup, false);
 
-        codeview = dialogView.findViewById(R.id.textview_codetemp);
+        codeview = dialogView.findViewById(R.id.textview_code);
         codeview.setText(codeviewtemp.getText());
         codeview.setMovementMethod(new ScrollingMovementMethod());
 
