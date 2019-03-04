@@ -362,10 +362,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             Alerter.create(MainActivity.this)
                 .setTitle("Loading...")
-                .setText("Loading content and lesson")
-                .setIcon(R.drawable.ic_research)
+                .setText("Updating content and lesson")
+                .setIcon(R.drawable.ic_loading)
                     .enableProgress(true)
                     .setProgressColorRes(R.color.lime)
+                    .setDuration(1000)
                 .setBackgroundColorRes(R.color.alert_background) // or setBackgroundColorInt(Color.CYAN)
                 .show();
             enableViews(drawerLayout, false);
@@ -374,7 +375,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             Snackbar snackbar = Snackbar
-                    .make(drawerLayout, "Signed in as " +email,Snackbar.LENGTH_LONG)
+                    .make(drawerLayout, "Signed in as " +email,1200)
                     .setAction("LOG OUT", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
