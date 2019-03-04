@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashActivity">
+
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.hatn.learnarduino.SplashActivity"
+        android:label="activity_splash"
+        tools:layout="@layout/activity_splash" >
+        <argument android:name="1st"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </activity>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.hatn.learnarduino.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/LED"
+        android:name="com.hatn.learnarduino.LED"
+        android:label="activity_led"
+        tools:layout="@layout/activity_led" />
+    <activity
+        android:id="@+id/basic"
+        android:name="com.hatn.learnarduino.Basic"
+        android:label="activity_basic"
+        tools:layout="@layout/activity_basic" />
+    <activity
+        android:id="@+id/sensors"
+        android:name="com.hatn.learnarduino.Sensors"
+        android:label="activity_sensors"
+        tools:layout="@layout/activity_sensors" />
+    <activity
+        android:id="@+id/movement"
+        android:name="com.hatn.learnarduino.Movement"
+        android:label="activity_movement"
+        tools:layout="@layout/activity_movement" />
+    <activity
+        android:id="@+id/tol5"
+        android:name="com.hatn.learnarduino.Tol5"
+        android:label="activity_tol5"
+        tools:layout="@layout/activity_tol5" />
+    <activity
+        android:id="@+id/tol6"
+        android:name="com.hatn.learnarduino.Tol6"
+        android:label="activity_tol6"
+        tools:layout="@layout/activity_tol6" />
+    <activity
+        android:id="@+id/tol3_Lesson_Content"
+        android:name="com.hatn.learnarduino.Tol3.Tol3_Lesson_Content"
+        android:label="activity_tol3_lesson_content"
+        tools:layout="@layout/activity_tol3_lesson_content" />
+    <activity
+        android:id="@+id/tol2_Lesson_Content"
+        android:name="com.hatn.learnarduino.Tol2.Tol2_Lesson_Content"
+        android:label="activity_tol2_lesson_content"
+        tools:layout="@layout/activity_tol2_lesson_content" />
+    <activity
+        android:id="@+id/tol2_Lesson_Quiz"
+        android:name="com.hatn.learnarduino.Tol2.Tol2_Lesson_Quiz"
+        android:label="activity_tol2_lesson_quiz"
+        tools:layout="@layout/activity_tol2_lesson_quiz" />
+    <activity
+        android:id="@+id/tol3_Lesson_Quiz"
+        android:name="com.hatn.learnarduino.Tol3.Tol3_Lesson_Quiz"
+        android:label="activity_tol3_lesson_quiz"
+        tools:layout="@layout/activity_tol3_lesson_quiz" />
+</navigation>
