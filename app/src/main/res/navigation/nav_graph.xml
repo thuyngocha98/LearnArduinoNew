@@ -64,9 +64,4 @@
         android:name="com.hatn.learnarduino.Tol2.Tol2_Lesson_Quiz"
         android:label="activity_tol2_lesson_quiz"
         tools:layout="@layout/activity_tol2_lesson_quiz" />
-    <activity
-        android:id="@+id/tol3_Lesson_Quiz"
-        android:name="com.hatn.learnarduino.Tol3.Tol3_Lesson_Quiz"
-        android:label="activity_tol3_lesson_quiz"
-        tools:layout="@layout/activity_tol3_lesson_quiz" />
 </navigation>

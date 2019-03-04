@@ -79,6 +79,15 @@ public class Sensors extends AppCompatActivity {
                         exp -=5;
                     }
                     //Allcard.setClickable(false);
+//                    if (exp>=5)
+//                    {
+//                        for (i=0;i<=exp;i+=5)
+//                        {
+//                            CardView expcheck = findViewById(CardView_List[5/i]);
+//                            expcheck.setClickable(true);
+//                        }
+//                    }
+
                 }
             }
 

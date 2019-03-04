@@ -432,4 +432,6 @@
     <string name="title_activity_tol3__lesson__quiz">Tol3_Lesson_Quiz</string>
     <string name="circuit_diagram">Circuit Diagram</string>
     <string name="components_required">Components Required</string>
+    <string name="title_activity_to1__lesson__content">Basic</string>
+    <string name="title_activity_tol1__lesson_quiz">Tol1_Lesson_quiz</string>
 </resources>

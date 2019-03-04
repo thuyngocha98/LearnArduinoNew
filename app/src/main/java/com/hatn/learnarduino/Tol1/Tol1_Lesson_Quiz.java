@@ -1,4 +1,4 @@
-package com.hatn.learnarduino.Tol2;
+package com.hatn.learnarduino.Tol1;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -22,12 +22,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Basic;
 import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.R;
 import com.hatn.learnarduino.Sensors;
+import com.hatn.learnarduino.Tol2.Tol2_Lesson_Content;
+import com.hatn.learnarduino.Tol2.Tol2_Lesson_Quiz;
 
-public class Tol2_Lesson_Quiz extends AppCompatActivity {
-
+public class Tol1_Lesson_Quiz extends AppCompatActivity {
     private static final String TAG = "Leson1Content_log";
     CoordinatorLayout coordinatorLayout;
     FloatingActionButton fab;
@@ -44,7 +46,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
     int Lessonnumber;
     Intent intent;
 
-    public static final String LESSONNUMBERINTENT="LESSONNUMBERINTENT";
+    public static final String LESSONNUMBERINTENT = "LESSONNUMBERINTENT";
 
 
     @Override
@@ -60,9 +62,9 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
+        progressDialog = ProgressDialog.show(this, "Loading app data", "Please wait for a while", true);
 
-        coordinatorLayout=findViewById(R.id.Lesson1Quizlayout);
+        coordinatorLayout = findViewById(R.id.Lesson1Quizlayout);
 
         textviewquiz1 = findViewById(R.id.textView_Lesson1_Quiz1);
         textviewquiz2 = findViewById(R.id.textView_Lesson1_Quiz2);
@@ -104,11 +106,9 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         cardview_quiz3_answer2_flag = findViewById(R.id.cardview_quiz3_answer2_flag);
         cardview_quiz3_answer3_flag = findViewById(R.id.cardview_quiz3_answer3_flag);
 
-        quiz1_rightanswer=findViewById(R.id.quiz1_rightanswer);
-        quiz2_rightanswer=findViewById(R.id.quiz2_rightanswer);
-        quiz3_rightanswer=findViewById(R.id.quiz3_rightanswer);
-
-
+        quiz1_rightanswer = findViewById(R.id.quiz1_rightanswer);
+        quiz2_rightanswer = findViewById(R.id.quiz2_rightanswer);
+        quiz3_rightanswer = findViewById(R.id.quiz3_rightanswer);
 
 
         DatabaseReference Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
@@ -131,15 +131,12 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         DatabaseReference Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
 
-
         if (intent != null) {
             Lessonnumber = intent.getIntExtra(Tol2_Lesson_Content.LESSONNUMBERINTENT, 1);
 
-            Log.d(TAG, "Quiz onCreate: "+Lessonnumber);
-            switch (Lessonnumber)
-            {
-                case 1:
-                {
+            Log.d(TAG, "Quiz onCreate: " + Lessonnumber);
+            switch (Lessonnumber) {
+                case 1: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -161,8 +158,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 2:
-                {
+                case 2: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -184,8 +180,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 3:
-                {
+                case 3: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -207,8 +202,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 4:
-                {
+                case 4: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -230,8 +224,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 5:
-                {
+                case 5: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -253,8 +246,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 6:
-                {
+                case 6: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -276,8 +268,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 7:
-                {
+                case 7: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -299,8 +290,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 8:
-                {
+                case 8: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -322,8 +312,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 9:
-                {
+                case 9: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -345,8 +334,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 10:
-                {
+                case 10: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -368,8 +356,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 11:
-                {
+                case 11: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -391,8 +378,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 12:
-                {
+                case 12: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -414,8 +400,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 13:
-                {
+                case 13: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -437,8 +422,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 14:
-                {
+                case 14: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -460,8 +444,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 15:
-                {
+                case 15: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -483,8 +466,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 16:
-                {
+                case 16: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -506,8 +488,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 17:
-                {
+                case 17: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -529,8 +510,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 18:
-                {
+                case 18: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -552,8 +532,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 19:
-                {
+                case 19: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -575,8 +554,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 20:
-                {
+                case 20: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -598,8 +576,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 21:
-                {
+                case 21: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -621,8 +598,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 22:
-                {
+                case 22: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -644,8 +620,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 23:
-                {
+                case 23: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -667,8 +642,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 24:
-                {
+                case 24: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -690,8 +664,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 25:
-                {
+                case 25: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -713,8 +686,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
                     break;
                 }
-                case 26:
-                {
+                case 26: {
                     Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
                     Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
                     Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
@@ -740,54 +712,49 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         }
 
 
+        function = new Function();
 
+        function.SetDataIntoObject(Getquiz1question, textviewquiz1);
+        function.SetDataIntoObject(Getquiz2question, textviewquiz2);
+        function.SetDataIntoObject(Getquiz3question, textviewquiz3);
 
+        function.SetDataIntoObject(Getquiz1rightanswer, quiz1_rightanswer);
+        function.SetDataIntoObject(Getquiz2rightanswer, quiz2_rightanswer);
+        function.SetDataIntoObject(Getquiz3rightanswer, quiz3_rightanswer);
 
+        function.SetDataIntoObject(Getquiz1answer1, textviewquiz1_answer1);
+        function.SetDataIntoObject(Getquiz1answer2, textviewquiz1_answer2);
+        function.SetDataIntoObject(Getquiz1answer3, textviewquiz1_answer3);
 
-        function=new Function();
+        function.SetDataIntoObject(Getquiz2answer1, textviewquiz2_answer1);
+        function.SetDataIntoObject(Getquiz2answer2, textviewquiz2_answer2);
+        function.SetDataIntoObject(Getquiz2answer3, textviewquiz2_answer3);
 
-        function.SetDataIntoObject(Getquiz1question,textviewquiz1);
-        function.SetDataIntoObject(Getquiz2question,textviewquiz2);
-        function.SetDataIntoObject(Getquiz3question,textviewquiz3);
-
-        function.SetDataIntoObject(Getquiz1rightanswer,quiz1_rightanswer);
-        function.SetDataIntoObject(Getquiz2rightanswer,quiz2_rightanswer);
-        function.SetDataIntoObject(Getquiz3rightanswer,quiz3_rightanswer);
-
-        function.SetDataIntoObject(Getquiz1answer1,textviewquiz1_answer1);
-        function.SetDataIntoObject(Getquiz1answer2,textviewquiz1_answer2);
-        function.SetDataIntoObject(Getquiz1answer3,textviewquiz1_answer3);
-
-        function.SetDataIntoObject(Getquiz2answer1,textviewquiz2_answer1);
-        function.SetDataIntoObject(Getquiz2answer2,textviewquiz2_answer2);
-        function.SetDataIntoObject(Getquiz2answer3,textviewquiz2_answer3);
-
-        function.SetDataIntoObject(Getquiz3answer1,textviewquiz3_answer1);
-        function.SetDataIntoObject(Getquiz3answer2,textviewquiz3_answer2);
-        function.SetDataIntoObject(Getquiz3answer3,textviewquiz3_answer3);
+        function.SetDataIntoObject(Getquiz3answer1, textviewquiz3_answer1);
+        function.SetDataIntoObject(Getquiz3answer2, textviewquiz3_answer2);
+        function.SetDataIntoObject(Getquiz3answer3, textviewquiz3_answer3);
 
         progressDialog.dismiss();
 
-        function.CheckAnswer(cardviewquiz1_answer1,cardview_quiz1_answer1_flag,textviewquiz1_answer1,quiz1_rightanswer,cardviewquiz1_answer2,cardviewquiz1_answer3,coordinatorLayout);
-        function.CheckAnswer(cardviewquiz1_answer2,cardview_quiz1_answer2_flag,textviewquiz1_answer2,quiz1_rightanswer,cardviewquiz1_answer1,cardviewquiz1_answer3,coordinatorLayout);
-        function.CheckAnswer(cardviewquiz1_answer3,cardview_quiz1_answer3_flag,textviewquiz1_answer3,quiz1_rightanswer,cardviewquiz1_answer1,cardviewquiz1_answer2,coordinatorLayout);
+        function.CheckAnswer(cardviewquiz1_answer1, cardview_quiz1_answer1_flag, textviewquiz1_answer1, quiz1_rightanswer, cardviewquiz1_answer2, cardviewquiz1_answer3, coordinatorLayout);
+        function.CheckAnswer(cardviewquiz1_answer2, cardview_quiz1_answer2_flag, textviewquiz1_answer2, quiz1_rightanswer, cardviewquiz1_answer1, cardviewquiz1_answer3, coordinatorLayout);
+        function.CheckAnswer(cardviewquiz1_answer3, cardview_quiz1_answer3_flag, textviewquiz1_answer3, quiz1_rightanswer, cardviewquiz1_answer1, cardviewquiz1_answer2, coordinatorLayout);
 
-        function.CheckAnswer(cardviewquiz2_answer1,cardview_quiz2_answer1_flag,textviewquiz2_answer1,quiz2_rightanswer,cardviewquiz2_answer2,cardviewquiz2_answer3,coordinatorLayout);
-        function.CheckAnswer(cardviewquiz2_answer2,cardview_quiz2_answer2_flag,textviewquiz2_answer2,quiz2_rightanswer,cardviewquiz2_answer1,cardviewquiz2_answer3,coordinatorLayout);
-        function.CheckAnswer(cardviewquiz2_answer3,cardview_quiz2_answer3_flag,textviewquiz2_answer3,quiz2_rightanswer,cardviewquiz2_answer1,cardviewquiz2_answer2,coordinatorLayout);
+        function.CheckAnswer(cardviewquiz2_answer1, cardview_quiz2_answer1_flag, textviewquiz2_answer1, quiz2_rightanswer, cardviewquiz2_answer2, cardviewquiz2_answer3, coordinatorLayout);
+        function.CheckAnswer(cardviewquiz2_answer2, cardview_quiz2_answer2_flag, textviewquiz2_answer2, quiz2_rightanswer, cardviewquiz2_answer1, cardviewquiz2_answer3, coordinatorLayout);
+        function.CheckAnswer(cardviewquiz2_answer3, cardview_quiz2_answer3_flag, textviewquiz2_answer3, quiz2_rightanswer, cardviewquiz2_answer1, cardviewquiz2_answer2, coordinatorLayout);
 
-        function.CheckAnswer(cardviewquiz3_answer1,cardview_quiz3_answer1_flag,textviewquiz3_answer1,quiz3_rightanswer,cardviewquiz3_answer2,cardviewquiz3_answer3,coordinatorLayout);
-        function.CheckAnswer(cardviewquiz3_answer2,cardview_quiz3_answer2_flag,textviewquiz3_answer2,quiz3_rightanswer,cardviewquiz3_answer1,cardviewquiz3_answer3,coordinatorLayout);
-        function.CheckAnswer(cardviewquiz3_answer3,cardview_quiz3_answer3_flag,textviewquiz3_answer3,quiz3_rightanswer,cardviewquiz3_answer1,cardviewquiz3_answer2,coordinatorLayout);
-
+        function.CheckAnswer(cardviewquiz3_answer1, cardview_quiz3_answer1_flag, textviewquiz3_answer1, quiz3_rightanswer, cardviewquiz3_answer2, cardviewquiz3_answer3, coordinatorLayout);
+        function.CheckAnswer(cardviewquiz3_answer2, cardview_quiz3_answer2_flag, textviewquiz3_answer2, quiz3_rightanswer, cardviewquiz3_answer1, cardviewquiz3_answer3, coordinatorLayout);
+        function.CheckAnswer(cardviewquiz3_answer3, cardview_quiz3_answer3_flag, textviewquiz3_answer3, quiz3_rightanswer, cardviewquiz3_answer1, cardviewquiz3_answer2, coordinatorLayout);
 
 
         Thread thread = new Thread() {
             @Override
             public void run() {
                 try {
-                    int countcheck=0;
-                    while (countcheck<3) {
+                    int countcheck = 0;
+                    while (countcheck < 3) {
                         if (!cardviewquiz1_answer1.isClickable()) {
                             countcheck++;
                         }
@@ -797,9 +764,11 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
                         if (!cardviewquiz3_answer3.isClickable()) {
                             countcheck++;
                         }
-                        if (countcheck == 3){ NextLesson();
-                            break;}
-                        countcheck=0;
+                        if (countcheck == 3) {
+                            NextLesson();
+                            break;
+                        }
+                        countcheck = 0;
                         sleep(1000);
                     }
                 } catch (InterruptedException e) {
@@ -810,16 +779,41 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
 
         thread.start();
 
+
     }
 
+
+    private void thread() {
+        int countcheck = 0;
+
+        while (countcheck < 3) {
+            if (!cardviewquiz1_answer1.isClickable()) {
+                countcheck++;
+            }
+            if (!cardviewquiz2_answer1.isClickable()) {
+                countcheck++;
+            }
+            if (!cardviewquiz3_answer3.isClickable()) {
+                countcheck++;
+            }
+            if (countcheck == 3) {
+                NextLesson();
+            }
+            countcheck = 0;
+        }
+    }
+
+
     private void NextLesson() {
-        final int exp=5;
+        final int exp = 5;
 
         Boolean checkcolor = intent.getBooleanExtra(Sensors.HASCOLOR, true);
-        Log.d(TAG, "onDataChange: thuyngocha3 "+checkcolor);
-        if(checkcolor)
-        {
+        Log.d(TAG, "onDataChange: thuyngocha3 " + checkcolor);
+        if (checkcolor) {
             mAuth = FirebaseAuth.getInstance();
+
+//        Function function =new Function();
+//        function.SetDataIntoObject(Userexp,experience);
             String user_id = mAuth.getCurrentUser().getUid();
             final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
             current_user_id.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -828,11 +822,16 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
                     Long value = dataSnapshot.getValue(Long.class);
-                    current_user_id.setValue(value.intValue()+5);
+
+
+                    current_user_id.setValue(value.intValue() + 5);
+
                 }
 
                 @Override
                 public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+
                 }
             });
 
@@ -842,7 +841,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
                 .setAction("Next Lesson", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(Tol2_Lesson_Quiz.this,Sensors.class);
+                        Intent intent = new Intent(Tol1_Lesson_Quiz.this, Basic.class);
                         //intent.putExtra("Coloredcard", exp);
                         startActivity(intent);
                     }
@@ -852,18 +851,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
 
-
-
-
-
-
-
+        //TODO: get exp from database, push exp to database, change color of CardView
 
     }
-
-
-
-
-
-
 }
