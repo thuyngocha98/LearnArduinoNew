@@ -29,6 +29,7 @@ public class Sensors extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     Intent intent;
+    int max_basic;
 
     public static final String LESSONNUMBERINTENT ="LESSONNUMBERINTENT";
     public static final String LESSONNAME = "LESSONNAME";
@@ -43,6 +44,10 @@ public class Sensors extends AppCompatActivity {
 
         intent=getIntent();
 
+        max_basic = intent.getIntExtra("MAXBASIC2", 0);
+        if(max_basic == 0)
+            max_basic = intent.getIntExtra("MAXBASIC", 0);
+
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
@@ -53,7 +58,11 @@ public class Sensors extends AppCompatActivity {
                 // whenever data at this location is updated.
                 Long value = dataSnapshot.getValue(Long.class);
                 int exp=value.intValue();
-                int maxbasic = intent.getIntExtra("MAXBASIC",0);
+                int maxbasic = intent.getIntExtra("MAXBASIC2",0);
+                Log.d("abcdef", "Sensors: "+maxbasic);
+                if(maxbasic == 0)
+                    maxbasic = intent.getIntExtra("MAXBASIC",1);
+                Log.d("abcdef", "Sensors 1: "+maxbasic);
                 int expSensor = exp - maxbasic;
 
                 int[] Cardview_color = {
@@ -210,9 +219,12 @@ public class Sensors extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent i = new Intent(Sensors.this,Tol2_Lesson_Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
                 i.putExtra("HASCOLOR", hascolor);
+                i.putExtra("MAXBASIC", max_basic);
+                Log.d("abcdef", "Sensor sending to content: "+max_basic);
                 Log.d(TAG, "onDataChange: thuyngocha1 "+hascolor);
                 i.putExtra("LESSONNAME", name);
                 startActivity(i);

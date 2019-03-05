@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,Sensors.class);
-                i.putExtra("MAXBASIC", progressBarBasic.getMax());
+                i.putExtra("MAXBASIC2", progressBarBasic.getMax());
                 startActivity(i);
             }
         });

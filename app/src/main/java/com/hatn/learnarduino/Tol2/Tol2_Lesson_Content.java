@@ -58,6 +58,8 @@ public class Tol2_Lesson_Content extends AppCompatActivity {
 
         final Intent intent = getIntent();
 
+        final int max_basic = intent.getIntExtra("MAXBASIC", 1);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -469,6 +471,8 @@ public class Tol2_Lesson_Content extends AppCompatActivity {
                 Intent i = new Intent(Tol2_Lesson_Content.this, Tol2_Lesson_Quiz.class);
                 i.putExtra("LESSONNUMBERINTENT",intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1));
                 i.putExtra("HASCOLOR", checkcolor);
+                i.putExtra("MAXBASIC",max_basic);
+                Log.d("abcdef", "Sensors: "+max_basic);
                 Log.d(TAG, "onDataChange: thuyngocha2 "+checkcolor);
                 Log.d(TAG, "Quiz1 onCreate: "+intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1));
                 startActivity(i);
