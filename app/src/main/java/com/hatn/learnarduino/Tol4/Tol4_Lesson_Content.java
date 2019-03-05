@@ -46,6 +46,9 @@ public class Tol4_Lesson_Content extends AppCompatActivity {
         coordinatorLayout=findViewById(R.id.tol1_layout);
 
         intent = getIntent();
+
+        final int max_led = intent.getIntExtra("MAXLED", 1);
+
         progressDialog= ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
         DatabaseReference Tol4_lesson_Content = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson26").child("Content").child("Description");
         DatabaseReference Tol4_lesson_img = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Content").child("Image");
@@ -206,6 +209,7 @@ public class Tol4_Lesson_Content extends AppCompatActivity {
                 Intent i = new Intent(Tol4_Lesson_Content.this, Tol4_Lesson_Quiz.class);
                 i.putExtra(LESSONNUMBERINTENT,intent.getIntExtra(Basic.LESSONNUMBERINTENT, 1));
                 i.putExtra("HASCOLOR", checkcolor);
+                i.putExtra("MAXLED",max_led);
                 startActivity(i);
             }
         });

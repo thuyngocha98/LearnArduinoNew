@@ -44,7 +44,6 @@ public class Movement extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
 
-
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
@@ -56,10 +55,10 @@ public class Movement extends AppCompatActivity {
                 Long value = dataSnapshot.getValue(Long.class);
                 int exp=value.intValue();
                 int maxled = intent.getIntExtra("MAXLED2",0);
-                Log.d("abcdef", "Sensors: "+maxled);
                 if(maxled == 0)
                     maxled = intent.getIntExtra("MAXLED",1);
 
+                int expMovement = exp - maxled;
                 int[] CardViewColor_list = {
                         R.id.tol4_colorcard1 , R.id.tol4_colorcard2, R.id.tol4_colorcard3, R.id.tol4_colorcard4,
                         R.id.tol4_colorcard5 , R.id.tol4_colorcard6, R.id.tol4_colorcard7, R.id.tol4_colorcard8,
@@ -72,10 +71,10 @@ public class Movement extends AppCompatActivity {
                 for(int i =0; i <7; i++){
                     CardView temp = findViewById(CardViewColor_list[i]);
                     CardView Allcard = findViewById(CardView_List[i+1]);
-                    if(exp >=5){
+                    if(expMovement >=5){
                         temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
                         temp.setClickable(false);
-                        exp -=5;
+                        expMovement -=5;
                     }
                     else
                         Allcard.setEnabled(false);
@@ -171,6 +170,7 @@ public class Movement extends AppCompatActivity {
                 i.putExtra("LESSONNUMBERINTENT",value);
                 Log.d(TAG, "test onClick: "+value);
                 i.putExtra("HASCOLOR", hascolor);
+                i.putExtra("MAXLED", max_led);
                 startActivity(i);
             }
         });

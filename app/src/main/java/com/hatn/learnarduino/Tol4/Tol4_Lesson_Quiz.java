@@ -847,9 +847,10 @@ public class Tol4_Lesson_Quiz extends AppCompatActivity {
                 .setAction("Next Lesson", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(Tol4_Lesson_Quiz.this, Movement.class);
+                        Intent intent1 = new Intent(Tol4_Lesson_Quiz.this, Movement.class);
                         //intent.putExtra("Coloredcard", exp);
-                        startActivity(intent);
+                        intent1.putExtra("MAXLED", intent.getIntExtra("MAXLED", 1));
+                        startActivity(intent1);
                     }
                 });
         View snackbarView = snackbar.getView();
