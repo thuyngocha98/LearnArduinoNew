@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -28,6 +29,7 @@ public class Tol1_Lesson_Content extends AppCompatActivity {
     CoordinatorLayout coordinatorLayout;
     ProgressDialog progressDialog;
     Intent intent;
+    public static final String LESSONNUMBERINTENT = "LESSONNUMBERINTENT";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -195,6 +197,18 @@ public class Tol1_Lesson_Content extends AppCompatActivity {
         function.SetDataIntoObject(Tol1_lesson_Content, textView);
         function.SetDataIntoObject(Tol1_lesson_img, imageView);
         progressDialog.dismiss();
+
+        FloatingActionButton floatingActionButton = findViewById(R.id.fab_tol1);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean checkcolor = intent.getBooleanExtra(Basic.HASCOLOR, true);
+                Intent i = new Intent(Tol1_Lesson_Content.this,Tol1_Lesson_Quiz.class);
+                i.putExtra(LESSONNUMBERINTENT,intent.getIntExtra(Basic.LESSONNUMBERINTENT, 1));
+                i.putExtra("HASCOLOR", checkcolor);
+                startActivity(i);
+            }
+        });
 
 
     }

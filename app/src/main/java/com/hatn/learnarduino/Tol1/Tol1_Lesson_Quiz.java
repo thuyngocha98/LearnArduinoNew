@@ -24,10 +24,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hatn.learnarduino.Basic;
 import com.hatn.learnarduino.Function;
+import com.hatn.learnarduino.MainActivity;
 import com.hatn.learnarduino.R;
 import com.hatn.learnarduino.Sensors;
-import com.hatn.learnarduino.Tol2.Tol2_Lesson_Content;
-import com.hatn.learnarduino.Tol2.Tol2_Lesson_Quiz;
+import com.hatn.learnarduino.Tol1.Tol1_Lesson_Content;
+import com.hatn.learnarduino.Tol1.Tol1_Lesson_Quiz;
 
 public class Tol1_Lesson_Quiz extends AppCompatActivity {
     private static final String TAG = "Leson1Content_log";
@@ -111,600 +112,600 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
         quiz3_rightanswer = findViewById(R.id.quiz3_rightanswer);
 
 
-        DatabaseReference Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-        DatabaseReference Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-        DatabaseReference Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+        DatabaseReference Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+        DatabaseReference Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+        DatabaseReference Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-        DatabaseReference Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-        DatabaseReference Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-        DatabaseReference Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-        DatabaseReference Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+        DatabaseReference Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+        DatabaseReference Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+        DatabaseReference Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+        DatabaseReference Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-        DatabaseReference Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-        DatabaseReference Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-        DatabaseReference Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-        DatabaseReference Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+        DatabaseReference Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+        DatabaseReference Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+        DatabaseReference Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+        DatabaseReference Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-        DatabaseReference Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-        DatabaseReference Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-        DatabaseReference Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-        DatabaseReference Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+        DatabaseReference Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+        DatabaseReference Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+        DatabaseReference Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+        DatabaseReference Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
 
         if (intent != null) {
-            Lessonnumber = intent.getIntExtra(Tol2_Lesson_Content.LESSONNUMBERINTENT, 1);
+            Lessonnumber = intent.getIntExtra(Tol1_Lesson_Content.LESSONNUMBERINTENT, 1);
 
             Log.d(TAG, "Quiz onCreate: " + Lessonnumber);
             switch (Lessonnumber) {
                 case 1: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson1").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 2: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson2").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 3: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson3").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 4: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson4").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 5: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson5").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 6: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson6").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 7: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson7").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 8: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson8").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 9: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson9").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 10: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson10").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 11: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson11").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 12: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson12").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 13: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson13").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 14: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson14").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 15: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson15").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 16: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson16").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 17: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson17").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 18: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson18").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 19: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson19").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 20: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson20").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 21: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson21").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 22: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson22").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 23: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson23").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 24: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson24").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 25: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson25").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
                 case 26: {
-                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
-                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
-                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
+                    Getquiz1question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Quiz");
+                    Getquiz2question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Quiz");
+                    Getquiz3question = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Quiz");
 
-                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
-                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
-                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
-                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
+                    Getquiz1rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer");
+                    Getquiz1answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer1");
+                    Getquiz1answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer2");
+                    Getquiz1answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz1").child("Answer3");
 
-                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
-                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
-                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
-                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
+                    Getquiz2rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer");
+                    Getquiz2answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer1");
+                    Getquiz2answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer2");
+                    Getquiz2answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz2").child("Answer3");
 
-                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
-                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
-                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
-                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
+                    Getquiz3rightanswer = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer");
+                    Getquiz3answer1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer1");
+                    Getquiz3answer2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer2");
+                    Getquiz3answer3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Lesson26").child("Content").child("ContentQuiz").child("ContentQuiz3").child("Answer3");
 
                     break;
                 }
@@ -781,6 +782,14 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(Tol1_Lesson_Quiz.this, Basic.class));
+        finish();
+
+    }
 
 
     private void thread() {
@@ -807,7 +816,7 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
     private void NextLesson() {
         final int exp = 5;
 
-        Boolean checkcolor = intent.getBooleanExtra(Sensors.HASCOLOR, true);
+        Boolean checkcolor = intent.getBooleanExtra(Basic.HASCOLOR, true);
         Log.d(TAG, "onDataChange: thuyngocha3 " + checkcolor);
         if (checkcolor) {
             mAuth = FirebaseAuth.getInstance();

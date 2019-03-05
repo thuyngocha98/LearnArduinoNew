@@ -16,10 +16,12 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Tol1.Tol1_Lesson_Quiz"
-            android:label="@string/title_activity_tol1__lesson_quiz"
+            android:label="Basic"
+            android:parentActivityName=".Basic"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Tol1.Tol1_Lesson_Content"
+            android:parentActivityName=".Basic"
             android:label="@string/title_activity_to1__lesson__content"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Tol6" />
@@ -75,6 +77,7 @@
             android:label="About Us" />
         <activity
             android:name=".Tol2.Tol2_Lesson_Content"
+            android:label="Sensors"
             android:parentActivityName=".Sensors"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
