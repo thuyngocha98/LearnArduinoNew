@@ -164,8 +164,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mAuth = FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser() != null){
             setProfile();
+            loadingProgressBarTotal();
         }else {
             functionLogin();
+            loadingProgressBarTotal();
         }
 
         //Merge content
@@ -177,72 +179,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         buttonTol6 = findViewById(R.id.btn_tol6);
 
 
-        //setProgressBarMain();
-//        //set max progressBar
-//        DatabaseReference progBarBasic = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Number_of_lesson");
-//        progBarBasic.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                int value = Integer.parseInt(dataSnapshot.getValue().toString());
-//                int max = value*5;
-//                progressBarBasic.setMax(max);
-//                Log.d("tag", "onDataChange: thuyngocha basic"+ progressBarBasic.getMax());
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
-//        //set max progressBar Sensor
-//        DatabaseReference progBarSensor = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Number_of_lesson");
-//        progBarSensor.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                int value = Integer.parseInt(dataSnapshot.getValue().toString());
-//                int max = value*5;
-//                progressBarSensor.setMax(max);
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
-//        //set max progressBar Led
-//        DatabaseReference progBarLed = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Number_of_lesson");
-//        progBarLed.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                int value = Integer.parseInt(dataSnapshot.getValue().toString());
-//                int max = value*5;
-//                progressBarLed.setMax(max);
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
-//        //set max progressBar movement
-//        DatabaseReference progBarMovement = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Number_of_lesson");
-//        progBarMovement.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                int value = Integer.parseInt(dataSnapshot.getValue().toString());
-//                int max = value*5;
-//                progressBarMovement.setMax(max);
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
-        int t = 0;
-        if(t ==0){
-            setMaxProgressbar();
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            t++;
-        }
-        if(t ==1)
-            setProgressBarMain();
 
         buttonBasic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -683,5 +619,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+    }
+
+    public void loadingProgressBarTotal(){
+        int t = 0;
+        if(mAuth.getCurrentUser() != null) {
+            if (t == 0) {
+                setMaxProgressbar();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                t++;
+            }
+            if (t == 1)
+                setProgressBarMain();
+        }
     }
 }
