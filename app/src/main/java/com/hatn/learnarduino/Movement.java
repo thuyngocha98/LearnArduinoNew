@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Tol4.Tol4_Lesson_Content;
 
 public class Movement extends AppCompatActivity {
 
@@ -39,6 +40,9 @@ public class Movement extends AppCompatActivity {
         max_led = intent.getIntExtra("MAXLED2", 0);
         if(max_led == 0)
             max_led = intent.getIntExtra("MAXLED", 0);
+
+        mAuth = FirebaseAuth.getInstance();
+        String user_id = mAuth.getCurrentUser().getUid();
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
@@ -106,6 +110,10 @@ public class Movement extends AppCompatActivity {
                         R.id.textview_movement1 ,  R.id.textview_movement2 ,  R.id.textview_movement3 ,  R.id.textview_movement4 ,  R.id.textview_movement5 ,
                         R.id.textview_movement6 ,  R.id.textview_movement7 ,  R.id.textview_movement8 ,
                 };
+                int[] CardViewColor_list = {
+                        R.id.tol4_color1 , R.id.tol4_color2, R.id.tol4_color3, R.id.tol4_color4,
+                        R.id.tol4_color5 , R.id.tol4_color6, R.id.tol4_color7, R.id.tol4_color8,
+                };
 
 
                 //set number lesson visibilyty
@@ -125,6 +133,14 @@ public class Movement extends AppCompatActivity {
                     Function function = new Function();
                     function.SetDataIntoObject(dataTemp, textViewTemp);
                 }
+                for(int i = 0; i < value; i++){
+                    CardView temp = findViewById(CardView_List[i]);
+                    CardView tempcolor = findViewById(CardViewColor_list[i]);
+                    boolean hascolor = tempcolor.isClickable();
+                    ButtonLesson(temp,i+1,hascolor);
+                }
+
+
                 progressDialog.dismiss();
             }
             @Override
@@ -134,9 +150,42 @@ public class Movement extends AppCompatActivity {
 
     }
     @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(Movement.this, MainActivity.class));
+        finish();
+
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
     }
 
+    private void ButtonLesson(CardView button, final int value, final boolean hascolor)
+    {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Movement.this, Tol4_Lesson_Content.class);
+                i.putExtra("LESSONNUMBERINTENT",value);
+                Log.d(TAG, "test onClick: "+value);
+                i.putExtra("HASCOLOR", hascolor);
+                startActivity(i);
+            }
+        });
+    }
+
+    private void mergeIdCardView(){
+        btnMovement1 = findViewById(R.id.btn_movement1);
+        btnMovement2 = findViewById(R.id.btn_movement2);
+        btnMovement3 = findViewById(R.id.btn_movement3);
+        btnMovement4 = findViewById(R.id.btn_movement4);
+        btnMovement5 = findViewById(R.id.btn_movement5);
+        btnMovement6 = findViewById(R.id.btn_movement6);
+        btnMovement7 = findViewById(R.id.btn_movement7);
+        btnMovement8 = findViewById(R.id.btn_movement8);
+    }
 }

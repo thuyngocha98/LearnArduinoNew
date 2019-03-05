@@ -15,14 +15,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Tol4.Tol4_Lesson_Quiz"
+            android:label="Movement"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Tol4.Tol4_Lesson_Content"
+            android:label="Movement"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Tol1.Tol1_Lesson_Quiz"
             android:label="Basic"
             android:parentActivityName=".Basic"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Tol1.Tol1_Lesson_Content"
-            android:parentActivityName=".Basic"
             android:label="@string/title_activity_to1__lesson__content"
+            android:parentActivityName=".Basic"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Tol6" />
         <activity android:name=".Tol5" />
