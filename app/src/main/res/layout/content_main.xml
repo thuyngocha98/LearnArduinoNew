@@ -43,6 +43,7 @@
                 android:id="@+id/progressBarBasic"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="150sp"
+                android:progressTint="@color/right"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
@@ -112,6 +113,7 @@
                     android:id="@+id/progressBarLED"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="150sp"
+                    android:progressTint="@color/right"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
@@ -143,6 +145,7 @@
                 android:id="@+id/progressBarMovement"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="150sp"
+                android:progressTint="@color/right"
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout

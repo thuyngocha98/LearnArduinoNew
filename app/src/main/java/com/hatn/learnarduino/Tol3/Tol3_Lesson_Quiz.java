@@ -744,10 +744,6 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
         }
 
 
-
-
-
-
         function=new Function();
 
         function.SetDataIntoObject(Getquiz1question,textviewquiz1);

@@ -98,6 +98,7 @@ public class Sensors extends AppCompatActivity {
 
         intent=getIntent();
 
+
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
         // set visibility with number of lesson

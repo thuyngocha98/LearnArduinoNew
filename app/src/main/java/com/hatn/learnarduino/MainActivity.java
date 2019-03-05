@@ -169,23 +169,68 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         buttonTol5 = findViewById(R.id.btn_tol5);
         buttonTol6 = findViewById(R.id.btn_tol6);
 
-        //set max progressBar
-        DatabaseReference number = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Number_of_lesson");
-        number.addValueEventListener(new ValueEventListener() {
+
+
+//        //set max progressBar Movement
+//        final DatabaseReference progBarMovement = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Number_of_lesson");
+//        progBarMovement.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+//                int max = value*5;
+//                Log.d("tag", "onDataChange: thuyngocha movement"+ max);
+//                progressBarMovement.setMax(max);
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//            }
+//        });
+        //set max progressBar Basic
+        final DatabaseReference progBarBasic = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Number_of_lesson");
+        progBarBasic.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
                 int max = value*5;
-                Log.d("tag", "onDataChange: thuyngocha"+ max);
-                progressBarSensor.setMax(max);
+                progressBarBasic.setMax(max);
+                Log.d("tag", "onDataChange: thuyngocha basic"+ progressBarBasic.getMax());
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+        //set max progressBar Sensor
+        DatabaseReference progBarSensor = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Number_of_lesson");
+        progBarSensor.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+                int max = value*5;
+                progressBarSensor.setMax(max);
+                Log.d("tag", "onDataChange: thuyngocha sensor"+ progressBarSensor.getMax());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+//        //set max progressBar Led
+//        DatabaseReference progBarLed = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Number_of_lesson");
+//        progBarLed.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+//                int max = value*5;
+//                Log.d("tag", "onDataChange: thuyngocha led"+ max);
+//                progressBarLed.setMax(max);
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//            }
+//        });
+
 
         //set progress progressbar
-        mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
         current_user_id.addValueEventListener(new ValueEventListener() {
@@ -193,9 +238,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                Long value = dataSnapshot.getValue(Long.class);
-                int exp=value.intValue();
-                progressBarSensor.setProgress(exp);
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+
+
+                int BasicMax = progressBarBasic.getMax();
+                int SensorMax = progressBarSensor.getMax();
+                int LedMax = progressBarLed.getMax();
+                int MovementMax = progressBarMovement.getMax();
+
+//                if(exp > BasicMax){
+//                    progressBarBasic.setProgress(BasicMax);
+//                    if(exp > (BasicMax+SensorMax)){
+//                        progressBarSensor.setProgress(SensorMax);
+//                        if(exp > (BasicMax+SensorMax+LedMax)){
+//                            progressBarLed.setProgress(LedMax);
+//                            if(exp > (BasicMax+SensorMax+LedMax+MovementMax))
+//                                progressBarMovement.setProgress(MovementMax);
+//                            else
+//                                progressBarMovement.setProgress(exp);
+//                        }
+//                        else
+//                            progressBarLed.setProgress(exp - BasicMax - SensorMax);
+//                    }
+//                    else
+//                        progressBarSensor.setProgress(exp - BasicMax);
+//                }
+//                else
+//                    progressBarBasic.setProgress(exp);
+
+                //if(value > BasicMax)
+                progressBarBasic.setProgress(BasicMax);
+                progressBarSensor.setProgress(value-BasicMax);
+                Log.d("tag", "onDataChange: thuyngocha proBasic"+ progressBarBasic.getProgress());
+                Log.d("tag", "onDataChange: thuyngocha proSensor"+ progressBarSensor.getProgress());
+
             }
 
             @Override
@@ -487,9 +563,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // experience user
     public void setValueExperience(){
-            String user_id = mAuth.getCurrentUser().getUid();
-            DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-            current_user_id.setValue(0);
+            String user_id1 = mAuth.getCurrentUser().getUid();
+            DatabaseReference current_user_id1 = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1);
+            current_user_id1.setValue(0);
     }
 
     public boolean isOnline() {
@@ -502,9 +578,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // read data user
     public  void readData(){
-        String user_id = mAuth.getCurrentUser().getUid();
-        DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-        current_user_id.addValueEventListener(new ValueEventListener() {
+        String user_id2 = mAuth.getCurrentUser().getUid();
+        DatabaseReference current_user_id2 = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id2);
+        current_user_id2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
