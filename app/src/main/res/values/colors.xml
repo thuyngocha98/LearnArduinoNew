@@ -14,4 +14,6 @@
     <color name="cardcodebackground">#8c8f93</color>
     <color name="right">#ff669900</color>
     <color name="wrong">#ffff4444</color>
+    <color name="lime">#CDDC39</color>
+    <color name="alert_background">#2F2F2F</color>
 </resources>

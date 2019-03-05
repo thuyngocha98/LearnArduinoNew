@@ -78,6 +78,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
+import com.tapadoo.alerter.Alerter;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
@@ -111,6 +112,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         progressBarLed = (ProgressBar) findViewById(R.id.progressBarLED);
         progressBarMovement = (ProgressBar) findViewById(R.id.progressBarMovement);
 
+
+
+
+
         //navigation drawer bar
         Toolbar toolbar = findViewById(R.id.toolbar);
         //progessOverlay.setVisibility(View.VISIBLE);
@@ -125,7 +130,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
+
+
+
 
         // Create layout with number of type of lesson
         DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Number_Of_Type_Of_Lesson");
@@ -171,38 +178,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-//        //set max progressBar Movement
-//        final DatabaseReference progBarMovement = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Number_of_lesson");
-//        progBarMovement.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                int value = Integer.parseInt(dataSnapshot.getValue().toString());
-//                int max = value*5;
-//                Log.d("tag", "onDataChange: thuyngocha movement"+ max);
-//                progressBarMovement.setMax(max);
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
-        //set max progressBar Basic
-        final DatabaseReference progBarBasic = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Number_of_lesson");
-        progBarBasic.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int value = Integer.parseInt(dataSnapshot.getValue().toString());
-                int max = value*5;
-                progressBarBasic.setMax(max);
-                Log.d("tag", "onDataChange: thuyngocha basic"+ progressBarBasic.getMax());
-
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-        //set max progressBar Sensor
-        DatabaseReference progBarSensor = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Number_of_lesson");
-        progBarSensor.addValueEventListener(new ValueEventListener() {
+        //set max progressBar
+        DatabaseReference number = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Number_of_lesson");
+        number.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
@@ -238,40 +216,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+                Long value = dataSnapshot.getValue(Long.class);
 
 
-                int BasicMax = progressBarBasic.getMax();
-                int SensorMax = progressBarSensor.getMax();
-                int LedMax = progressBarLed.getMax();
-                int MovementMax = progressBarMovement.getMax();
 
-//                if(exp > BasicMax){
-//                    progressBarBasic.setProgress(BasicMax);
-//                    if(exp > (BasicMax+SensorMax)){
-//                        progressBarSensor.setProgress(SensorMax);
-//                        if(exp > (BasicMax+SensorMax+LedMax)){
-//                            progressBarLed.setProgress(LedMax);
-//                            if(exp > (BasicMax+SensorMax+LedMax+MovementMax))
-//                                progressBarMovement.setProgress(MovementMax);
-//                            else
-//                                progressBarMovement.setProgress(exp);
-//                        }
-//                        else
-//                            progressBarLed.setProgress(exp - BasicMax - SensorMax);
-//                    }
-//                    else
-//                        progressBarSensor.setProgress(exp - BasicMax);
-//                }
-//                else
-//                    progressBarBasic.setProgress(exp);
-
-                //if(value > BasicMax)
-                progressBarBasic.setProgress(BasicMax);
-                progressBarSensor.setProgress(value-BasicMax);
-                Log.d("tag", "onDataChange: thuyngocha proBasic"+ progressBarBasic.getProgress());
-                Log.d("tag", "onDataChange: thuyngocha proSensor"+ progressBarSensor.getProgress());
-
+                int exp=value.intValue();
+                progressBarSensor.setProgress(exp);
             }
 
             @Override
@@ -388,6 +338,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // set avatar and information user
     public void setProfile(){
+
         String name = "unidentified";
         email = "";
         Uri uriImage;
@@ -418,17 +369,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navImage.setImageResource(R.drawable.user_logo);
         }
 
-        progressDialog.dismiss();
+
         if (isOnline())
         {
+
+
+            Alerter.create(MainActivity.this)
+                .setTitle("Loading...")
+                .setText("Updating content and lesson")
+                .setIcon(R.drawable.ic_loading)
+                    .enableProgress(true)
+                    .setProgressColorRes(R.color.lime)
+                    .setDuration(1000)
+                .setBackgroundColorRes(R.color.alert_background) // or setBackgroundColorInt(Color.CYAN)
+                .show();
+            enableViews(drawerLayout, false);
+
+
+
+
             Snackbar snackbar = Snackbar
-                    .make(drawerLayout, "Signed in as " +email, Snackbar.LENGTH_LONG)
+                    .make(drawerLayout, "Signed in as " +email,1200)
                     .setAction("LOG OUT", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             logOut();
                         }
                     });
+            enableViews(drawerLayout, true);
             snackbar.show();
         } else {
 
@@ -464,6 +432,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         }
+
 
 
 
