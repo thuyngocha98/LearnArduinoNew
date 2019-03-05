@@ -434,4 +434,6 @@
     <string name="components_required">Components Required</string>
     <string name="title_activity_to1__lesson__content">Basic</string>
     <string name="title_activity_tol1__lesson_quiz">Tol1_Lesson_quiz</string>
+    <string name="title_activity_tol4__lesson__content">Tol4_Lesson_Content</string>
+    <string name="title_activity_tol4__lesson__quiz">Tol4_Lesson_Quiz</string>
 </resources>
