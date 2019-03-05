@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/lesson1_content_layout"
+    android:id="@+id/tol2_content_layout"
     android:fitsSystemWindows="true"
     tools:context=".Tol2.Tol2_Lesson_Content">
 

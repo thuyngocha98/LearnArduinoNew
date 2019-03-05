@@ -34,6 +34,17 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_to1_lesson_content" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_tol1_lesson_content" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_tol1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@+id/include"
+        app:backgroundTint="@color/buttonfab"
+        app:layout_anchorGravity="right|bottom"
+        app:srcCompat="@drawable/ic_question" />
 
 </android.support.design.widget.CoordinatorLayout>

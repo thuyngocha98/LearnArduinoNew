@@ -69,7 +69,7 @@ public class Tol2_Lesson_Content extends AppCompatActivity {
         imageView1=findViewById(R.id.L1C_img1);
         imageView2=findViewById(R.id.L1C_img2);
         textView=findViewById(R.id.L1C_content);
-        coordinatorLayout=findViewById(R.id.lesson1_content_layout);
+        coordinatorLayout=findViewById(R.id.tol2_content_layout);
         codeviewtemp=findViewById(R.id.textview_codetemp);
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
@@ -471,7 +471,6 @@ public class Tol2_Lesson_Content extends AppCompatActivity {
                 i.putExtra("HASCOLOR", checkcolor);
                 Log.d(TAG, "onDataChange: thuyngocha2 "+checkcolor);
                 Log.d(TAG, "Quiz1 onCreate: "+intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1));
-
                 startActivity(i);
             }
         });
