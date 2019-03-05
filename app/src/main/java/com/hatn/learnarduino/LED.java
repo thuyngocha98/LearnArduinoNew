@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -25,12 +26,17 @@ public class LED extends AppCompatActivity {
     ProgressDialog progressDialog;
     int numberTotalContent = 26;
     FirebaseAuth mAuth;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_led);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        intent = getIntent();
+
+
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
@@ -42,6 +48,9 @@ public class LED extends AppCompatActivity {
                 // whenever data at this location is updated.
                 Long value = dataSnapshot.getValue(Long.class);
                 int exp=value.intValue();
+                int maxbasicsensor = intent.getIntExtra("MAXBASICSENSOR", 0);
+                int expLed = exp - maxbasicsensor;
+                Log.d(TAG, "onDataChange: ha"+ expLed+ " max "+maxbasicsensor+" exp"+exp);
 
                 int[] Cardview_color = {
                         R.id.cardview_color_led1,R.id.cardview_color_led2,R.id.cardview_color_led3,R.id.cardview_color_led4,R.id.cardview_color_led5,
@@ -62,12 +71,12 @@ public class LED extends AppCompatActivity {
                 for(int i =0; i <26; i++){
                     CardView temp = findViewById(Cardview_color[i]);
                     CardView Allcard = findViewById(CardView_List[i]);
-                    if(exp >=5){
+                    if(expLed >=5){
                         temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
                         temp.setClickable(false);
-                        exp -=5;
+                        expLed -=5;
                     }
-                    Allcard.setClickable(false);
+                    //Allcard.setClickable(false);
                 }
             }
 
@@ -77,6 +86,8 @@ public class LED extends AppCompatActivity {
         });
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
+
+
 
         // set visibility with number of lesson
         DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Number_of_lesson");

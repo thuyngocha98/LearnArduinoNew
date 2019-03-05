@@ -843,7 +843,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(Tol2_Lesson_Quiz.this,Sensors.class);
-                        //intent.putExtra("Coloredcard", exp);
+//                        intent.putExtra("")
                         startActivity(intent);
                     }
                 });

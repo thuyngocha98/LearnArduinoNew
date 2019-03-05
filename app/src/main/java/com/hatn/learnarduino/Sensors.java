@@ -41,7 +41,7 @@ public class Sensors extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        intent=getIntent();
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
@@ -53,6 +53,8 @@ public class Sensors extends AppCompatActivity {
                 // whenever data at this location is updated.
                 Long value = dataSnapshot.getValue(Long.class);
                 int exp=value.intValue();
+                int maxbasic = intent.getIntExtra("MAXBASIC",0);
+                int expSensor = exp - maxbasic;
 
                 int[] Cardview_color = {
                         R.id.cardview_color_sensor1,R.id.cardview_color_sensor2,R.id.cardview_color_sensor3,R.id.cardview_color_sensor4,R.id.cardview_color_sensor5,
@@ -73,10 +75,10 @@ public class Sensors extends AppCompatActivity {
                 for(int i =0; i <26; i++){
                     CardView temp = findViewById(Cardview_color[i]);
                     CardView Allcard = findViewById(CardView_List[i]);
-                    if(exp >=5){
+                    if(expSensor >=5){
                         temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
                         temp.setClickable(false);
-                        exp -=5;
+                        expSensor -=5;
                     }
                     //Allcard.setClickable(false);
 //                    if (exp>=5)
@@ -96,7 +98,7 @@ public class Sensors extends AppCompatActivity {
             }
         });
 
-        intent=getIntent();
+
 
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);

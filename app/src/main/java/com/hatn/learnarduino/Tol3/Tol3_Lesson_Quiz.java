@@ -838,7 +838,6 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
                     // whenever data at this location is updated.
                     Long value = dataSnapshot.getValue(Long.class);
 
-
                     current_user_id.setValue(value.intValue()+5);
 
                 }
@@ -858,7 +857,7 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(Tol3_Lesson_Quiz.this,LED.class);
-                        intent.putExtra("Coloredcard", exp);
+                        intent.putExtra("checkValueLed", 1);
                         startActivity(intent);
                     }
                 });

@@ -55,6 +55,7 @@ dependencies {
     implementation 'android.arch.navigation:navigation-fragment:1.0.0-rc02'
 
     implementation 'com.tapadoo.android:alerter:2.0.1'
+//    implementation 'com.tapadoo.android:alerter:4.0.1'
 
 }
 
