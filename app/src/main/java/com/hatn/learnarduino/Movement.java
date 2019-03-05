@@ -44,8 +44,6 @@ public class Movement extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
 
-        mAuth = FirebaseAuth.getInstance();
-        String user_id = mAuth.getCurrentUser().getUid();
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
@@ -111,8 +109,8 @@ public class Movement extends AppCompatActivity {
                         R.id.textview_movement6 ,  R.id.textview_movement7 ,  R.id.textview_movement8 ,
                 };
                 int[] CardViewColor_list = {
-                        R.id.tol4_color1 , R.id.tol4_color2, R.id.tol4_color3, R.id.tol4_color4,
-                        R.id.tol4_color5 , R.id.tol4_color6, R.id.tol4_color7, R.id.tol4_color8,
+                        R.id.tol4_colorcard1 , R.id.tol4_colorcard2, R.id.tol4_colorcard3, R.id.tol4_colorcard4,
+                        R.id.tol4_colorcard5 , R.id.tol4_colorcard6, R.id.tol4_colorcard7, R.id.tol4_colorcard8,
                 };
 
 
