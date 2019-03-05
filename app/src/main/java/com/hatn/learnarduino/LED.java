@@ -27,6 +27,7 @@ public class LED extends AppCompatActivity {
     int numberTotalContent = 26;
     FirebaseAuth mAuth;
     Intent intent;
+    int max_sensor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,9 @@ public class LED extends AppCompatActivity {
 
         intent = getIntent();
 
+        max_sensor = intent.getIntExtra("MAXSENSOR2", 0);
+        if(max_sensor == 0)
+            max_sensor = intent.getIntExtra("MAXSENSOR", 0);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -48,9 +52,11 @@ public class LED extends AppCompatActivity {
                 // whenever data at this location is updated.
                 Long value = dataSnapshot.getValue(Long.class);
                 int exp=value.intValue();
-                int maxbasicsensor = intent.getIntExtra("MAXBASICSENSOR", 0);
-                int expLed = exp - maxbasicsensor;
-                Log.d(TAG, "onDataChange: ha"+ expLed+ " max "+maxbasicsensor+" exp"+exp);
+                int maxsensor = intent.getIntExtra("MAXSENSOR2", 0);
+                if(maxsensor == 0)
+                    maxsensor = intent.getIntExtra("MAXSENSOR",1);
+                int expLed = exp - maxsensor;
+                Log.d(TAG, "onDataChange: ha"+ expLed+ " max "+maxsensor+" exp"+exp);
 
                 int[] Cardview_color = {
                         R.id.cardview_color_led1,R.id.cardview_color_led2,R.id.cardview_color_led3,R.id.cardview_color_led4,R.id.cardview_color_led5,
@@ -68,15 +74,16 @@ public class LED extends AppCompatActivity {
                         R.id.btn_Led21 ,  R.id.btn_Led22 ,  R.id.btn_Led23 ,  R.id.btn_Led24 ,  R.id.btn_Led25 ,  R.id.btn_Led26 ,
                 };
 
-                for(int i =0; i <26; i++){
+                for(int i =0; i <25; i++){
                     CardView temp = findViewById(Cardview_color[i]);
-                    CardView Allcard = findViewById(CardView_List[i]);
+                    CardView Allcard = findViewById(CardView_List[i+1]);
                     if(expLed >=5){
                         temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
                         temp.setClickable(false);
                         expLed -=5;
                     }
-                    //Allcard.setClickable(false);
+                    else
+                        Allcard.setEnabled(false);
                 }
             }
 
@@ -184,6 +191,7 @@ public class LED extends AppCompatActivity {
                 Intent i = new Intent(LED.this,Tol3_Lesson_Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
                 i.putExtra("HASCOLOR", hascolor);
+                i.putExtra("MAXSENSOR", max_sensor);
                 i.putExtra("LESSONNAME", name);
                 startActivity(i);
             }

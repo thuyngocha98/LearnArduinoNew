@@ -58,6 +58,7 @@ public class Tol3_Lesson_Content extends AppCompatActivity {
         setContentView(R.layout.activity_tol3_lesson_content);
 
         final Intent intent = getIntent();
+        final int max_sensor = intent.getIntExtra("MAXSENSOR", 1);
 
 
         Toolbar toolbar = findViewById(R.id.toolbar_tol3);
@@ -358,6 +359,7 @@ public class Tol3_Lesson_Content extends AppCompatActivity {
                 Intent i = new Intent(Tol3_Lesson_Content.this, Tol3_Lesson_Quiz.class);
                 i.putExtra("LESSONNUMBERINTENT",intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1));
                 i.putExtra("HASCOLOR", checkcolor);
+                i.putExtra("MAXSENSOR",max_sensor);
                 Log.d(TAG, "Quiz1 onCreate: "+intent.getIntExtra(Sensors.LESSONNUMBERINTENT, 1));
                 startActivity(i);
             }

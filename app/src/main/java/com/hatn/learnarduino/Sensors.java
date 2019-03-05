@@ -81,24 +81,16 @@ public class Sensors extends AppCompatActivity {
                         R.id.btn_Sensor21 ,  R.id.btn_Sensor22 ,  R.id.btn_Sensor23 ,  R.id.btn_Sensor24 ,  R.id.btn_Sensor25 ,  R.id.btn_Sensor26 ,
                 };
 
-                for(int i =0; i <26; i++){
+                for(int i =0; i <25; i++){
                     CardView temp = findViewById(Cardview_color[i]);
-                    CardView Allcard = findViewById(CardView_List[i]);
+                    CardView Allcard = findViewById(CardView_List[i+1]);
                     if(expSensor >=5){
                         temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
                         temp.setClickable(false);
                         expSensor -=5;
                     }
-                    //Allcard.setClickable(false);
-//                    if (exp>=5)
-//                    {
-//                        for (i=0;i<=exp;i+=5)
-//                        {
-//                            CardView expcheck = findViewById(CardView_List[5/i]);
-//                            expcheck.setClickable(true);
-//                        }
-//                    }
-
+                    else
+                        Allcard.setEnabled(false);
                 }
             }
 

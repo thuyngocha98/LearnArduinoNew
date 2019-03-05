@@ -39,8 +39,6 @@ public class Basic extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //mergeIdCardView();
-
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
@@ -65,24 +63,16 @@ public class Basic extends AppCompatActivity {
                         R.id.btn_Basic6 ,  R.id.btn_Basic7 ,  R.id.btn_Basic8 ,
                 };
 
-                for(int i =0; i <8; i++){
+                for(int i =0; i <7; i++){
                     CardView temp = findViewById(CardViewColor_list[i]);
-                    CardView Allcard = findViewById(CardView_List[i]);
+                    CardView Allcard = findViewById(CardView_List[i+1]);
                     if(exp >=5){
                         temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
                         temp.setClickable(false);
                         exp -=5;
                     }
-                    //Allcard.setClickable(false);
-//                    if (exp>=5)
-//                    {
-//                        for (i=0;i<=exp;i+=5)
-//                        {
-//                            CardView expcheck = findViewById(CardView_List[5/i]);
-//                            expcheck.setClickable(true);
-//                        }
-//                    }
-
+                    else
+                        Allcard.setEnabled(false);
                 }
             }
 

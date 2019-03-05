@@ -856,9 +856,10 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
                 .setAction("Next Lesson", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(Tol3_Lesson_Quiz.this,LED.class);
-                        intent.putExtra("checkValueLed", 1);
-                        startActivity(intent);
+                        Intent intent1 = new Intent(Tol3_Lesson_Quiz.this,LED.class);
+                        intent1.putExtra("checkValueLed", 1);
+                        intent1.putExtra("MAXSENSOR",intent.getIntExtra("MAXSENSOR",1));
+                        startActivity(intent1);
                     }
                 });
         View snackbarView = snackbar.getView();

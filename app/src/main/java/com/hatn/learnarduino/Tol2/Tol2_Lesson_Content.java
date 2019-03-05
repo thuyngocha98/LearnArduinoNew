@@ -308,86 +308,11 @@ public class Tol2_Lesson_Content extends AppCompatActivity {
 
 
         }
-//        Tol2_lesson1_Content.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-//            {
-//                String value = dataSnapshot.getValue().toString();
-//
-//                Log.d(TAG, "Value is: " + value);
-//
-//                textView.setText(value);
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
 
         Function function = new Function();
         function.SetDataIntoObject(Tol2_lesson_Content, textView);
 
-//        Tol2_lesson1_Code.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-//            {
-//                String value = dataSnapshot.getValue().toString();
-//
-//                Log.d(TAG, "Value is: " + value);
-//
-//                code=value;
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
         function.SetDataIntoObject(Tol2_lesson_Code,codeviewtemp);
-
-//        Tol2_lesson1_Name.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                activity_name = dataSnapshot.getValue().toString();
-//                setTitle(activity_name);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-
-
-
-//        Tol2_lesson1_img1.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-//            {
-//                String value = dataSnapshot.getValue().toString();
-//
-//                Log.d(TAG, "Value is: " + value);
-//
-//
-//
-//                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//                byte[] imageBytes = byteArrayOutputStream.toByteArray();
-//
-//                imageBytes = Base64.decode(value, Base64.DEFAULT);
-//                Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-//                imageView1.setImageBitmap(decodedImage);
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
 
         function.SetDataIntoObject(Tol2_lesson_img1, imageView1);
 
