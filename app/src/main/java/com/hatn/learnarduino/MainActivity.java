@@ -174,6 +174,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+
         mAuth = FirebaseAuth.getInstance();
         // login firebaseUI
         if(mAuth.getCurrentUser() != null){
@@ -552,12 +553,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if(value >= maxBasic){
                     progressBarBasic.setProgress(maxBasic);
                     buttonSensors.setEnabled(true);
+                    progressBarBasic.setVisibility(View.GONE);
+                    buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                     if(value >= (maxBasic+maxSensor)){
                         progressBarSensor.setProgress(maxSensor);
                         buttonLED.setEnabled(true);
+                        progressBarSensor.setVisibility(View.GONE);
+                        progressBarBasic.setVisibility(View.GONE);
+                        buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
+                        buttonSensors.setBackgroundResource(R.drawable.rounded_button_green);
                         if(value >= (maxBasic+maxSensor+maxLed)){
                             progressBarLed.setProgress(maxLed);
                             buttonMovement.setEnabled(true);
+                            progressBarLed.setVisibility(View.GONE);
+                            progressBarSensor.setVisibility(View.GONE);
+                            progressBarBasic.setVisibility(View.GONE);
+                            buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
+                            buttonSensors.setBackgroundResource(R.drawable.rounded_button_green);
+                            buttonLED.setBackgroundResource(R.drawable.rounded_button_green);
                             if(value >= (maxBasic+maxSensor+maxLed+maxMovement)){
                                 progressBarMovement.setProgress(maxMovement);
                             }
