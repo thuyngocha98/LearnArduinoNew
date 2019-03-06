@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -180,6 +181,7 @@ public class Basic extends AppCompatActivity {
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
                 } else {
+                    Toast.makeText(Basic.this, "Ad did not load", Toast.LENGTH_SHORT).show();
                     Log.d("zzz", "The interstitial wasn't loaded yet.");
                 }
 
