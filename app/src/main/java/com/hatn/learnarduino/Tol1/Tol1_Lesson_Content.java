@@ -216,7 +216,7 @@ public class Tol1_Lesson_Content extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
-        startActivity(new Intent(Tol1_Lesson_Content.this, Basic.class));
+        //startActivity(new Intent(Tol1_Lesson_Content.this, Basic.class));
         finish();
     }
 }

@@ -56,6 +56,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -75,6 +76,7 @@ import com.google.firebase.auth.FacebookAuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseUserMetadata;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -178,9 +180,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // login firebaseUI
         if(mAuth.getCurrentUser() != null){
             setProfile();
+
         }else {
             functionLogin();
+
         }
+
 
 
         loadingProgressBarTotal();
@@ -337,22 +342,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-        if (isOnline())
-        {
+        if (isOnline()) {
             Alerter.create(MainActivity.this)
-                .setTitle("Loading...")
-                .setText("Updating content and lesson")
-                .setIcon(R.drawable.ic_loading)
+                    .setTitle("Loading...")
+                    .setText("Updating content and lesson")
+                    .setIcon(R.drawable.ic_loading)
                     .enableProgress(true)
                     .setProgressColorRes(R.color.lime)
                     .setDuration(1000)
-                .setBackgroundColorRes(R.color.alert_background) // or setBackgroundColorInt(Color.CYAN)
-                .show();
-            enableViews(drawerLayout, false);
+                    .setBackgroundColorRes(R.color.alert_background) // or setBackgroundColorInt(Color.CYAN)
+                    .show();
 
-
-            Snackbar snackbar = Snackbar
-                    .make(drawerLayout, "Signed in as " +email,1200)
+            Snackbar snackbarz = Snackbar
+                    .make(drawerLayout, "Signed in as " + email, 1200)
                     .setAction("LOG OUT", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -360,38 +362,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         }
                     });
             enableViews(drawerLayout, true);
-            snackbar.show();
-        } else {
+            snackbarz.show();
+//            enableViews(drawerLayout, false);
 
-            enableViews(drawerLayout, false);
 
-            Snackbar snackbar = Snackbar
-                    .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", 100000);
-
-            View snackbarView = snackbar.getView();
-            TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
-            textView.setTextColor(Color.RED);
-            snackbar.setAction("Try again", new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (isOnline())
-                    {
-                        enableViews(drawerLayout,true);
-                    }
-                    else {
-                        Snackbar snackbar = Snackbar
-                                .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", 8000);
-
-                        View snackbarView = snackbar.getView();
-                        TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
-                        textView.setTextColor(Color.RED);
-                        snackbar.show();
-                    }
-                }
-            });
-            snackbar.show();
-
+//            Snackbar snackbar = Snackbar
+//                    .make(drawerLayout, "Signed in as " + email, 1200)
+//                    .setAction("LOG OUT", new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            logOut();
+//                        }
+//                    });
+//            enableViews(drawerLayout, true);
+//            snackbar.show();
         }
+//        } else {
+//
+//            enableViews(drawerLayout, false);
+//
+//            Snackbar snackbar = Snackbar
+//                    .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", 100000);
+//
+//            View snackbarView = snackbar.getView();
+//            TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+//            textView.setTextColor(Color.RED);
+//            snackbar.setAction("Try again", new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (isOnline())
+//                    {
+//                        enableViews(drawerLayout,true);
+//                    }
+//                    else {
+//                        Snackbar snackbar = Snackbar
+//                                .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", 8000);
+//
+//                        View snackbarView = snackbar.getView();
+//                        TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+//                        textView.setTextColor(Color.RED);
+//                        snackbar.show();
+//                    }
+//                }
+//            });
+//            snackbar.show();
     }
 
     // login with firebaseUI
@@ -428,18 +442,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             } else {
                 //Toast.makeText(this, "Login Fail", Toast.LENGTH_SHORT).show();
-                if (isOnline())
-                {
+                if (response == null) {
                     Snackbar snackbar = Snackbar
-                            .make(drawerLayout, "Action Failed", Snackbar.LENGTH_LONG);
+                            .make(drawerLayout, "Sign in cancelled ", Snackbar.LENGTH_LONG);
                     snackbar.show();
                 }
-                else
-                {
+                if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
                     Snackbar snackbar = Snackbar
-                            .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_LONG);
-                    snackbar.show();
+                            .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_INDEFINITE);
+                            snackbar.setAction("Exit", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            finish();
+                                        }
+                                    });
+                                    snackbar.show();
+                    enableViews(drawerLayout,false);
+                    return;
                 }
+                Snackbar snackbar = Snackbar
+                        .make(drawerLayout, "Unknown occurred, please contact support in the about us page if this problem persists  ", Snackbar.LENGTH_LONG);
+                snackbar.show();
 
 
             }
