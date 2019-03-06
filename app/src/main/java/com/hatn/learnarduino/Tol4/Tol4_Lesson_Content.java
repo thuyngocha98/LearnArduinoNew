@@ -216,12 +216,12 @@ public class Tol4_Lesson_Content extends AppCompatActivity {
 
 
     }
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-        startActivity(new Intent(Tol4_Lesson_Content.this, Movement.class));
-        finish();
-    }
+//    @Override
+//    public void onBackPressed()
+//    {
+//        super.onBackPressed();
+//        startActivity(new Intent(Tol4_Lesson_Content.this, Movement.class));
+//        finish();
+//    }
 }
 

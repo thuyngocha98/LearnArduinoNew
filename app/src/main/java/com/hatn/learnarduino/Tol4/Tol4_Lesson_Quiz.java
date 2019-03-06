@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hatn.learnarduino.Basic;
 import com.hatn.learnarduino.Function;
+import com.hatn.learnarduino.MainActivity;
 import com.hatn.learnarduino.Movement;
 import com.hatn.learnarduino.R;
 
@@ -779,14 +780,13 @@ public class Tol4_Lesson_Quiz extends AppCompatActivity {
 
 
     }
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-        startActivity(new Intent(Tol4_Lesson_Quiz.this, Movement.class));
-        finish();
-
-    }
+//    @Override
+//    public void onBackPressed()
+//    {
+//        super.onBackPressed();
+//        startActivity(new Intent(Tol4_Lesson_Quiz.this, MainActivity.class));
+//        finish();
+//    }
 
 
     private void thread() {

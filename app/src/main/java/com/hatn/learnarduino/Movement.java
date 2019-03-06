@@ -43,9 +43,7 @@ public class Movement extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
-
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
-
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
         current_user_id.addValueEventListener(new ValueEventListener() {
             @Override

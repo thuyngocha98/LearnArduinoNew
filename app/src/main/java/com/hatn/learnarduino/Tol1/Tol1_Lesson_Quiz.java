@@ -786,7 +786,7 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
-        startActivity(new Intent(Tol1_Lesson_Quiz.this, Basic.class));
+        startActivity(new Intent(Tol1_Lesson_Quiz.this, Tol1_Lesson_Content.class));
         finish();
 
     }

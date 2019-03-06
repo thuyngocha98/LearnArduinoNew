@@ -135,9 +135,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-
-
-
         //navigation drawer bar
         Toolbar toolbar = findViewById(R.id.toolbar);
         //progessOverlay.setVisibility(View.VISIBLE);
@@ -182,15 +179,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        // login firebaseUI
         mAuth = FirebaseAuth.getInstance();
+        // login firebaseUI
         if(mAuth.getCurrentUser() != null){
             setProfile();
-            loadingProgressBarTotal();
         }else {
             functionLogin();
-            loadingProgressBarTotal();
         }
+
+
+        loadingProgressBarTotal();
 
         //Merge content
         buttonBasic = findViewById(R.id.btn_basic);
@@ -554,28 +552,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 progressBarLed.setProgress(0);
                 progressBarMovement.setProgress(0);
 
-                Log.d("tag", "onDataChange: thuyngocha + "+maxBasic+" "+maxSensor+" "+maxLed+" "+maxMovement);
 
-                if(value > maxBasic){
+
+                if(value >= maxBasic){
                     progressBarBasic.setProgress(maxBasic);
-                    if(value > (maxBasic+maxSensor)){
+                    buttonSensors.setEnabled(true);
+                    if(value >= (maxBasic+maxSensor)){
                         progressBarSensor.setProgress(maxSensor);
-                        if(value > (maxBasic+maxSensor+maxLed)){
+                        buttonLED.setEnabled(true);
+                        if(value >= (maxBasic+maxSensor+maxLed)){
                             progressBarLed.setProgress(maxLed);
-                            if(value > (maxBasic+maxSensor+maxLed+maxMovement)){
+                            buttonMovement.setEnabled(true);
+                            if(value >= (maxBasic+maxSensor+maxLed+maxMovement)){
                                 progressBarMovement.setProgress(maxMovement);
                             }
                             else
                                 progressBarMovement.setProgress(value - maxBasic - maxSensor - maxLed);
                         }
-                        else
+                        else{
                             progressBarLed.setProgress(value - maxBasic - maxSensor);
+                            buttonMovement.setEnabled(false);
+                        }
+
                     }
-                    else
+                    else{
                         progressBarSensor.setProgress(value - maxBasic);
+                        buttonLED.setEnabled(false);
+                        buttonMovement.setEnabled(false);
+                    }
+
                 }
-                else
+                else{
                     progressBarBasic.setProgress(value);
+                    buttonSensors.setEnabled(false);
+                    buttonLED.setEnabled(false);
+                    buttonMovement.setEnabled(false);
+                }
+
             }
 
             @Override
@@ -649,7 +662,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (t == 0) {
                 setMaxProgressbar();
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(1500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

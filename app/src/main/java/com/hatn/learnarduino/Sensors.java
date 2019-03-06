@@ -199,7 +199,10 @@ public class Sensors extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
-        startActivity(new Intent(Sensors.this, MainActivity.class));
+//        startActivity(new Intent(Sensors.this, MainActivity.class));
+        Intent intent = new Intent(Sensors.this, MainActivity.class);
+        //intent.putExtra("NOLOAD", 1);
+        startActivity(intent);
         finish();
 
     }
