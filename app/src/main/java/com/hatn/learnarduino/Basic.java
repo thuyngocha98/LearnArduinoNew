@@ -12,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +35,8 @@ public class Basic extends AppCompatActivity {
     public static final String HASCOLOR = "HASCOLOR";
     FirebaseAuth mAuth;
 
+    private InterstitialAd mInterstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,11 @@ public class Basic extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        MobileAds.initialize(this, "ca-app-pub-1398912587505329~4968336940");
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
@@ -149,7 +159,9 @@ public class Basic extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
-        startActivity(new Intent(Basic.this, MainActivity.class));
+//        Intent iz = new Intent(Basic.this, MainActivity.class);
+//        iz.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(iz);
         finish();
 
     }
@@ -165,6 +177,13 @@ public class Basic extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("zzz", "The interstitial wasn't loaded yet.");
+                }
+
                 Intent i = new Intent(Basic.this, Tol1_Lesson_Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
                 Log.d(TAG, "test onClick: "+value);

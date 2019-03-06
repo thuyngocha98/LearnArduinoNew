@@ -51,6 +51,9 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_application_id"
             tools:replace="android:value" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1398912587505329~4968336940"/>
 
         <activity
             android:name="com.facebook.FacebookActivity"
