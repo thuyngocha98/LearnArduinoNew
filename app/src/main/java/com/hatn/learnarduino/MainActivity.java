@@ -61,6 +61,9 @@ import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -98,8 +101,9 @@ import java.util.Map;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
 
+    private RewardedVideoAd mRewardedVideoAd;
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
     int Experience = 0;
@@ -124,12 +128,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         progressBarMovement = (ProgressBar) findViewById(R.id.progressBarMovement);
 
 
+
         MobileAds.initialize(this, "ca-app-pub-1398912587505329~4968336940");
 
         AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(MainActivity.this);
+        mRewardedVideoAd.setRewardedVideoAdListener(this);
+
+        loadRewardedVideoAd();
 
 
 
@@ -255,6 +265,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    @Override
+    public void onRewarded(RewardItem reward) {
+        Toast.makeText(this, "onRewarded! exp: " + reward.getType() + "  amount: " +
+                reward.getAmount(), Toast.LENGTH_SHORT).show();
+        // Reward the user.
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+        Toast.makeText(this, "onRewardedVideoAdLeftApplication",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        Toast.makeText(this, "onRewardedVideoAdClosed", Toast.LENGTH_SHORT).show();
+        loadRewardedVideoAd();
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int errorCode) {
+        Toast.makeText(this, "onRewardedVideoAdFailedToLoad", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+        Toast.makeText(this, "onRewardedVideoAdLoaded", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+        Toast.makeText(this, "onRewardedVideoAdOpened", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+        Toast.makeText(this, "onRewardedVideoStarted", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoCompleted() {
+        Toast.makeText(this, "onRewardedVideoCompleted", Toast.LENGTH_SHORT).show();
+    }
+
     //Merge content
     @Override
     public void onBackPressed() {
@@ -278,23 +332,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_Basic) {
-            Intent i = new Intent(this,Basic.class);
-            startActivity(i);
-        } else if (id == R.id.nav_Sensors) {
-            Intent i = new Intent(this,Sensors.class);
-            startActivity(i);
-
-        } else if (id == R.id.nav_LED) {
-            Intent i = new Intent(this,LED.class);
-            startActivity(i);
-
-        } else if (id == R.id.nav_Movement) {
-            Intent i = new Intent(this,Movement.class);
-            startActivity(i);
-
-        } else if (id == R.id.nav_aboutus) {
+        if (id == R.id.nav_aboutus) {
             Intent i = new Intent(this, Aboutus.class);
             startActivity(i);
         } else if (id == R.id.nav_moreapps) {
@@ -309,6 +347,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    private void loadRewardedVideoAd() {
+        mRewardedVideoAd.loadAd("ca-app-pub-3940256099942544/5224354917",
+                new AdRequest.Builder().build());
+    }
 
     // set avatar and information user
     public void setProfile(){
@@ -599,13 +641,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     //enable and disable nav item
                     progressBarBasic.setProgress(maxBasic);
                     buttonSensors.setEnabled(true);
-                    nav_item2.setEnabled(true);
+                    nav_item2.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            Intent i = new Intent(MainActivity.this,Sensors.class);
+                            startActivity(i);
+                            return false;
+                        }
+                    });
                     progressBarBasic.setVisibility(View.GONE);
                     buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                     if(value >= (maxBasic+maxSensor)){
                         progressBarSensor.setProgress(maxSensor);
                         buttonLED.setEnabled(true);
-                        nav_item3.setEnabled(true);
+                        nav_item3.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                Intent i = new Intent(MainActivity.this,LED.class);
+                                startActivity(i);
+                                return false;
+                            }
+                        });
                         progressBarSensor.setVisibility(View.GONE);
                         progressBarBasic.setVisibility(View.GONE);
                         buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
@@ -613,7 +669,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         if(value >= (maxBasic+maxSensor+maxLed)){
                             progressBarLed.setProgress(maxLed);
                             buttonMovement.setEnabled(true);
-                            nav_item4.setEnabled(true);
+                            nav_item4.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                                @Override
+                                public boolean onMenuItemClick(MenuItem item) {
+                                    Intent i = new Intent(MainActivity.this,Movement.class);
+                                    startActivity(i);
+                                    return false;
+                                }
+                            });
                             progressBarLed.setVisibility(View.GONE);
                             progressBarSensor.setVisibility(View.GONE);
                             progressBarBasic.setVisibility(View.GONE);
@@ -629,7 +692,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         else{
                             progressBarLed.setProgress(value - maxBasic - maxSensor);
                             buttonMovement.setEnabled(false);
-                            nav_item4.setEnabled(false);
+                            nav_item4.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                                @Override
+                                public boolean onMenuItemClick(MenuItem item) {
+                                    ExpShow();
+                                    return false;
+                                }
+                            });
                         }
 
                     }
@@ -637,8 +706,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         progressBarSensor.setProgress(value - maxBasic);
                         buttonLED.setEnabled(false);
                         buttonMovement.setEnabled(false);
-                        nav_item3.setEnabled(false);
-                        nav_item4.setEnabled(false);
+                        nav_item3.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                ExpShow();
+                                return false;
+                            }
+                        });
+                        nav_item4.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                ExpShow();
+                                return false;
+                            }
+                        });
                     }
 
                 }
@@ -647,9 +728,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     buttonSensors.setEnabled(false);
                     buttonLED.setEnabled(false);
                     buttonMovement.setEnabled(false);
-                    nav_item2.setEnabled(false);
-                    nav_item3.setEnabled(false);
-                    nav_item4.setEnabled(false);
+                    nav_item2.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            ExpShow();
+                            return false;
+                        }
+                    });
+                    nav_item3.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            ExpShow();
+                            return false;
+                        }
+                    });
+                    nav_item4.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            ExpShow();
+                            return false;
+                        }
+                    });
                 }
 
             }
@@ -719,6 +818,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+
+
     public void loadingProgressBarTotal(){
         int t = 0;
         if(mAuth.getCurrentUser() != null) {
@@ -735,4 +836,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setProgressBarMain();
         }
     }
+    private void ExpShow()
+    {
+        Snackbar snackbar = Snackbar
+                .make(drawerLayout, "You don't have enough exp to view this lesson ", Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction("Get more", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mRewardedVideoAd.isLoaded()) {
+                    mRewardedVideoAd.show();
+                }
+            }
+        });
+        snackbar.show();
+
+    }
+
 }

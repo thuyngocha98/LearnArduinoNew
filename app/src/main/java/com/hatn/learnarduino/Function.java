@@ -1,5 +1,6 @@
 package com.hatn.learnarduino;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.tapadoo.alerter.Alerter;
 
 import java.io.ByteArrayOutputStream;
 
@@ -145,7 +147,24 @@ public class Function {
         snackbar.show();
 
     }
-
+    public void ShowCongratsAlert(Activity activity, TextView textView)
+    {
+        Alerter.create(activity)
+                .setTitle("Congratulation!")
+                .setText(textView.getText().toString())
+                .setProgressColorRes(R.color.colorAccent)
+                .setDuration(5000)
+                .enableSwipeToDismiss()
+                .enableVibration(true)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //TODO: add achievements activity.
+                    }
+                })
+                .setBackgroundColorRes(R.color.right) // or setBackgroundColorInt(Color.CYAN)
+                .show();
+    }
 //    public int CheckRight(CardView cardView1, CardView cardView2, CardView cardView3)
 //    {
 //        int countemp = 0;

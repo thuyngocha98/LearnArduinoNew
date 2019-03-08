@@ -748,7 +748,7 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
         function.CheckAnswer(cardviewquiz3_answer1, cardview_quiz3_answer1_flag, textviewquiz3_answer1, quiz3_rightanswer, cardviewquiz3_answer2, cardviewquiz3_answer3, coordinatorLayout);
         function.CheckAnswer(cardviewquiz3_answer2, cardview_quiz3_answer2_flag, textviewquiz3_answer2, quiz3_rightanswer, cardviewquiz3_answer1, cardviewquiz3_answer3, coordinatorLayout);
         function.CheckAnswer(cardviewquiz3_answer3, cardview_quiz3_answer3_flag, textviewquiz3_answer3, quiz3_rightanswer, cardviewquiz3_answer1, cardviewquiz3_answer2, coordinatorLayout);
-
+//        function.ShowCongratsAlert(this,textviewquiz1);
 
         Thread thread = new Thread() {
             @Override
@@ -779,6 +779,8 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
         };
 
         thread.start();
+
+
 
 
     }
