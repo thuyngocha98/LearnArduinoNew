@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -57,7 +58,7 @@
         </LinearLayout>
 
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -68,16 +69,24 @@
                 android:id="@+id/linear_btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="50dp"
                 android:layout_marginRight="50dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/linear_btn3"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
                     android:id="@+id/btn_sensors"
-                    android:background="@drawable/rounded_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_button"
                     app:srcCompat="@drawable/ic_bio_sensor" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,43 +99,47 @@
                     android:id="@+id/progressBarSensors"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="150sp"
-                    android:progressTint="@color/right"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:progressTint="@color/right" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linear_btn3"
-                android:layout_width="wrap_content"
+                android:layout_width="146dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                android:layout_marginRight="10dp"
-                android:layout_marginEnd="5dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
                     android:id="@+id/btn_LED"
-                    android:background="@drawable/rounded_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_button"
                     app:srcCompat="@drawable/ic_led" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textSize="18sp"
                     android:text="@string/led"
-                    android:textColor="#6f6f6f" />
+                    android:textColor="#6f6f6f"
+                    android:textSize="18sp" />
+
                 <ProgressBar
                     android:id="@+id/progressBarLED"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="150sp"
-                    android:progressTint="@color/right"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:progressTint="@color/right" />
             </LinearLayout>
 
-        </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/linear_btn4"
