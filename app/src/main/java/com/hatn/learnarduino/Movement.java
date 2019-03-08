@@ -148,7 +148,7 @@ public class Movement extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
-        startActivity(new Intent(Movement.this, MainActivity.class));
+        //startActivity(new Intent(Movement.this, MainActivity.class));
         finish();
 
     }

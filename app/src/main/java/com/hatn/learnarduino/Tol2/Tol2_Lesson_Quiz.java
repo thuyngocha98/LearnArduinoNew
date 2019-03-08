@@ -845,6 +845,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
                         Intent intent1 = new Intent(Tol2_Lesson_Quiz.this,Sensors.class);
                         Log.d("abcdef", "Lesson: "+intent.getIntExtra("MAXBASIC",1));
                         intent1.putExtra("MAXBASIC",intent.getIntExtra("MAXBASIC",1));
+                        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent1);
                     }
                 });

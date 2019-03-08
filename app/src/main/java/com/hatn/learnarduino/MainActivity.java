@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ProgressDialog progressDialog;
     private String email;
     ProgressBar progressBarSensor, progressBarLed, progressBarBasic, progressBarMovement;
+    MenuItem nav_item1, nav_item2, nav_item3, nav_item4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -329,6 +330,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         NavigationView navigationView = findViewById(R.id.nav_view);
+        Menu menuNav = navigationView.getMenu();
+        nav_item1 = menuNav.findItem(R.id.nav_Basic);
+        nav_item2 = menuNav.findItem(R.id.nav_Sensors);
+        nav_item3 = menuNav.findItem(R.id.nav_LED);
+        nav_item4 = menuNav.findItem(R.id.nav_Movement);
+
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = headerView.findViewById(R.id.tv_header_name);
         navUsername.setText(name);
@@ -353,7 +360,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .setDuration(1000)
                     .setBackgroundColorRes(R.color.alert_background) // or setBackgroundColorInt(Color.CYAN)
                     .show();
-
+            loadingProgressBarTotal();
             Snackbar snackbarz = Snackbar
                     .make(drawerLayout, "Signed in as " + email, 1200)
                     .setAction("LOG OUT", new View.OnClickListener() {
@@ -462,7 +469,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return;
                 }
                 Snackbar snackbar = Snackbar
-                        .make(drawerLayout, "Unknown occurred, please contact support in the about us page if this problem persists  ", Snackbar.LENGTH_LONG);
+                        .make(drawerLayout, "Unknown error occurred, please contact support in the about us page if this problem persists  ", Snackbar.LENGTH_LONG);
                 snackbar.show();
 
 
@@ -490,9 +497,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         }
                     });
         }
-        else {
+        else if (!isOnline()) {
             Snackbar snackbar = Snackbar
                     .make(drawerLayout, "Can't sign out because you don't have internet connection", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+        else  {
+            Snackbar snackbar = Snackbar
+                    .make(drawerLayout, "Unknown occurred, please contact support in the about us page if this problem persists  ", Snackbar.LENGTH_LONG);
             snackbar.show();
         }
 
@@ -574,13 +586,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
                 if(value >= maxBasic){
+                    //enable and disable nav item
                     progressBarBasic.setProgress(maxBasic);
                     buttonSensors.setEnabled(true);
+                    nav_item2.setEnabled(true);
                     progressBarBasic.setVisibility(View.GONE);
                     buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                     if(value >= (maxBasic+maxSensor)){
                         progressBarSensor.setProgress(maxSensor);
                         buttonLED.setEnabled(true);
+                        nav_item3.setEnabled(true);
                         progressBarSensor.setVisibility(View.GONE);
                         progressBarBasic.setVisibility(View.GONE);
                         buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
@@ -588,6 +603,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         if(value >= (maxBasic+maxSensor+maxLed)){
                             progressBarLed.setProgress(maxLed);
                             buttonMovement.setEnabled(true);
+                            nav_item4.setEnabled(true);
                             progressBarLed.setVisibility(View.GONE);
                             progressBarSensor.setVisibility(View.GONE);
                             progressBarBasic.setVisibility(View.GONE);
@@ -603,6 +619,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         else{
                             progressBarLed.setProgress(value - maxBasic - maxSensor);
                             buttonMovement.setEnabled(false);
+                            nav_item4.setEnabled(false);
                         }
 
                     }
@@ -610,6 +627,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         progressBarSensor.setProgress(value - maxBasic);
                         buttonLED.setEnabled(false);
                         buttonMovement.setEnabled(false);
+                        nav_item3.setEnabled(false);
+                        nav_item4.setEnabled(false);
                     }
 
                 }
@@ -618,6 +637,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     buttonSensors.setEnabled(false);
                     buttonLED.setEnabled(false);
                     buttonMovement.setEnabled(false);
+                    nav_item2.setEnabled(false);
+                    nav_item3.setEnabled(false);
+                    nav_item4.setEnabled(false);
                 }
 
             }

@@ -850,6 +850,7 @@ public class Tol4_Lesson_Quiz extends AppCompatActivity {
                         Intent intent1 = new Intent(Tol4_Lesson_Quiz.this, Movement.class);
                         //intent.putExtra("Coloredcard", exp);
                         intent1.putExtra("MAXLED", intent.getIntExtra("MAXLED", 1));
+                        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent1);
                     }
                 });
@@ -858,7 +859,6 @@ public class Tol4_Lesson_Quiz extends AppCompatActivity {
         textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
 
-        //TODO: get exp from database, push exp to database, change color of CardView
 
     }
 }

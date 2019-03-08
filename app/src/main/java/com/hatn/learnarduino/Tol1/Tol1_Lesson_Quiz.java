@@ -786,7 +786,9 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
-        startActivity(new Intent(Tol1_Lesson_Quiz.this, Tol1_Lesson_Content.class));
+        Intent iz = new Intent(Tol1_Lesson_Quiz.this, Tol1_Lesson_Content.class);
+        iz.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(iz);
         finish();
 
     }
@@ -851,6 +853,7 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(Tol1_Lesson_Quiz.this, Basic.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         //intent.putExtra("Coloredcard", exp);
                         startActivity(intent);
                     }
@@ -860,7 +863,6 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
         textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
 
-        //TODO: get exp from database, push exp to database, change color of CardView
 
     }
 }

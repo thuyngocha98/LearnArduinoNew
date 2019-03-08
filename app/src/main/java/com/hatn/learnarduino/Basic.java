@@ -160,8 +160,9 @@ public class Basic extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
-        Intent intent = new Intent(Basic.this, MainActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(Basic.this, MainActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
         finish();
 
     }

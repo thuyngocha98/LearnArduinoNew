@@ -178,7 +178,7 @@ public class LED extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
-        startActivity(new Intent(LED.this, MainActivity.class));
+        //startActivity(new Intent(LED.this, MainActivity.class));
         finish();
 
     }

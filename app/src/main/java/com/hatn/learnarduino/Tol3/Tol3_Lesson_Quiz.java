@@ -859,6 +859,7 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
                         Intent intent1 = new Intent(Tol3_Lesson_Quiz.this,LED.class);
                         intent1.putExtra("checkValueLed", 1);
                         intent1.putExtra("MAXSENSOR",intent.getIntExtra("MAXSENSOR",1));
+                        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent1);
                     }
                 });
