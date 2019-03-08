@@ -819,7 +819,6 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
 
     private void NextLesson() {
         final int exp = 5;
-
         Boolean checkcolor = intent.getBooleanExtra(Basic.HASCOLOR, true);
         Log.d(TAG, "onDataChange: thuyngocha3 " + checkcolor);
         if (checkcolor) {
@@ -838,6 +837,8 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
 
 
                     current_user_id.setValue(value.intValue() + 5);
+
+
 
                 }
 

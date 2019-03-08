@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,246 +10,255 @@
     android:scrollbars="vertical"
     app:layout_scrollFlags="scroll">
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:isScrollContainer="true"
-        android:orientation="vertical"
-        android:scrollbars="vertical"
-        app:layout_scrollFlags="scroll">
-
-
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
 
         <LinearLayout
-            android:id="@+id/linear_btn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40sp"
-            android:gravity="center"
-            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/btn_basic"
-                android:background="@drawable/rounded_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_basic" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:gravity="center_horizontal"
+            android:isScrollContainer="true"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            app:layout_scrollFlags="scroll">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/basic"
-                android:textColor="#6f6f6f"
-                android:textSize="18sp" />
-
-            <ProgressBar
-                android:id="@+id/progressBarBasic"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="150sp"
-                android:progressTint="@color/right"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:padding="20dp"
-            android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/linear_btn2"
+                android:id="@+id/linear_btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@+id/linear_btn3"
-                app:layout_constraintHorizontal_bias="0.4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageButton
-                    android:id="@+id/btn_sensors"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_button"
-                    app:srcCompat="@drawable/ic_bio_sensor" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/sensors"
-                    android:textColor="#6f6f6f"
-                    android:textSize="18sp" />
-
-                <ProgressBar
-                    android:id="@+id/progressBarSensors"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="150sp"
-                    android:layout_height="wrap_content"
-                    android:progressTint="@color/right" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_btn3"
-                android:layout_width="146dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageButton
-                    android:id="@+id/btn_LED"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_button"
-                    app:srcCompat="@drawable/ic_led" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/led"
-                    android:textColor="#6f6f6f"
-                    android:textSize="18sp" />
-
-                <ProgressBar
-                    android:id="@+id/progressBarLED"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="150sp"
-                    android:layout_height="wrap_content"
-                    android:progressTint="@color/right" />
-            </LinearLayout>
-
-        </android.support.constraint.ConstraintLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_btn4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/btn_movement"
-                android:background="@drawable/rounded_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_movement" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/movement"
-                android:textSize="18sp"
-                android:textColor="#6f6f6f" />
-            <ProgressBar
-                android:id="@+id/progressBarMovement"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="150sp"
-                android:progressTint="@color/right"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:visibility="gone"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/linear_btn5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_marginStart="10dp">
-
-                <ImageButton
-                    android:id="@+id/btn_tol5"
-                    android:background="@drawable/rounded_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_bio_sensor" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Tol5"
-                    android:textColor="#6f6f6f"
-                    android:textSize="18sp" />
-
-                <ProgressBar
-                    android:id="@+id/progressBarTol5"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="150sp"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_btn6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginTop="40sp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/btn_tol6"
-                    android:background="@drawable/rounded_button"
+                    android:id="@+id/btn_basic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_bio_sensor" />
+                    android:background="@drawable/rounded_button"
+                    app:srcCompat="@drawable/ic_basic" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textSize="18sp"
-                    android:text="Tol6"
-                    android:textColor="#6f6f6f" />
+                    android:text="@string/basic"
+                    android:textColor="#6f6f6f"
+                    android:textSize="18sp" />
+
                 <ProgressBar
-                    android:id="@+id/progressBarTol6"
+                    android:id="@+id/progressBarBasic"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="150sp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:progressTint="@color/right" />
             </LinearLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:id="@+id/linear_btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginRight="50dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/linear_btn3"
+                    app:layout_constraintHorizontal_bias="0.4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/btn_sensors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_button"
+                        app:srcCompat="@drawable/ic_bio_sensor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/sensors"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarSensors"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150sp"
+                        android:layout_height="wrap_content"
+                        android:progressTint="@color/right" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_btn3"
+                    android:layout_width="146dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginRight="50dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/btn_LED"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_button"
+                        app:srcCompat="@drawable/ic_led" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/led"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarLED"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150sp"
+                        android:layout_height="wrap_content"
+                        android:progressTint="@color/right" />
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_btn4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_movement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_button"
+                    app:srcCompat="@drawable/ic_movement" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/movement"
+                    android:textColor="#6f6f6f"
+                    android:textSize="18sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarMovement"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="150sp"
+                    android:layout_height="wrap_content"
+                    android:progressTint="@color/right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/linear_btn5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btn_tol5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_button"
+                        app:srcCompat="@drawable/ic_bio_sensor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Tol5"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarTol5"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_btn6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btn_tol6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_button"
+                        app:srcCompat="@drawable/ic_bio_sensor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Tol6"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarTol6"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150sp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+
         </LinearLayout>
+    </ScrollView>
 
-
-    </LinearLayout>
-</ScrollView>
-<com.google.android.gms.ads.AdView
-android:id="@+id/adView"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_alignParentBottom="true"
-android:layout_centerHorizontal="true"
-app:adSize="BANNER"
-app:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
-    </LinearLayout>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center_horizontal"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
+    </FrameLayout>
