@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-        loadingProgressBarTotal();
+//        loadingProgressBarTotal();
 
         //Merge content
         buttonBasic = findViewById(R.id.btn_basic);
@@ -582,6 +582,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 progressBarSensor.setProgress(0);
                 progressBarLed.setProgress(0);
                 progressBarMovement.setProgress(0);
+
+                buttonBasic.setBackgroundResource(R.drawable.rounded_button);
+                buttonSensors.setBackgroundResource(R.drawable.rounded_button);
+                buttonLED.setBackgroundResource(R.drawable.rounded_button);
+                buttonMovement.setBackgroundResource(R.drawable.rounded_button);
+
+                progressBarBasic.setVisibility(View.VISIBLE);
+                progressBarSensor.setVisibility(View.VISIBLE);
+                progressBarLed.setVisibility(View.VISIBLE);
+                progressBarMovement.setVisibility(View.VISIBLE);
 
 
 
