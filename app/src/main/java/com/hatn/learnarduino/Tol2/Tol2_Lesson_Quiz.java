@@ -853,19 +853,5 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
 }

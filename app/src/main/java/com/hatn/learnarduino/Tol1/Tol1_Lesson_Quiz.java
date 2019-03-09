@@ -784,16 +784,17 @@ public class Tol1_Lesson_Quiz extends AppCompatActivity {
 
 
     }
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-        Intent iz = new Intent(Tol1_Lesson_Quiz.this, Tol1_Lesson_Content.class);
-        iz.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(iz);
-        finish();
 
-    }
+//    @Override
+//    public void onBackPressed()
+//    {
+//        super.onBackPressed();
+//        Intent iz = new Intent(Tol1_Lesson_Quiz.this, Tol1_Lesson_Content.class);
+//        iz.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(iz);
+//        finish();
+//
+//    }
 
 
     private void thread() {

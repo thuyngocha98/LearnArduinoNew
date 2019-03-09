@@ -373,14 +373,14 @@ public class Tol3_Lesson_Content extends AppCompatActivity {
 
 
     }
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-        startActivity(new Intent(Tol3_Lesson_Content.this, LED.class));
-        finish();
-
-    }
+//    @Override
+//    public void onBackPressed()
+//    {
+//        super.onBackPressed();
+//        startActivity(new Intent(Tol3_Lesson_Content.this, LED.class));
+//        finish();
+//
+//    }
 
 
     private void showCustomDialog() {

@@ -811,14 +811,15 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
         thread.start();
 
     }
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-        startActivity(new Intent(Tol3_Lesson_Quiz.this, Tol3_Lesson_Content.class));
-        finish();
 
-    }
+//    @Override
+//    public void onBackPressed()
+//    {
+//        super.onBackPressed();
+//        startActivity(new Intent(Tol3_Lesson_Quiz.this, Tol3_Lesson_Content.class));
+//        finish();
+//
+//    }
 
     private void NextLesson() {
 
@@ -869,5 +870,4 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
         snackbar.show();
 
     }
-
 }
