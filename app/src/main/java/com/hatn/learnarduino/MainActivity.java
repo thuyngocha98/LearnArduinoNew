@@ -335,7 +335,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_aboutus) {
             Intent i = new Intent(this, Aboutus.class);
             startActivity(i);
-        } else if (id == R.id.nav_moreapps) {
+        } else if (id == R.id.nav_achievements){
+            Intent i = new Intent(this, Achievements.class);
+            startActivity(i);
+        }
+        else if (id == R.id.nav_moreapps) {
             Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=Cherala+Apps"));
             startActivity(i);
         } else if (id == R.id.nav_logout) {

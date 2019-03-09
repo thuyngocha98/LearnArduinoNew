@@ -27,7 +27,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_sensors2">Sensors2</string>
     <string name="title_activity_sensors3">Sensors3</string>
-   <string name="title_activity_aboutus">Aboutus</string>
+    <string name="title_activity_aboutus">Aboutus</string>
     <string name="cherala_apps_nemail_apps_cherala_gmail_com">CORD COMPANY \n EMAIL : apps.cord@gmail.com</string>
     <string name="led1">Blink an LED</string>
     <string name="slash">/</string>
@@ -181,4 +181,5 @@
     <string name="title_activity_tol1__lesson_quiz">Tol1_Lesson_quiz</string>
     <string name="title_activity_tol4__lesson__content">Tol4_Lesson_Content</string>
     <string name="title_activity_tol4__lesson__quiz">Tol4_Lesson_Quiz</string>
+    <string name="achievements">Achievements</string>
 </resources>

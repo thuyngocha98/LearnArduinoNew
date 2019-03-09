@@ -33,6 +33,10 @@
                 android:id="@+id/nav_moreapps"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/more_apps" />
+            <item
+                android:id="@+id/nav_achievements"
+                android:icon="@drawable/ic_checked"
+                android:title="@string/achievements" />
             <!--<item-->
                 <!--android:id="@+id/nav_invitefriends"-->
                 <!--android:icon="@drawable/invite_friend"-->
