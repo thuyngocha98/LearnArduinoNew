@@ -630,10 +630,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 buttonLED.setBackgroundResource(R.drawable.rounded_button);
                 buttonMovement.setBackgroundResource(R.drawable.rounded_button);
 
-                progressBarBasic.setVisibility(View.VISIBLE);
-                progressBarSensor.setVisibility(View.VISIBLE);
-                progressBarLed.setVisibility(View.VISIBLE);
-                progressBarMovement.setVisibility(View.VISIBLE);
+//                progressBarBasic.setVisibility(View.VISIBLE);
+//                progressBarSensor.setVisibility(View.VISIBLE);
+//                progressBarLed.setVisibility(View.VISIBLE);
+//                progressBarMovement.setVisibility(View.VISIBLE);
 
 
 
@@ -649,7 +649,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             return false;
                         }
                     });
-                    progressBarBasic.setVisibility(View.GONE);
+//                    progressBarBasic.setVisibility(View.GONE);
                     buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                     if(value >= (maxBasic+maxSensor)){
                         progressBarSensor.setProgress(maxSensor);
@@ -662,8 +662,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 return false;
                             }
                         });
-                        progressBarSensor.setVisibility(View.GONE);
-                        progressBarBasic.setVisibility(View.GONE);
+//                        progressBarSensor.setVisibility(View.GONE);
+//                        progressBarBasic.setVisibility(View.GONE);
                         buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                         buttonSensors.setBackgroundResource(R.drawable.rounded_button_green);
                         if(value >= (maxBasic+maxSensor+maxLed)){
@@ -677,9 +677,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                     return false;
                                 }
                             });
-                            progressBarLed.setVisibility(View.GONE);
-                            progressBarSensor.setVisibility(View.GONE);
-                            progressBarBasic.setVisibility(View.GONE);
+//                            progressBarLed.setVisibility(View.GONE);
+//                            progressBarSensor.setVisibility(View.GONE);
+//                            progressBarBasic.setVisibility(View.GONE);
                             buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                             buttonSensors.setBackgroundResource(R.drawable.rounded_button_green);
                             buttonLED.setBackgroundResource(R.drawable.rounded_button_green);
