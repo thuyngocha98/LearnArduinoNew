@@ -685,6 +685,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             buttonLED.setBackgroundResource(R.drawable.rounded_button_green);
                             if(value >= (maxBasic+maxSensor+maxLed+maxMovement)){
                                 progressBarMovement.setProgress(maxMovement);
+                                buttonMovement.setBackgroundResource(R.drawable.rounded_button_green);
                             }
                             else
                                 progressBarMovement.setProgress(value - maxBasic - maxSensor - maxLed);
