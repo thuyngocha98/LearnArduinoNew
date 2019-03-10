@@ -7,7 +7,7 @@
     <color name="primaryLightColor">#ffd149</color>
     <color name="colorPrimaryDark">#c67100</color>
     <color name="primaryTextColor">#000000</color>
-
+    <color name="gray_background">#EEEEEE</color>
     <color name="button1">#ffa000</color>
     <color name="buttonfab">#c67100</color>
     <color name="textfab">#000000</color>

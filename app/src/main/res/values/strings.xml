@@ -168,7 +168,6 @@
     </string>
     <string name="something_here">Something here</string>
     <string name="block_diagram">Block Diagram</string>
-    <string name="description">Description</string>
     <string name="title_activity_lesson1_quiz">Lesson1Quiz</string>
     <string name="title_activity_lesson2_content">Lesson2Content</string>
     <string name="title_activity_lesson2_quiz">Lesson2Quiz</string>
@@ -182,4 +181,5 @@
     <string name="title_activity_tol4__lesson__content">Tol4_Lesson_Content</string>
     <string name="title_activity_tol4__lesson__quiz">Tol4_Lesson_Quiz</string>
     <string name="achievements">Achievements</string>
+    <string name="description">Description</string>
 </resources>

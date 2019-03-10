@@ -1,7 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:id="@+id/layout_achivements"
-    android:layout_height="match_parent">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_background"
+    tools:context=".Achievements">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="#000"
+                android:shadowDx="30"
+                android:shadowDy="30"
+                android:shadowRadius="50">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_Achive1"
+                    style="@style/CardView.Light"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:cardElevation="2dp"
+                    app:cardCornerRadius="5dp"
+                    tools:ignore="ContentDescription">
+
+                    <android.support.constraint.ConstraintLayout
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/img_archie1"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="4dp"
+                            android:padding="8dp"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintBottom_toTopOf="@+id/media_image"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="packed"
+                            app:srcCompat="@drawable/ic_checked" />
+
+                        <TextView
+                            android:id="@+id/textview_A_name1"
+                            android:layout_width="315dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/basic"
+                            android:layout_margin="5dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                            app:layout_constraintTop_toTopOf="@+id/img_archie1"
+                            app:layout_constraintStart_toEndOf="@+id/img_archie1"
+                            tools:layout_editor_absoluteX="64dp"
+                            tools:layout_editor_absoluteY="8dp" />
+
+                        <ImageView
+                            android:id="@+id/media_image"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@color/colorPrimary"
+                            app:layout_constraintDimensionRatio="H,16:3"
+                            app:layout_constraintTop_toBottomOf="@+id/img_archie1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/textview_A_description1"/>
+
+                        <TextView
+                            android:id="@+id/textview_A_description1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:lineSpacingExtra="8dp"
+                            android:text="@string/AppDescription"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:fontFamily="sans-serif-light"
+                            android:textColor="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/img_archie1" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+    </ScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>

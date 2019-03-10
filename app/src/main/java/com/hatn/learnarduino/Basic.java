@@ -65,6 +65,13 @@ public class Basic extends AppCompatActivity {
                 Long value = dataSnapshot.getValue(Long.class);
                 int exp=value.intValue();
 
+//                if (exp==0)
+//                {
+//                    Intent intent = new Intent(Basic.this,Welcome.class);
+//                    intent.putExtra("TypeofSlider", 1);
+//                    startActivity(intent);
+//                }
+
                 int[] CardViewColor_list = {
                         R.id.tol1_colorcard1 , R.id.tol1_colorcard2, R.id.tol1_colorcard3, R.id.tol1_colorcard4,
                         R.id.tol1_colorcard5 , R.id.tol1_colorcard6, R.id.tol1_colorcard7, R.id.tol1_colorcard8,

@@ -16,10 +16,10 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="29dp"
-        android:text="All in One App"
+        android:text="Everything you need"
+        android:fontFamily="sans-serif-light"
         android:textColor="#ffffff"
-        android:textSize="27sp"
-        android:textStyle="bold" />
+        android:textSize="29sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -30,13 +30,12 @@
 
         <ImageView
             android:id="@+id/Img_done3"
-            android:src="@drawable/ic_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="16dp"
-            android:tint="#c1e6f5"
-            android:paddingRight="16dp"/>
+            android:paddingRight="16dp"
+            android:src="@drawable/ic_earth" />
             <!--android:src="@drawable/intro3" />-->
     </LinearLayout>
 
@@ -49,7 +48,7 @@
         android:gravity="center"
         android:paddingLeft="64dp"
         android:paddingRight="64dp"
-        android:text="More than 50 features in one application."
+        android:text="Our app contain everything you need for learning Arduino"
         android:textColor="#ffffff"
         android:textSize="16sp" />
 

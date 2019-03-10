@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="10"
-    android:background="#ba68c8"
+    android:background="#00b0ff"
     android:orientation="vertical">
 
     <TextView
@@ -16,10 +16,10 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="29dp"
-        android:text="All in One App"
+        android:text="Welcome Back"
+        android:fontFamily="sans-serif-light"
         android:textColor="#ffffff"
-        android:textSize="27sp"
-        android:textStyle="bold" />
+        android:textSize="32sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -30,13 +30,12 @@
 
         <ImageView
             android:id="@+id/Img_done4"
-            android:src="@drawable/ic_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="16dp"
-            android:tint="#c1e6f5"
-            android:paddingRight="16dp"/>
+            android:paddingRight="16dp"
+            android:src="@drawable/ic_traffic_sign" />
             <!--android:src="@drawable/intro3" />-->
     </LinearLayout>
 
@@ -49,7 +48,7 @@
         android:gravity="center"
         android:paddingLeft="64dp"
         android:paddingRight="64dp"
-        android:text="More than 50 features in one application."
+        android:text="Let's get back to where you left off!"
         android:textColor="#ffffff"
         android:textSize="16sp" />
 

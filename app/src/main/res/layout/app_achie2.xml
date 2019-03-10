@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="10"
-    android:background="#03a373"
+    android:background="#512da8"
     android:orientation="vertical">
 
     <TextView
@@ -17,9 +17,9 @@
         android:paddingLeft="32dp"
         android:paddingRight="29dp"
         android:text="Amazing Features"
+        android:fontFamily="sans-serif-light"
         android:textColor="#ffffff"
-        android:textSize="27sp"
-        android:textStyle="bold" />
+        android:textSize="29sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -30,12 +30,12 @@
 
         <ImageView
             android:id="@+id/Img_done2"
-            android:src="@drawable/ic_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp"/>
+            android:paddingRight="16dp"
+            android:src="@drawable/ic_feature" />
             <!--android:src="@drawable/intro2" />-->
     </LinearLayout>
 
@@ -48,7 +48,7 @@
         android:gravity="center"
         android:paddingLeft="64dp"
         android:paddingRight="64dp"
-        android:text="50+ amazing features and it's 100% free to use."
+        android:text="We have many amazing features and it's 100% free to use."
         android:textColor="#ffffff"
         android:textSize="16sp" />
 
