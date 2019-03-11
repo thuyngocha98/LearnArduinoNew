@@ -144,10 +144,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // login firebaseUI
         if(mAuth.getCurrentUser() != null){
             setProfile();
+            //load screen welcome
+            Intent intent = new Intent(MainActivity.this, Welcome.class);
+            intent.putExtra("TypeofSlider", 2);
+            startActivity(intent);
+
 
         }else {
             functionLogin();
-
         }
 
 
@@ -449,6 +453,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // Successfully signed in
                 setProfile();
                 readData();
+                //load screen welcome
+                Intent intent = new Intent(MainActivity.this, Welcome.class);
+                intent.putExtra("TypeofSlider", 1);
+                startActivity(intent);
 
             } else {
                 //Toast.makeText(this, "Login Fail", Toast.LENGTH_SHORT).show();
@@ -575,16 +583,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // whenever data at this location is updated.
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
 
-                if (value == 0 ){
-                    Intent intent = new Intent(MainActivity.this, Welcome.class);
-                    intent.putExtra("TypeofSlider", 1);
-                    startActivity(intent);
-                }
-                else {
-                    Intent intent = new Intent(MainActivity.this, Welcome.class);
-                    intent.putExtra("TypeofSlider", 2);
-                    startActivity(intent);
-                }
                 int maxBasic = progressBarBasic.getMax();
                 int maxSensor = progressBarSensor.getMax();
                 int maxLed = progressBarLed.getMax();
