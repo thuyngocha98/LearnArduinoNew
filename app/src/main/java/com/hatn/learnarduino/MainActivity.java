@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
     int Experience = 0;
+    int Token = 0;
     int numberTotalContent = 6;
     public int experience;
     private DrawerLayout drawerLayout;
@@ -144,11 +145,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // login firebaseUI
         if(mAuth.getCurrentUser() != null){
             setProfile();
+
+            loadingProgressBarTotal();
             //load screen welcome
             Intent intent = new Intent(MainActivity.this, Welcome.class);
             intent.putExtra("TypeofSlider", 2);
             startActivity(intent);
-
 
         }else {
             functionLogin();
@@ -366,7 +368,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .setDuration(1000)
                     .setBackgroundColorRes(R.color.alert_background) // or setBackgroundColorInt(Color.CYAN)
                     .show();
-            loadingProgressBarTotal();
+            //loadingProgressBarTotal();
             Snackbar snackbarz = Snackbar
                     .make(drawerLayout, "Signed in as " + email, 1200)
                     .setAction("LOG OUT", new View.OnClickListener() {
@@ -451,8 +453,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
+                Log.d("tag","checkprogressbar: in onActivityresult");
                 setProfile();
                 readData();
+                //readToken();
                 //load screen welcome
                 Intent intent = new Intent(MainActivity.this, Welcome.class);
                 intent.putExtra("TypeofSlider", 1);
@@ -530,13 +534,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         v.setEnabled(enabled);
     }
 
-    // experience user
-    public void setValueExperience(){
-            String user_id1 = mAuth.getCurrentUser().getUid();
-            DatabaseReference current_user_id1 = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1);
-            current_user_id1.setValue(0);
-    }
-
     public boolean isOnline() {
         ConnectivityManager cm =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -544,11 +541,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return netInfo != null && netInfo.isConnected();
     }
 
+    // experience and token user
+    public void setValueExperience(){
+        String user_id1 = mAuth.getCurrentUser().getUid();
+        DatabaseReference current_user_id1 = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Exp");
+        current_user_id1.setValue(0);
+        DatabaseReference token_user = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Token");
+        token_user.setValue(0);
+        Log.d("tag","checkprogressbar: set value exp");
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        loadingProgressBarTotal();
+
+    }
+
+
 
     // read data user
     public  void readData(){
         String user_id2 = mAuth.getCurrentUser().getUid();
-        DatabaseReference current_user_id2 = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id2);
+        DatabaseReference current_user_id2 = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id2).child("Exp");
         current_user_id2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -574,13 +590,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void setProgressBarMain(){
         //set progress progressbar
+        mAuth = FirebaseAuth.getInstance();
         String progressbar_user_id = mAuth.getCurrentUser().getUid();
-        final DatabaseReference progressbar_user = FirebaseDatabase.getInstance().getReference().child("Users").child(progressbar_user_id);
+        Log.d("tag","checkprogressbar: uid " + progressbar_user_id);
+        DatabaseReference progressbar_user = FirebaseDatabase.getInstance().getReference().child("Users").child(progressbar_user_id).child("Exp");
         progressbar_user.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
+                Log.d("tag","checkprogressbar: get value");
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
 
                 int maxBasic = progressBarBasic.getMax();
@@ -790,6 +809,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void loadingProgressBarTotal(){
+        Log.d("tag","checkprogressbar: in loanding");
         int t = 0;
         if(mAuth.getCurrentUser() != null) {
             if (t == 0) {

@@ -131,7 +131,7 @@ public class Achievements extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
-        final DatabaseReference db_user = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+        final DatabaseReference db_user = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
         db_user.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
