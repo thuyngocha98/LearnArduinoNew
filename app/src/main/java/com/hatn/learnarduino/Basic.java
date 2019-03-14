@@ -56,7 +56,7 @@ public class Basic extends AppCompatActivity {
 
         progressDialog=ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
 
-        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
         current_user_id.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -196,6 +196,7 @@ public class Achievements extends AppCompatActivity {
 
 //        });
 
+<<<<<<< HEAD
 //        achievements =new LinkedList<>();
 //        for (int i = 1 ;i<100;i++)
 //        {
@@ -214,6 +215,12 @@ public class Achievements extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("Achievements");
 //truy suất và lắng nghe sự thay đổi dữ liệu
         myRef.addValueEventListener(new ValueEventListener() {
+=======
+        mAuth = FirebaseAuth.getInstance();
+        String user_id = mAuth.getCurrentUser().getUid();
+        final DatabaseReference db_user = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
+        db_user.addValueEventListener(new ValueEventListener() {
+>>>>>>> b9a299086bae40df7e55d9a11a098c8238b9445d
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 //vòng lặp để lấy dữ liệu khi có sự thay đổi trên Firebase

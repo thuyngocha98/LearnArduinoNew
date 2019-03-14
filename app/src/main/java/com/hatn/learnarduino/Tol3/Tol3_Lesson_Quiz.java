@@ -831,7 +831,7 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
 //        Function function =new Function();
 //        function.SetDataIntoObject(Userexp,experience);
             String user_id = mAuth.getCurrentUser().getUid();
-            final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+            final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
             current_user_id.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
