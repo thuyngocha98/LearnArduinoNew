@@ -454,7 +454,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
-                Log.d("tag","checkprogressbar: in onActivityresult");
+                Log.d("xxxx", "onResult");
                 setProfile();
                 readData();
                 //readToken();
@@ -594,6 +594,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Intent intent = new Intent(MainActivity.this, Welcome.class);
                     intent.putExtra("TypeofSlider", 2);
                     startActivity(intent);
+
+                    loadingProgressBarTotal();
                 }
             }
 
@@ -607,7 +609,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void setProgressBarMain(){
         //set progress progressbar
-        mAuth = FirebaseAuth.getInstance();
         String progressbar_user_id = mAuth.getCurrentUser().getUid();
         Log.d("tag","checkprogressbar: uid " + progressbar_user_id);
         DatabaseReference progressbar_user = FirebaseDatabase.getInstance().getReference().child("Users").child(progressbar_user_id).child("Exp");
