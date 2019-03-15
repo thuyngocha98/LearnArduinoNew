@@ -2,30 +2,55 @@ package com.hatn.learnarduino;
 
 public class achievement {
 
-    private String name;
-    private String description;
+    private String achivementID;
+    private String Name;
+    private String Description;
+    private String img;
     private int exp;
 
-    public achievement(String name, String description, int exp) {
-        this.name = name;
-        this.description = description;
+
+    public achievement(){
+    }
+
+    public String getImg()
+    {
+        return img;
+    }
+
+    public void setImg(String img){
+        this.img=img;
+    }
+
+    public void setAchivementID(String achivementID) {
+        this.achivementID=achivementID;
+    }
+
+    public String getAchivementID(){
+        return achivementID;
+    }
+
+    public achievement(String achivementID, String name, String description, int exp, String img) {
+        this.achivementID=achivementID;
+        this.Name = name;
+        this.Description = description;
         this.exp = exp;
+        this.img = img;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.Description = description;
     }
 
     public int getExp() {

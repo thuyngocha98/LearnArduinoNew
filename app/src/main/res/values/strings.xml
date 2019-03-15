@@ -182,4 +182,7 @@
     <string name="title_activity_tol4__lesson__quiz">Tol4_Lesson_Quiz</string>
     <string name="achievements">Achievements</string>
     <string name="description">Description</string>
+    <string name="feedback">Feedback</string>
+    <string name="type_your_feedback_here">Type your feedback here</string>
+    <string name="send">Send</string>
 </resources>

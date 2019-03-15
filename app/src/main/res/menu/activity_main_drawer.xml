@@ -26,6 +26,10 @@
     <item android:title="@string/communicate">
         <menu>
             <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_feedback"
+                android:title="@string/feedback" />
+            <item
                 android:id="@+id/nav_aboutus"
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/about_us" />

@@ -37,7 +37,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:animationCache="false"
-                        android:id="@+id/id_listview" />
+                        android:id="@+id/lvAchievements" />
 
                 </android.support.v7.widget.CardView>
             </LinearLayout>

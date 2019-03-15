@@ -1,56 +1,61 @@
 package com.hatn.learnarduino;
 
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.annotations.Nullable;
+
+import java.io.ByteArrayOutputStream;
 import java.util.LinkedList;
 
-public class Adapter_Achievements extends BaseAdapter {
+public class Adapter_Achievements extends ArrayAdapter<achievement> {
 
-    private int resource;
-    private LinkedList<achievement> m_achievements;
+    Activity context;
+    int resource;
 
-    public Adapter_Achievements(int resource, LinkedList<achievement> m_achievements){
+    public Adapter_Achievements(Activity context, int resource) {
+        super(context, resource);
+        this.context=context;
         this.resource=resource;
-        this.m_achievements=m_achievements;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        TextView textView_name;
-        TextView textView_discription;
-        TextView textView_exp;
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View custom=context.getLayoutInflater().inflate(resource,null);
+        TextView txtName=custom.findViewById(R.id.name_achieve);
+        TextView txtDescription=custom.findViewById(R.id.description_achieve);
+        TextView txtExp=custom.findViewById(R.id.exp);
+        ImageView imageView = custom.findViewById(R.id.image_of_lv);
 
-        if (convertView == null)
-        {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(resource, parent,false);
-        }
-        textView_name = (TextView) convertView.findViewById(R.id.name_achieve);
-        textView_discription = (TextView) convertView.findViewById(R.id.description_achieve);
-        textView_exp = (TextView) convertView.findViewById(R.id.exp);
 
-        textView_name.setText(m_achievements.get(position).getName());
-        textView_discription.setText(m_achievements.get(position).getDescription());
-        //textView_exp.setText(m_achievements.get(position).getExp());
 
-        return convertView;
-    }
+        achievement achievement=getItem(position);
 
-    @Override
-    public int getCount() {
-        return m_achievements.size();
-    }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] imageBytes = byteArrayOutputStream.toByteArray();
 
-    @Override
-    public Object getItem(int position) {
-        return null;
-    }
-    @Override
-    public long getItemId(int position) {
-        return 0;
+        Log.d("zzzzz", "getView: "+achievement.getImg());
+        imageBytes = Base64.decode(achievement.getImg(), Base64.DEFAULT);
+        Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        imageView.setImageBitmap(decodedImage);
+
+        txtName.setText(achievement.getName());
+        txtDescription.setText(achievement.getDescription());
+        txtExp.setText(String.valueOf(achievement.getExp()));
+
+        return custom;
     }
 
 }
