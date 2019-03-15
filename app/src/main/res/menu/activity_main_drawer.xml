@@ -41,10 +41,10 @@
                 android:id="@+id/nav_achievements"
                 android:icon="@drawable/ic_checked"
                 android:title="@string/achievements" />
-            <!--<item-->
-                <!--android:id="@+id/nav_invitefriends"-->
-                <!--android:icon="@drawable/invite_friend"-->
-                <!--android:title="@string/invite_friends" />-->
+            <item
+                android:id="@+id/nav_remove_ads"
+                android:icon="@drawable/invite_friend"
+                android:title="Remove Ads" />
         </menu>
 
 

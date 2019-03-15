@@ -83,14 +83,17 @@ public class Sensors extends AppCompatActivity {
 
                 for(int i =0; i <25; i++){
                     CardView temp = findViewById(Cardview_color[i]);
+                    CardView Allcard1 = findViewById(CardView_List[i]);
                     CardView Allcard = findViewById(CardView_List[i+1]);
                     if(expSensor >=5){
                         temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
                         temp.setClickable(false);
+                        Allcard1.setAlpha(1);
                         expSensor -=5;
                     }
                     else
                         Allcard.setEnabled(false);
+                        Allcard.setAlpha(.5f);
                 }
             }
 

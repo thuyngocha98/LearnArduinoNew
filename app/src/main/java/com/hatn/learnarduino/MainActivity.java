@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tvCheckWelcome = (TextView) findViewById(R.id.tv_temp_check_welcome);
 
 
-
         MobileAds.initialize(this, "ca-app-pub-1398912587505329~4968336940");
 
         AdView mAdView = findViewById(R.id.adView);
@@ -310,6 +309,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_feedback) {
             Intent i = new Intent(this, Feedback.class);
             i.putExtra("Name", mAuth.getCurrentUser().getDisplayName());
+            startActivity(i);
+        } else if (id == R.id.nav_remove_ads) {
+            Intent i = new Intent(this, Gettoken.class);
             startActivity(i);
         }
 
@@ -585,7 +587,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 Long value1 = dataSnapshot.getValue(Long.class);
-
                 if(value1 == null) {
                     setValueExperience();
                 }
