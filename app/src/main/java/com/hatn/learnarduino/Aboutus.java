@@ -34,7 +34,6 @@ public class Aboutus extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        fab=findViewById(R.id.fab);
         textViewEmail=findViewById(R.id.textViewEmail);
         imageView=findViewById(R.id.imageView);
 
@@ -58,28 +57,6 @@ public class Aboutus extends AppCompatActivity {
 //            }
 //        });
 
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    Intent i = new Intent(Intent.ACTION_SEND);
-                    i.setType("message/rfc822");
-                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"apps.cherala@gmail.com"});
-                    i.putExtra(Intent.EXTRA_SUBJECT, "Learn Arduino");
-                    try {
-                        startActivity(Intent.createChooser(i, "Send mail..."));
-                    } catch (android.content.ActivityNotFoundException ex) {
-                        Toast.makeText(Aboutus.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                    }
-            }
-        });
-
-        textViewEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fab.callOnClick();
-            }
-        });
         }
 
 

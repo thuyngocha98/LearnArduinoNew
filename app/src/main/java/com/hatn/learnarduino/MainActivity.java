@@ -307,6 +307,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(i);
         } else if (id == R.id.nav_logout) {
             logOut();
+        } else if (id == R.id.nav_feedback) {
+            Intent i = new Intent(this, Feedback.class);
+            i.putExtra("Name", mAuth.getCurrentUser().getDisplayName());
+            startActivity(i);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -697,7 +701,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         }
                         else{
                             progressBarLed.setProgress(value - maxBasic - maxSensor);
-                            buttonMovement.setEnabled(false);
+                            buttonMovement.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    ExpShow();
+                                }
+                            });
                             nav_item4.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                                 @Override
                                 public boolean onMenuItemClick(MenuItem item) {
@@ -710,8 +719,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                     else{
                         progressBarSensor.setProgress(value - maxBasic);
-                        buttonLED.setEnabled(false);
-                        buttonMovement.setEnabled(false);
+                        buttonLED.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ExpShow();
+                            }
+                        });
+                        buttonMovement.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ExpShow();
+                            }
+                        });
                         nav_item3.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
@@ -731,9 +750,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 else{
                     progressBarBasic.setProgress(value);
-                    buttonSensors.setEnabled(false);
-                    buttonLED.setEnabled(false);
-                    buttonMovement.setEnabled(false);
+                    buttonSensors.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ExpShow();
+                        }
+                    });
+                    buttonLED.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ExpShow();
+                        }
+                    });
+                    buttonMovement.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ExpShow();
+                        }
+                    });
                     nav_item2.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -139,5 +140,11 @@ public class Achievements extends AppCompatActivity {
 //        check8 = (ImageView) findViewById(R.id.img_archie8);
 //        check9 = (ImageView) findViewById(R.id.img_archie9);
 //        check10 = (ImageView) findViewById(R.id.img_archie10);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return true;
     }
 }

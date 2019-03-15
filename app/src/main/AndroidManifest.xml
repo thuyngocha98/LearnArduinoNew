@@ -14,14 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Feedback"
+        <activity android:name=".Gettoken"></activity>
+        <activity
+            android:name=".Feedback"
             android:label="Feedback"
-            android:theme="@style/AppTheme.Material"
-            android:parentActivityName=".MainActivity"/>
+            android:theme="@style/AppTheme.Material" />
         <activity
             android:name=".Achievements"
-            android:label="Achievements"
-            android:parentActivityName=".MainActivity" />
+            android:label="Achievements" />
         <activity
             android:name=".Welcome"
             android:theme="@style/AppTheme.NoActionBar" />
