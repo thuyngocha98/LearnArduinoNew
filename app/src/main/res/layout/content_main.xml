@@ -246,6 +246,13 @@
                         android:layout_width="150sp"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:id="@+id/tv_temp_check_welcome"
+                    android:text="1"/>
             </LinearLayout>
 
 

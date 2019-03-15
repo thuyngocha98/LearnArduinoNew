@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RewardedVideoAd mRewardedVideoAd;
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
-    int Experience = 0;
     int Token = 0;
     int numberTotalContent = 6;
     public int experience;
@@ -68,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String email;
     ProgressBar progressBarSensor, progressBarLed, progressBarBasic, progressBarMovement;
     MenuItem nav_item1, nav_item2, nav_item3, nav_item4;
+    TextView tvCheckWelcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         progressBarBasic = (ProgressBar) findViewById(R.id.progressBarBasic);
         progressBarLed = (ProgressBar) findViewById(R.id.progressBarLED);
         progressBarMovement = (ProgressBar) findViewById(R.id.progressBarMovement);
+        tvCheckWelcome = (TextView) findViewById(R.id.tv_temp_check_welcome);
 
 
 
@@ -148,9 +149,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             loadingProgressBarTotal();
             //load screen welcome
-            Intent intent = new Intent(MainActivity.this, Welcome.class);
-            intent.putExtra("TypeofSlider", 2);
-            startActivity(intent);
+//            Intent intent = new Intent(MainActivity.this, Welcome.class);
+//            intent.putExtra("TypeofSlider", 2);
+//            startActivity(intent);
 
         }else {
             functionLogin();
@@ -453,14 +454,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
-                Log.d("tag","checkprogressbar: in onActivityresult");
+                Log.d("xxxx", "onResult");
                 setProfile();
                 readData();
                 //readToken();
                 //load screen welcome
-                Intent intent = new Intent(MainActivity.this, Welcome.class);
-                intent.putExtra("TypeofSlider", 1);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, Welcome.class);
+//                intent.putExtra("TypeofSlider", 1);
+//                startActivity(intent);
 
             } else {
                 //Toast.makeText(this, "Login Fail", Toast.LENGTH_SHORT).show();
@@ -522,6 +523,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             snackbar.show();
         }
 
+        tvCheckWelcome.setText("1");
+
     }
 
     private void enableViews(View v, boolean enabled) {
@@ -543,19 +546,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // experience and token user
     public void setValueExperience(){
+
+        tvCheckWelcome.setText("0");
+
         String user_id1 = mAuth.getCurrentUser().getUid();
+
         DatabaseReference current_user_id1 = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Exp");
         current_user_id1.setValue(0);
         DatabaseReference token_user = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Token");
         token_user.setValue(0);
-        Log.d("tag","checkprogressbar: set value exp");
 
         try {
-            Thread.sleep(1500);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         loadingProgressBarTotal();
+        Intent intent = new Intent(MainActivity.this, Welcome.class);
+        intent.putExtra("TypeofSlider", 1);
+        startActivity(intent);
+
 
     }
 
@@ -571,12 +581,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 Long value1 = dataSnapshot.getValue(Long.class);
-                if(value1 != null){
-                    Experience = value1.intValue();
-                }
-                else {
+
+                if(value1 == null) {
                     setValueExperience();
-                    Experience = 0;
+                }
+
+                int checkWelcome = Integer.parseInt(tvCheckWelcome.getText().toString());
+
+                if(checkWelcome == 1){
+
+                    tvCheckWelcome.setText(value1.toString());
+                    Intent intent = new Intent(MainActivity.this, Welcome.class);
+                    intent.putExtra("TypeofSlider", 2);
+                    startActivity(intent);
+
+                    loadingProgressBarTotal();
                 }
             }
 
@@ -590,7 +609,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void setProgressBarMain(){
         //set progress progressbar
-        mAuth = FirebaseAuth.getInstance();
         String progressbar_user_id = mAuth.getCurrentUser().getUid();
         Log.d("tag","checkprogressbar: uid " + progressbar_user_id);
         DatabaseReference progressbar_user = FirebaseDatabase.getInstance().getReference().child("Users").child(progressbar_user_id).child("Exp");
