@@ -83,14 +83,18 @@ public class Basic extends AppCompatActivity {
 
                 for(int i =0; i <7; i++){
                     CardView temp = findViewById(CardViewColor_list[i]);
+                    CardView Allcard1 = findViewById(CardView_List[i]);
                     CardView Allcard = findViewById(CardView_List[i+1]);
                     if(exp >=5){
                         temp.setCardBackgroundColor(Color.parseColor("#ff669900"));
                         temp.setClickable(false);
+                        Allcard1.setAlpha(1);
                         exp -=5;
                     }
-                    else
+                    else{
                         Allcard.setEnabled(false);
+                        Allcard.setAlpha(.5f);
+                    }
                 }
             }
 

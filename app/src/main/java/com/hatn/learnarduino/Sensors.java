@@ -91,9 +91,10 @@ public class Sensors extends AppCompatActivity {
                         Allcard1.setAlpha(1);
                         expSensor -=5;
                     }
-                    else
+                    else {
                         Allcard.setEnabled(false);
                         Allcard.setAlpha(.5f);
+                    }
                 }
             }
 

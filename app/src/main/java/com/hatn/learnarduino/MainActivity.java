@@ -178,32 +178,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        buttonSensors.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Sensors.class);
-                i.putExtra("MAXBASIC2", progressBarBasic.getMax());
-                startActivity(i);
-            }
-        });
+//        buttonSensors.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(MainActivity.this,Sensors.class);
+//                i.putExtra("MAXBASIC2", progressBarBasic.getMax());
+//                startActivity(i);
+//            }
+//        });
 
-        buttonLED.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,LED.class);
-                i.putExtra("MAXSENSOR2", (progressBarBasic.getMax()+progressBarSensor.getMax()));
-                startActivity(i);
-            }
-        });
+//        buttonLED.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(MainActivity.this,LED.class);
+//                i.putExtra("MAXSENSOR2", (progressBarBasic.getMax()+progressBarSensor.getMax()));
+//                startActivity(i);
+//            }
+//        });
 
-        buttonMovement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Movement.class);
-                i.putExtra("MAXLED2", (progressBarLed.getMax()+progressBarBasic.getMax()+progressBarSensor.getMax()));
-                startActivity(i);
-            }
-        });
+//        buttonMovement.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(MainActivity.this,Movement.class);
+//                i.putExtra("MAXLED2", (progressBarLed.getMax()+progressBarBasic.getMax()+progressBarSensor.getMax()));
+//                startActivity(i);
+//            }
+//        });
         buttonTol5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -648,51 +648,81 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
                 if(value >= maxBasic){
-                    //enable and disable nav item
-                    progressBarBasic.setProgress(maxBasic);
-                    buttonSensors.setEnabled(true);
+                    // set click button sensor when exp reasonable
+                    buttonSensors.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(MainActivity.this,Sensors.class);
+                            i.putExtra("MAXBASIC2", progressBarBasic.getMax());
+                            startActivity(i);
+                        }
+                    });
                     nav_item2.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
                             Intent i = new Intent(MainActivity.this,Sensors.class);
+                            i.putExtra("MAXBASIC2", progressBarBasic.getMax());
                             startActivity(i);
                             return false;
                         }
                     });
-//                    progressBarBasic.setVisibility(View.GONE);
+
+                    //enable and disable nav item
+                    progressBarBasic.setProgress(maxBasic);
+                    buttonSensors.setEnabled(true);
                     buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
+
                     if(value >= (maxBasic+maxSensor)){
-                        progressBarSensor.setProgress(maxSensor);
-                        buttonLED.setEnabled(true);
+                        // set click button led when exp reasonable
+                        buttonLED.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent i = new Intent(MainActivity.this,LED.class);
+                                i.putExtra("MAXSENSOR2", (progressBarBasic.getMax()+progressBarSensor.getMax()));
+                                startActivity(i);
+                            }
+                        });
                         nav_item3.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
                                 Intent i = new Intent(MainActivity.this,LED.class);
+                                i.putExtra("MAXSENSOR2", (progressBarBasic.getMax()+progressBarSensor.getMax()));
                                 startActivity(i);
                                 return false;
                             }
                         });
-//                        progressBarSensor.setVisibility(View.GONE);
-//                        progressBarBasic.setVisibility(View.GONE);
+
+                        progressBarSensor.setProgress(maxSensor);
+                        buttonLED.setEnabled(true);
                         buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                         buttonSensors.setBackgroundResource(R.drawable.rounded_button_green);
+
                         if(value >= (maxBasic+maxSensor+maxLed)){
-                            progressBarLed.setProgress(maxLed);
-                            buttonMovement.setEnabled(true);
+                            // set click button movement when exp reasonable
+                            buttonMovement.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent i = new Intent(MainActivity.this,Movement.class);
+                                    i.putExtra("MAXLED2", (progressBarLed.getMax()+progressBarBasic.getMax()+progressBarSensor.getMax()));
+                                    startActivity(i);
+                                }
+                            });
                             nav_item4.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                                 @Override
                                 public boolean onMenuItemClick(MenuItem item) {
                                     Intent i = new Intent(MainActivity.this,Movement.class);
+                                    i.putExtra("MAXLED2", (progressBarLed.getMax()+progressBarBasic.getMax()+progressBarSensor.getMax()));
                                     startActivity(i);
                                     return false;
                                 }
                             });
-//                            progressBarLed.setVisibility(View.GONE);
-//                            progressBarSensor.setVisibility(View.GONE);
-//                            progressBarBasic.setVisibility(View.GONE);
+
+                            progressBarLed.setProgress(maxLed);
+                            buttonMovement.setEnabled(true);
                             buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                             buttonSensors.setBackgroundResource(R.drawable.rounded_button_green);
                             buttonLED.setBackgroundResource(R.drawable.rounded_button_green);
+
                             if(value >= (maxBasic+maxSensor+maxLed+maxMovement)){
                                 progressBarMovement.setProgress(maxMovement);
                                 buttonMovement.setBackgroundResource(R.drawable.rounded_button_green);
