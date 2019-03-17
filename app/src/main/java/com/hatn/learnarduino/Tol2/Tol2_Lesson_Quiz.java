@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -811,6 +812,11 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
         thread.start();
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return true;
+    }
 
     private void NextLesson() {
         final int exp=5;
@@ -835,6 +841,9 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
                 public void onCancelled(DatabaseError error) {
                 }
             });
+
+//            Function function = new Function();
+//            function.ShowCongratsAlert(Tol2_Lesson_Quiz, );
 
         }
         Snackbar snackbar = Snackbar

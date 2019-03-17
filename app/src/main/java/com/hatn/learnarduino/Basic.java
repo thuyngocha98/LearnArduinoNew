@@ -191,12 +191,13 @@ public class Basic extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    Toast.makeText(Basic.this, "Ad did not load", Toast.LENGTH_SHORT).show();
-                    Log.d("zzz", "The interstitial wasn't loaded yet.");
-                }
+                //TODO: re-enable ads here
+//                if (mInterstitialAd.isLoaded()) {
+//                    mInterstitialAd.show();
+//                } else {
+//                    Toast.makeText(Basic.this, "Ad did not load", Toast.LENGTH_SHORT).show();
+//                    Log.d("zzz", "The interstitial wasn't loaded yet.");
+//                }
 
                 Intent i = new Intent(Basic.this, Tol1_Lesson_Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);

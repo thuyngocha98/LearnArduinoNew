@@ -75,7 +75,7 @@ public class Achievements extends AppCompatActivity {
                 // whenever data at this location is updated.
                 String value1 = dataSnapshot.getValue().toString();
                 exptemp.setText(value1);
-                if (Integer.parseInt(value1)<20)
+                if (Integer.parseInt(value1)<5)
                 {
                     new AlertDialog.Builder(Achievements.this)
                             .setTitle("Sorry")

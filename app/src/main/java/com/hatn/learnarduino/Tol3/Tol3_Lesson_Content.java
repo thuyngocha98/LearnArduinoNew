@@ -20,6 +20,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -381,6 +382,11 @@ public class Tol3_Lesson_Content extends AppCompatActivity {
 //        finish();
 //
 //    }
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    onBackPressed();
+    return true;
+}
 
 
     private void showCustomDialog() {

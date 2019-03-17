@@ -1,6 +1,7 @@
 package com.hatn.learnarduino;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -147,11 +148,11 @@ public class Function {
         snackbar.show();
 
     }
-    public void ShowCongratsAlert(Activity activity, TextView textView)
+    public void ShowCongratsAlert(final Activity activity, TextView textView)
     {
         Alerter.create(activity)
                 .setTitle("Congratulation!")
-                .setText(textView.getText().toString())
+                .setText("You have achieved "+textView.getText().toString())
                 .setProgressColorRes(R.color.colorAccent)
                 .setDuration(5000)
                 .enableSwipeToDismiss()
@@ -159,7 +160,8 @@ public class Function {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //TODO: add achievements activity.
+                        Intent i = new Intent(activity, Achievements.class);
+                        activity.startActivity(i);
                     }
                 })
                 .setBackgroundColorRes(R.color.right) // or setBackgroundColorInt(Color.CYAN)

@@ -20,6 +20,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -412,6 +413,11 @@ public class Tol2_Lesson_Content extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return true;
+    }
 
     private void showCustomDialog() {
         //before inflating the custom alert dialog layout, we will get the current activity viewgroup
