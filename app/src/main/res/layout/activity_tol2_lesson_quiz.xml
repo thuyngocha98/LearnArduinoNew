@@ -39,7 +39,6 @@
         layout="@layout/content_tol2_lesson_quiz" />
 
     <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view_fab1"
         android:visibility="invisible"
         android:layout_toRightOf="@+id/fab1"
@@ -49,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        card_view:cardCornerRadius="4dp">
+        app:cardCornerRadius="4dp">
 
         <TextView
             android:id="@+id/textview_fab1"
@@ -60,6 +59,13 @@
             android:layout_toRightOf="@+id/fab1"
             android:text="Next"
             android:textColor="@color/textfab" />
+
+        <TextView
+            android:id="@+id/tv_exp_temp"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
     </android.support.v7.widget.CardView>
 
     <!--<android.support.design.widget.FloatingActionButton-->

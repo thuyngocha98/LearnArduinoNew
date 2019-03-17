@@ -847,6 +847,8 @@ public class Tol3_Lesson_Quiz extends AppCompatActivity {
 
                     current_user_id.setValue(value.intValue()+5);
 
+
+
                 }
 
                 @Override

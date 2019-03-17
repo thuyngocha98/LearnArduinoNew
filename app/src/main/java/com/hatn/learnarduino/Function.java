@@ -148,14 +148,15 @@ public class Function {
         snackbar.show();
 
     }
-    public void ShowCongratsAlert(final Activity activity, TextView textView)
+    public void ShowCongratsAlert(final Activity activity, String text, Bitmap bitmap)
     {
         Alerter.create(activity)
                 .setTitle("Congratulation!")
-                .setText("You have achieved "+textView.getText().toString())
+                .setText("You have achieved "+text)
                 .setProgressColorRes(R.color.colorAccent)
-                .setDuration(5000)
+                .setDuration(1000)
                 .enableSwipeToDismiss()
+                .setIcon(bitmap)
                 .enableVibration(true)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
