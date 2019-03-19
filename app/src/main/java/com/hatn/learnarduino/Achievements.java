@@ -8,9 +8,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,14 +28,8 @@ import java.util.LinkedList;
 
 public class Achievements extends AppCompatActivity {
 
-    public TextView textView_name1, textView_name2, textView_name3, textView_name4, textView_name5, textView_name6, textView_name7, textView_name8, textView_name9, textView_name10;
-    public TextView textView_Description1, textView_Description2, textView_Description3, textView_Description4, textView_Description5, textView_Description6, textView_Description7, textView_Description8, textView_Description9, textView_Description10;
     FirebaseAuth mAuth;
-    public TextView tvHint1, tvHint2, tvHint3, tvHint4, tvHint5, tvHint6, tvHint7, tvHint8, tvHint9, tvHint10;
-    public ImageView media_image1,media_image2,media_image3,media_image4,media_image5,media_image6,media_image7,media_image8,media_image9,media_image10;
-    ProgressDialog progressDialog;
-    public ImageView check1, check2, check3, check4, check5, check6, check7, check8, check9, check10;
-
+    TextView tokenTextView;
     ListView lvAchieve;
     Adapter_Achievements adapter;
     private LinkedList<achievement> achievements;
@@ -122,7 +119,55 @@ public class Achievements extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        onBackPressed();
+        switch (item.getItemId()) {
+            case R.id.activity_main_menu:
+                Intent intent = new Intent(Achievements.this, Gettoken.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                onBackPressed();
+                return true;
+        }
+    }
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        final MenuItem alertMenuItem = menu.findItem(R.id.activity_main_menu);
+
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+
+        LinearLayout rootView = (LinearLayout) alertMenuItem.getActionView();
+
+        tokenTextView = (TextView) rootView.findViewById(R.id.menu_item_number);
+        String user_id = mAuth.getCurrentUser().getUid();
+        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
+        current_user_id.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Long value = dataSnapshot.getValue(Long.class);
+                tokenTextView.setText(value.toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+            }
+        });
+        rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onOptionsItemSelected(alertMenuItem);
+            }
+        });
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 }

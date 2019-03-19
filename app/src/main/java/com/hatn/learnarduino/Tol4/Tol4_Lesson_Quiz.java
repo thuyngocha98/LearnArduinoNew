@@ -23,13 +23,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.BaseActivity;
 import com.hatn.learnarduino.Basic;
 import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.MainActivity;
 import com.hatn.learnarduino.Movement;
 import com.hatn.learnarduino.R;
 
-public class Tol4_Lesson_Quiz extends AppCompatActivity {
+public class Tol4_Lesson_Quiz extends BaseActivity {
     private static final String TAG = "Leson1Content_log";
     CoordinatorLayout coordinatorLayout;
     FloatingActionButton fab;
@@ -789,11 +790,6 @@ public class Tol4_Lesson_Quiz extends AppCompatActivity {
 //        finish();
 //    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        onBackPressed();
-        return true;
-    }
 
     private void thread() {
         int countcheck = 0;

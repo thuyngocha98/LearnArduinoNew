@@ -32,6 +32,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.BaseActivity;
 import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.LED;
 import com.hatn.learnarduino.R;
@@ -39,7 +40,7 @@ import com.hatn.learnarduino.Sensors;
 
 import java.io.ByteArrayOutputStream;
 
-public class Tol3_Lesson_Content extends AppCompatActivity {
+public class Tol3_Lesson_Content extends BaseActivity {
 
     private static final String TAG = "Leson1Content_log";
     CoordinatorLayout coordinatorLayout;
@@ -382,11 +383,6 @@ public class Tol3_Lesson_Content extends AppCompatActivity {
 //        finish();
 //
 //    }
-@Override
-public boolean onOptionsItemSelected(MenuItem item) {
-    onBackPressed();
-    return true;
-}
 
 
     private void showCustomDialog() {

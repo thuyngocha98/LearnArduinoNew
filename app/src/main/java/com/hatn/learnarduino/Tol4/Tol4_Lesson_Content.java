@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.hatn.learnarduino.BaseActivity;
 import com.hatn.learnarduino.Basic;
 import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.Movement;
@@ -23,7 +24,7 @@ import com.hatn.learnarduino.R;
 import com.hatn.learnarduino.Tol4.Tol4_Lesson_Content;
 import com.hatn.learnarduino.Tol4.Tol4_Lesson_Quiz;
 
-public class Tol4_Lesson_Content extends AppCompatActivity {
+public class Tol4_Lesson_Content extends BaseActivity {
 
     ImageView imageView;
     TextView textView;
@@ -216,11 +217,6 @@ public class Tol4_Lesson_Content extends AppCompatActivity {
         });
 
 
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        onBackPressed();
-        return true;
     }
 //    @Override
 //    public void onBackPressed()

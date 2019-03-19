@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.hatn.learnarduino.BaseActivity;
 import com.hatn.learnarduino.Basic;
 import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.LED;
@@ -22,7 +23,7 @@ import com.hatn.learnarduino.Sensors;
 import com.hatn.learnarduino.Tol1.Tol1_Lesson_Content;
 import com.hatn.learnarduino.Tol1.Tol1_Lesson_Quiz;
 
-public class Tol1_Lesson_Content extends AppCompatActivity {
+public class Tol1_Lesson_Content extends BaseActivity {
 
     ImageView imageView;
     TextView textView;

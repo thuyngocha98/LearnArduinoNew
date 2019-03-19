@@ -292,7 +292,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LinearLayout rootView = (LinearLayout) alertMenuItem.getActionView();
 
         tokenTextView = (TextView) rootView.findViewById(R.id.menu_item_number);
-
         String user_id = mAuth.getCurrentUser().getUid();
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
         current_user_id.addValueEventListener(new ValueEventListener() {
@@ -308,7 +307,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onCancelled(DatabaseError error) {
             }
         });
+
+        rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onOptionsItemSelected(alertMenuItem);
+            }
+        });
+
+
         return super.onPrepareOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.activity_main_menu:
+                Intent intent = new Intent(MainActivity.this, Gettoken.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 
 
