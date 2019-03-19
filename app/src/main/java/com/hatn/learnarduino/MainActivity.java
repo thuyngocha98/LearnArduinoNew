@@ -60,12 +60,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public FirebaseAuth mAuth;
     int Token = 0;
     int numberTotalContent = 6;
+    int max_exp = 0;
     public int experience;
     private DrawerLayout drawerLayout;
     ImageButton buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
     ProgressDialog progressDialog;
     private String email;
-    ProgressBar progressBarSensor, progressBarLed, progressBarBasic, progressBarMovement;
+    ProgressBar progressBarSensor, progressBarLed, progressBarBasic, progressBarMovement, progressBarExp;
     MenuItem nav_item1, nav_item2, nav_item3, nav_item4;
     TextView tvCheckWelcome;
 
@@ -356,6 +357,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navUsername.setText(name);
         TextView navEmail = headerView.findViewById(R.id.tv_header_email);
         navEmail.setText(email);
+        progressBarExp = headerView.findViewById(R.id.progressBar_exp);
+//        progressBarExp.setMax(max_exp);
+        final TextView navToken = headerView.findViewById(R.id.tv_header_token);
+        String user_id = mAuth.getCurrentUser().getUid();
+        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
+        current_user_id.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Long value = dataSnapshot.getValue(Long.class);
+                navToken.setText(value.toString());
+                progressBarExp.setProgress(Integer.parseInt(value.toString()));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+            }
+        });
+
         final ImageView navImage = headerView.findViewById(R.id.img_header);
         if(!TextUtils.isEmpty(image)){
             Picasso.get().load(image).resize(75, 75).centerCrop().transform(new CropCircleTransformation()).into(navImage);
@@ -839,7 +860,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
                 int max = value*5;
                 progressBarBasic.setMax(max);
+                max_exp+=max;
                 Log.d("tag", "onDataChange: thuyngocha basic"+ progressBarBasic.getMax());
+                Log.d("z1", "onDataChange: max"+ max_exp);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -852,8 +875,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
                 int max = value*5;
+                max_exp+=max;
                 progressBarSensor.setMax(max);
                 Log.d("tag", "onDataChange: thuyngocha sensor"+ progressBarSensor.getMax());
+                Log.d("z2", "onDataChange: max"+ max_exp);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -866,8 +891,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
                 int max = value*5;
+                max_exp+=max;
                 progressBarLed.setMax(max);
                 Log.d("tag", "onDataChange: thuyngocha led"+ progressBarLed.getMax());
+                Log.d("z3", "onDataChange: max"+ max_exp);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -880,8 +907,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int value = Integer.parseInt(dataSnapshot.getValue().toString());
                 int max = value*5;
+                max_exp+=max;
                 progressBarMovement.setMax(max);
                 Log.d("tag", "onDataChange: thuyngocha Movement"+ progressBarMovement.getMax());
+                Log.d("z4", "onDataChange: max"+ max_exp);
+                progressBarExp.setMax(max_exp);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

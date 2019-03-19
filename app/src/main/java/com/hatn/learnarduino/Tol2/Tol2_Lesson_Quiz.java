@@ -890,7 +890,7 @@ public class Tol2_Lesson_Quiz extends AppCompatActivity {
                     byte[] imageBytes = byteArrayOutputStream.toByteArray();
                     imageBytes = Base64.decode(m_achievement.getImg(), Base64.DEFAULT);
                     Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                    Log.d("zzzzz", "getView: "+m_achievement.getImg();
+                    Log.d("zzzzz", "getView: "+m_achievement.getImg());
 
                     if (Integer.parseInt(textViewtemp.getText().toString()) == exp)
                     {
