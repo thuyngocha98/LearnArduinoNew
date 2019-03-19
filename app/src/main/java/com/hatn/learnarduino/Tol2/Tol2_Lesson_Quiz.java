@@ -824,7 +824,7 @@ public class Tol2_Lesson_Quiz extends BaseActivity {
     private void NextLesson() {
         final int exp=5;
 
-        final TextView textViewtemp=findViewById(R.id.tv_exp_temp);
+        final TextView textViewtemp = new TextView(this);
         Boolean checkcolor = intent.getBooleanExtra(Sensors.HASCOLOR, true);
         Log.d(TAG, "onDataChange: thuyngocha3 "+checkcolor);
         if(checkcolor)
@@ -853,7 +853,7 @@ public class Tol2_Lesson_Quiz extends BaseActivity {
 
         }
         Snackbar snackbar = Snackbar
-                .make(coordinatorLayout, "All done ", 80000)
+                .make(coordinatorLayout, "All done ", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Next Lesson", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

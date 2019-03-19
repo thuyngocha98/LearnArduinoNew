@@ -3,15 +3,19 @@ package com.hatn.learnarduino.Tol1;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -30,6 +34,10 @@ import com.hatn.learnarduino.R;
 import com.hatn.learnarduino.Sensors;
 import com.hatn.learnarduino.Tol1.Tol1_Lesson_Content;
 import com.hatn.learnarduino.Tol1.Tol1_Lesson_Quiz;
+import com.hatn.learnarduino.Tol2.Tol2_Lesson_Quiz;
+import com.hatn.learnarduino.achievement;
+
+import java.io.ByteArrayOutputStream;
 
 public class Tol1_Lesson_Quiz extends BaseActivity {
     private static final String TAG = "Leson1Content_log";
@@ -818,6 +826,7 @@ public class Tol1_Lesson_Quiz extends BaseActivity {
     private void NextLesson() {
         final int exp = 5;
         Boolean checkcolor = intent.getBooleanExtra(Basic.HASCOLOR, true);
+        final TextView textViewtemp = new TextView(this);
         Log.d(TAG, "onDataChange: thuyngocha3 " + checkcolor);
         if (checkcolor) {
             mAuth = FirebaseAuth.getInstance();
@@ -835,6 +844,7 @@ public class Tol1_Lesson_Quiz extends BaseActivity {
 
 
                     current_user_id.setValue(value.intValue() + 5);
+                    textViewtemp.setText(""+(value+5));
 
 
 
@@ -849,13 +859,14 @@ public class Tol1_Lesson_Quiz extends BaseActivity {
 
         }
         Snackbar snackbar = Snackbar
-                .make(coordinatorLayout, "All done ", 80000)
+                .make(coordinatorLayout, "All done ", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Next Lesson", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(Tol1_Lesson_Quiz.this, Basic.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         //intent.putExtra("Coloredcard", exp);
+
                         startActivity(intent);
                     }
                 });
@@ -863,6 +874,37 @@ public class Tol1_Lesson_Quiz extends BaseActivity {
         TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Achievements");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot data: dataSnapshot.getChildren())
+                {
+                    achievement m_achievement = data.getValue(achievement.class);
+                    int exp = m_achievement.getExp();
+                    String name = m_achievement.getName();
+                    String key = data.getKey();
+                    m_achievement.setAchivementID(key);
+
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    byte[] imageBytes = byteArrayOutputStream.toByteArray();
+                    imageBytes = Base64.decode(m_achievement.getImg(), Base64.DEFAULT);
+                    Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                    Log.d("zzzzz", "getView: "+m_achievement.getImg());
+
+                    if (Integer.parseInt(textViewtemp.getText().toString()) == exp)
+                    {
+                        Function mfunction = new Function();
+                        mfunction.ShowCongratsAlert(Tol1_Lesson_Quiz.this, name, decodedImage);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
 
     }
