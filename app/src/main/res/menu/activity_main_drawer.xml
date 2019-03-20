@@ -26,6 +26,14 @@
     <item android:title="@string/communicate">
         <menu>
             <item
+                android:id="@+id/nav_achievements"
+                android:icon="@drawable/ic_checked"
+                android:title="@string/achievements" />
+            <item
+                android:id="@+id/nav_remove_ads"
+                android:icon="@drawable/invite_friend"
+                android:title="Remove Ads" />
+            <item
                 android:id="@+id/nav_feedback"
                 android:icon="@drawable/ic_feedback"
                 android:title="@string/feedback" />
@@ -37,14 +45,6 @@
                 android:id="@+id/nav_moreapps"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/more_apps" />
-            <item
-                android:id="@+id/nav_achievements"
-                android:icon="@drawable/ic_checked"
-                android:title="@string/achievements" />
-            <item
-                android:id="@+id/nav_remove_ads"
-                android:icon="@drawable/invite_friend"
-                android:title="Remove Ads" />
         </menu>
 
 

@@ -1,7 +1,9 @@
 package com.hatn.learnarduino;
 
+import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -12,6 +14,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -73,111 +76,108 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        drawerLayout=findViewById(R.id.drawer_layout);
-        progressBarSensor = (ProgressBar) findViewById(R.id.progressBarSensors);
-        progressBarBasic = (ProgressBar) findViewById(R.id.progressBarBasic);
-        progressBarLed = (ProgressBar) findViewById(R.id.progressBarLED);
-        progressBarMovement = (ProgressBar) findViewById(R.id.progressBarMovement);
-        tvCheckWelcome = (TextView) findViewById(R.id.tv_temp_check_welcome);
 
 
-        MobileAds.initialize(this, "ca-app-pub-1398912587505329~4968336940");
-
-        AdView mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(MainActivity.this);
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
-
-        loadRewardedVideoAd();
+        if (isOnline()) {
+            setContentView(R.layout.activity_main);
+            drawerLayout = findViewById(R.id.drawer_layout);
+            progressBarSensor = (ProgressBar) findViewById(R.id.progressBarSensors);
+            progressBarBasic = (ProgressBar) findViewById(R.id.progressBarBasic);
+            progressBarLed = (ProgressBar) findViewById(R.id.progressBarLED);
+            progressBarMovement = (ProgressBar) findViewById(R.id.progressBarMovement);
+            tvCheckWelcome = (TextView) findViewById(R.id.tv_temp_check_welcome);
 
 
+            MobileAds.initialize(this, "ca-app-pub-1398912587505329~4968336940");
 
-        //navigation drawer bar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        //progessOverlay.setVisibility(View.VISIBLE);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+            AdView mAdView = findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
 
 
+            mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(MainActivity.this);
+            mRewardedVideoAd.setRewardedVideoAdListener(this);
+
+            loadRewardedVideoAd();
 
 
+            //navigation drawer bar
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            //progessOverlay.setVisibility(View.VISIBLE);
+            setSupportActionBar(toolbar);
 
-        // Create layout with number of type of lesson
-        DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Number_Of_Type_Of_Lesson");
-        number1.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+            DrawerLayout drawer = findViewById(R.id.drawer_layout);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
 
-                int[] Layout_hint = {
-                        R.id.linear_btn1,
-                        R.id.linear_btn2,
-                        R.id.linear_btn3,
-                        R.id.linear_btn4,
-                        R.id.linear_btn5,
-                        R.id.linear_btn6,
-                };
+            NavigationView navigationView = findViewById(R.id.nav_view);
+            navigationView.setNavigationItemSelectedListener(this);
 
-                for(int i = value; i < numberTotalContent; i++){
-                    LinearLayout temp = findViewById(Layout_hint[i]);
-                    temp.setVisibility(View.GONE);
+
+            // Create layout with number of type of lesson
+            DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Number_Of_Type_Of_Lesson");
+            number1.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    int value = Integer.parseInt(dataSnapshot.getValue().toString());
+
+                    int[] Layout_hint = {
+                            R.id.linear_btn1,
+                            R.id.linear_btn2,
+                            R.id.linear_btn3,
+                            R.id.linear_btn4,
+                            R.id.linear_btn5,
+                            R.id.linear_btn6,
+                    };
+
+                    for (int i = value; i < numberTotalContent; i++) {
+                        LinearLayout temp = findViewById(Layout_hint[i]);
+                        temp.setVisibility(View.GONE);
+                    }
                 }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
 
 
-        mAuth = FirebaseAuth.getInstance();
-        // login firebaseUI
-        if(mAuth.getCurrentUser() != null){
-            setProfile();
+            mAuth = FirebaseAuth.getInstance();
+            // login firebaseUI
+            if (mAuth.getCurrentUser() != null) {
+                setProfile();
 
-            loadingProgressBarTotal();
-            //load screen welcome
+                loadingProgressBarTotal();
+                //load screen welcome
 //            Intent intent = new Intent(MainActivity.this, Welcome.class);
 //            intent.putExtra("TypeofSlider", 2);
 //            startActivity(intent);
 
-        }else {
-            functionLogin();
-        }
-
+            } else {
+                functionLogin();
+            }
 
 
 //        loadingProgressBarTotal();
 
-        //Merge content
-        buttonBasic = findViewById(R.id.btn_basic);
-        buttonSensors=findViewById(R.id.btn_sensors);
-        buttonLED=findViewById(R.id.btn_LED);
-        buttonMovement=findViewById(R.id.btn_movement);
-        buttonTol5 = findViewById(R.id.btn_tol5);
-        buttonTol6 = findViewById(R.id.btn_tol6);
+            //Merge content
+            buttonBasic = findViewById(R.id.btn_basic);
+            buttonSensors = findViewById(R.id.btn_sensors);
+            buttonLED = findViewById(R.id.btn_LED);
+            buttonMovement = findViewById(R.id.btn_movement);
+            buttonTol5 = findViewById(R.id.btn_tol5);
+            buttonTol6 = findViewById(R.id.btn_tol6);
 
 
-
-        buttonBasic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Basic.class);
-                startActivity(i);
-            }
-        });
+            buttonBasic.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainActivity.this, Basic.class);
+                    startActivity(i);
+                }
+            });
 
 //        buttonSensors.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -205,24 +205,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                startActivity(i);
 //            }
 //        });
-        buttonTol5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Tol5.class);
-                startActivity(i);
-            }
-        });
+            buttonTol5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainActivity.this, Tol5.class);
+                    startActivity(i);
+                }
+            });
 
-        buttonTol6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Tol6.class);
-                startActivity(i);
-            }
-        });
-
+            buttonTol6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainActivity.this, Tol6.class);
+                    startActivity(i);
+                }
+            });
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Sorry :(")
+                    .setMessage("You appeared to be offline, please be online so this app can function normally")
+                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            onBackPressed();
+                        }
+                    })
+                    .show();
+        }
 
     }
+
+
 
     @Override
     public void onRewarded(RewardItem reward) {
@@ -271,11 +284,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //Merge content
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+
+        if (isOnline()) {
+            DrawerLayout drawer = findViewById(R.id.drawer_layout);
+            if (drawer.isDrawerOpen(GravityCompat.START)) {
+                drawer.closeDrawer(GravityCompat.START);
+            } else {
+                super.onBackPressed();
+            }
+        }
+        else {
+            System.exit(1);
         }
     }
 
@@ -287,26 +306,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+
         final MenuItem alertMenuItem = menu.findItem(R.id.activity_main_menu);
 
         LinearLayout rootView = (LinearLayout) alertMenuItem.getActionView();
 
-        tokenTextView = (TextView) rootView.findViewById(R.id.menu_item_number);
-        String user_id = mAuth.getCurrentUser().getUid();
-        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
-        current_user_id.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                Long value = dataSnapshot.getValue(Long.class);
-                tokenTextView.setText(value.toString());
-            }
+        if (mAuth.getCurrentUser()!=null)
+        {
+            tokenTextView = (TextView) rootView.findViewById(R.id.menu_item_number);
+            String user_id = mAuth.getCurrentUser().getUid();
+            final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
+            current_user_id.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    Long value = dataSnapshot.getValue(Long.class);
+                    tokenTextView.setText(value.toString());
+                }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-            }
-        });
+                @Override
+                public void onCancelled(DatabaseError error) {
+                }
+            });
+        }
 
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -314,8 +337,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 onOptionsItemSelected(alertMenuItem);
             }
         });
-
-
         return super.onPrepareOptionsMenu(menu);
     }
     @Override
@@ -527,17 +548,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
-                Log.d("xxxx", "onResult");
+                Log.d("xxxx", "onResult"+resultCode);
                 setProfile();
                 readData();
-                //readToken();
-                //load screen welcome
-//                Intent intent = new Intent(MainActivity.this, Welcome.class);
-//                intent.putExtra("TypeofSlider", 1);
-//                startActivity(intent);
 
             } else {
-                //Toast.makeText(this, "Login Fail", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Login Fail", Toast.LENGTH_SHORT).show();
                 if (response == null) {
                     Snackbar snackbar = Snackbar
                             .make(drawerLayout, "Sign in cancelled ", Snackbar.LENGTH_LONG);
@@ -546,13 +562,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
                     Snackbar snackbar = Snackbar
                             .make(drawerLayout, "You appeared to be offline, please be online so this app can function normally ", Snackbar.LENGTH_INDEFINITE);
-                            snackbar.setAction("Exit", new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            finish();
-                                        }
-                                    });
-                                    snackbar.show();
+                    snackbar.setAction("Exit", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            finish();
+                        }
+                    });
+                    snackbar.show();
                     enableViews(drawerLayout,false);
                     return;
                 }

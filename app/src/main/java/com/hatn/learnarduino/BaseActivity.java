@@ -66,7 +66,7 @@ public class BaseActivity extends AppCompatActivity {
 
         LinearLayout rootView = (LinearLayout) alertMenuItem.getActionView();
 
-        tokenTextView = (TextView) rootView.findViewById(R.id.menu_item_number);
+        tokenTextView = rootView.findViewById(R.id.menu_item_number);
         String user_id = mAuth.getCurrentUser().getUid();
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
         current_user_id.addValueEventListener(new ValueEventListener() {
