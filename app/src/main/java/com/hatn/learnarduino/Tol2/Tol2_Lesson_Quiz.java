@@ -852,6 +852,24 @@ public class Tol2_Lesson_Quiz extends BaseActivity {
 //            function.ShowCongratsAlert(Tol2_Lesson_Quiz, );
 
         }
+
+        mAuth = FirebaseAuth.getInstance();
+        String user_id = mAuth.getCurrentUser().getUid();
+        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
+        current_user_id.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Long value = dataSnapshot.getValue(Long.class);
+                textViewtemp.setText(""+value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+            }
+        });
+
         Snackbar snackbar = Snackbar
                 .make(coordinatorLayout, "All done ", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Next Lesson", new View.OnClickListener() {

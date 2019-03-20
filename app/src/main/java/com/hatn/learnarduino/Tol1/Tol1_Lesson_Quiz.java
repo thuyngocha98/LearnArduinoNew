@@ -830,9 +830,6 @@ public class Tol1_Lesson_Quiz extends BaseActivity {
         Log.d(TAG, "onDataChange: thuyngocha3 " + checkcolor);
         if (checkcolor) {
             mAuth = FirebaseAuth.getInstance();
-
-//        Function function =new Function();
-//        function.SetDataIntoObject(Userexp,experience);
             String user_id = mAuth.getCurrentUser().getUid();
             final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
             current_user_id.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -842,11 +839,8 @@ public class Tol1_Lesson_Quiz extends BaseActivity {
                     // whenever data at this location is updated.
                     Long value = dataSnapshot.getValue(Long.class);
 
-
                     current_user_id.setValue(value.intValue() + 5);
                     textViewtemp.setText(""+(value+5));
-
-
 
                 }
 
@@ -858,6 +852,26 @@ public class Tol1_Lesson_Quiz extends BaseActivity {
             });
 
         }
+
+        mAuth = FirebaseAuth.getInstance();
+        String user_id = mAuth.getCurrentUser().getUid();
+        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
+        current_user_id.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Long value = dataSnapshot.getValue(Long.class);
+                textViewtemp.setText(""+value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+
         Snackbar snackbar = Snackbar
                 .make(coordinatorLayout, "All done ", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Next Lesson", new View.OnClickListener() {
