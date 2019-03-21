@@ -1,6 +1,5 @@
 package com.hatn.learnarduino;
 
-import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public FirebaseAuth mAuth;
     int Token = 0;
     int numberTotalContent = 6;
-    int max_exp = 0;
+    int max_exp;
     public int experience;
     private DrawerLayout drawerLayout;
     ImageButton buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
@@ -322,9 +321,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
                     Long value = dataSnapshot.getValue(Long.class);
-                    tokenTextView.setText(value.toString());
-                }
 
+                    if (value!=null) {
+                        tokenTextView.setText(value.toString());
+                    }
+                }
                 @Override
                 public void onCancelled(DatabaseError error) {
                 }
@@ -435,7 +436,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 Long value = dataSnapshot.getValue(Long.class);
-                progressBarExp.setProgress(value.intValue());
+                if (value!=null)
+                {
+                    progressBarExp.setProgress(value.intValue());
+                }
                 Log.d("zz", "onDataChange: currentexp " + value);
             }
 
@@ -600,6 +604,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         }
                     });
+            max_exp=0;
         }
         else if (!isOnline()) {
             Snackbar snackbar = Snackbar
@@ -613,6 +618,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         tvCheckWelcome.setText("1");
+
 
     }
 
@@ -654,8 +660,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = new Intent(MainActivity.this, Welcome.class);
         intent.putExtra("TypeofSlider", 1);
         startActivity(intent);
-
-
     }
 
 
@@ -697,6 +701,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void setProgressBarMain(){
         //set progress progressbar
+        invalidateOptionsMenu();
         String progressbar_user_id = mAuth.getCurrentUser().getUid();
         Log.d("tag","checkprogressbar: uid " + progressbar_user_id);
         DatabaseReference progressbar_user = FirebaseDatabase.getInstance().getReference().child("Users").child(progressbar_user_id).child("Exp");
@@ -706,12 +711,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 Log.d("tag","checkprogressbar: get value");
-                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+                int value = 0;
+                if (dataSnapshot.getValue()!=null)
+                {
+                    value=Integer.parseInt(dataSnapshot.getValue().toString());
+                }
 
                 int maxBasic = progressBarBasic.getMax();
                 int maxSensor = progressBarSensor.getMax();
                 int maxLed = progressBarLed.getMax();
                 int maxMovement = progressBarMovement.getMax();
+                progressBarExp.setMax(maxBasic+maxSensor+maxMovement+maxLed);
 
                 progressBarBasic.setProgress(0);
                 progressBarSensor.setProgress(0);
@@ -925,7 +935,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 max_exp+=max;
                 Log.d("tag", "onDataChange: thuyngocha basic"+ progressBarBasic.getMax());
                 Log.d("z1", "onDataChange: max "+ max_exp);
-                progressBarExp.setMax(max_exp);
+//                progressBarExp.setMax(max_exp);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -989,7 +999,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int t = 0;
         if(mAuth.getCurrentUser() != null) {
             if (t == 0) {
-                setMaxProgressbar();
+                if (max_exp==0)
+                {
+                    setMaxProgressbar();
+                }
                 try {
                     Thread.sleep(1500);
                 } catch (InterruptedException e) {
