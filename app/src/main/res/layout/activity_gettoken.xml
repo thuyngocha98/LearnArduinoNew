@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/gettoken_layout"
     android:background="@color/gray_background"
     tools:context=".Achievements">
     <ScrollView
@@ -26,120 +27,102 @@
                 style="@style/CardView.Light"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="5dp"
                 tools:ignore="ContentDescription">
 
-                <android.support.constraint.ConstraintLayout
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                <LinearLayout
                     android:layout_width="match_parent"
+                    android:orientation="vertical"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/media_image"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintBottom_toTopOf="@+id/primary_text"
-                        app:layout_constraintDimensionRatio="H,16:9"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_chainStyle="spread"
-                        app:srcCompat="@android:color/darker_gray" />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/primary_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:text="Get no-ads version"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                        app:layout_constraintTop_toBottomOf="@+id/media_image"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/sub_text" />
+                        <TextView
+                            android:id="@+id/primary_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginRight="30dp"
+                            android:text="Your token(s): "
+                            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+                        <ImageView
+                            android:id="@+id/media_image"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_gravity="center|right"
+                            android:layout_marginRight="100dp"
+                            android:padding="10dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_token"
+                            app:srcCompat="@android:color/darker_gray"
+                            tools:srcCompat="@drawable/ic_token" />
+
+                        <TextView
+                            android:id="@+id/number_of_token"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="100"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/sub_text"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:text="It's free"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        app:layout_constraintTop_toBottomOf="@+id/primary_text"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/action_button_1" />
-
-                    <Button
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:id="@+id/action_button_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginStart="8dp"
-                        android:minWidth="0dp"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:text="Action 1"
+                        android:layout_marginTop="5dp"
+                        android:text="Number of token required: "
                         android:visibility="gone"
-                        app:layout_constraintTop_toBottomOf="@+id/sub_text"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/supporting_text"
-                        android:layout_marginLeft="8dp" />
-
-                    <Button
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:id="@+id/action_button_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:minWidth="0dp"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:text="Action 2"
-                        android:visibility="gone"
-                        app:layout_constraintTop_toTopOf="@+id/action_button_1"
-                        app:layout_constraintStart_toEndOf="@+id/action_button_1"
-                        android:layout_marginLeft="8dp" />
-
-                    <ImageButton
-                        android:id="@+id/expand_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="0dp"
-                        android:background="#00FFFFFF"
-                        android:padding="6dp"
-                        android:src="@drawable/ic_arrow_down"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="@+id/action_button_1"
-                        android:layout_marginRight="8dp" />
-
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
                     <TextView
                         android:id="@+id/supporting_text"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="24dp"
-                        android:lineSpacingExtra="8dp"
-                        android:text="@string/AppDescription"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        app:layout_constraintTop_toBottomOf="@+id/action_button_1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
 
-                </android.support.constraint.ConstraintLayout>
+                        android:lineSpacingExtra="8dp"
+                        android:text="Earn token and exchange for no ads version"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="16dp" />
+
+                    <Button
+                        android:id="@+id/action_button_1"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="10dp"
+                        android:minWidth="0dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:text="Active no ads Version"
+                        android:textColor="@color/colorAccent"
+                        android:layout_marginLeft="20dp" />
+
+                </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
@@ -155,115 +138,164 @@
                 app:cardCornerRadius="5dp"
                 tools:ignore="ContentDescription">
 
-                <android.support.constraint.ConstraintLayout
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                <LinearLayout
                     android:layout_width="match_parent"
+                    android:orientation="vertical"
                     android:layout_height="wrap_content">
 
-                    <ImageView
+                    <com.google.android.gms.ads.AdView
                         android:id="@+id/media_image2"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintBottom_toTopOf="@+id/primary_text2"
-                        app:layout_constraintDimensionRatio="H,16:9"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_chainStyle="spread"
-                        app:srcCompat="@android:color/darker_gray" />
-
-                    <TextView
-                        android:id="@+id/primary_text2"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:text="Watch video ads"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                        app:layout_constraintTop_toBottomOf="@+id/media_image2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/sub_text2" />
+                        app:adSize="SMART_BANNER"
+                        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="bottom|center_horizontal">
+
+                    </com.google.android.gms.ads.AdView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/primary_text2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="fill_horizontal"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginRight="16dp"
+                            android:text="Watch video ads"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+                        <TextView
+                            android:id="@+id/sub_text4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_weight="0.5"
+                            android:text="+10 Tokens"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/sub_text2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Watch ads and earn tokens"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="16dp" />
+
+                    <Button
+                        android:id="@+id/action_button_1_2"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+
+                        android:layout_marginBottom="10dp"
+                        android:minWidth="0dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="View video"
+                        android:textColor="@color/colorAccent" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_Achive3"
+                style="@style/CardView.Light"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="5dp"
+                tools:ignore="ContentDescription">
+
+                <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/primary_text3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Invite a friend"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="16dp" />
+                    <TextView
+                        android:id="@+id/sub_text5"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginEnd="16dp"
-                        android:text="It's free"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        app:layout_constraintTop_toBottomOf="@+id/primary_text2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/action_button_1_2" />
-
-                    <Button
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:id="@+id/action_button_1_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginStart="8dp"
-                        android:minWidth="0dp"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:text="View video"
-                        app:layout_constraintTop_toBottomOf="@+id/sub_text2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/supporting_text_2"
-                        android:layout_marginLeft="8dp" />
-
-                    <Button
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:id="@+id/action_button_2_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:minWidth="0dp"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:text="Action 2"
-                        android:visibility="gone"
-                        app:layout_constraintTop_toTopOf="@+id/action_button_1_2"
-                        app:layout_constraintStart_toEndOf="@+id/action_button_1_2"
-                        android:layout_marginLeft="8dp" />
-
-                    <ImageButton
-                        android:id="@+id/expand_button2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="0dp"
-                        android:background="#00FFFFFF"
-                        android:padding="6dp"
-                        android:src="@drawable/ic_arrow_down"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="@+id/action_button_1_2"
-                        android:layout_marginRight="8dp" />
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="0.5"
+                        android:text="+6 Tokens"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                </LinearLayout>
 
                     <TextView
-                        android:id="@+id/supporting_text_2"
-                        android:layout_width="0dp"
+                        android:id="@+id/sub_text3"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="24dp"
-                        android:lineSpacingExtra="8dp"
-                        android:text="@string/AppDescription"
-                        android:visibility="gone"
+                        android:text="Invite friends and earn tokens"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        app:layout_constraintTop_toBottomOf="@+id/action_button_1_2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="16dp" />
 
-                </android.support.constraint.ConstraintLayout>
+                    <Button
+                        android:id="@+id/action_button_1_3"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="10dp"
+                        android:minWidth="0dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="Share"
+                        android:textColor="@color/colorAccent" />
+
+                </LinearLayout>
 
             </android.support.v7.widget.CardView>
 

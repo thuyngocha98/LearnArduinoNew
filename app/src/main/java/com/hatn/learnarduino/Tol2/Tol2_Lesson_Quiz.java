@@ -873,6 +873,8 @@ public class Tol2_Lesson_Quiz extends BaseActivity {
         textView.setTextColor(Color.parseColor("#ff669900"));
         snackbar.show();
 
+
+        //Show congrats Alert
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Achievements");
         myRef.addValueEventListener(new ValueEventListener() {
