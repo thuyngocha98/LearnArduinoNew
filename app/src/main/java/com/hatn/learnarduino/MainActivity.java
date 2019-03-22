@@ -433,7 +433,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // set avatar and information user
     public void setProfile(){
-
         String name = "unidentified";
         email = "";
         Uri uriImage;
@@ -528,6 +527,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            enableViews(drawerLayout, true);
 //            snackbar.show();
         }
+        Log.d("zzztest", "test3  setpro");
 //        } else {
 //
 //            enableViews(drawerLayout, false);
@@ -736,6 +736,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void setProgressBarMain(){
+        Log.d("zzztest", "test7  setprogress");
         //set progress progressbar
         invalidateOptionsMenu();
         String progressbar_user_id = mAuth.getCurrentUser().getUid();
@@ -753,12 +754,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     value=Integer.parseInt(dataSnapshot.getValue().toString());
                 }
 
-                int maxBasic = progressBarBasic.getMax();
-                int maxSensor = progressBarSensor.getMax();
-                int maxLed = progressBarLed.getMax();
-                int maxMovement = progressBarMovement.getMax();
-                progressBarExp.setMax(maxBasic+maxSensor+maxMovement+maxLed);
-
                 progressBarBasic.setProgress(0);
                 progressBarSensor.setProgress(0);
                 progressBarLed.setProgress(0);
@@ -769,6 +764,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 buttonLED.setBackgroundResource(R.drawable.rounded_button);
                 buttonMovement.setBackgroundResource(R.drawable.rounded_button);
 
+                int maxBasic = progressBarBasic.getMax();
+                int maxSensor = progressBarSensor.getMax();
+                int maxLed = progressBarLed.getMax();
+                int maxMovement = progressBarMovement.getMax();
+                progressBarExp.setMax(maxBasic+maxSensor+maxMovement+maxLed);
 //                progressBarBasic.setVisibility(View.VISIBLE);
 //                progressBarSensor.setVisibility(View.VISIBLE);
 //                progressBarLed.setVisibility(View.VISIBLE);
@@ -1037,7 +1037,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (t == 0) {
                     setMaxProgressbar();
                 try {
-                    Thread.sleep(1500);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
