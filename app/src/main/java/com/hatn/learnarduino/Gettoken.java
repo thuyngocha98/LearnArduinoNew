@@ -1,5 +1,6 @@
 package com.hatn.learnarduino;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -16,6 +17,9 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +28,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Gettoken extends AppCompatActivity {
+public class Gettoken extends AppCompatActivity implements RewardedVideoAdListener {
+
+    private RewardedVideoAd mRewardedVideoAd;
+    FirebaseAuth mAuth;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,13 @@ public class Gettoken extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(Gettoken.this);
+        mRewardedVideoAd.setRewardedVideoAdListener(this);
+
+        progressDialog= ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
+        loadRewardedVideoAd();
+
         Button active = findViewById(R.id.action_button_1);
         Button view_video = findViewById(R.id.action_button_1_2);
         Button share = findViewById(R.id.action_button_1_3);
@@ -46,7 +61,6 @@ public class Gettoken extends AppCompatActivity {
 
         final CoordinatorLayout coordinatorLayout = findViewById(R.id.gettoken_layout);
 
-        FirebaseAuth mAuth;
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
@@ -83,6 +97,9 @@ public class Gettoken extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (mRewardedVideoAd.isLoaded()) {
+                    mRewardedVideoAd.show();
+                }
             }
         });
 
@@ -97,6 +114,10 @@ public class Gettoken extends AppCompatActivity {
             }
         });
 
+    }
+    private void loadRewardedVideoAd() {
+        mRewardedVideoAd.loadAd("ca-app-pub-3940256099942544/5224354917",
+                new AdRequest.Builder().build());
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -116,5 +137,69 @@ public class Gettoken extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
+    }
+    @Override
+    public void onRewarded(RewardItem reward) {
+        mAuth = FirebaseAuth.getInstance();
+        String user_id = mAuth.getCurrentUser().getUid();
+        final DatabaseReference current_user_id_token = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
+        current_user_id_token.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Long value = dataSnapshot.getValue(Long.class);
+                current_user_id_token.setValue(value.intValue() + 10);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+
+
+        loadRewardedVideoAd();
+        Toast.makeText(Gettoken.this, "You got 10 tokens", Toast.LENGTH_SHORT).show();
+        // Reward the user.
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+//        Toast.makeText(this, "onRewardedVideoAdLeftApplication",
+//                Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+//        Toast.makeText(this, "onRewardedVideoAdClosed", Toast.LENGTH_SHORT).show();
+//        loadRewardedVideoAd();
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int errorCode) {
+        Toast.makeText(this, "Please check your connection", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+//        Toast.makeText(this, "onRewardedVideoAdLoaded", Toast.LENGTH_SHORT).show();
+        progressDialog.dismiss();
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+//        Toast.makeText(this, "onRewardedVideoAdOpened", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+//        Toast.makeText(this, "onRewardedVideoStarted", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoCompleted() {
+//        Toast.makeText(this, "onRewardedVideoCompleted", Toast.LENGTH_SHORT).show();
     }
 }

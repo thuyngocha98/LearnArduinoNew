@@ -39,8 +39,9 @@
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
 
-                    <FrameLayout
+                    <android.support.v7.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
+                        android:orientation="horizontal"
                         android:layout_height="wrap_content">
 
                         <TextView
@@ -55,18 +56,6 @@
                             android:text="Your token(s): "
                             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-                        <ImageView
-                            android:id="@+id/media_image"
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:layout_gravity="center|right"
-                            android:layout_marginRight="100dp"
-                            android:padding="10dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_token"
-                            app:srcCompat="@android:color/darker_gray"
-                            tools:srcCompat="@drawable/ic_token" />
-
                         <TextView
                             android:id="@+id/number_of_token"
                             android:layout_width="wrap_content"
@@ -79,7 +68,17 @@
                             android:text="100"
                             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-                    </FrameLayout>
+                        <ImageView
+                            android:id="@+id/media_image"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_gravity="center|right"
+                            android:layout_marginRight="100dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_token" />
+
+
+                    </android.support.v7.widget.LinearLayoutCompat>
 
                     <TextView
                         android:id="@+id/sub_text"
