@@ -59,7 +59,7 @@ public class Achievements extends AppCompatActivity {
 
 
 //        adapter.clear();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Achievements");
 
         mAuth=FirebaseAuth.getInstance();

@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public int experience;
     private DrawerLayout drawerLayout;
     ImageButton buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
-    ProgressDialog progressDialog;
+    DelayedProgressDialog progressDialog;
     private String email;
     ProgressBar progressBarSensor, progressBarLed, progressBarBasic, progressBarMovement, progressBarExp;
     MenuItem nav_item1, nav_item2, nav_item3, nav_item4;
@@ -147,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // login firebaseUI
             if (mAuth.getCurrentUser() != null) {
                 setProfile();
-
                 loadingProgressBarTotal();
                 //load screen welcome
 //            Intent intent = new Intent(MainActivity.this, Welcome.class);
@@ -219,6 +218,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     startActivity(i);
                 }
             });
+
+//
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("Sorry :(")
@@ -493,16 +494,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if (isOnline()) {
-            Alerter.create(MainActivity.this)
-                    .setTitle("Loading...")
-                    .setText("Updating content and lesson")
-                    .setIcon(R.drawable.ic_loading)
-                    .enableProgress(true)
-                    .setProgressColorRes(R.color.lime)
-                    .setDuration(1000)
-                    .setBackgroundColorRes(R.color.alert_background) // or setBackgroundColorInt(Color.CYAN)
-                    .show();
-            //loadingProgressBarTotal();
+//            progressDialog= ProgressDialog.show(MainActivity.this,"Loading app data","Please wait for a while",true);
+//            Alerter.create(MainActivity.this)
+//                    .setTitle("Loading...")
+//                    .setText("Updating content and lesson")
+//                    .setIcon(R.drawable.ic_loading)
+//                    .enableProgress(true)
+//                    .setProgressColorRes(R.color.lime)
+//                    .setDuration(1000)
+//                    .setBackgroundColorRes(R.color.alert_background) // or setBackgroundColorInt(Color.CYAN)
+//                    .show();
+
+
+            progressDialog = new DelayedProgressDialog();
+            progressDialog.show(getSupportFragmentManager(), "tag");
             Snackbar snackbarz = Snackbar
                     .make(drawerLayout, "Signed in as " + email, 1200)
                     .setAction("LOG OUT", new View.OnClickListener() {
@@ -511,8 +516,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             logOut();
                         }
                     });
-            enableViews(drawerLayout, true);
             snackbarz.show();
+            enableViews(drawerLayout, true);
+//            if (nDialog!=null) {
+//                nDialog.dismiss();
+//            }
+
+
 //            enableViews(drawerLayout, false);
 
 
@@ -951,12 +961,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     });
                 }
 
+                progressDialog.cancel();
+
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
             }
         });
+
+
+//        nDialog.dismiss();
     }
 
     public void setMaxProgressbar(){
@@ -1043,8 +1058,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 t++;
             }
-            if (t == 1)
+            if (t == 1) {
                 setProgressBarMain();
+//                if (nDialog!=null) {
+//                    nDialog.dismiss();
+//                }
+            }
         }
     }
     private void ExpShow()
