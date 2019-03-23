@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ProgressBar progressBarSensor, progressBarLed, progressBarBasic, progressBarMovement, progressBarExp;
     MenuItem nav_item1, nav_item2, nav_item3, nav_item4;
     TextView tvCheckWelcome, tokenTextView;
+    AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             MobileAds.initialize(this, "ca-app-pub-1398912587505329~4968336940");
 
-            AdView mAdView = findViewById(R.id.adView);
+            mAdView = findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
 
@@ -219,6 +220,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
 
+            RemoveAd();
 //
         } else {
             new AlertDialog.Builder(this)
@@ -696,6 +698,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         current_user_id1.setValue(0);
         DatabaseReference token_user = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Token");
         token_user.setValue(0);
+        DatabaseReference pro_version = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
+        pro_version.setValue(0);
 
         try {
             Thread.sleep(500);
@@ -749,6 +753,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Log.d("zzztest", "test7  setprogress");
         //set progress progressbar
         invalidateOptionsMenu();
+        RemoveAd();
         String progressbar_user_id = mAuth.getCurrentUser().getUid();
         Log.d("tag","checkprogressbar: uid " + progressbar_user_id);
         DatabaseReference progressbar_user = FirebaseDatabase.getInstance().getReference().child("Users").child(progressbar_user_id).child("Exp");
@@ -1080,6 +1085,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         snackbar.show();
 
+    }
+    private void RemoveAd()
+    {
+        final TextView proversion = new TextView(this);
+        proversion.setText("0");
+        mAuth = FirebaseAuth.getInstance();
+
+        if (mAuth.getCurrentUser()!=null)
+        {
+            String user_id1= mAuth.getCurrentUser().getUid();
+            final DatabaseReference pro_version_check = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
+            pro_version_check.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+
+                    int value = dataSnapshot.getValue(Integer.class);
+                    Log.d("pro", "onDataChange: pro check 1 "+ value);
+                    proversion.setText(value+"");
+
+                    int temp = Integer.parseInt(proversion.getText().toString());
+                    Log.d("pro", "onDataChange: pro check 2 "+ temp);
+                    if (temp==1)
+                    {
+                        mAdView.setEnabled(false);
+                        mAdView.setVisibility(View.GONE);
+                    } else {
+                        mAdView.setEnabled(true);
+                        mAdView.setVisibility(View.VISIBLE);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                }
+            });
+        }
     }
 
 }

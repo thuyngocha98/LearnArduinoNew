@@ -49,11 +49,11 @@ public class Basic extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //TODO: put ads id here
-        //MobileAds.initialize(this, "ca-app-pub-1398912587505329~4968336940");
+        MobileAds.initialize(this, getResources().getString(R.string.main_ads_id));
 
-//        mInterstitialAd = new InterstitialAd(this);
-//        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.mInterstitialAd_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
@@ -169,6 +169,8 @@ public class Basic extends AppCompatActivity {
             }
         });
 
+        //TODO: enable or disable ads here
+        RemoveAd();
     }
 
     @Override
@@ -243,12 +245,12 @@ public class Basic extends AppCompatActivity {
             public void onClick(View v) {
 
                 //TODO: re-enable ads here
-//                if (mInterstitialAd.isLoaded()) {
-//                    mInterstitialAd.show();
-//                } else {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
 //                    Toast.makeText(Basic.this, "Ad did not load", Toast.LENGTH_SHORT).show();
-//                    Log.d("zzz", "The interstitial wasn't loaded yet.");
-//                }
+                    Log.d("zzz", "The interstitial wasn't loaded yet.");
+                }
 
                 Intent i = new Intent(Basic.this, Tol1_Lesson_Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
@@ -268,5 +270,48 @@ public class Basic extends AppCompatActivity {
         btnBasic6 = findViewById(R.id.btn_Basic6);
         btnBasic7 = findViewById(R.id.btn_Basic7);
         btnBasic8 = findViewById(R.id.btn_Basic8);
+    }
+
+    private void RemoveAd()
+    {
+
+        {
+            final TextView proversion = new TextView(this);
+            proversion.setText("0");
+            mAuth = FirebaseAuth.getInstance();
+
+            if (mAuth.getCurrentUser()!=null)
+            {
+                String user_id1= mAuth.getCurrentUser().getUid();
+                final DatabaseReference pro_version_check = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
+                pro_version_check.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+
+                        int value = dataSnapshot.getValue(Integer.class);
+                        Log.d("pro", "onDataChange: pro check 1 "+ value);
+                        proversion.setText(value+"");
+
+                        int temp = Integer.parseInt(proversion.getText().toString());
+                        Log.d("pro", "onDataChange: pro check 2 "+ temp);
+                        if (temp==1)
+                        {
+                            mInterstitialAd = new InterstitialAd(Basic.this);
+                        } else {
+                            mInterstitialAd = new InterstitialAd(Basic.this);
+                            mInterstitialAd.setAdUnitId(getResources().getString(R.string.mInterstitialAd_id));
+                            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+            }
+        }
     }
 }

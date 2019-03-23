@@ -6,6 +6,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
@@ -33,6 +35,8 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
     private RewardedVideoAd mRewardedVideoAd;
     FirebaseAuth mAuth;
     ProgressDialog progressDialog;
+    CoordinatorLayout coordinatorLayout;
+    AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,7 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
-        AdView mAdView = findViewById(R.id.media_image2);
+        mAdView = findViewById(R.id.media_image2);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
@@ -59,10 +63,10 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
         Button share = findViewById(R.id.action_button_1_3);
         final TextView number_of_token = findViewById(R.id.number_of_token);
 
-        final CoordinatorLayout coordinatorLayout = findViewById(R.id.gettoken_layout);
+        coordinatorLayout = findViewById(R.id.gettoken_layout);
 
         mAuth = FirebaseAuth.getInstance();
-        String user_id = mAuth.getCurrentUser().getUid();
+        final String user_id = mAuth.getCurrentUser().getUid();
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
         current_user_id.addValueEventListener(new ValueEventListener() {
             @Override
@@ -78,18 +82,47 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
             }
         });
 
+        final TextView pro_version =  new TextView(this);
+        final DatabaseReference pro_version_check = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Pro");
+        pro_version_check.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Long value = dataSnapshot.getValue(Long.class);
+                pro_version.setText(""+value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+            }
+        });
+
         active.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Integer.parseInt(number_of_token.getText().toString())==500)
+                if (Integer.parseInt(number_of_token.getText().toString())>=500&&Integer.parseInt(pro_version.getText().toString())==0)
                 {
                     //TODO: remove ads
+                    DatabaseReference pro_version = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Pro");
+                    pro_version.setValue(1);
+                    DatabaseReference token = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
+                    int temp = Integer.parseInt(number_of_token.getText().toString());
+                    token.setValue(temp-500);
+                } else if (Integer.parseInt(pro_version.getText().toString())==1)
+                {
+                    Snackbar snackbar = Snackbar
+                            .make(coordinatorLayout, "You have already unlocked no-ads version ", Snackbar.LENGTH_LONG);
+                    snackbar.show();
                 }
                 else {
+                    DatabaseReference pro_version = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Pro");
+                    pro_version.setValue(0);
                     Snackbar snackbar = Snackbar
                             .make(coordinatorLayout, "You don't have enough tokens to unlock no-ads version ", Snackbar.LENGTH_LONG);
                     snackbar.show();
                 }
+
             }
         });
 
@@ -108,11 +141,12 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
             public void onClick(View v) {
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
-                i.putExtra(Intent.EXTRA_SUBJECT, "Sharing URL");
+                i.putExtra(Intent.EXTRA_SUBJECT, "I got something to share you");
                 i.putExtra(Intent.EXTRA_TEXT, "Check out this app http://www.url.com");
-                startActivityForResult(Intent.createChooser(i,"Share URL"), 123);
+                startActivityForResult(Intent.createChooser(i,"Share this app to friend"), 123);
             }
         });
+        RemoveAd();
 
     }
     private void loadRewardedVideoAd() {
@@ -125,10 +159,32 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
         if (requestCode == 123) {
             // Make sure the request was successful
             if (resultCode == RESULT_OK) {
-                Toast.makeText(this, "Sharing done", Toast.LENGTH_SHORT).show();
+                mAuth = FirebaseAuth.getInstance();
+                String user_id = mAuth.getCurrentUser().getUid();
+                final DatabaseReference current_user_id_token = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
+                current_user_id_token.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        Long value = dataSnapshot.getValue(Long.class);
+                        current_user_id_token.setValue(value.intValue() + 6);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+
+                    }
+                });
+                Snackbar snackbar = Snackbar
+                        .make(coordinatorLayout, "You got 6 tokens ", Snackbar.LENGTH_LONG);
+                snackbar.show();
             }
             else {
-                Toast.makeText(this, "Sharing failed", Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar
+                        .make(coordinatorLayout, "Sharing failed ", Snackbar.LENGTH_LONG);
+                snackbar.show();
             }
         }
     }
@@ -158,10 +214,10 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
 
             }
         });
-
-
         loadRewardedVideoAd();
-        Toast.makeText(Gettoken.this, "You got 10 tokens", Toast.LENGTH_SHORT).show();
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, "You got 10 tokens ", Snackbar.LENGTH_LONG);
+        snackbar.show();
         // Reward the user.
     }
 
@@ -201,5 +257,47 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
     @Override
     public void onRewardedVideoCompleted() {
 //        Toast.makeText(this, "onRewardedVideoCompleted", Toast.LENGTH_SHORT).show();
+    }
+
+    private void RemoveAd()
+    {
+
+        {
+            final TextView proversion = new TextView(this);
+            proversion.setText("0");
+            mAuth = FirebaseAuth.getInstance();
+
+            if (mAuth.getCurrentUser()!=null)
+            {
+                String user_id1= mAuth.getCurrentUser().getUid();
+                final DatabaseReference pro_version_check = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
+                pro_version_check.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+
+                        int value = dataSnapshot.getValue(Integer.class);
+                        Log.d("pro", "onDataChange: pro check 1 "+ value);
+                        proversion.setText(value+"");
+
+                        int temp = Integer.parseInt(proversion.getText().toString());
+                        Log.d("pro", "onDataChange: pro check 2 "+ temp);
+                        if (temp==1)
+                        {
+                            mAdView.setEnabled(false);
+                            mAdView.setVisibility(View.GONE);
+                        } else {
+                            mAdView.setEnabled(true);
+                            mAdView.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+            }
+        }
     }
 }

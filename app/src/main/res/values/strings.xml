@@ -187,4 +187,6 @@
     <string name="send">Send</string>
     <string name="token">Token</string>
     <string name="title_activity_base">BaseActivity</string>
+    <string name="main_ads_id">ca-app-pub-1398912587505329~4968336940</string>
+    <string name="mInterstitialAd_id">ca-app-pub-3940256099942544/1033173712</string>
 </resources>

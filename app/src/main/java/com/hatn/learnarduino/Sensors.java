@@ -14,6 +14,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +33,7 @@ public class Sensors extends AppCompatActivity {
     ProgressDialog progressDialog;
     int numberTotalContent = 26;
     FirebaseAuth mAuth;
+    InterstitialAd mInterstitialAd;
 
     Intent intent;
     int max_basic;
@@ -44,6 +48,12 @@ public class Sensors extends AppCompatActivity {
         setContentView(R.layout.activity_sensors);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        MobileAds.initialize(this, getResources().getString(R.string.main_ads_id));
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.mInterstitialAd_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         intent=getIntent();
 
@@ -195,6 +205,9 @@ public class Sensors extends AppCompatActivity {
             }
         });
 
+        //TODO: enable or disable ads here
+//        RemoveAd();
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -271,6 +284,13 @@ public class Sensors extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+//                    Toast.makeText(Basic.this, "Ad did not load", Toast.LENGTH_SHORT).show();
+                    Log.d("zzz", "The interstitial wasn't loaded yet.");
+                }
+
                 Intent i = new Intent(Sensors.this,Tol2_Lesson_Content.class);
                 i.putExtra("LESSONNUMBERINTENT",value);
                 i.putExtra("HASCOLOR", hascolor);
@@ -281,5 +301,48 @@ public class Sensors extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void RemoveAd()
+    {
+
+        {
+            final TextView proversion = new TextView(this);
+            proversion.setText("0");
+            mAuth = FirebaseAuth.getInstance();
+
+            if (mAuth.getCurrentUser()!=null)
+            {
+                String user_id1= mAuth.getCurrentUser().getUid();
+                final DatabaseReference pro_version_check = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
+                pro_version_check.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+
+                        int value = dataSnapshot.getValue(Integer.class);
+                        Log.d("pro", "onDataChange: pro check 1 "+ value);
+                        proversion.setText(value+"");
+
+                        int temp = Integer.parseInt(proversion.getText().toString());
+                        Log.d("pro", "onDataChange: pro check 2 "+ temp);
+                        if (temp==1)
+                        {
+                            mInterstitialAd = new InterstitialAd(getApplicationContext());
+                        } else {
+                            mInterstitialAd = new InterstitialAd(getApplicationContext());
+                            mInterstitialAd.setAdUnitId(getResources().getString(R.string.mInterstitialAd_id));
+                            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+            }
+        }
     }
 }

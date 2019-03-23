@@ -14,6 +14,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,12 +35,20 @@ public class Movement extends AppCompatActivity {
     Intent intent;
     int max_led;
     TextView tokenTextView;
+    InterstitialAd mInterstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movement);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        MobileAds.initialize(this, getResources().getString(R.string.main_ads_id));
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.mInterstitialAd_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         intent = getIntent();
         max_led = intent.getIntExtra("MAXLED2", 0);
@@ -150,6 +161,9 @@ public class Movement extends AppCompatActivity {
             }
         });
 
+        //TODO: enable or disable ads here
+//        RemoveAd();
+
     }
     @Override
     public void onBackPressed()
@@ -237,5 +251,48 @@ public class Movement extends AppCompatActivity {
         btnMovement6 = findViewById(R.id.btn_movement6);
         btnMovement7 = findViewById(R.id.btn_movement7);
         btnMovement8 = findViewById(R.id.btn_movement8);
+    }
+
+    private void RemoveAd()
+    {
+
+        {
+            final TextView proversion = new TextView(this);
+            proversion.setText("0");
+            mAuth = FirebaseAuth.getInstance();
+
+            if (mAuth.getCurrentUser()!=null)
+            {
+                String user_id1= mAuth.getCurrentUser().getUid();
+                final DatabaseReference pro_version_check = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
+                pro_version_check.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+
+                        int value = dataSnapshot.getValue(Integer.class);
+                        Log.d("pro", "onDataChange: pro check 1 "+ value);
+                        proversion.setText(value+"");
+
+                        int temp = Integer.parseInt(proversion.getText().toString());
+                        Log.d("pro", "onDataChange: pro check 2 "+ temp);
+                        if (temp==1)
+                        {
+                            mInterstitialAd = new InterstitialAd(getApplicationContext());
+                        } else {
+                            mInterstitialAd = new InterstitialAd(getApplicationContext());
+                            mInterstitialAd.setAdUnitId(getResources().getString(R.string.mInterstitialAd_id));
+                            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+            }
+        }
     }
 }
