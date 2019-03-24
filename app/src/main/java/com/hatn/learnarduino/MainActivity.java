@@ -50,7 +50,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import com.tapadoo.alerter.Alerter;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
@@ -687,7 +689,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return netInfo != null && netInfo.isConnected();
     }
 
-    // experience and token user
+    // set exp, token, pro version and last login for new user;
     public void setValueExperience(){
 
         tvCheckWelcome.setText("0");
@@ -700,6 +702,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         token_user.setValue(0);
         DatabaseReference pro_version = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
         pro_version.setValue(0);
+
+        final Date date = new Date();
+        final Date newDate = new Date(date.getTime());
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        final String stringdate = dt.format(newDate);
+
+        DatabaseReference last_login = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("LastLogin");
+        last_login.setValue(stringdate);
 
         try {
             Thread.sleep(500);

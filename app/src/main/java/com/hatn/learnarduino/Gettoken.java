@@ -1,5 +1,6 @@
 package com.hatn.learnarduino;
 
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.CoordinatorLayout;
@@ -29,6 +30,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Gettoken extends AppCompatActivity implements RewardedVideoAdListener {
 
@@ -147,6 +151,7 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
             }
         });
         RemoveAd();
+        CheckLoginDay();
 
     }
     private void loadRewardedVideoAd() {
@@ -298,6 +303,61 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
                     }
                 });
             }
+        }
+    }
+
+    private void CheckLoginDay()
+    {
+        final Date date = new Date();
+        final Date newDate = new Date(date.getTime());
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        final String stringdate = dt.format(newDate);
+        Log.d("Date:", "CheckLoginDay: "+stringdate);
+
+        if (mAuth.getCurrentUser()!=null)
+        {
+            final String user_id1= mAuth.getCurrentUser().getUid();
+            final DatabaseReference last_login = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("LastLogin");
+            last_login.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+
+                    String date = dataSnapshot.getValue(String.class);
+                    if (!stringdate.equals(date)) {
+                        final DatabaseReference current_user_id_token = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Token");
+                        current_user_id_token.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                // This method is called once with the initial value and again
+                                // whenever data at this location is updated.
+                                Long value = dataSnapshot.getValue(Long.class);
+                                current_user_id_token.setValue(value.intValue() + 10);
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError error) {
+                                // Failed to read value
+
+                            }
+                        });
+                        loadRewardedVideoAd();
+                        Snackbar snackbar = Snackbar
+                                .make(coordinatorLayout, "You got 10 tokens for daily login", Snackbar.LENGTH_LONG);
+                        snackbar.show();
+                        // Reward the user.
+
+                        last_login.setValue(stringdate);
+                        // Set today is the last login day
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                }
+            });
         }
     }
 }
