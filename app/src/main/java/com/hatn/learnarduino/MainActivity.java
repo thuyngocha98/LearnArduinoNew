@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
@@ -23,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -1171,7 +1173,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         }
                     });
 
-                    Toast.makeText(MainActivity.this, "Login daily: +5 token", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "You got 10 tokens for daily login", Toast.LENGTH_SHORT).show();
 
                     last_login.setValue(stringdate);
 
