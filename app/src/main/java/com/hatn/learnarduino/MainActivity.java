@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 functionLogin();
             }
 
-            dailyLogin();
+//            dailyLogin();
 
 
 //        loadingProgressBarTotal();
@@ -1138,51 +1138,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    private void dailyLogin(){
-
-        final Date date = new Date();
-        final Date newDate = new Date(date.getTime());
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        final String stringdate = dt.format(newDate);
-
-        String user_id1 = mAuth.getCurrentUser().getUid();
-        final DatabaseReference last_login = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("LastLogin");
-        last_login.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue().toString();
-                if(!value.equals(stringdate)){
-
-                    String user_id1 = mAuth.getCurrentUser().getUid();
-                    final DatabaseReference current_user_id_token = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Token");
-                    current_user_id_token.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            // This method is called once with the initial value and again
-                            // whenever data at this location is updated.
-                            Long value = dataSnapshot.getValue(Long.class);
-                            current_user_id_token.setValue(value.intValue() + 5);
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError error) {
-                            // Failed to read value
-
-                        }
-                    });
-
-                    Toast.makeText(MainActivity.this, "Login daily: +5 token", Toast.LENGTH_SHORT).show();
-
-                    last_login.setValue(stringdate);
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
+//    private void dailyLogin(){
+//
+//        final Date date = new Date();
+//        final Date newDate = new Date(date.getTime());
+//        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+//        final String stringdate = dt.format(newDate);
+//
+//        String user_id1 = mAuth.getCurrentUser().getUid();
+//        final DatabaseReference last_login = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("LastLogin");
+//        last_login.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                String value = dataSnapshot.getValue().toString();
+//                if(!value.equals(stringdate)){
+//
+//                    String user_id1 = mAuth.getCurrentUser().getUid();
+//                    final DatabaseReference current_user_id_token = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Token");
+//                    current_user_id_token.addListenerForSingleValueEvent(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(DataSnapshot dataSnapshot) {
+//                            // This method is called once with the initial value and again
+//                            // whenever data at this location is updated.
+//                            Long value = dataSnapshot.getValue(Long.class);
+//                            current_user_id_token.setValue(value.intValue() + 5);
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(DatabaseError error) {
+//                            // Failed to read value
+//
+//                        }
+//                    });
+//
+//                    Toast.makeText(MainActivity.this, "Login daily: +5 token", Toast.LENGTH_SHORT).show();
+//
+//                    last_login.setValue(stringdate);
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 
 }

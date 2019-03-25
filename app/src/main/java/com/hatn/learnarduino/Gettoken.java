@@ -65,6 +65,7 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
         Button active = findViewById(R.id.action_button_1);
         Button view_video = findViewById(R.id.action_button_1_2);
         Button share = findViewById(R.id.action_button_1_3);
+        Button check_in = findViewById(R.id.action_button_1_4);
         final TextView number_of_token = findViewById(R.id.number_of_token);
 
         coordinatorLayout = findViewById(R.id.gettoken_layout);
@@ -150,8 +151,14 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
                 startActivityForResult(Intent.createChooser(i,"Share this app to friend"), 123);
             }
         });
+        check_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckLoginDay();
+            }
+        });
         RemoveAd();
-        CheckLoginDay();
+//        CheckLoginDay();
 
     }
     private void loadRewardedVideoAd() {
@@ -318,7 +325,7 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
         {
             final String user_id1= mAuth.getCurrentUser().getUid();
             final DatabaseReference last_login = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("LastLogin");
-            last_login.addValueEventListener(new ValueEventListener() {
+            last_login.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // This method is called once with the initial value and again
@@ -350,6 +357,11 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
 
                         last_login.setValue(stringdate);
                         // Set today is the last login day
+                    }
+                    else {
+                        Snackbar snackbar = Snackbar
+                                .make(coordinatorLayout, "You have already got daily login reward", Snackbar.LENGTH_LONG);
+                        snackbar.show();
                     }
 
                 }
