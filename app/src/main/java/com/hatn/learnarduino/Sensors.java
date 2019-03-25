@@ -206,7 +206,7 @@ public class Sensors extends AppCompatActivity {
         });
 
         //TODO: enable or disable ads here
-//        RemoveAd();
+        RemoveAd();
 
     }
     @Override

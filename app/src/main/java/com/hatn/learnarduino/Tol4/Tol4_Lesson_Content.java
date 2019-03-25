@@ -36,7 +36,7 @@ public class Tol4_Lesson_Content extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to1_lesson_content);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_tol1);
+        Toolbar toolbar = findViewById(R.id.toolbar_tol1);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

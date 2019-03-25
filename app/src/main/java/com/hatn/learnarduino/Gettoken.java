@@ -108,7 +108,6 @@ public class Gettoken extends AppCompatActivity implements RewardedVideoAdListen
             public void onClick(View v) {
                 if (Integer.parseInt(number_of_token.getText().toString())>=500&&Integer.parseInt(pro_version.getText().toString())==0)
                 {
-                    //TODO: remove ads
                     DatabaseReference pro_version = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Pro");
                     pro_version.setValue(1);
                     DatabaseReference token = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");

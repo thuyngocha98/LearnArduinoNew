@@ -64,15 +64,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RewardedVideoAd mRewardedVideoAd;
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
-    int Token = 0;
     int numberTotalContent = 6;
     int max_exp;
-    public int experience;
-    private DrawerLayout drawerLayout;
     ImageButton buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
     DelayedProgressDialog progressDialog;
     private String email;
+    DrawerLayout drawerLayout;
     ProgressBar progressBarSensor, progressBarLed, progressBarBasic, progressBarMovement, progressBarExp;
+    LinearLayout linearLayoutBasic, linearLayoutSensors, linearLayoutLED, linearLayoutMovement, linearLayoutTol5, linearLayoutTol6;
     MenuItem nav_item1, nav_item2, nav_item3, nav_item4;
     TextView tvCheckWelcome, tokenTextView;
     AdView mAdView;
@@ -84,12 +83,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (isOnline()) {
             setContentView(R.layout.activity_main);
+            progressBarSensor = findViewById(R.id.progressBarSensors);
+            progressBarBasic = findViewById(R.id.progressBarBasic);
+            progressBarLed = findViewById(R.id.progressBarLED);
+            progressBarMovement = findViewById(R.id.progressBarMovement);
+            tvCheckWelcome = findViewById(R.id.tv_temp_check_welcome);
             drawerLayout = findViewById(R.id.drawer_layout);
-            progressBarSensor = (ProgressBar) findViewById(R.id.progressBarSensors);
-            progressBarBasic = (ProgressBar) findViewById(R.id.progressBarBasic);
-            progressBarLed = (ProgressBar) findViewById(R.id.progressBarLED);
-            progressBarMovement = (ProgressBar) findViewById(R.id.progressBarMovement);
-            tvCheckWelcome = (TextView) findViewById(R.id.tv_temp_check_welcome);
 
 
             MobileAds.initialize(this, "ca-app-pub-1398912587505329~4968336940");
@@ -110,10 +109,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //progessOverlay.setVisibility(View.VISIBLE);
             setSupportActionBar(toolbar);
 
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-            drawer.addDrawerListener(toggle);
+                    this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawerLayout.addDrawerListener(toggle);
             toggle.syncState();
 
             NavigationView navigationView = findViewById(R.id.nav_view);
@@ -122,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             // Create layout with number of type of lesson
             DatabaseReference number1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Number_Of_Type_Of_Lesson");
+            number1.keepSynced(true);
             number1.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -175,7 +174,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             buttonTol5 = findViewById(R.id.btn_tol5);
             buttonTol6 = findViewById(R.id.btn_tol6);
 
+            linearLayoutBasic = findViewById(R.id.linear_btn1);
+            linearLayoutSensors = findViewById(R.id.linear_btn2);
+            linearLayoutLED = findViewById(R.id.linear_btn3);
+            linearLayoutMovement = findViewById(R.id.linear_btn4);
+            linearLayoutTol5 = findViewById(R.id.linear_btn5);
+            linearLayoutTol6 = findViewById(R.id.linear_btn6);
 
+
+            linearLayoutBasic.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainActivity.this, Basic.class);
+                    startActivity(i);
+                }
+            });
             buttonBasic.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -184,33 +197,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
 
-//        buttonSensors.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainActivity.this,Sensors.class);
-//                i.putExtra("MAXBASIC2", progressBarBasic.getMax());
-//                startActivity(i);
-//            }
-//        });
-
-//        buttonLED.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainActivity.this,LED.class);
-//                i.putExtra("MAXSENSOR2", (progressBarBasic.getMax()+progressBarSensor.getMax()));
-//                startActivity(i);
-//            }
-//        });
-
-//        buttonMovement.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainActivity.this,Movement.class);
-//                i.putExtra("MAXLED2", (progressBarLed.getMax()+progressBarBasic.getMax()+progressBarSensor.getMax()));
-//                startActivity(i);
-//            }
-//        });
-            buttonTol5.setOnClickListener(new View.OnClickListener() {
+            linearLayoutTol5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(MainActivity.this, Tol5.class);
@@ -218,7 +205,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
 
-            buttonTol6.setOnClickListener(new View.OnClickListener() {
+
+            linearLayoutTol6.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(MainActivity.this, Tol6.class);
@@ -250,6 +238,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
+        current_user_id.keepSynced(true);
         current_user_id.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -266,6 +255,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
         final DatabaseReference current_user_id_token = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
+        current_user_id_token.keepSynced(true);
         current_user_id_token.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -330,9 +320,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onBackPressed() {
 
         if (isOnline()) {
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
-            if (drawer.isDrawerOpen(GravityCompat.START)) {
-                drawer.closeDrawer(GravityCompat.START);
+            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                drawerLayout.closeDrawer(GravityCompat.START);
             } else {
                 super.onBackPressed();
             }
@@ -360,6 +349,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             tokenTextView = (TextView) rootView.findViewById(R.id.menu_item_number);
             String user_id = mAuth.getCurrentUser().getUid();
             final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
+            current_user_id.keepSynced(true);
             current_user_id.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -430,8 +420,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(i);
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
@@ -474,6 +463,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        progressBarExp.setMax(max_exp);
         String user_id = mAuth.getCurrentUser().getUid();
         final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
+        current_user_id.keepSynced(true);
         current_user_id.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -701,10 +691,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String user_id1 = mAuth.getCurrentUser().getUid();
 
         DatabaseReference current_user_id1 = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Exp");
+        current_user_id1.keepSynced(true);
         current_user_id1.setValue(0);
         DatabaseReference token_user = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Token");
+        token_user.keepSynced(true);
         token_user.setValue(0);
         DatabaseReference pro_version = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
+        pro_version.keepSynced(true);
         pro_version.setValue(0);
 
         final Date date = new Date();
@@ -713,6 +706,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final String stringdate = dt.format(newDate);
 
         DatabaseReference last_login = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("LastLogin");
+        last_login.keepSynced(true);
         last_login.setValue(stringdate);
 
         try {
@@ -732,6 +726,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public  void readData(){
         String user_id2 = mAuth.getCurrentUser().getUid();
         DatabaseReference current_user_id2 = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id2).child("Exp");
+        current_user_id2.keepSynced(true);
         current_user_id2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -771,6 +766,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String progressbar_user_id = mAuth.getCurrentUser().getUid();
         Log.d("tag","checkprogressbar: uid " + progressbar_user_id);
         DatabaseReference progressbar_user = FirebaseDatabase.getInstance().getReference().child("Users").child(progressbar_user_id).child("Exp");
+        progressbar_user.keepSynced(true);
         progressbar_user.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -807,6 +803,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 if(value >= maxBasic){
                     // set click button sensor when exp reasonable
+                    linearLayoutSensors.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(MainActivity.this,Sensors.class);
+                            i.putExtra("MAXBASIC2", progressBarBasic.getMax());
+                            startActivity(i);
+                        }
+                    });
                     buttonSensors.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -827,11 +831,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     //enable and disable nav item
                     progressBarBasic.setProgress(maxBasic);
+                    linearLayoutSensors.setEnabled(true);
                     buttonSensors.setEnabled(true);
                     buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
 
                     if(value >= (maxBasic+maxSensor)){
                         // set click button led when exp reasonable
+                        linearLayoutLED.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent i = new Intent(MainActivity.this,LED.class);
+                                i.putExtra("MAXSENSOR2", (progressBarBasic.getMax()+progressBarSensor.getMax()));
+                                startActivity(i);
+                            }
+                        });
                         buttonLED.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -840,6 +853,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 startActivity(i);
                             }
                         });
+
                         nav_item3.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
@@ -851,12 +865,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         });
 
                         progressBarSensor.setProgress(maxSensor);
+                        linearLayoutLED.setEnabled(true);
                         buttonLED.setEnabled(true);
                         buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                         buttonSensors.setBackgroundResource(R.drawable.rounded_button_green);
 
                         if(value >= (maxBasic+maxSensor+maxLed)){
                             // set click button movement when exp reasonable
+                            linearLayoutMovement.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent i = new Intent(MainActivity.this,Movement.class);
+                                    i.putExtra("MAXLED2", (progressBarLed.getMax()+progressBarBasic.getMax()+progressBarSensor.getMax()));
+                                    startActivity(i);
+                                }
+                            });
                             buttonMovement.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -876,6 +899,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             });
 
                             progressBarLed.setProgress(maxLed);
+                            linearLayoutMovement.setEnabled(true);
                             buttonMovement.setEnabled(true);
                             buttonBasic.setBackgroundResource(R.drawable.rounded_button_green);
                             buttonSensors.setBackgroundResource(R.drawable.rounded_button_green);
@@ -890,6 +914,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         }
                         else{
                             progressBarLed.setProgress(value - maxBasic - maxSensor);
+                            linearLayoutMovement.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    ExpShow();
+                                }
+                            });
                             buttonMovement.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -908,6 +938,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                     else{
                         progressBarSensor.setProgress(value - maxBasic);
+                        linearLayoutLED.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ExpShow();
+                            }
+                        });
+                        linearLayoutMovement.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ExpShow();
+                            }
+                        });
                         buttonLED.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -939,6 +981,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 else{
                     progressBarBasic.setProgress(value);
+                    linearLayoutSensors.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ExpShow();
+                        }
+                    });
+                    linearLayoutLED.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ExpShow();
+                        }
+                    });
+                    linearLayoutMovement.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ExpShow();
+                        }
+                    });
                     buttonSensors.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -957,6 +1017,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             ExpShow();
                         }
                     });
+
                     nav_item2.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
@@ -996,6 +1057,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void setMaxProgressbar(){
         //set max progressBar
         DatabaseReference progBarBasic = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol1").child("Number_of_lesson");
+        progBarBasic.keepSynced(true);
         progBarBasic.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -1013,6 +1075,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         //set max progressBar Sensor
         DatabaseReference progBarSensor = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol2").child("Number_of_lesson");
+        progBarSensor.keepSynced(true);
         progBarSensor.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -1029,6 +1092,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         //set max progressBar Led
         DatabaseReference progBarLed = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol3").child("Number_of_lesson");
+        progBarLed.keepSynced(true);
         progBarLed.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -1045,6 +1109,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         //set max progressBar movement
         DatabaseReference progBarMovement = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Number_of_lesson");
+        progBarMovement.keepSynced(true);
         progBarMovement.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -1110,6 +1175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             String user_id1= mAuth.getCurrentUser().getUid();
             final DatabaseReference pro_version_check = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
+            pro_version_check.keepSynced(true);
             pro_version_check.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {

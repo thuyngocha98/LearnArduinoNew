@@ -48,6 +48,7 @@ public class Basic extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         //TODO: put ads id here
         MobileAds.initialize(this, getResources().getString(R.string.main_ads_id));
 

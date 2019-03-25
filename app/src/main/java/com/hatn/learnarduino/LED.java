@@ -186,7 +186,7 @@ public class LED extends AppCompatActivity {
         });
 
         //TODO: enable or disable ads here
-//        RemoveAd();
+        RemoveAd();
     }
 
     @Override
