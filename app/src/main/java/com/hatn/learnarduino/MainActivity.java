@@ -61,6 +61,7 @@ import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
 
+    int flag = 0;
     private RewardedVideoAd mRewardedVideoAd;
     private static final int RC_SIGN_IN = 123;
     public FirebaseAuth mAuth;
@@ -346,7 +347,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (mAuth.getCurrentUser()!=null)
         {
-            tokenTextView = (TextView) rootView.findViewById(R.id.menu_item_number);
+
+
+            tokenTextView = rootView.findViewById(R.id.menu_item_number);
             String user_id = mAuth.getCurrentUser().getUid();
             final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Token");
             current_user_id.keepSynced(true);
@@ -365,6 +368,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void onCancelled(DatabaseError error) {
                 }
             });
+
+            if (Integer.parseInt(tokenTextView.getText().toString())!=0)
+            {
+//                setMaxProgressbar();
+//                if (flag==1) {
+//                    setProgressBarMain();
+//                }
+                loadingProgressBarTotal();
+
+            }
+
+
+
+
         }
 
         rootView.setOnClickListener(new View.OnClickListener() {
@@ -695,7 +712,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         current_user_id1.setValue(0);
         DatabaseReference token_user = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Token");
         token_user.keepSynced(true);
-        token_user.setValue(0);
+        token_user.setValue(10);
         DatabaseReference pro_version = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id1).child("Pro");
         pro_version.keepSynced(true);
         pro_version.setValue(0);
@@ -761,7 +778,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void setProgressBarMain(){
         Log.d("zzztest", "test7  setprogress");
         //set progress progressbar
-        invalidateOptionsMenu();
+       invalidateOptionsMenu();
         RemoveAd();
         String progressbar_user_id = mAuth.getCurrentUser().getUid();
         Log.d("tag","checkprogressbar: uid " + progressbar_user_id);
@@ -1125,6 +1142,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+
+        flag=1;
     }
 
 
@@ -1134,7 +1153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int t = 0;
         if(mAuth.getCurrentUser() != null) {
             if (t == 0) {
-                    setMaxProgressbar();
+                setMaxProgressbar();
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
@@ -1149,6 +1168,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                }
             }
         }
+
     }
     private void ExpShow()
     {
@@ -1204,6 +1224,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
         }
+//    invalidateOptionsMenu();
     }
 
 
