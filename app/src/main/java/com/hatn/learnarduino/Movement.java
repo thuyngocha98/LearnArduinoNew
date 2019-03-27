@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Tol4.Tol4_ContentButton5;
 import com.hatn.learnarduino.Tol4.Tol4_Lesson_Content;
 import com.hatn.learnarduino.Tol4.Tol4_MainContent;
 
@@ -233,13 +234,46 @@ public class Movement extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent i = new Intent(Movement.this, Tol4_Lesson_Content.class);
-//                i.putExtra("LESSONNUMBERINTENT",value);
-//                Log.d(TAG, "test onClick: "+value);
-//                i.putExtra("HASCOLOR", hascolor);
-//                i.putExtra("MAXLED", max_led);
-                Intent i = new Intent(Movement.this, Tol4_MainContent.class);
-                startActivity(i);
+                if(value == 1) {
+                    Intent i = new Intent(Movement.this, Tol4_MainContent.class);
+                    i.putExtra("LESSONNUMBERINTENT", value);
+                    Log.d(TAG, "test onClick: " + value);
+                    i.putExtra("HASCOLOR", hascolor);
+                    i.putExtra("MAXLED", max_led);
+                    startActivity(i);
+                }
+                if(value == 2) {
+                    Intent i = new Intent(Movement.this, Tol4_MainContent.class);
+                    i.putExtra("LESSONNUMBERINTENT", value);
+                    Log.d(TAG, "test onClick: " + value);
+                    i.putExtra("HASCOLOR", hascolor);
+                    i.putExtra("MAXLED", max_led);
+                    startActivity(i);
+                }
+                if(value == 3) {
+                    Intent i = new Intent(Movement.this, Tol4_MainContent.class);
+                    i.putExtra("LESSONNUMBERINTENT", value);
+                    Log.d(TAG, "test onClick: " + value);
+                    i.putExtra("HASCOLOR", hascolor);
+                    i.putExtra("MAXLED", max_led);
+                    startActivity(i);
+                }
+                if(value == 4) {
+                    Intent i = new Intent(Movement.this, Tol4_MainContent.class);
+                    i.putExtra("LESSONNUMBERINTENT", value);
+                    Log.d(TAG, "test onClick: " + value);
+                    i.putExtra("HASCOLOR", hascolor);
+                    i.putExtra("MAXLED", max_led);
+                    startActivity(i);
+                }
+                if(value == 5) {
+                    Intent i = new Intent(Movement.this, Tol4_ContentButton5.class);
+                    i.putExtra("LESSONNUMBERINTENT", value);
+                    Log.d(TAG, "test onClick: " + value);
+                    i.putExtra("HASCOLOR", hascolor);
+                    i.putExtra("MAXLED", max_led);
+                    startActivity(i);
+                }
             }
         });
     }
