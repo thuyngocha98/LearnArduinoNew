@@ -1,6 +1,8 @@
 package com.hatn.learnarduino.Tol4;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -8,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,16 +20,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Basic;
+import com.hatn.learnarduino.Function;
 import com.hatn.learnarduino.Gettoken;
 import com.hatn.learnarduino.Movement;
 import com.hatn.learnarduino.R;
 
 public class Tol4_MainContent extends AppCompatActivity {
 
-    ImageButton expand1, expand2, expand3;
-    TextView textView_subtext1, textView_discription1, textView_subtext2, textView_subtext3, textView_discription2, textView_discription3;
-    TextView tokenTextView;
-    int flag=0;
+    private LinearLayout linearClick1, linearShow1,linearClick2, linearShow2,linearClick3, linearShow3;
+    private ImageButton buttonUpDown1,buttonUpDown2,buttonUpDown3;
+    TextView tokenTextView, tvTitle1,tvTitle2,tvTitle3,tvdescription1,tvdescription2,tvdescription3, tvTitleName;
+    int flag0 = 0,flag1 = 0,flag2 = 0;
+    Intent intent;
+    public static final String LESSONNUMBERINTENT = "LESSONNUMBERINTENT";
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,51 +42,147 @@ public class Tol4_MainContent extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        expand1 = findViewById(R.id.expand_button);
-        textView_subtext1=findViewById(R.id.sub_text);
-        textView_discription1=findViewById(R.id.supporting_text);
+        assignData();
 
-        expand2 = findViewById(R.id.expand_button_2);
-        textView_subtext2 = findViewById(R.id.sub_text2);
-        textView_discription2 = findViewById(R.id.supporting_text2);
+        intent = getIntent();
+        final int max_led = intent.getIntExtra("MAXLED", 1);
+        progressDialog= ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
+        DatabaseReference TitleName = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Name");
+        DatabaseReference Title1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Content").child("Title1");
+        DatabaseReference Title2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Content").child("Title2");
+        DatabaseReference Title3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Content").child("Title3");
+        DatabaseReference Description1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Content").child("Description1");
+        DatabaseReference Description2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Content").child("Description2");
+        DatabaseReference Description3 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson1").child("Content").child("Description3");
 
-        expand3 = findViewById(R.id.expand_button_3);
-        textView_subtext3 = findViewById(R.id.sub_text3);
-        textView_discription3 = findViewById(R.id.supporting_text3);
+        Function function = new Function();
+        function.SetDataIntoObject(TitleName, tvTitleName);
+        function.SetDataIntoObject(Title1,tvTitle1);
+        function.SetDataIntoObject(Title2,tvTitle2);
+        function.SetDataIntoObject(Title3,tvTitle3);
+        function.SetDataIntoObject(Description1,tvdescription1);
+        function.SetDataIntoObject(Description2,tvdescription2);
+        function.SetDataIntoObject(Description3,tvdescription3);
+        progressDialog.dismiss();
 
-        ExpandButton(expand1,textView_discription1,textView_subtext1);
-        ExpandButton(expand2,textView_discription2,textView_subtext2);
-        ExpandButton(expand3,textView_discription3,textView_subtext3);
+        ExpandButton(buttonUpDown1,linearClick1,linearShow1,1);
+        ExpandButton(buttonUpDown2,linearClick2,linearShow2, 2);
+        ExpandButton(buttonUpDown3,linearClick3,linearShow3, 3);
 
+        FloatingActionButton floatingActionButton = findViewById(R.id.fab_tol1);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean checkcolor = intent.getBooleanExtra(Basic.HASCOLOR, true);
+                Intent i = new Intent(Tol4_MainContent.this, Tol4_Lesson_Quiz.class);
+                i.putExtra(LESSONNUMBERINTENT,intent.getIntExtra(Basic.LESSONNUMBERINTENT, 1));
+                i.putExtra("HASCOLOR", checkcolor);
+                i.putExtra("MAXLED",max_led);
+                startActivity(i);
+            }
+        });
     }
-    void ExpandButton(final ImageButton expand, final TextView textView_discription, TextView textView_subtext1)
+
+    private void assignData(){
+        tvTitleName = findViewById(R.id.primary_text_btn1_1);
+        tvTitle1 = findViewById(R.id.tv_title_btn1_1);
+        tvTitle2 = findViewById(R.id.tv_title_btn1_2);
+        tvTitle3 = findViewById(R.id.tv_title_btn1_3);
+        tvdescription1 = findViewById(R.id.tv_decription_btn1_1);
+        tvdescription2 = findViewById(R.id.tv_decription_btn1_2);
+        tvdescription3 = findViewById(R.id.tv_decription_btn1_3);
+        linearClick1 = findViewById(R.id.linear_click_btn1_1);
+        linearShow1 = findViewById(R.id.linear_show_btn1_1);
+        linearClick2 = findViewById(R.id.linear_click_btn1_2);
+        linearShow2 = findViewById(R.id.linear_show_btn1_2);
+        linearClick3 = findViewById(R.id.linear_click_btn1_3);
+        linearShow3 = findViewById(R.id.linear_show_btn1_3);
+        buttonUpDown1 = findViewById(R.id.expand_button_btn1_1);
+        buttonUpDown2 = findViewById(R.id.expand_button_btn1_2);
+        buttonUpDown3 = findViewById(R.id.expand_button_btn1_3);
+    }
+
+    void ExpandButton(final ImageButton expand, final LinearLayout linear_click, final LinearLayout linear_show, int t)
     {
-        textView_discription.setVisibility(View.GONE);
-        expand.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (flag==0)
-                {
-                    textView_discription.setVisibility(View.VISIBLE);
-                    expand.setImageResource(R.drawable.ic_up);
-                    flag=1;
+        if(t ==1) {
+            linear_show.setVisibility(View.GONE);
+            expand.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (flag0==0)
+                    {
+                        linear_show.setVisibility(View.VISIBLE);
+                        expand.setImageResource(R.drawable.ic_up);
+                        flag0=1;
+                    }
+                    else if (flag0==1)
+                    {
+                        linear_show.setVisibility(View.GONE);
+                        expand.setImageResource(R.drawable.ic_down);
+                        flag0=0;
+                    }
                 }
-                else if (flag==1)
-                {
-                    textView_discription.setVisibility(View.GONE);
-                    expand.setImageResource(R.drawable.ic_down);
-                    flag=0;
+            });
+            linear_click.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    expand.callOnClick();
                 }
+            });
+        }
+        if(t==2){
+            linear_show.setVisibility(View.GONE);
+            expand.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (flag1==0)
+                    {
+                        linear_show.setVisibility(View.VISIBLE);
+                        expand.setImageResource(R.drawable.ic_up);
+                        flag1=1;
+                    }
+                    else if (flag1==1)
+                    {
+                        linear_show.setVisibility(View.GONE);
+                        expand.setImageResource(R.drawable.ic_down);
+                        flag1=0;
+                    }
+                }
+            });
+            linear_click.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    expand.callOnClick();
+                }
+            });
+        }
+        if(t==3){
+            linear_show.setVisibility(View.GONE);
+            expand.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (flag2==0)
+                    {
+                        linear_show.setVisibility(View.VISIBLE);
+                        expand.setImageResource(R.drawable.ic_up);
+                        flag2=1;
+                    }
+                    else if (flag2==1)
+                    {
+                        linear_show.setVisibility(View.GONE);
+                        expand.setImageResource(R.drawable.ic_down);
+                        flag2=0;
+                    }
+                }
+            });
+            linear_click.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    expand.callOnClick();
+                }
+            });
+        }
 
-            }
-        });
-
-        textView_subtext1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                expand.callOnClick();
-            }
-        });
     }
 
     @Override
@@ -141,21 +245,5 @@ public class Tol4_MainContent extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
-    }
-
-    private void ButtonLesson(CardView button, final int value, final boolean hascolor)
-    {
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent i = new Intent(Movement.this, Tol4_Lesson_Content.class);
-//                i.putExtra("LESSONNUMBERINTENT",value);
-//                Log.d(TAG, "test onClick: "+value);
-//                i.putExtra("HASCOLOR", hascolor);
-//                i.putExtra("MAXLED", max_led);
-                Intent i = new Intent(getApplicationContext(), Tol4_MainContent.class);
-                startActivity(i);
-            }
-        });
     }
 }

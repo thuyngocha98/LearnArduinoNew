@@ -1,5 +1,6 @@
 package com.hatn.learnarduino.Tol4;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class Tol4_ContentButton3 extends AppCompatActivity {
     int flag0 = 0,flag1 = 0,flag2 = 0,flag3 = 0,flag4 = 0,flag5 = 0,flag6 = 0,flag7 = 0,flag8 = 0;
     Intent intent;
     public static final String LESSONNUMBERINTENT = "LESSONNUMBERINTENT";
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,7 @@ public class Tol4_ContentButton3 extends AppCompatActivity {
         assignData();
         intent = getIntent();
         final int max_led = intent.getIntExtra("MAXLED", 1);
+        progressDialog= ProgressDialog.show(this,"Loading app data","Please wait for a while",true);
         DatabaseReference TitleName = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson3").child("Name");
         DatabaseReference Title1 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson3").child("Content").child("Title1");
         DatabaseReference Title2 = FirebaseDatabase.getInstance().getReference().child("Type_of_lesson").child("Tol4").child("Lesson3").child("Content").child("Title2");
@@ -121,6 +124,7 @@ public class Tol4_ContentButton3 extends AppCompatActivity {
         function.SetDataIntoObject(Image8, imageView8);
         function.SetDataIntoObject(Image9, imageView9);
         function.SetDataIntoObject(Image10, imageView10);
+        progressDialog.dismiss();
 
         ExpandButton(buttonUpDown1,linearClick1,linearShow1,1);
         ExpandButton(buttonUpDown2,linearClick2,linearShow2, 2);

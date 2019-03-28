@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hatn.learnarduino.Tol4.Tol4_ContentButton2;
 import com.hatn.learnarduino.Tol4.Tol4_ContentButton3;
 import com.hatn.learnarduino.Tol4.Tol4_ContentButton4;
 import com.hatn.learnarduino.Tol4.Tol4_ContentButton5;
@@ -245,7 +246,7 @@ public class Movement extends AppCompatActivity {
                     startActivity(i);
                 }
                 if(value == 2) {
-                    Intent i = new Intent(Movement.this, Tol4_MainContent.class);
+                    Intent i = new Intent(Movement.this, Tol4_ContentButton2.class);
                     i.putExtra("LESSONNUMBERINTENT", value);
                     Log.d(TAG, "test onClick: " + value);
                     i.putExtra("HASCOLOR", hascolor);

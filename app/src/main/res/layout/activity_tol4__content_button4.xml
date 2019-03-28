@@ -39,7 +39,7 @@
                         android:layout_marginTop="24dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Title"
+                        android:text="Working of waiter robot"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                         android:textColor="@android:color/black"
                         android:textSize="24sp"
@@ -66,7 +66,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="How to add lib on arduino board"
+                            android:text="Introduction"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -188,7 +188,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="How to add lib on arduino board"
+                            android:text="Example of waiter robot working"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 

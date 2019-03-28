@@ -66,7 +66,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="How to add lib on arduino board"
+                            android:text="How to add lib on arduino board 1"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -164,7 +164,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="How to add lib on arduino board"
+                            android:text="How to add lib on arduino board 2"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 

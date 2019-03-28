@@ -66,7 +66,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="How to add lib on arduino board"
+                            android:text="Arduino board"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -180,7 +180,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="How to add lib on arduino board"
+                            android:text="Power supply"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -271,7 +271,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="Codes"
+                            android:text="Stepper motor"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -359,7 +359,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="Codes"
+                            android:text="Stepper Driver"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -462,7 +462,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="Codes"
+                            android:text="IR obstacle sensor"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -571,7 +571,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="Codes"
+                            android:text="Proximity sensor"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -674,7 +674,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="Codes"
+                            android:text="LCD display"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -768,7 +768,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="Codes"
+                            android:text="BLE 5"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
@@ -871,7 +871,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="9"
-                            android:text="Codes"
+                            android:text="Ultrasonic sensor"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="18sp" />
 
