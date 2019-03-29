@@ -38,11 +38,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Tol4.Tol4_Lesson_Quiz"
-            android:label="Movement"
+            android:label="Waiter Robot Control"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Tol4.Tol4_Lesson_Content"
-            android:label="Movement"
+            android:label="Waiter Robot Control"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Tol1.Tol1_Lesson_Quiz"
@@ -104,7 +104,7 @@
             android:label="LED Projects" />
         <activity
             android:name=".Movement"
-            android:label="Movement" />
+            android:label="Waiter Robot Control" />
         <activity
             android:name=".Aboutus"
             android:label="About Us" />
