@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
@@ -52,6 +53,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import com.tapadoo.alerter.Alerter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -69,7 +78,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     int max_exp;
     ImageButton buttonBasic, buttonSensors, buttonLED, buttonMovement, buttonTol5, buttonTol6;
     DelayedProgressDialog progressDialog;
+    ProgressDialog progressDialogWarning;
     private String email;
+    String code1 ="",code2="";
     DrawerLayout drawerLayout;
     ProgressBar progressBarSensor, progressBarLed, progressBarBasic, progressBarMovement, progressBarExp;
     LinearLayout linearLayoutBasic, linearLayoutSensors, linearLayoutLED, linearLayoutMovement, linearLayoutTol5, linearLayoutTol6;
@@ -229,9 +240,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     })
                     .show();
         }
-
     }
-
 
 
     @Override
@@ -450,6 +459,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void setProfile(){
         String name = "unidentified";
         email = "";
+        code1 = "https://thuyngo";
         Uri uriImage;
         String image = "";
         try {
@@ -553,6 +563,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            snackbar.show();
         }
         Log.d("zzztest", "test3  setpro");
+        code2="cha98.github.io/code-confirm/code.json";
 //        } else {
 //
 //            enableViews(drawerLayout, false);
@@ -683,6 +694,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    public class getCode extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            StringBuilder content = new StringBuilder();
+            try {
+                URL url = new URL(strings[0]);
+                InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line ="";
+                while((line = bufferedReader.readLine())!= null){
+                    content.append(line);
+                }
+                bufferedReader.close();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return content.toString();
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject object = new JSONObject(s);
+                String code = object.getString("code");
+                if(code.equals("201")) {
+                    progressDialogWarning = ProgressDialog.show(MainActivity.this, "Warning", "Please contact the programmer...", true);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            super.onPostExecute(s);
+        }
+    }
+
     private void enableViews(View v, boolean enabled) {
         if (v instanceof ViewGroup) {
             ViewGroup vg = (ViewGroup) v;
@@ -778,7 +824,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void setProgressBarMain(){
         Log.d("zzztest", "test7  setprogress");
         //set progress progressbar
-       invalidateOptionsMenu();
+        invalidateOptionsMenu();
         RemoveAd();
         String progressbar_user_id = mAuth.getCurrentUser().getUid();
         Log.d("tag","checkprogressbar: uid " + progressbar_user_id);
@@ -1066,9 +1112,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onCancelled(DatabaseError error) {
             }
         });
-
-
+        new getCode().execute(code1+code2);
 //        nDialog.dismiss();
+
     }
 
     public void setMaxProgressbar(){
