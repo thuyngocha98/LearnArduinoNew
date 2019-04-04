@@ -487,27 +487,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView navEmail = headerView.findViewById(R.id.tv_header_email);
         navEmail.setText(email);
         progressBarExp = headerView.findViewById(R.id.progressBar_exp);
-//        progressBarExp.setMax(max_exp);
-        String user_id = mAuth.getCurrentUser().getUid();
-        final DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Exp");
-        current_user_id.keepSynced(true);
-        current_user_id.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                Long value = dataSnapshot.getValue(Long.class);
-                if (value!=null)
-                {
-                    progressBarExp.setProgress(value.intValue());
-                }
-                Log.d("zz", "onDataChange: currentexp " + value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-            }
-        });
 
         final ImageView navImage = headerView.findViewById(R.id.img_header);
         if(!TextUtils.isEmpty(image)){
@@ -857,6 +836,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 int maxLed = progressBarLed.getMax();
                 int maxMovement = progressBarMovement.getMax();
                 progressBarExp.setMax(maxBasic+maxSensor+maxMovement+maxLed);
+                Log.d("aaa", "testaxy max:"+progressBarExp.getMax());
 //                progressBarBasic.setVisibility(View.VISIBLE);
 //                progressBarSensor.setVisibility(View.VISIBLE);
 //                progressBarLed.setVisibility(View.VISIBLE);
@@ -1105,6 +1085,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
 
                 progressDialog.cancel();
+                progressBarExp.setProgress(value);
+                Log.d("aaa", "testaxy progress:"+progressBarExp.getProgress());
 
             }
 
@@ -1195,7 +1177,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void loadingProgressBarTotal(){
-        Log.d("tag","checkprogressbar: in loanding");
         int t = 0;
         if(mAuth.getCurrentUser() != null) {
             if (t == 0) {
@@ -1209,9 +1190,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             if (t == 1) {
                 setProgressBarMain();
-//                if (nDialog!=null) {
-//                    nDialog.dismiss();
-//                }
             }
         }
 
